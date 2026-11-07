@@ -1,4 +1,4 @@
-# Fixtures nền P0/P1.1/P1.2/P1.3
+# Fixtures nền P0–P1.4
 
 Manifest `manifest.json` nhận diện file input/golden bằng SHA-256 của **bytes
 nguyên trạng**; không chuẩn hóa line endings trước hash. Không tự cập nhật hash
@@ -38,6 +38,16 @@ có dữ liệu thị trường hoặc bí mật; không dùng ngẫu nhiên (se
   theo tolerance P1; tiny dùng relative-only. Mọi tiền tố, period=14/1000000,
   overflow/underflow, state identity/history/reset và tính atomic được kiểm
   trong `tests/p1_basic.rs`. Không sửa golden hoặc checksum của bộ trước.
+
+- `p1-advanced-v1`: tám chuỗi tổng hợp cho 11 components RSI/MACD/ADX/Bollinger:
+  nonlinear/gap, âm/zero, n=1/signal=1, hằng 0.1, DM tie/inside/outside,
+  lookback mặc định 45 nến, tiny 1e-100 và large 1e100. Golden được tạo ban
+  đầu bằng oracle Fraction/Decimal độc lập, không lấy output Rust. Smoothing
+  dạng tổng hình học, RSI=gain/(gain+loss), variance bằng khoảng cách cặp.
+  Null chỉ warm-up, số là ready. Tiny kiểm tương đối; bands large gần triệt
+  tiêu giữ golden và kiểm thêm ngân sách sai số làm tròn theo thang input
+  được công bố trong catalog P1. Script kiểm chỉ đọc; không đổi bộ golden cũ.
+  Prefix/revision/availability và biên overflow được kiểm trong p1_advanced.
 
 Harness Rust kiểm SHA và shape/type/temporal expectations; hàm so sánh báo path
 cụ thể khi số, status, field hoặc timestamp khác. Ca âm sửa có chủ đích một

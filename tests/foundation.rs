@@ -59,7 +59,7 @@ struct FixtureFile {
 fn manifest_checksums_and_fixture_schema() -> TestResult {
     let manifest: Manifest = serde_json::from_str(include_str!("fixtures/manifest.json"))?;
     assert_eq!(manifest.manifest_version, "1");
-    assert_eq!(manifest.fixtures.len(), 5);
+    assert_eq!(manifest.fixtures.len(), 6);
     for fixture in manifest.fixtures {
         assert!(!fixture.fixture_id.is_empty() && !fixture.purpose.is_empty());
         assert!(!fixture.provenance.is_empty() && !fixture.verification.is_empty());
@@ -71,6 +71,16 @@ fn manifest_checksums_and_fixture_schema() -> TestResult {
             let bytes = fs::read(root().join(&file.path))?;
             support::verify_checksum(&file.path, &bytes, &file.sha256)?;
             if file.path.starts_with("tests/fixtures/") {
+                if fixture.fixture_id == "p1-advanced-v1" {
+                    let advanced: Value = serde_json::from_slice(&bytes)?;
+                    assert_eq!(advanced["fixture_id"], fixture.fixture_id);
+                    assert_eq!(advanced["algorithm_version"], "p1-v1");
+                    assert_eq!(
+                        advanced["cases"].as_array().ok_or("advanced cases")?.len(),
+                        8
+                    );
+                    continue;
+                }
                 if fixture.fixture_id == "p1-rolling-v1" || fixture.fixture_id == "p1-basic-v1" {
                     let rolling: Value = serde_json::from_slice(&bytes)?;
                     assert_eq!(rolling["fixture_id"], fixture.fixture_id);

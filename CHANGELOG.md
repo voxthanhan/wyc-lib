@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0 — P1.4, chưa phát hành
+
+- Thêm RSI Wilder, MACD line/signal/histogram, DI/DX/ADX và Bollinger population;
+  API `calculate_advanced` xuất đúng 11 series với metadata và warm-up riêng.
+- Tái sử dụng smoothing/TR/mean/std P1.2/P1.3; không đổi seed/rule/schema/config/hash
+  hoặc thêm dependency. BasicIndicatorState vẫn chỉ gồm chín chỉ báo nền.
+- Thêm tám golden độc lập Fraction/Decimal, closed-form smoothing và variance
+  từ khoảng cách cặp; kiểm mỗi sample, prefix/revision/availability và biên số.
+- Làm rõ giới hạn làm tròn bands gần triệt tiêu ở thang 1e100; giữ nguyên golden,
+  không clip giá trị. Ngân sách số và giới hạn trong catalog P1.
+- Kiểm chứng local/CI và phạm vi nghiệm thu tại [báo cáo P1.4](docs/acceptance/P1.4.md).
+  Chưa nghiệm thu P1.5–P1.7/G1; không publish/tag hoặc đổi quyền repository.
+
 ## 0.1.0 — P1.3, chưa phát hành
 
 - Thêm chín chỉ báo nền, seed SMA/smoothing đã chốt, TR đầu tiên H-L,

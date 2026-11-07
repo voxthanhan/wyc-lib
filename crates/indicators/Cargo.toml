@@ -20,5 +20,9 @@ path = "../../tests/p1_rolling.rs"
 name = "p1_basic"
 path = "../../tests/p1_basic.rs"
 
+[[test]]
+name = "p1_advanced"
+path = "../../tests/p1_advanced.rs"
+
 [lints]
 workspace = true

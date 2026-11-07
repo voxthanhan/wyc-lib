@@ -95,6 +95,61 @@
           "sha256": "184442eef14cdce62f77c79a1c061555c184e03eab64d2085b95f8ae8efab5c4"
         }
       ]
+    },
+    {
+      "fixture_id": "p1-advanced-v1",
+      "purpose": "Eleven P1.4 components, seeds, independent warmups, DM ties and scale extremes",
+      "provenance": "Eight deterministic synthetic series; default series uses explicit modular integer formula, no randomness or external data. Golden initially authored by independent Fraction closed-form and Decimal oracle before Rust tests.",
+      "seed": null,
+      "timezone": "Etc/UTC",
+      "time_semantics": "UTC Unix milliseconds at bar close",
+      "data_revision": "advanced-r1",
+      "config": {
+        "periods": [
+          1,
+          2,
+          3,
+          14
+        ],
+        "macd": [
+          [
+            1,
+            2,
+            1
+          ],
+          [
+            2,
+            3,
+            2
+          ],
+          [
+            1,
+            4,
+            3
+          ],
+          [
+            12,
+            26,
+            9
+          ]
+        ],
+        "multipliers": [
+          0.5,
+          2,
+          2.5
+        ]
+      },
+      "verification": "scripts/advanced_oracle.py evaluates exact-rational closed-form smoothing, RSI gain/(gain+loss), and pairwise-distance population variance with 80-digit Decimal sqrt. verify_oracles.py only reads and compares. No Rust output or regeneration during checks.",
+      "files": [
+        {
+          "path": "tests/fixtures/p1-advanced.json",
+          "sha256": "306a1d906a112d55c7406aa675d48605bf6f409e1c5a48c5c1ea4ab3208e8564"
+        },
+        {
+          "path": "tests/golden/p1-advanced.json",
+          "sha256": "4b71ed179d07ab2958d45780d11031ee6ae29e6d14cfe354fb6a5dd44f97c2cf"
+        }
+      ]
     }
   ]
 }

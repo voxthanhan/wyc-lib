@@ -1,11 +1,11 @@
 # wyc-lib — Kiến trúc thực thi
 
-## Hiện trạng P1.3
+## Hiện trạng P1.4
 
 Workspace có ba package: `contracts` (wire types, cấu hình, kiểm tra contract,
 AnalysisError), `indicators` (rolling/statistics P1.2, chín chỉ báo nền và
-BasicIndicatorState P1.3) và `wyc-lib` (`wyc_lib` trong Rust, re-export
-contracts/indicators và `prepare_request`). Chưa có chỉ báo P1.4, orchestrator
+BasicIndicatorState P1.3, RSI/MACD/ADX/Bollinger P1.4) và `wyc-lib`
+(`wyc_lib` trong Rust, re-export contracts/indicators và `prepare_request`). Chưa có orchestrator
 phân tích toàn P1, AnalysisState hoặc bindings. Các hàm trong `WYC_LIB.md`
 là mục tiêu, không phải API đang chạy. Không tạo crate rỗng cho các phase sau.
 
@@ -30,6 +30,8 @@ Test target `p1_foundation` chạy `tests/p1_foundation.rs` cho phần runtime P
 `indicators` có target `p1_rolling` trỏ tới `tests/p1_rolling.rs` cho sáu
 primitives và replay cùng AvailableData; target `p1_basic` chạy chín chỉ báo,
 batch/state, identity/reset và causal replay. Tất cả chạy trong workspace tests.
+Target `p1_advanced` kiểm 11 components P1.4, golden độc lập, warm-up,
+availability/revision và replay mọi tiền tố; verifier buộc đủ năm targets.
 `tests/support/mod.rs` chứa so sánh JSON/số và replay contract, không phải engine.
 `serde` phục vụ wire types; `sha2` là runtime dependency của `contracts` cho
 canonical config hash và event ID theo contract. `serde_json` và `sha2` vẫn là
@@ -74,6 +76,11 @@ cam kết O(1). Bộ nhớ O(N), mỗi update O(N×min(n,N)), cộng validation 
 snapshot O(M) với M gồm future. Không thêm dependency/schema/config version.
 
 P1 bắt đầu theo [ngoại lệ G0 local](docs/acceptance/G0.md).
+P1.4 thêm `indicators::advanced`, tái sử dụng helper smoothing có offset,
+True Range và rolling mean/std. `calculate_advanced` trả đúng 11 series có
+metadata/time; không chạy chỉ báo nền. BasicIndicatorState vẫn chỉ quản lý
+chín series P1.3; state/orchestrator toàn P1 thuộc P1.6. Không thêm dependency,
+đổi schema/config/hash/seed. Kết quả tại [báo cáo P1.4](docs/acceptance/P1.4.md).
 Yêu cầu P1.3 mở lại kiểm chứng CI; kết quả tại [báo cáo P1.3](docs/acceptance/P1.3.md).
 Phạm vi và kiểm chứng P1.1 tại [báo cáo](docs/acceptance/P1.1.md).
 Phạm vi, kiểm chứng local và giới hạn P1.2 tại [báo cáo](docs/acceptance/P1.2.md).

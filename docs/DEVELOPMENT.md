@@ -1,4 +1,4 @@
-# Phát triển và kiểm chứng P0/P1.1/P1.2/P1.3
+# Phát triển và kiểm chứng P0–P1.4
 
 ## Ma trận nền tảng
 
@@ -60,7 +60,15 @@ identity và atomic failure/reset. `p1-basic-v1` có sáu case độc lập dùn
 và smoothing dạng tổng hình học tại `scripts/basic_oracle.py`; script kiểm chỉ
 đọc expected có sẵn, không lấy output Rust hoặc tự cập nhật golden.
 Workspace verifier yêu cầu đúng ba package contracts/indicators/wyc-lib,
-dependency không vòng và đủ bốn integration test targets.
+dependency không vòng và đủ năm integration test targets.
+
+Từ P1.4, target `p1_advanced` chạy 12 ca kiểm 11 components RSI/MACD/ADX/Bollinger,
+mọi sample/status/time của tám fixture, prefix có/không future, revision,
+warm-up riêng, giá âm/zero/tiny/large, cấu hình lỗi và overflow/underflow.
+Oracle Fraction/Decimal tại `scripts/advanced_oracle.py` dùng closed-form
+smoothing và pairwise variance, khác đường tính Rust. Golden không tự cập nhật.
+P1.4 chưa có mutable state; batch–incremental toàn danh mục thuộc P1.6/P1.7.
+Kết quả local/CI mới nhất tại [báo cáo P1.4](acceptance/P1.4.md).
 
 ## CI và nghiệm thu
 

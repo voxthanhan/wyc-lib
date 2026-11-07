@@ -53,15 +53,25 @@ pub fn true_range(
     let mut output = Vec::with_capacity(close.len());
     for index in 0..close.len() {
         let path = format!("indicators.tr[{index}]");
-        let mut value = finite(high[index].get() - low[index].get(), &path)?;
-        if index > 0 {
-            let high_gap = finite(high[index].get() - close[index - 1].get(), &path)?.abs();
-            let low_gap = finite(low[index].get() - close[index - 1].get(), &path)?.abs();
-            value = value.max(high_gap).max(low_gap);
-        }
-        output.push(ready(value, &path)?);
+        output.push(ready(range_at(high, low, close, index, &path)?, &path)?);
     }
     Ok(output)
+}
+
+pub(crate) fn range_at(
+    high: &[FiniteF64],
+    low: &[FiniteF64],
+    close: &[FiniteF64],
+    index: usize,
+    path: &str,
+) -> Result<f64, AnalysisError> {
+    let range = finite(high[index].get() - low[index].get(), path)?;
+    if index == 0 {
+        return Ok(range);
+    }
+    let high_gap = finite(high[index].get() - close[index - 1].get(), path)?.abs();
+    let low_gap = finite(low[index].get() - close[index - 1].get(), path)?.abs();
+    Ok(range.max(high_gap).max(low_gap))
 }
 
 pub fn atr(
@@ -167,21 +177,21 @@ pub fn calculate_basic(
     })
 }
 
-fn validate_period(period: usize) -> Result<(), AnalysisError> {
+pub(crate) fn validate_period(period: usize) -> Result<(), AnalysisError> {
     if !(1..=1_000_000).contains(&period) {
         return Err(ContractError::new(ErrorCode::InvalidConfig, "indicators.period").into());
     }
     Ok(())
 }
 
-fn warmup(required: usize, index: usize) -> NumericValue {
+pub(crate) fn warmup(required: usize, index: usize) -> NumericValue {
     NumericValue::Warmup {
         required,
         available: index + 1,
     }
 }
 
-fn ready(value: f64, path: &str) -> Result<NumericValue, AnalysisError> {
+pub(crate) fn ready(value: f64, path: &str) -> Result<NumericValue, AnalysisError> {
     Ok(NumericValue::Ready {
         value: FiniteF64::new(finite(value, path)?)?,
     })
@@ -199,16 +209,28 @@ fn smooth(
     wilder: bool,
     name: &str,
 ) -> Result<Vec<NumericValue>, AnalysisError> {
+    smooth_at(values, period, wilder, name, 0)
+}
+
+/// Smooth a compact dependency series, reporting warm-up and errors relative
+/// to its position in the original input. Prefix records are added by caller.
+pub(crate) fn smooth_at(
+    values: &[FiniteF64],
+    period: usize,
+    wilder: bool,
+    name: &str,
+    offset: usize,
+) -> Result<Vec<NumericValue>, AnalysisError> {
     validate_period(period)?;
     let mut output = Vec::with_capacity(values.len());
     let mut previous = None;
     let alpha = 2.0 / (period as f64 + 1.0);
     for (index, current) in values.iter().enumerate() {
         if index + 1 < period {
-            output.push(warmup(period, index));
+            output.push(warmup(period + offset, index + offset));
             continue;
         }
-        let path = format!("indicators.{name}[{index}]");
+        let path = format!("indicators.{name}[{}]", index + offset);
         let value = if period == 1 {
             current.get()
         } else if let Some(previous) = previous {
@@ -312,7 +334,7 @@ fn validate_volume(values: &[FiniteF64]) -> Result<(), AnalysisError> {
     Ok(())
 }
 
-fn validate_ohlc(
+pub(crate) fn validate_ohlc(
     high: &[FiniteF64],
     low: &[FiniteF64],
     close: &[FiniteF64],
