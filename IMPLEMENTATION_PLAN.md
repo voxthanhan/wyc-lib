@@ -555,4 +555,8 @@ không thêm dependency ngoài, state chung hoặc benchmark ngoài phạm vi.
 tests đối chiếu mọi trường, hand-trace, replay/future, delayed confirmation,
 revision, dual/equal, xung đột và overflow/underflow. Kết quả local, checkout
 sạch, CI và tiêu chí nghiệm thu tại [báo cáo P1.5](docs/acceptance/P1.5.md).
+P1.5 đạt local Windows và checkout sạch ở commit `6cbc517`: format/Clippy/build,
+70 tests, oracle và workspace checks PASS, 57 source fingerprints khớp. CI
+chưa chạy: kiểm duyệt tự động từ chối push source lên repository công khai,
+cần người dùng cho phép rõ trước khi thử lại. Chưa đánh dấu P1.5 hoàn thành CI.
 Toàn G1 còn mở cho tích hợp/state P1.6 và nghiệm thu/baseline P1.7.

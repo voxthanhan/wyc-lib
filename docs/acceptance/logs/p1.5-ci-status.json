@@ -1,0 +1,17 @@
+{
+  "evidence_version": "1",
+  "observed_at_utc": "2026-11-07T16:47:46.700698+00:00",
+  "repository": "voxthanhan/wyc-lib",
+  "repository_public": true,
+  "branch": "codex/p1.5-market-structure",
+  "code_commit": "6cbc5174e665238a6cbb5c0c6aaf5f9bc7d6555a",
+  "ci_run": null,
+  "push_executed": false,
+  "status": "awaiting_explicit_public_source_push_approval",
+  "automatic_review": {
+    "action": "git push -u origin codex/p1.5-market-structure",
+    "outcome": "rejected_before_execution",
+    "reason": "Đẩy toàn bộ commit/source lên repository GitHub công khai là sensitive egress; yêu cầu CI không ủy quyền rõ việc công khai mã nguồn tới đích này, và có thể chạy kiểm tra local mà không cần push."
+  },
+  "required_action": "Explicit permission to push P1.5 source to the existing public repository and run Windows/Linux CI. No retry or workaround before approval."
+}

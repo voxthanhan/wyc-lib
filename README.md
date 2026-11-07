@@ -38,5 +38,7 @@ P1.4 đạt local và checkout sạch Windows tại `5caf81b`, 54 tests; CI Wind
 đều đạt tại `4521da9`, [run 42355665535](https://github.com/voxthanhan/wyc-lib/actions/runs/42355665535),
 có hai artifact log. Báo cáo P1.4 ở trên ghi phạm vi nghiệm thu và giới hạn
 tải payload artifact. Điều kiện CI hoãn của G0 đã đóng ở P1.3; toàn G1
-còn mở cho P1.6–P1.7. Kết quả local/CI P1.5 nằm trong báo cáo riêng ở trên.
+còn mở cho P1.6–P1.7. P1.5 đạt local/checkout sạch Windows tại `6cbc517`,
+70 tests; CI chưa chạy vì push source công khai bị kiểm duyệt tự động từ chối,
+đang chờ cho phép rõ. Bằng chứng và điều kiện nghiệm thu nằm trong báo cáo P1.5.
 Báo cáo G0 có bổ sung CI; P1.1/P1.2 giữ bằng chứng lịch sử.
