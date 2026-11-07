@@ -180,3 +180,7 @@ run 42398202869; cả hai job kiểm chứng/upload success. REST API hết hạ
 ẩn danh, nên bằng chứng CI dùng trang run/job công khai với từng step, đúng SHA
 và artifact display metadata. Chưa tải payload ZIP; không coi digest hiển thị
 là digest đã tự kiểm. Chi tiết và tích hợp main tại báo cáo G1.
+
+Main đã tích hợp P1.7/G1 tại `223d742`; CI main run 42399120154 đạt Windows/Linux
+với cùng runner, mỗi job chín steps success. Tree khớp nhánh nghiệm thu và 65
+source blobs không đổi; bổ sung báo cáo sau run chỉ thay tài liệu/log.

@@ -1,0 +1,3 @@
+PASS: all 65 source fingerprints unchanged after main CI.
+PASS: post-CI changes contain only documentation/logs.
+PASS: G1 Markdown tables, local links and git diff --check.

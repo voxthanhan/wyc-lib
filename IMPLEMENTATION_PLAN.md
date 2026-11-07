@@ -607,3 +607,9 @@ workspace. Trạng thái checkout sạch/CI/main và tiêu chí G1 cập nhật 
 65 source fingerprints khớp. CI được xác minh qua HTML công khai sau khi REST
 API hết hạn mức; payload artifact chưa tải/kiểm digest. Tích hợp main ghi trong
 báo cáo G1; chưa triển khai P2 hoặc phát hành package.
+
+Đã tích hợp main tại `223d742`, tree khớp nhánh nghiệm thu;
+[CI main 42399120154](https://github.com/voxthanhan/wyc-lib/actions/runs/42399120154)
+đạt Windows/Linux, hai job kiểm chứng/upload success, 65 source blobs khớp.
+Báo cáo G1 lưu bằng chứng và giới hạn payload artifact. **P1.7/G1 hoàn thành**;
+P2/G2/Foundation release còn ngoài phạm vi triển khai lần này.

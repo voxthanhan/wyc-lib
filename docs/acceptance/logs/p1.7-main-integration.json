@@ -1,0 +1,12 @@
+{
+  "merge_commit": "223d742cf6e03ff91934d59647c50f30380c2eb6",
+  "accepted_commit": "35182b2b3acb83c582131f197458798697275f99",
+  "merge_tree": "5d601a4fe236f41552fd5719a58459a00bb41d59",
+  "accepted_tree": "5d601a4fe236f41552fd5719a58459a00bb41d59",
+  "trees_equal": true,
+  "parents": [
+    "abd95fd981585052c8fd0edf57d2ee068e8eb96a",
+    "35182b2b3acb83c582131f197458798697275f99"
+  ],
+  "main_ci_run_url": "https://github.com/voxthanhan/wyc-lib/actions/runs/42399120154"
+}

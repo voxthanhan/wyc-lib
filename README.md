@@ -67,3 +67,8 @@ P1.7 hoàn tất replay/regression, ví dụ Rust và baseline release CPU/time/
 fingerprints, raw baseline và giới hạn artifact. Các kết luận G1 còn mở trong
 đoạn P1.3–P1.6 phía trên là lịch sử của từng bước. State vẫn tính lại batch;
 bindings P2 và Foundation release chưa triển khai.
+
+Đã tích hợp G1 vào main tại `223d742`;
+[CI main 42399120154](https://github.com/voxthanhan/wyc-lib/actions/runs/42399120154)
+đạt cả Windows/Linux. Bổ sung báo cáo sau CI chỉ thay tài liệu/log, giữ nguyên
+mã đã kiểm chứng.

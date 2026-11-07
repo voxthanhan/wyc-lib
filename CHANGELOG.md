@@ -12,6 +12,8 @@
 - G1 đạt local/checkout sạch Windows và CI Windows/Linux tại 7c57220, 88 tests,
   run 42398202869. Có 1008 prefix traces và 65 source fingerprints khớp; bằng
   chứng CI HTML/giới hạn artifact tại [báo cáo G1](docs/acceptance/G1.md).
+- Đã tích hợp main tại 223d742; CI main run 42399120154 đạt Windows/Linux,
+  tree khớp bản nghiệm thu và 65 source fingerprints không đổi.
 
 ## 0.1.0 — P1.6, chưa phát hành
 
