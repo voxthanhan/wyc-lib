@@ -1,0 +1,69 @@
+{
+  "observed_at_utc": "2026-11-07T07:59:06.1166958+00:00",
+  "repository": "voxthanhan/wyc-lib",
+  "repository_visibility": "public",
+  "p1_3_commit": "d86e6ffe1761b58213a8b8b61bce12d7df7ec5ed",
+  "p1_3_ci_status": "completed_success",
+  "user_authorized_public_push": true,
+  "run_url": "https://github.com/voxthanhan/wyc-lib/actions/runs/42353272952",
+  "evidence_file": "ci-d86e6ff-run-42353272952.json",
+  "prior_snapshot_before_user_approval": {
+    "observed_at_utc": "2026-11-07T14:48:17.2472266+07:00",
+    "repository": "voxthanhan/wyc-lib",
+    "repository_visibility": "public",
+    "p1_3_commit": "bf97b14c9cca3948d27189b0362f009fe2b6de41",
+    "p1_3_ci_status": "not_started_push_rejected_by_automatic_approval_review",
+    "rejection_reason": "Public source egress requires explicit user approval; no remote push was performed.",
+    "latest_existing_run": {
+      "id": 42349069998,
+      "head_sha": "c786e4495e9a581aaa1823c68a0969468251e7a5",
+      "status": "completed",
+      "conclusion": "failure",
+      "html_url": "https://github.com/voxthanhan/wyc-lib/actions/runs/42349069998",
+      "jobs": [
+        {
+          "name": "foundation (windows-latest)",
+          "status": "completed",
+          "conclusion": "failure",
+          "runner_name": "",
+          "steps": [],
+          "annotations": [
+            {
+              "path": ".github",
+              "blob_href": "https://github.com/voxthanhan/wyc-lib/blob/c786e4495e9a581aaa1823c68a0969468251e7a5/.github",
+              "start_line": 1,
+              "start_column": null,
+              "end_line": 1,
+              "end_column": null,
+              "annotation_level": "failure",
+              "title": "",
+              "message": "The job was not started because your account is locked due to a billing issue.",
+              "raw_details": ""
+            }
+          ]
+        },
+        {
+          "name": "foundation (ubuntu-24.04)",
+          "status": "completed",
+          "conclusion": "failure",
+          "runner_name": "",
+          "steps": [],
+          "annotations": [
+            {
+              "path": ".github",
+              "blob_href": "https://github.com/voxthanhan/wyc-lib/blob/c786e4495e9a581aaa1823c68a0969468251e7a5/.github",
+              "start_line": 1,
+              "start_column": null,
+              "end_line": 1,
+              "end_column": null,
+              "annotation_level": "failure",
+              "title": "",
+              "message": "The job was not started because your account is locked due to a billing issue.",
+              "raw_details": ""
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,4 +1,4 @@
-"""Read-only, independent P0 oracle verification using the standard library.
+"""Read-only, independent P0/P1 oracle verification using the standard library.
 
 No Rust import, no market feed, no expected-output generation or rewriting.
 The ramp example uses exact fractions and an independent decimal square root.
@@ -6,9 +6,11 @@ The ramp example uses exact fractions and an independent decimal square root.
 import hashlib
 import json
 import math
+import struct
 from decimal import Decimal, localcontext
 from fractions import Fraction as F
 from pathlib import Path
+from basic_oracle import evaluate as evaluate_basic
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -107,8 +109,104 @@ def verify_ramp():
                   f"{group}.{name}: {actual} != independent {expected}")
 
 
+def verify_identity():
+    data = read("tests/fixtures/p1-identity.json")
+    golden = read("tests/golden/p1-identity.json")
+    config = data["config"]
+    indicators = config["indicators"]
+    # IEEE-754 big-endian bytes give the same 16 hex digits as the specified bits.
+    bits = struct.pack(">d", indicators["bollinger_multiplier"]).hex()
+    canonical = "\n".join([
+        f"config_version={config['config_version']}",
+        *(f"{key}={indicators[key]}" for key in
+          ["period", "macd_fast", "macd_slow", "macd_signal"]),
+        f"bollinger_multiplier_bits={bits}",
+        f"left={config['structure']['left']}",
+        f"right={config['structure']['right']}", ""])
+    check(canonical == golden["canonical_config"], "canonical config bytes")
+    config_hash = "sha256:config-v1:" + hashlib.sha256(canonical.encode("ascii")).hexdigest()
+    check(config_hash == golden["config_hash"], "config hash")
+    check(len(data["events"]) == len(golden["event_preimages"]) == len(golden["event_ids"]) == 4,
+          "identity vector count")
+    for i, event in enumerate(data["events"]):
+        fields = [event[k] for k in ["engine_version", "algorithm_version", "symbol",
+                                    "timeframe", "data_revision"]] + [config_hash]
+        fields += [event[k] for k in ["source_module", "rule_id", "event_type",
+                                     "observed_at", "known_at", "ordinal"]]
+        preimage = b"".join(str(len(str(x).encode("utf-8"))).encode("ascii") + b":" +
+                            str(x).encode("utf-8") for x in fields)
+        check(preimage == golden["event_preimages"][i].encode("utf-8"), f"event preimage {i}")
+        event_id = "sha256:event-v1:" + hashlib.sha256(preimage).hexdigest()
+        check(event_id == golden["event_ids"][i], f"event ID {i}")
+    check(golden["event_ids"][2] != golden["event_ids"][3], "length-prefix ambiguity")
+
+
+def verify_rolling():
+    data = read("tests/fixtures/p1-rolling.json")
+    golden = read("tests/golden/p1-rolling.json")
+    check(data["fixture_id"] == golden["fixture_id"] == "p1-rolling-v1", "rolling identity")
+    check(data["algorithm_version"] == golden["algorithm_version"] == "p1-v1", "rolling version")
+    check(len(data["cases"]) == len(golden["cases"]) == 8, "rolling case count")
+    for case, expected in zip(data["cases"], golden["cases"]):
+        check(case["id"] == expected["id"], "rolling case order")
+        # Exact rational arithmetic is independent of compensated floating-point summation.
+        values = [F(str(value)) for value in case["values"]]
+        n = case["period"]
+        check(1 <= n <= 1_000_000, "rolling period")
+        names = ["sum", "mean", "min", "max", "variance", "std"]
+        check(set(expected) == {"id", *names}, "rolling golden schema")
+        check(all(len(expected[name]) == len(values) for name in names), "rolling output length")
+        for i in range(len(values)):
+            if i + 1 < n:
+                check(all(expected[name][i] is None for name in names), "rolling warmup mask")
+                continue
+            window = values[i+1-n:i+1]
+            mean = sum(window) / n
+            variance = sum((value - mean) ** 2 for value in window) / n
+            with localcontext() as ctx:
+                ctx.prec = 80
+                std = (Decimal(variance.numerator) / Decimal(variance.denominator)).sqrt()
+            independent = {"sum": sum(window), "mean": mean, "min": min(window),
+                           "max": max(window), "variance": variance, "std": std}
+            for name, value in independent.items():
+                actual, oracle = expected[name][i], float(value)
+                check(actual is not None and math.isfinite(actual), "rolling finite golden")
+                rtol = 1e-11 if name == "variance" else 1e-12
+                atol = 0.0 if case["id"] == "tiny" else 1e-12
+                equal = (actual == oracle if name in {"min", "max"} else
+                         abs(actual-oracle) <= atol + rtol * max(abs(actual), abs(oracle)))
+                check(equal, f"rolling {case['id']}.{name}[{i}]: {actual} != {oracle}")
+
+
+def verify_basic():
+    data = read("tests/fixtures/p1-basic.json")
+    golden = read("tests/golden/p1-basic.json")
+    check(data["fixture_id"] == golden["fixture_id"] == "p1-basic-v1", "basic identity")
+    check(data["algorithm_version"] == golden["algorithm_version"] == "p1-v1", "basic version")
+    check(len(data["cases"]) == len(golden["cases"]) == 6, "basic cases")
+    for case, expected in zip(data["cases"], golden["cases"]):
+        independent = evaluate_basic(case)
+        check(independent.keys() == expected.keys(), "basic golden schema")
+        check(independent["id"] == expected["id"], "basic case order")
+        for name, values in independent.items():
+            if name == "id":
+                continue
+            check(len(values) == len(expected[name]), "basic output length")
+            for i, (oracle, actual) in enumerate(zip(values, expected[name])):
+                if oracle is None or isinstance(oracle, str):
+                    check(actual == oracle, f"basic {case['id']}.{name}[{i}] mask")
+                else:
+                    atol = 0.0 if case["id"] == "tiny" else 1e-10 if name == "roc" else 1e-12
+                    check(isinstance(actual, (float, int)) and math.isfinite(actual) and
+                          abs(actual-oracle) <= atol + 1e-12 * max(abs(actual), abs(oracle)),
+                          f"basic {case['id']}.{name}[{i}] number")
+
+
 if __name__ == "__main__":
     verify_manifest()
     verify_temporal()
     verify_ramp()
-    print("PASS: SHA-256 manifest, temporal hand oracle, Fraction/Decimal P1 ramp oracle")
+    verify_identity()
+    verify_rolling()
+    verify_basic()
+    print("PASS: SHA-256 manifest, temporal, Fraction/Decimal ramp, 8 rolling cases, 6 basic cases (closed-form smoothing), config/event vectors")

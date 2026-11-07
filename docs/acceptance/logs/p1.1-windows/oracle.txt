@@ -1,0 +1,1 @@
+PASS: SHA-256 manifest, temporal hand oracle, Fraction/Decimal P1 ramp, independent config/event vectors

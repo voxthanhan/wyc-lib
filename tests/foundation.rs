@@ -59,7 +59,7 @@ struct FixtureFile {
 fn manifest_checksums_and_fixture_schema() -> TestResult {
     let manifest: Manifest = serde_json::from_str(include_str!("fixtures/manifest.json"))?;
     assert_eq!(manifest.manifest_version, "1");
-    assert_eq!(manifest.fixtures.len(), 2);
+    assert_eq!(manifest.fixtures.len(), 5);
     for fixture in manifest.fixtures {
         assert!(!fixture.fixture_id.is_empty() && !fixture.purpose.is_empty());
         assert!(!fixture.provenance.is_empty() && !fixture.verification.is_empty());
@@ -71,6 +71,21 @@ fn manifest_checksums_and_fixture_schema() -> TestResult {
             let bytes = fs::read(root().join(&file.path))?;
             support::verify_checksum(&file.path, &bytes, &file.sha256)?;
             if file.path.starts_with("tests/fixtures/") {
+                if fixture.fixture_id == "p1-rolling-v1" || fixture.fixture_id == "p1-basic-v1" {
+                    let rolling: Value = serde_json::from_slice(&bytes)?;
+                    assert_eq!(rolling["fixture_id"], fixture.fixture_id);
+                    assert_eq!(rolling["config"], fixture.config);
+                    assert_eq!(rolling["algorithm_version"], "p1-v1");
+                    continue;
+                }
+                if fixture.fixture_id == "p1-identity-v1" {
+                    let identity: Value = serde_json::from_slice(&bytes)?;
+                    let config: AnalysisConfig =
+                        serde_json::from_value(identity["config"].clone())?;
+                    config.validate()?;
+                    assert_eq!(identity["config"], fixture.config);
+                    continue;
+                }
                 let data: MarketData = serde_json::from_slice(&bytes)?;
                 data.validate()?;
                 assert_eq!(data.metadata.data_revision, fixture.data_revision);

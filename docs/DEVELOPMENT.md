@@ -1,12 +1,12 @@
-# Phát triển và kiểm chứng P0
+# Phát triển và kiểm chứng P0/P1.1/P1.2/P1.3
 
 ## Ma trận nền tảng
 
 | Thành phần | Chọn/mục tiêu | Tình trạng |
 | --- | --- | --- |
 | Rust | 1.85.1 pinned; MSRV 1.85; edition 2021 | Kết quả lần chạy trong báo cáo G0 |
-| Windows | x86_64-pc-windows-msvc; Visual Studio Build Tools 2022 + Windows SDK | Nền tảng local ban đầu |
-| Linux | x86_64-unknown-linux-gnu; Ubuntu 24.04 CI | Mục tiêu CI, cần log từ commit |
+| Windows | x86_64-pc-windows-msvc; Visual Studio Build Tools 2022 + Windows SDK cho local | Local/checkout sạch và CI windows-latest PASS; xem P1.3 |
+| Linux | x86_64-unknown-linux-gnu; Ubuntu 24.04 CI | CI ubuntu-24.04 PASS tại d86e6ff; xem P1.3 |
 | macOS/ARM64 | Chưa chọn phiên bản/runner | Chưa công bố hỗ trợ |
 | Node | 22.x, NAPI-RS ở P2 | Mục tiêu, chưa chọn bản patch/ABI hoặc kiểm chứng |
 | Python | CPython 3.10–3.13, PyO3/Maturin ở P2 | Mục tiêu, chưa chọn bản patch/ABI hoặc kiểm chứng |
@@ -42,13 +42,42 @@ cargo test --workspace --locked
 `verify_oracles.py` dùng Python standard library, Fraction/Decimal; không import
 wyc_lib hoặc tự ghi golden. Rust foundation harness kiểm checksum trước đọc,
 round-trip/types/errors, replay availability, số/mask/schema, negative drift.
-Golden P1 là oracle chuẩn bị, chưa phải test algorithm implementation.
+Golden cho các thuật toán chưa triển khai vẫn chỉ là oracle chuẩn bị;
+không coi chúng là bằng chứng thuật toán đã chạy.
+Từ P1.1, target `p1_foundation` chạy kiểm tra preparation/availability, result
+mask/time và hash/ID runtime. Bộ `p1-identity-v1` được kiểm bằng `hashlib`/`struct`
+độc lập trong cùng script oracle; không tạo hoặc tự ghi đè golden khi kiểm tra.
+
+Từ P1.2, target `p1_rolling` của crate `indicators` kiểm sáu phép rolling,
+golden từng cửa sổ, warm-up/period, overflow/underflow và replay causal qua
+AvailableData. `p1-rolling-v1` có tám case tính tay, được script oracle kiểm
+bằng Fraction/Decimal độc lập. Golden P0 cho rolling cũng được đối chiếu với
+implementation; thời điểm nghiệm thu P1.2, các chỉ báo P1.3–P1.5 chưa được kiểm
+bằng implementation. P1.3 được bổ sung ở đợt tiếp theo dưới đây.
+Từ P1.3, target `p1_basic` kiểm chín chỉ báo nền và BasicIndicatorState:
+golden mọi sample/status, batch–state mọi tiền tố, availability/future/revision,
+identity và atomic failure/reset. `p1-basic-v1` có sáu case độc lập dùng Fraction
+và smoothing dạng tổng hình học tại `scripts/basic_oracle.py`; script kiểm chỉ
+đọc expected có sẵn, không lấy output Rust hoặc tự cập nhật golden.
+Workspace verifier yêu cầu đúng ba package contracts/indicators/wyc-lib,
+dependency không vòng và đủ bốn integration test targets.
 
 ## CI và nghiệm thu
 
 Workflow `.github/workflows/ci.yml` chạy format/lint/build/test/oracle trên
 Windows và Linux, dùng toolchain pinned và `--locked`; upload log cùng SHA commit.
 CI không publish. Không ghi CI đã chạy chỉ vì có YAML hoặc local checks đạt.
+Theo [ngoại lệ G0 ngày 07/11/2026](acceptance/G0.md), P1.1/P1.2 bắt đầu với
+kiểm chứng local và hoãn CI. Yêu cầu P1.3 mở lại kiểm chứng CI; workflow đổi
+tên hiển thị thành Rust foundation, giữ matrix và runner kiểm chung toàn
+workspace. Kết quả thực tế mới nhất tại [báo cáo P1.3](acceptance/P1.3.md).
+P1.3 đạt local Windows và checkout sạch (42 tests); sau khi người dùng cho phép
+rõ đẩy mã lên repo công khai, CI run 42353272952 tại d86e6ff đạt cả Windows và
+Ubuntu, hai artifact đã upload. Run/job/step và artifact metadata đã lưu trong
+repo; payload artifact cần đăng nhập GitHub để tải, chưa được kiểm độc lập
+digest local. Điều kiện CI hoãn của G0 đã đóng tại commit này. Lần run P0 cũ
+giữ nguyên như bằng chứng lịch sử, không dùng để thay kết quả CI mới.
+Local PASS chỉ chứng minh target Windows đã chạy, không thay bằng chứng Linux.
 Báo cáo mỗi cổng theo `docs/acceptance/TEMPLATE.md`; commit chưa tồn tại phải
 ghi chưa có, không bịa SHA. Log local P0 ở `docs/acceptance/logs/`.
 

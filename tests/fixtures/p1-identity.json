@@ -1,0 +1,70 @@
+{
+  "config": {
+    "config_version": "p1-v1",
+    "indicators": {
+      "period": 14,
+      "macd_fast": 12,
+      "macd_slow": 26,
+      "macd_signal": 9,
+      "bollinger_multiplier": 2.0
+    },
+    "structure": {
+      "left": 2,
+      "right": 2
+    }
+  },
+  "events": [
+    {
+      "engine_version": "0.1.0",
+      "algorithm_version": "p1-v1",
+      "symbol": "SYNTH",
+      "timeframe": "synthetic-close-1s",
+      "data_revision": "synthetic-r1",
+      "source_module": "market_structure",
+      "rule_id": "pivot-strict-v1",
+      "event_type": "pivot_high",
+      "observed_at": 2000,
+      "known_at": 3500,
+      "ordinal": 0
+    },
+    {
+      "engine_version": "0.1.0",
+      "algorithm_version": "p1-v1",
+      "symbol": "CỔ:PHIẾU",
+      "timeframe": "synthetic-close-1s",
+      "data_revision": "synthetic-r1",
+      "source_module": "market_structure",
+      "rule_id": "quy-tắc:1",
+      "event_type": "pivot_high",
+      "observed_at": 2000,
+      "known_at": 9007199254740991,
+      "ordinal": 18446744073709551615
+    },
+    {
+      "engine_version": "0.1.0",
+      "algorithm_version": "p1-v1",
+      "symbol": "AB",
+      "timeframe": "C",
+      "data_revision": "synthetic-r1",
+      "source_module": "market_structure",
+      "rule_id": "pivot-strict-v1",
+      "event_type": "pivot_high",
+      "observed_at": 2000,
+      "known_at": 3500,
+      "ordinal": 0
+    },
+    {
+      "engine_version": "0.1.0",
+      "algorithm_version": "p1-v1",
+      "symbol": "A",
+      "timeframe": "BC",
+      "data_revision": "synthetic-r1",
+      "source_module": "market_structure",
+      "rule_id": "pivot-strict-v1",
+      "event_type": "pivot_high",
+      "observed_at": 2000,
+      "known_at": 3500,
+      "ordinal": 0
+    }
+  ]
+}

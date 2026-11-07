@@ -1,4 +1,4 @@
-# Fixtures nền P0
+# Fixtures nền P0/P1.1/P1.2/P1.3
 
 Manifest `manifest.json` nhận diện file input/golden bằng SHA-256 của **bytes
 nguyên trạng**; không chuẩn hóa line endings trước hash. Không tự cập nhật hash
@@ -13,6 +13,31 @@ có dữ liệu thị trường hoặc bí mật; không dùng ngẫu nhiên (se
   seed và giá trị tính tay. `scripts/verify_oracles.py` đối chiếu bằng phân số
   chính xác/Decimal, độc lập với Rust Core, không ghi expected. Bộ golden này
   chuẩn bị cho P1, chưa chứng minh P1 đã chạy hay đủ toàn bộ ca biên G1.
+- `p1-identity-v1`: config mặc định và bốn event identities tổng hợp, gồm UTF-8,
+  dấu hai chấm, ordinal u64 cực đại và cặp trường có cùng nối chuỗi nếu thiếu
+  length-prefix. Golden giữ canonical text, từng preimage và SHA-256; được tính
+  lần đầu bằng Python standard-library hashlib, không lấy từ Rust runtime.
+  Script oracle đối chiếu lại `struct.pack` cho f64 bits, UTF-8 byte lengths và
+  hash, chỉ đọc file. Harness nhận fixture này là identity data, không phải OHLCV.
+- `p1-rolling-v1`: tám chuỗi số tính tay: ramp, âm/trùng, n=1, hằng, zero,
+  offset lớn, triệt tiêu và số rất nhỏ; golden giữ mọi cửa sổ của cả sáu phép.
+  Null trong golden là marker warm-up; test dựng đúng required/available,
+  không dùng null làm dữ liệu thiếu hoặc giá trị số của output. Oracle dùng
+  Fraction chính xác và sqrt Decimal 80 chữ số, không gọi Rust; số rất nhỏ
+  dùng kiểm tra tương đối để sai số tuyệt đối không che kết quả sai bằng 0.
+  Input numeric series không phải MarketData; kiểm thời gian dùng lại temporal
+  và ramp. Biên period=14/1000000, overflow/underflow, missing/invalid, bất biến,
+  revision và tương lai thay đổi được kiểm trong `tests/p1_rolling.rs`.
+
+- `p1-basic-v1`: sáu chuỗi OHLCV tổng hợp: nonlinear/gap giá, âm/zero và hồi
+  phục mẫu số, n=1, hằng 0.1 với volume=0, kiểm lag, số rất nhỏ. Golden mới
+  được tạo ban đầu bằng Fraction độc lập với Rust; EMA/ATR dùng tổng hình học
+  đóng thay vì recurrence f64. `scripts/basic_oracle.py` không ghi file;
+  verifier chỉ đọc/so expected và checksum. Null là warm-up, chuỗi
+  zero_denominator là missing, số là ready. Test so mask/time chính xác và số
+  theo tolerance P1; tiny dùng relative-only. Mọi tiền tố, period=14/1000000,
+  overflow/underflow, state identity/history/reset và tính atomic được kiểm
+  trong `tests/p1_basic.rs`. Không sửa golden hoặc checksum của bộ trước.
 
 Harness Rust kiểm SHA và shape/type/temporal expectations; hàm so sánh báo path
 cụ thể khi số, status, field hoặc timestamp khác. Ca âm sửa có chủ đích một

@@ -34,6 +34,67 @@
         {"path": "tests/fixtures/p1-arithmetic.json", "sha256": "625022a44578cb49fb950db100ff724156024f29b7f2d316f8c746fcd81132e6"},
         {"path": "tests/golden/p1-arithmetic.json", "sha256": "31e6ad587aef81c9f3c015fb7cc6ef28af1bde0d47d79b5c5caf0b93866b71ac"}
       ]
+    },
+    {
+      "fixture_id": "p1-identity-v1",
+      "purpose": "Canonical config bytes and stable event IDs, including UTF-8 byte lengths and ambiguous concatenation counterexamples",
+      "provenance": "Synthetic config and four hand-chosen identities; initial hashes computed by Python standard-library hashlib over auditable preimages, independently of Rust",
+      "seed": null,
+      "timezone": "Etc/UTC",
+      "time_semantics": "UTC Unix milliseconds at bar close",
+      "data_revision": "synthetic-r1",
+      "config": {
+        "config_version": "p1-v1",
+        "indicators": {"period": 14, "macd_fast": 12, "macd_slow": 26, "macd_signal": 9, "bollinger_multiplier": 2.0},
+        "structure": {"left": 2, "right": 2}
+      },
+      "verification": "Literal canonical text and event preimages are stored in golden. scripts/verify_oracles.py verifies serialization and digests with struct/hashlib, never imports Rust or rewrites expected outputs.",
+      "files": [
+        {"path": "tests/fixtures/p1-identity.json", "sha256": "7246f3dea4670d633b46605d785f384dacc9af7a3a2705bfd222a191b53b5777"},
+        {"path": "tests/golden/p1-identity.json", "sha256": "2661abf2f4419a8fc95faa6355a06e6d8f01c41642dc431a0307b62e7d0255d5"}
+      ]
+    },
+    {
+      "fixture_id": "p1-rolling-v1",
+      "purpose": "All-window rolling statistics, warmup masks, cancellation and scale edge cases",
+      "provenance": "Eight hand-authored numeric series and expected arithmetic values; no Rust outputs, randomness or external data",
+      "seed": null,
+      "timezone": "Etc/UTC",
+      "time_semantics": "UTC Unix milliseconds at bar close",
+      "data_revision": "rolling-r1",
+      "config": {"periods": [1, 2, 3]},
+      "verification": "Hand arithmetic, independently rechecked by exact Fraction and 80-digit Decimal square root in scripts/verify_oracles.py. Null in golden denotes an expected warmup record, never missing input. Tiny values use relative-only comparisons.",
+      "files": [
+        {"path": "tests/fixtures/p1-rolling.json", "sha256": "20018089a4c037149660b0597720cdcc915abaff9a407aa23f92e14fac025488"},
+        {"path": "tests/golden/p1-rolling.json", "sha256": "947f1641a8f2be8721314c49c1f8ab6c9ecadcba47bdf370f2d1a567489affe2"}
+      ]
+    },
+    {
+      "fixture_id": "p1-basic-v1",
+      "purpose": "Nine basic indicators: exact seeds, smoothing, gaps, lag, zero denominator recovery and tiny scales",
+      "provenance": "Six hand-authored synthetic OHLCV series. New expected outputs initially authored with independent exact Fraction arithmetic and geometric closed-form smoothing; no Rust output used.",
+      "seed": null,
+      "timezone": "Etc/UTC",
+      "time_semantics": "UTC Unix milliseconds at bar close",
+      "data_revision": "basic-r1",
+      "config": {
+        "periods": [
+          1,
+          2,
+          3
+        ]
+      },
+      "verification": "scripts/basic_oracle.py uses exact Fraction arithmetic and closed-form geometric smoothing; verify_oracles.py only reads and compares existing expected files. Every sample and status is checked.",
+      "files": [
+        {
+          "path": "tests/fixtures/p1-basic.json",
+          "sha256": "6480b884ebc27816fa4bc78a85435eca0fde24d3d25764595121d3632867d7b4"
+        },
+        {
+          "path": "tests/golden/p1-basic.json",
+          "sha256": "184442eef14cdce62f77c79a1c061555c184e03eab64d2085b95f8ae8efab5c4"
+        }
+      ]
     }
   ]
 }

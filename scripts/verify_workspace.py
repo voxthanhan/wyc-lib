@@ -16,14 +16,16 @@ def main():
     root = Path(__file__).resolve().parents[1]
     metadata = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8-sig"))
     packages = {p["name"]: p for p in metadata["packages"]}
-    check(set(packages) == {"contracts", "wyc-lib"}, "P0 workspace membership changed")
+    check(set(packages) == {"contracts", "indicators", "wyc-lib"}, "P1.3 workspace membership changed")
     check(all(p["publish"] == [] for p in packages.values()), "packages must remain non-publishable")
-    check(any(t["name"] == "foundation" and "test" in t["kind"]
-              for p in packages.values() for t in p["targets"]), "foundation test target missing")
+    for target in ["foundation", "p1_foundation", "p1_rolling", "p1_basic"]:
+        check(any(t["name"] == target and "test" in t["kind"]
+                  for p in packages.values() for t in p["targets"]), f"{target} test target missing")
     edges = {name: {d["name"] for d in p["dependencies"] if d["name"] in packages}
              for name, p in packages.items()}
     check(edges["contracts"] == set(), "contracts must not depend on orchestration")
-    check(edges["wyc-lib"] == {"contracts"}, "unexpected orchestration dependency")
+    check(edges["indicators"] == {"contracts"}, "indicators must depend only on contracts")
+    check(edges["wyc-lib"] == {"contracts", "indicators"}, "unexpected orchestration dependency")
     active, visited = set(), set()
 
     def visit(name):
@@ -38,7 +40,8 @@ def main():
 
     for name in packages:
         visit(name)
-    files = subprocess.run(["git", "ls-files", "-z", "--", "*.md"], cwd=root,
+    files = subprocess.run(["git", "ls-files", "--cached", "--others", "--exclude-standard",
+                            "-z", "--", "*.md"], cwd=root,
                            check=True, stdout=subprocess.PIPE).stdout.decode("utf-8").split("\0")
     checked = 0
     for filename in filter(None, files):
@@ -50,7 +53,7 @@ def main():
             if target:
                 check((path.parent / target).exists(), f"broken link: {filename} -> {target}")
                 checked += 1
-    print(f"PASS: P0 package boundaries, acyclic dependency graph, foundation target, {checked} local links")
+    print(f"PASS: P1.3 package boundaries, acyclic dependency graph, foundation/rolling/basic targets, {checked} local links")
 
 
 if __name__ == "__main__":
