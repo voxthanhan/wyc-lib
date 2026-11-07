@@ -1,0 +1,22 @@
+{
+  "fixture_id": "temporal-v1",
+  "schema_version": "0.1.0",
+  "as_of": [0, 999, 1000, 1999, 2000, 2499, 2500, 3000, 3499, 3500, 4000, 4500, 9000],
+  "available_lengths": [0, 0, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3],
+  "delayed_pivot": {
+    "evidence_id": "illustrative-pivot-high-2000",
+    "event_type": "swing_high",
+    "observed_at": 2000,
+    "known_at": 3500,
+    "source_module": "market_structure",
+    "measured_values": {"level": 4.0},
+    "rule_id": "structure-strict-close-v1",
+    "status": "confirmed",
+    "layer": "observation"
+  },
+  "numeric_status_examples": [
+    {"status": "ready", "value": 0.0},
+    {"status": "warmup", "required": 3, "available": 2},
+    {"status": "missing", "reason": "zero_denominator"}
+  ]
+}

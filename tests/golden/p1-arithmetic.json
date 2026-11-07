@@ -1,0 +1,29 @@
+{
+  "fixture_id": "p1-arithmetic-v1",
+  "algorithm_version": "p1-v1",
+  "config": {
+    "config_version": "p1-v1",
+    "indicators": {"period": 3, "macd_fast": 2, "macd_slow": 3, "macd_signal": 2, "bollinger_multiplier": 2.0},
+    "structure": {"left": 1, "right": 1}
+  },
+  "first_valid_index": {"sma": 2, "ema": 2, "wma": 2, "atr": 2, "rsi": 3, "macd_line": 2, "macd_signal": 3, "adx": 5, "roc": 3},
+  "scalars_at_index_2": {
+    "sum": 6.0, "sma": 2.0, "ema": 2.0, "wma": 2.3333333333333335,
+    "min": 1.0, "max": 3.0, "variance": 0.6666666666666666,
+    "std": 0.816496580927726, "tr": 2.0, "atr": 2.0,
+    "volume_sma": 10.0, "rvol": 2.0, "macd_line": 0.5,
+    "bollinger_upper": 3.632993161855452, "bollinger_lower": 0.36700683814454793
+  },
+  "scalars_at_index_3": {
+    "sma": 3.0, "ema": 3.0, "momentum": 3.0, "roc": 300.0,
+    "rsi": 100.0, "macd_line": 0.5, "macd_signal": 0.5, "macd_histogram": 0.0,
+    "plus_di": 50.0, "minus_di": 0.0, "dx": 100.0, "rvol": 1.5
+  },
+  "scalars_at_index_5": {"adx": 100.0},
+  "tolerances": {
+    "price": {"atol": 1e-12, "rtol": 1e-12},
+    "variance": {"atol": 1e-12, "rtol": 1e-11},
+    "percent": {"atol": 1e-10, "rtol": 1e-12},
+    "ratio": {"atol": 1e-12, "rtol": 1e-12}
+  }
+}

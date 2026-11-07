@@ -1,0 +1,25 @@
+{
+  "schema_version": "0.1.0",
+  "symbol": "SYNTH",
+  "timeframe": "synthetic-close-1s",
+  "timestamp": [1000, 2000, 3000, 4000],
+  "available_at": [1000, 2500, 3500, 4500],
+  "open": [2, 3, 2.5, 3],
+  "high": [3, 4, 3.5, 4],
+  "low": [1, 2, 2, 2.5],
+  "close": [2.5, 3.5, 3, 3.5],
+  "volume": [100, 120, 110, 130],
+  "is_closed": [true, true, true, false],
+  "metadata": {
+    "source": "synthetic-hand-authored",
+    "timezone": "Etc/UTC",
+    "price_unit": "synthetic-unit",
+    "volume_unit": "synthetic-unit",
+    "adjustment_mode": "raw",
+    "timestamp_semantics": "close",
+    "data_revision": "synthetic-r1",
+    "revision_available_at": 0,
+    "snapshot_kind": "point_in_time",
+    "gaps": []
+  }
+}

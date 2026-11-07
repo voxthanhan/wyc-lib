@@ -1,0 +1,158 @@
+use crate::{ContractError, ErrorCode, FiniteF64, MarketData, CONFIG_VERSION, SCHEMA_VERSION};
+use serde::{Deserialize, Serialize};
+use std::collections::BTreeSet;
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum Module {
+    Indicators,
+    MarketStructure,
+    PriceZones,
+    VolumeEngine,
+    RelativeStrength,
+    WyckoffEngine,
+    EvidenceEngine,
+    FeatureEngine,
+}
+
+/// All P1 periods are explicit. There are no hidden runtime defaults.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct IndicatorConfig {
+    pub period: u32,
+    pub macd_fast: u32,
+    pub macd_slow: u32,
+    pub macd_signal: u32,
+    pub bollinger_multiplier: FiniteF64,
+}
+
+impl Default for IndicatorConfig {
+    fn default() -> Self {
+        Self {
+            period: 14,
+            macd_fast: 12,
+            macd_slow: 26,
+            macd_signal: 9,
+            bollinger_multiplier: crate::value::TWO,
+        }
+    }
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct StructureConfig {
+    pub left: u32,
+    pub right: u32,
+}
+
+impl Default for StructureConfig {
+    fn default() -> Self {
+        Self { left: 2, right: 2 }
+    }
+}
+
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct AnalysisConfig {
+    pub config_version: String,
+    pub indicators: IndicatorConfig,
+    pub structure: StructureConfig,
+}
+
+impl Default for AnalysisConfig {
+    fn default() -> Self {
+        Self {
+            config_version: CONFIG_VERSION.into(),
+            indicators: IndicatorConfig::default(),
+            structure: StructureConfig::default(),
+        }
+    }
+}
+
+impl AnalysisConfig {
+    pub fn validate(&self) -> Result<(), ContractError> {
+        if self.config_version != CONFIG_VERSION {
+            return Err(ContractError::new(
+                ErrorCode::UnsupportedVersion,
+                "config.config_version",
+            ));
+        }
+        for (path, period) in [
+            ("indicators.period", self.indicators.period),
+            ("indicators.macd_fast", self.indicators.macd_fast),
+            ("indicators.macd_slow", self.indicators.macd_slow),
+            ("indicators.macd_signal", self.indicators.macd_signal),
+            ("structure.left", self.structure.left),
+            ("structure.right", self.structure.right),
+        ] {
+            if !(1..=1_000_000).contains(&period) {
+                return Err(ContractError::new(
+                    ErrorCode::InvalidConfig,
+                    format!("config.{path}"),
+                ));
+            }
+        }
+        if self.indicators.macd_fast >= self.indicators.macd_slow
+            || self.indicators.bollinger_multiplier.get() <= 0.0
+        {
+            return Err(ContractError::new(
+                ErrorCode::InvalidConfig,
+                "config.indicators",
+            ));
+        }
+        Ok(())
+    }
+}
+
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct AnalysisRequest {
+    pub schema_version: String,
+    pub data: MarketData,
+    pub as_of: i64,
+    pub modules: Vec<Module>,
+    pub config: AnalysisConfig,
+}
+
+impl AnalysisRequest {
+    /// Only P1 module selection is specified for execution. No algorithms run here.
+    pub fn validate(&self) -> Result<(), ContractError> {
+        if self.schema_version != SCHEMA_VERSION {
+            return Err(ContractError::new(
+                ErrorCode::UnsupportedVersion,
+                "schema_version",
+            ));
+        }
+        self.data.available_len(self.as_of)?;
+        self.config.validate()?;
+        if self.modules.is_empty() {
+            return Err(ContractError::new(ErrorCode::InvalidConfig, "modules"));
+        }
+        let mut seen = BTreeSet::new();
+        for module in &self.modules {
+            if !seen.insert(module) {
+                return Err(ContractError::new(ErrorCode::DuplicateModule, "modules"));
+            }
+            if !matches!(module, Module::Indicators | Module::MarketStructure) {
+                return Err(ContractError::new(ErrorCode::UnsupportedModule, "modules"));
+            }
+        }
+        Ok(())
+    }
+}
+
+/// Identity of a future P1 state handle; no mutable state engine is exported in P0.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct StateIdentity {
+    pub schema_version: String,
+    pub engine_version: String,
+    pub algorithm_version: String,
+    pub symbol: String,
+    pub timeframe: String,
+    pub data_revision: String,
+    pub config_hash: String,
+    pub modules: Vec<Module>,
+    pub last_timestamp: Option<i64>,
+    pub last_as_of: i64,
+}

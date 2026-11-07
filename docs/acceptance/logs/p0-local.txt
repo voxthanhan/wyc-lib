@@ -1,0 +1,145 @@
+Session date: 2026-11-07 Asia/Saigon; source directory has no Git commit
+Microsoft Windows NT 10.0.26200.0
+rustc 1.85.1 (4eb161250 2025-03-15)
+binary: rustc
+commit-hash: 4eb161250e340c8f48f66e2b929ef4a5bed7c181
+commit-date: 2025-03-15
+host: x86_64-pc-windows-msvc
+release: 1.85.1
+LLVM version: 19.1.7
+cargo 1.85.1 (d73d2caf9 2024-12-31)
+CHECK: cargo fmt --all -- --check
+PASS exit=0
+CHECK: cargo clippy --workspace --all-targets --locked --offline -- -D warnings
+    Checking wyc-lib v0.1.0 (D:\Dev\Lib\crates\wyc_lib)
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\D:\Dev\Lib\target\debug\incremental\foundation-348ho213ag249\s-hnxjo6zynl-10lwhyt-working`
+
+warning: `wyc-lib` (test "foundation") generated 1 warning
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.20s
+PASS exit=0
+CHECK: cargo build --workspace --locked --offline --target-dir .tools/g0-fresh-target
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling unicode-ident v1.0.27
+   Compiling serde v1.0.219
+   Compiling syn v2.0.119
+   Compiling serde_derive v1.0.219
+   Compiling contracts v0.1.0 (D:\Dev\Lib\crates\contracts)
+   Compiling wyc-lib v0.1.0 (D:\Dev\Lib\crates\wyc_lib)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 23.63s
+PASS exit=0
+CHECK: cargo test --workspace --locked --offline
+   Compiling contracts v0.1.0 (D:\Dev\Lib\crates\contracts)
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\D:\Dev\Lib\target\debug\incremental\contracts-2lw1aktkme456\s-hnxjomi5lr-0jh7rdp-working`
+
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\D:\Dev\Lib\target\debug\incremental\contracts-0x4fbvo2ao2iw\s-hnxjomhrcv-0y73brm-working`
+
+   Compiling wyc-lib v0.1.0 (D:\Dev\Lib\crates\wyc_lib)
+warning: `contracts` (lib test) generated 1 warning
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\D:\Dev\Lib\target\debug\incremental\wyc_lib-2nz0t0g5wy5o6\s-hnxjopdalc-1964zue-working`
+
+warning: `wyc-lib` (lib) generated 1 warning
+warning: `contracts` (lib) generated 1 warning
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\D:\Dev\Lib\target\debug\incremental\wyc_lib-17l2ohl0pgdia\s-hnxjoqfrot-0lp7ucd-working`
+
+warning: `wyc-lib` (lib test) generated 1 warning
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\D:\Dev\Lib\target\debug\incremental\foundation-24a9guddumc8k\s-hnxjoqg67b-0xseevx-working`
+
+warning: `wyc-lib` (test "foundation") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 12.96s
+     Running unittests src\lib.rs (target\debug\deps\contracts-b837459a985108da.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src\lib.rs (target\debug\deps\wyc_lib-b38769742f25c0a8.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running ..\..\tests\foundation.rs (target\debug\deps\foundation-74541348d5ef53ea.exe)
+
+running 8 tests
+test harness_detects_intentional_numeric_schema_time_mask_and_checksum_drift ... ok
+test typed_result_schema_and_warmup_invariants ... ok
+test finite_numbers_statuses_and_draft_report_roundtrip ... ok
+test all_columns_reject_length_mismatch_and_all_prices_reject_null ... ok
+test availability_replay_and_prefix_contract ... ok
+test request_config_and_selection_contract ... ok
+test manifest_checksums_and_fixture_schema ... ok
+test invalid_data_counterexamples_have_exact_codes_and_paths ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+   Doc-tests contracts
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests wyc_lib
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+PASS exit=0
+CHECK: python scripts/verify_oracles.py
+PASS: SHA-256 manifest, temporal hand oracle, Fraction/Decimal P1 ramp oracle
+PASS exit=0
+FINAL HARNESS CHECKS: CARGO_INCREMENTAL=0 (session only; avoid hard-link cache warning)
+CHECK: cargo fmt --all -- --check
+PASS exit=0
+CHECK: cargo clippy --workspace --all-targets --locked --offline -- -D warnings
+    Checking contracts v0.1.0 (D:\Dev\Lib\crates\contracts)
+    Checking wyc-lib v0.1.0 (D:\Dev\Lib\crates\wyc_lib)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 4.41s
+PASS exit=0
+CHECK: cargo test --workspace --locked --offline
+   Compiling contracts v0.1.0 (D:\Dev\Lib\crates\contracts)
+   Compiling wyc-lib v0.1.0 (D:\Dev\Lib\crates\wyc_lib)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 9.91s
+     Running unittests src\lib.rs (target\debug\deps\contracts-c08803862b37e53d.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src\lib.rs (target\debug\deps\wyc_lib-f569c765d5b10bde.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running ..\..\tests\foundation.rs (target\debug\deps\foundation-c2c29bec0ed95907.exe)
+
+running 8 tests
+test harness_detects_intentional_numeric_schema_time_mask_and_checksum_drift ... ok
+test finite_numbers_statuses_and_draft_report_roundtrip ... ok
+test availability_replay_and_prefix_contract ... ok
+test request_config_and_selection_contract ... ok
+test typed_result_schema_and_warmup_invariants ... ok
+test all_columns_reject_length_mismatch_and_all_prices_reject_null ... ok
+test manifest_checksums_and_fixture_schema ... ok
+test invalid_data_counterexamples_have_exact_codes_and_paths ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+   Doc-tests contracts
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests wyc_lib
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+PASS exit=0
+CHECK: python scripts/verify_oracles.py
+PASS: SHA-256 manifest, temporal hand oracle, Fraction/Decimal P1 ramp oracle
+PASS exit=0

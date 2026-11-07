@@ -1,0 +1,39 @@
+{
+  "manifest_version": "1",
+  "fixtures": [
+    {
+      "fixture_id": "temporal-v1",
+      "purpose": "Closed/available prefix, late pivot confirmation and revision counterexample",
+      "provenance": "Hand-authored synthetic values; created for this project, no external market dataset",
+      "seed": null,
+      "timezone": "Etc/UTC",
+      "time_semantics": "UTC Unix milliseconds at bar close",
+      "data_revision": "synthetic-r1",
+      "config": {"left": 1, "right": 1, "gap_policy": "reject"},
+      "verification": "Manual truth table per as_of; high[1] exceeds high[0] and high[2]; right bar available at 3500. scripts/verify_oracles.py independently counts eligibility.",
+      "files": [
+        {"path": "tests/fixtures/temporal.json", "sha256": "1b8ed2871b24929b93de8dc5fa0861361290680fafd7e2bacb0bc493096c0c2a"},
+        {"path": "tests/golden/temporal.json", "sha256": "23d97e3bf10048882601608ab3450e933dccfabfa76d3dddfea0c8116c7938dc"}
+      ]
+    },
+    {
+      "fixture_id": "p1-arithmetic-v1",
+      "purpose": "Independent arithmetic seeds, first-valid indices and scalar goldens for P1 preparation",
+      "provenance": "Hand-authored ramp close=1..6, high=close+1, low=close-1, open=close, volume=10*i; no randomness or external data",
+      "seed": null,
+      "timezone": "Etc/UTC",
+      "time_semantics": "UTC Unix milliseconds at bar close",
+      "data_revision": "ramp-r1",
+      "config": {
+        "config_version": "p1-v1",
+        "indicators": {"period": 3, "macd_fast": 2, "macd_slow": 3, "macd_signal": 2, "bollinger_multiplier": 2.0},
+        "structure": {"left": 1, "right": 1}
+      },
+      "verification": "Hand calculation in docs/algorithms/P1.md, independently checked by exact Fraction arithmetic and Decimal square root in scripts/verify_oracles.py. No Rust algorithm implementation is used as oracle.",
+      "files": [
+        {"path": "tests/fixtures/p1-arithmetic.json", "sha256": "625022a44578cb49fb950db100ff724156024f29b7f2d316f8c746fcd81132e6"},
+        {"path": "tests/golden/p1-arithmetic.json", "sha256": "31e6ad587aef81c9f3c015fb7cc6ef28af1bde0d47d79b5c5caf0b93866b71ac"}
+      ]
+    }
+  ]
+}
