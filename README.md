@@ -32,7 +32,7 @@ Yêu cầu P1.3 mở lại kiểm chứng CI Windows/Linux; kết quả đợt �
 [báo cáo P1.3](docs/acceptance/P1.3.md): local/checkout sạch Windows đạt 42 tests;
 CI Windows/Linux đều đạt tại commit `d86e6ff`, run 42353272952, có hai artifact.
 P1.4 đạt local và checkout sạch Windows tại `5caf81b`, 54 tests. CI P1.4
-chưa chạy: push bị kiểm duyệt tự động từ chối, chờ quyền công khai source;
+đang được kiểm chứng sau khi người dùng cho phép rõ đẩy source công khai;
 xem báo cáo P1.4 ở trên. Điều kiện CI hoãn của G0 đã đóng ở P1.3; toàn G1
 còn mở cho CI P1.4 và P1.5–P1.7.
 Báo cáo G0 có bổ sung CI; P1.1/P1.2 giữ bằng chứng lịch sử.
