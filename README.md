@@ -48,3 +48,8 @@ Windows/Linux đều đạt tại `c7de17a`, [run 42393366227](https://github.co
 hai artifact log đã upload. P1.5 hoàn thành phạm vi đã giao; bằng chứng và
 giới hạn tải payload artifact nằm trong báo cáo P1.5.
 Báo cáo G0 có bổ sung CI; P1.1/P1.2 giữ bằng chứng lịch sử.
+
+P1.6 đạt local/checkout sạch Windows và CI Windows/Linux tại `4460753`,
+85 integration tests; [run 42395906710](https://github.com/voxthanhan/wyc-lib/actions/runs/42395906710)
+thành công và upload hai artifact. Báo cáo P1.6 ghi 60 source fingerprints,
+protocol state, bằng chứng nghiệm thu và tích hợp main. P1.7/baseline/G1 còn mở.

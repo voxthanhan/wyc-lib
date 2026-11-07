@@ -1,0 +1,106 @@
+{
+  "evidence_version": "1",
+  "commit": "44607535fabfcb3929a7d18e9ea2ea542c82733b",
+  "tree": "1f35c989241c62720a9ad31d0c4891e05c1bb1df",
+  "started_at_utc": "2026-11-07T17:18:09.1061042+00:00",
+  "platform": "Microsoft Windows 10.0.26200",
+  "github_run_url": null,
+  "github_run_attempt": null,
+  "clean_before": true,
+  "clean_after": true,
+  "offline": true,
+  "checks": [
+    {
+      "name": "rustc",
+      "command": "rustc",
+      "arguments": [
+        "--version",
+        "--verbose"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "cargo",
+      "command": "cargo",
+      "arguments": [
+        "--version"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "python",
+      "command": "python",
+      "arguments": [
+        "--version"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "format",
+      "command": "cargo",
+      "arguments": [
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "clippy",
+      "command": "cargo",
+      "arguments": [
+        "clippy",
+        "--workspace",
+        "--locked",
+        "--offline",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "build",
+      "command": "cargo",
+      "arguments": [
+        "build",
+        "--workspace",
+        "--locked",
+        "--offline"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "test",
+      "command": "cargo",
+      "arguments": [
+        "test",
+        "--workspace",
+        "--locked",
+        "--offline"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "oracle",
+      "command": "python",
+      "arguments": [
+        "scripts/verify_oracles.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "workspace",
+      "command": "python",
+      "arguments": [
+        "scripts/verify_workspace.py",
+        "D:\\Dev\\Lib\\docs\\acceptance\\logs\\p1.6-windows-clean\\workspace-metadata.json"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "passed": true,
+  "finished_at_utc": "2026-11-07T17:19:55.6942659+00:00"
+}

@@ -10,7 +10,9 @@
   quán; giữ API engine cũ, công thức/seed/schema/config/hash và dependency.
 - Golden cũ được kiểm qua API mới; kiểm module selection bằng lỗi riêng từng
   engine, replay mọi prefix, stale cursor, revision/reset và input bất biến.
-- Bằng chứng local/CI tại [báo cáo P1.6](docs/acceptance/P1.6.md).
+- Local/checkout sạch và CI Windows/Linux tại 4460753 đều đạt (85 tests),
+  run 42395906710, hai artifact upload, 60 source fingerprints khớp.
+  Bằng chứng tại [báo cáo P1.6](docs/acceptance/P1.6.md).
   State tính lại batch, baseline và nghiệm thu toàn G1 còn chờ P1.7.
 
 ## 0.1.0 — P1.5, chưa phát hành

@@ -579,4 +579,9 @@ qua API mới. Target p1_orchestration kiểm replay, identity/cursor, revision/
 atomic errors và module selection. Workspace verifier buộc bảy test targets.
 
 Tiến độ và bằng chứng thực tế tại [báo cáo P1.6](docs/acceptance/P1.6.md).
-Đang kiểm chứng, chưa đánh dấu toàn G1; P1.7/baseline còn mở.
+P1.6 đạt local/checkout sạch Windows tại `4460753`: format/Clippy/build, 85
+tests, oracle/workspace PASS, 60 source fingerprints khớp. Sau xác nhận rõ của
+người dùng cho phép đẩy source công khai, CI run 42395906710 đúng SHA đạt cả
+windows-latest và ubuntu-24.04, hai artifact log đã upload. Metadata CI/đối
+chiếu nguồn và giới hạn tải payload trong báo cáo. **P1.6 hoàn thành phạm vi
+được giao**; tích hợp main được theo dõi trong báo cáo, P1.7/toàn G1 còn mở.
