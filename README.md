@@ -28,9 +28,11 @@ kết nối nguồn dữ liệu, tự sửa OHLCV hay quyết định chiến l�
 Repository hiện public theo lựa chọn của người dùng; định hướng chuyển private
 về sau. Các package hiện đặt `publish = false`. Git và kiểm chứng checkout sạch
 đã hoàn tất cho P0; P1 bắt đầu theo ngoại lệ local được người dùng phê duyệt.
-Yêu cầu P1.3 mở lại kiểm chứng CI Windows/Linux; trạng thái mới nhất nằm trong
+Yêu cầu P1.3 mở lại kiểm chứng CI Windows/Linux; kết quả đợt đó nằm trong
 [báo cáo P1.3](docs/acceptance/P1.3.md): local/checkout sạch Windows đạt 42 tests;
 CI Windows/Linux đều đạt tại commit `d86e6ff`, run 42353272952, có hai artifact.
-Điều kiện CI hoãn của G0 đã đóng; P1.4 có báo cáo riêng ở trên,
-toàn G1 còn mở cho P1.5–P1.7.
+P1.4 đạt local và checkout sạch Windows tại `5caf81b`, 54 tests. CI P1.4
+chưa chạy: push bị kiểm duyệt tự động từ chối, chờ quyền công khai source;
+xem báo cáo P1.4 ở trên. Điều kiện CI hoãn của G0 đã đóng ở P1.3; toàn G1
+còn mở cho CI P1.4 và P1.5–P1.7.
 Báo cáo G0 có bổ sung CI; P1.1/P1.2 giữ bằng chứng lịch sử.

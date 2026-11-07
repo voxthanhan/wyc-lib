@@ -533,6 +533,9 @@ orchestrator toàn P1 thuộc P1.6.
 Tám golden mới được tạo bằng oracle Fraction/Decimal độc lập với Rust;
 kiểm mọi sample, prefix với future bị thay đổi, availability/revision và
 biên số. Làm rõ giới hạn roundoff của bands gần triệt tiêu ở thang 1e100,
-giữ nguyên golden exact-real. Đang kiểm chứng local đầy đủ, checkout sạch
-và CI Windows/Linux theo yêu cầu; trạng thái và bằng chứng tại
-[báo cáo P1.4](docs/acceptance/P1.4.md). Chưa nghiệm thu toàn G1/P1.5–P1.7.
+giữ nguyên golden exact-real. Local Windows và checkout sạch tại `5caf81b`
+đạt format/Clippy/build, 54 tests, oracle và workspace checks. **P1.4 đang
+kiểm chứng, chưa nghiệm thu CI**: push bị kiểm duyệt tự động từ chối vì chưa
+xác lập đủ quyền đưa source lên repository công khai; đang chờ người dùng
+xác nhận. Trạng thái và bằng chứng tại [báo cáo P1.4](docs/acceptance/P1.4.md).
+Chưa nghiệm thu toàn G1/P1.5–P1.7.

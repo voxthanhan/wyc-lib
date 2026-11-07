@@ -78,7 +78,7 @@ CI không publish. Không ghi CI đã chạy chỉ vì có YAML hoặc local che
 Theo [ngoại lệ G0 ngày 07/11/2026](acceptance/G0.md), P1.1/P1.2 bắt đầu với
 kiểm chứng local và hoãn CI. Yêu cầu P1.3 mở lại kiểm chứng CI; workflow đổi
 tên hiển thị thành Rust foundation, giữ matrix và runner kiểm chung toàn
-workspace. Kết quả thực tế mới nhất tại [báo cáo P1.3](acceptance/P1.3.md).
+workspace. Kết quả đợt đó tại [báo cáo P1.3](acceptance/P1.3.md).
 P1.3 đạt local Windows và checkout sạch (42 tests); sau khi người dùng cho phép
 rõ đẩy mã lên repo công khai, CI run 42353272952 tại d86e6ff đạt cả Windows và
 Ubuntu, hai artifact đã upload. Run/job/step và artifact metadata đã lưu trong
