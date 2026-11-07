@@ -513,5 +513,8 @@ Không thêm dependency, thay schema/config/hash hoặc tối ưu chưa đo.
 
 Golden sáu case dùng oracle Fraction và smoothing dạng tổng hình học độc lập;
 tests kiểm mọi tiền tố, future/revision, period khác mặc định, biên số và lỗi
-state. Phạm vi, local/checkout sạch và kết quả CI thực tế tại
+state. P1.3 đạt local Windows và checkout sạch ở commit `bf97b14` với 42 tests,
+format/Clippy/build/oracle/workspace PASS. CI chưa chạy: bước đẩy nhánh bị bộ
+kiểm duyệt tự động từ chối vì source sẽ lên repository công khai, cần người
+dùng chấp thuận rõ. Nghiệm thu CI P1.3 còn mở. Phạm vi và bằng chứng tại
 [báo cáo P1.3](docs/acceptance/P1.3.md). P1.4–P1.7/G1 còn mở.

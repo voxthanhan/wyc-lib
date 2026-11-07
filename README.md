@@ -26,4 +26,6 @@ Repository hiện public theo lựa chọn của người dùng; định hướn
 về sau. Các package hiện đặt `publish = false`. Git và kiểm chứng checkout sạch
 đã hoàn tất cho P0; P1 bắt đầu theo ngoại lệ local được người dùng phê duyệt.
 Yêu cầu P1.3 mở lại kiểm chứng CI Windows/Linux; trạng thái mới nhất nằm trong
-[báo cáo P1.3](docs/acceptance/P1.3.md). Báo cáo G0/P1.1/P1.2 giữ bằng chứng lịch sử.
+[báo cáo P1.3](docs/acceptance/P1.3.md): local/checkout sạch Windows đạt 42 tests;
+CI chưa khởi chạy vì bước đẩy mã lên repo công khai cần được chấp thuận rõ.
+Báo cáo G0/P1.1/P1.2 giữ bằng chứng lịch sử.

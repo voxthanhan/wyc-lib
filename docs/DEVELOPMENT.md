@@ -71,6 +71,10 @@ Theo [ngoại lệ G0 ngày 07/11/2026](acceptance/G0.md), P1.1/P1.2 bắt đầ
 kiểm chứng local và hoãn CI. Yêu cầu P1.3 mở lại kiểm chứng CI; workflow đổi
 tên hiển thị thành Rust foundation, giữ matrix và runner kiểm chung toàn
 workspace. Kết quả thực tế mới nhất tại [báo cáo P1.3](acceptance/P1.3.md).
+P1.3 đã đạt local Windows và checkout sạch; CI chưa khởi chạy do bước đẩy mã
+lên repository công khai bị từ chối trong kiểm duyệt tự động. Chưa có bằng
+chứng CI/Linux P1.3. Lần run P0 cũ bị chặn cấp runner do billing, không dùng
+kết quả đó để suy ra tình trạng tài khoản hoặc nghiệm thu commit P1.3.
 Local PASS chỉ chứng minh target Windows đã chạy, không thay bằng chứng Linux.
 Báo cáo mỗi cổng theo `docs/acceptance/TEMPLATE.md`; commit chưa tồn tại phải
 ghi chưa có, không bịa SHA. Log local P0 ở `docs/acceptance/logs/`.
