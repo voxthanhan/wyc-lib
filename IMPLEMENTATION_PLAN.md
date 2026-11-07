@@ -124,7 +124,7 @@ Với mọi kết quả dẫn xuất, `known_at` không được sớm hơn th�
 - [x] Có ví dụ `as_of`, nến đóng nhưng chưa khả dụng, pivot cần xác nhận muộn và lịch sử được sửa; giải thích kết quả mong đợi.
 - [x] Đặc tả P1 có công thức/seed/warm-up/tolerance cụ thể; không còn quyết định làm thay đổi kết quả bị để trống trước khi bắt đầu P1.
 - [x] Fixtures nền có mã định danh, metadata, checksum, expected result và cách xác minh; harness phát hiện được sai lệch cố ý trong một ca kiểm tra âm.
-- [ ] Dependency không có vòng; CI cơ bản đã chạy; ma trận hỗ trợ ghi rõ mục tiêu chưa kiểm chứng.
+- [x] Dependency không có vòng; CI cơ bản đã chạy; ma trận hỗ trợ ghi rõ mục tiêu chưa kiểm chứng. Bổ sung tại P1.3: run 42353272952, commit d86e6ff đạt cả Windows/Linux; xem báo cáo G0/P1.3.
 
 **Bằng chứng cần lưu:** contracts/ADR, log CI của commit nghiệm thu, manifest fixtures và báo cáo G0 trong `docs/acceptance/`.
 
@@ -514,7 +514,10 @@ Không thêm dependency, thay schema/config/hash hoặc tối ưu chưa đo.
 Golden sáu case dùng oracle Fraction và smoothing dạng tổng hình học độc lập;
 tests kiểm mọi tiền tố, future/revision, period khác mặc định, biên số và lỗi
 state. P1.3 đạt local Windows và checkout sạch ở commit `bf97b14` với 42 tests,
-format/Clippy/build/oracle/workspace PASS. CI chưa chạy: bước đẩy nhánh bị bộ
-kiểm duyệt tự động từ chối vì source sẽ lên repository công khai, cần người
-dùng chấp thuận rõ. Nghiệm thu CI P1.3 còn mở. Phạm vi và bằng chứng tại
+format/Clippy/build/oracle/workspace PASS. Sau khi người dùng cho phép rõ
+đưa mã lên repo công khai và chạy CI, nhánh đã push; run 42353272952 tại
+commit `d86e6ff` đạt cả windows-latest và ubuntu-24.04, hai artifact log đã
+upload. Source/tests/config của hai commit không khác nhau. Điều kiện CI
+hoãn của G0 đã đóng tại commit hiện tại; P1.3 đạt phạm vi nghiệm thu, không
+coi là toàn G1. Phạm vi, metadata artifact và giới hạn tải log tại
 [báo cáo P1.3](docs/acceptance/P1.3.md). P1.4–P1.7/G1 còn mở.

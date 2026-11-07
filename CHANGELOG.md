@@ -11,6 +11,9 @@
 - Không thêm dependency hoặc đổi schema/config/hash/seed; rolling chỉ mở
   helpers nội bộ để tái sử dụng mean/tổng bù. Không publish/tag hoặc đổi quyền repo.
 - Mở lại kiểm chứng CI theo yêu cầu; bằng chứng tại [báo cáo P1.3](docs/acceptance/P1.3.md).
+- Local/checkout sạch đạt 42 tests; CI windows-latest/ubuntu-24.04 đều PASS
+  tại d86e6ff (run 42353272952), hai artifact log đã upload. Đóng điều kiện
+  CI hoãn của G0; G1 còn mở cho P1.4–P1.7.
 
 ## 0.1.0 — P1.2, chưa phát hành
 

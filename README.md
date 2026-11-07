@@ -27,5 +27,6 @@ về sau. Các package hiện đặt `publish = false`. Git và kiểm chứng c
 đã hoàn tất cho P0; P1 bắt đầu theo ngoại lệ local được người dùng phê duyệt.
 Yêu cầu P1.3 mở lại kiểm chứng CI Windows/Linux; trạng thái mới nhất nằm trong
 [báo cáo P1.3](docs/acceptance/P1.3.md): local/checkout sạch Windows đạt 42 tests;
-CI chưa khởi chạy vì bước đẩy mã lên repo công khai cần được chấp thuận rõ.
-Báo cáo G0/P1.1/P1.2 giữ bằng chứng lịch sử.
+CI Windows/Linux đều đạt tại commit `d86e6ff`, run 42353272952, có hai artifact.
+Điều kiện CI hoãn của G0 đã đóng; toàn G1 còn mở cho P1.4–P1.7.
+Báo cáo G0 có bổ sung CI; P1.1/P1.2 giữ bằng chứng lịch sử.
