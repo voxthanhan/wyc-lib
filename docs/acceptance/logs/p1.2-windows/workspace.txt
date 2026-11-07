@@ -1,0 +1,1 @@
+PASS: P1.2 package boundaries, acyclic dependency graph, foundation/rolling targets, 58 local links

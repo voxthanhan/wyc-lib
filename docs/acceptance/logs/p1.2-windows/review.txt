@@ -1,0 +1,20 @@
+PASS: git diff --check, exit 0
+PRESERVED: crates/contracts/Cargo.toml
+PRESERVED: crates/contracts/src/analysis.rs
+PRESERVED: crates/contracts/src/available.rs
+PRESERVED: crates/contracts/src/identity.rs
+PRESERVED: crates/contracts/src/lib.rs
+PRESERVED: crates/contracts/src/market.rs
+PRESERVED: crates/contracts/src/value.rs
+PRESERVED: crates/contracts/src/report.rs
+PRESERVED: crates/contracts/src/result.rs
+PRESERVED: crates/wyc_lib/src/preparation.rs
+PRESERVED: tests/p1_foundation.rs
+PRESERVED: tests/fixtures/p1-identity.json
+PRESERVED: tests/golden/p1-identity.json
+PRESERVED: tests/fixtures/temporal.json
+PRESERVED: tests/golden/temporal.json
+PRESERVED: tests/fixtures/p1-arithmetic.json
+PRESERVED: tests/golden/p1-arithmetic.json
+PASS: 17 existing P1.1 source and fixture files preserved byte-for-byte
+Source manifest records 39 verification inputs; HEAD is the base commit, not a P1.2 commit.

@@ -1,4 +1,6 @@
-use crate::{ContractError, ErrorCode, FiniteF64, MarketData, CONFIG_VERSION, SCHEMA_VERSION};
+use crate::{
+    AvailableData, ContractError, ErrorCode, FiniteF64, MarketData, CONFIG_VERSION, SCHEMA_VERSION,
+};
 use serde::{Deserialize, Serialize};
 use std::collections::BTreeSet;
 
@@ -13,6 +15,22 @@ pub enum Module {
     WyckoffEngine,
     EvidenceEngine,
     FeatureEngine,
+}
+
+impl Module {
+    /// Stable wire spelling, also used by the event-v1 identity contract.
+    pub fn as_str(self) -> &'static str {
+        match self {
+            Self::Indicators => "indicators",
+            Self::MarketStructure => "market_structure",
+            Self::PriceZones => "price_zones",
+            Self::VolumeEngine => "volume_engine",
+            Self::RelativeStrength => "relative_strength",
+            Self::WyckoffEngine => "wyckoff_engine",
+            Self::EvidenceEngine => "evidence_engine",
+            Self::FeatureEngine => "feature_engine",
+        }
+    }
 }
 
 /// All P1 periods are explicit. There are no hidden runtime defaults.
@@ -117,13 +135,18 @@ pub struct AnalysisRequest {
 impl AnalysisRequest {
     /// Only P1 module selection is specified for execution. No algorithms run here.
     pub fn validate(&self) -> Result<(), ContractError> {
+        self.validate_and_select().map(|_| ())
+    }
+
+    /// Validate once and retain a borrowed view of only the available prefix.
+    pub fn validate_and_select(&self) -> Result<AvailableData<'_>, ContractError> {
         if self.schema_version != SCHEMA_VERSION {
             return Err(ContractError::new(
                 ErrorCode::UnsupportedVersion,
                 "schema_version",
             ));
         }
-        self.data.available_len(self.as_of)?;
+        let data = AvailableData::new(&self.data, self.as_of)?;
         self.config.validate()?;
         if self.modules.is_empty() {
             return Err(ContractError::new(ErrorCode::InvalidConfig, "modules"));
@@ -137,7 +160,7 @@ impl AnalysisRequest {
                 return Err(ContractError::new(ErrorCode::UnsupportedModule, "modules"));
             }
         }
-        Ok(())
+        Ok(data)
     }
 }
 

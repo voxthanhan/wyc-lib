@@ -1,0 +1,3 @@
+PASS: git diff --check
+PASS: 30 prior source/fixture files outside intended P1.3 edits match P1.2 SHA-256 bytes exactly.
+Changed prior files within scope: .github/workflows/ci.yml, crates/indicators/Cargo.toml, crates/indicators/src/lib.rs, crates/indicators/src/rolling.rs, scripts/verify_oracles.py, scripts/verify_workspace.py, tests/fixtures/manifest.json, tests/fixtures/README.md, tests/foundation.rs

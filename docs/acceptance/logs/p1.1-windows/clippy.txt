@@ -1,0 +1,3 @@
+    Checking contracts v0.1.0 (D:\Dev\Lib\crates\contracts)
+    Checking wyc-lib v0.1.0 (D:\Dev\Lib\crates\wyc_lib)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 7.91s

@@ -1,0 +1,16 @@
+{
+  "canonical_config": "config_version=p1-v1\nperiod=14\nmacd_fast=12\nmacd_slow=26\nmacd_signal=9\nbollinger_multiplier_bits=4000000000000000\nleft=2\nright=2\n",
+  "config_hash": "sha256:config-v1:86fa00f140396f6ae60d9301e4358a47d3a60160de7d875423e65aad88c5bb1c",
+  "event_preimages": [
+    "5:0.1.05:p1-v15:SYNTH18:synthetic-close-1s12:synthetic-r181:sha256:config-v1:86fa00f140396f6ae60d9301e4358a47d3a60160de7d875423e65aad88c5bb1c16:market_structure15:pivot-strict-v110:pivot_high4:20004:35001:0",
+    "5:0.1.05:p1-v112:CỔ:PHIẾU18:synthetic-close-1s12:synthetic-r181:sha256:config-v1:86fa00f140396f6ae60d9301e4358a47d3a60160de7d875423e65aad88c5bb1c16:market_structure11:quy-tắc:110:pivot_high4:200016:900719925474099120:18446744073709551615",
+    "5:0.1.05:p1-v12:AB1:C12:synthetic-r181:sha256:config-v1:86fa00f140396f6ae60d9301e4358a47d3a60160de7d875423e65aad88c5bb1c16:market_structure15:pivot-strict-v110:pivot_high4:20004:35001:0",
+    "5:0.1.05:p1-v11:A2:BC12:synthetic-r181:sha256:config-v1:86fa00f140396f6ae60d9301e4358a47d3a60160de7d875423e65aad88c5bb1c16:market_structure15:pivot-strict-v110:pivot_high4:20004:35001:0"
+  ],
+  "event_ids": [
+    "sha256:event-v1:907d7e7d513cd991387a1fa784eaf92f90a4f33a87d52c10c1860ee7920d4839",
+    "sha256:event-v1:7de60db4841a2336221ca016c823d9310f4bb38533b1529198808b435ce4b271",
+    "sha256:event-v1:f13d857d29ab5ef243a107107489e630c276e734fcdc6dd4beb43ba8c71b9c49",
+    "sha256:event-v1:9dba6961f54deebae2309d9a484ee8b719213351f64b8034f876cf171874d647"
+  ]
+}

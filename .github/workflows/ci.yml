@@ -1,4 +1,4 @@
-name: P0 foundation
+name: Rust foundation
 
 on: [push, pull_request, workflow_dispatch]
 

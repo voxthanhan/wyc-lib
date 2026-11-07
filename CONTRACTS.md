@@ -74,7 +74,12 @@ Pivot ở 2000 cần nến phải 3000 có availability 3500: `observed_at=2000`
 API nhận borrow read-only, kết quả tương lai là owned. Request validate gọi data
 validation/availability rồi config và module selection. Danh sách module khác
 rỗng, không trùng; P0 validate nhận `indicators`, `market_structure`, còn module
-tương lai trả `unsupported_module`. P0 **không có API phân tích**.
+tương lai trả `unsupported_module`. P1.1 có `validate_and_select()` và
+`wyc_lib::prepare_request()` để chuẩn bị context; **chưa có API phân tích**.
+Modules trong prepared context có thứ tự `indicators`, `market_structure`,
+không sửa thứ tự input của caller. `AvailableData` chỉ cho đọc tiền tố hợp lệ,
+`bar(index)` trả None ngoài prefix. Metadata được tạo owned và chỉ có getter
+read-only, không dùng giờ hệ thống hoặc dữ liệu tương lai để chọn kết quả.
 
 `AnalysisConfig`: `config_version`, `indicators`, `structure`.
 `IndicatorConfig`: period=14, macd_fast=12, macd_slow=26, macd_signal=9,
@@ -88,7 +93,7 @@ và auxiliary inputs tại cổng tương ứng; không nhét dữ liệu tùy �
 ## Giá trị số và lỗi
 
 `FiniteF64` từ chối NaN/±Infinity khi xây hoặc deserialize; chuẩn hóa -0 về +0.
-Không rounding giá hoặc số trung gian. Mọi phép toán tương lai phải kiểm tra
+Không rounding giá hoặc số trung gian. Mọi phép toán phân tích phải kiểm tra
 overflow/non-finite và trả lỗi có thể xử lý, không panic/Infinity hoặc JSON null
 giả thành công. Dung sai công thức trong `docs/algorithms/P1.md`.
 
@@ -105,8 +110,12 @@ giả thành công. Dung sai công thức trong `docs/algorithms/P1.md`.
 Warm-up: thiếu số nến cần cho seed/lookback, `available < required`.
 `NumericValue::validate()` kiểm tra `required > 0` và bất biến này;
 `NumericSample::validate_at()` kiểm tra thời gian và trạng thái, trả
-`invalid_result` khi không hợp lệ. Các kiểu result khác hiện là DTO; engine P1
-chịu trách nhiệm kiểm tra shape/lineage của toàn kết quả trước khi trả.
+`invalid_result` khi không hợp lệ. P1.1 thêm `AvailableData::numeric_sample()`
+và `validate_numeric_series()`: N samples, observed_at đúng nến, known_at bằng
+max(revision_available_at, available_at[i]), warmup.available=i+1. Không bỏ
+warm-up hoặc thay missing thành 0. Các result container khác vẫn là DTO; engine
+P1 chịu trách nhiệm kiểm tra required/first-valid theo công thức, danh mục output
+và toàn bộ shape/lineage trước khi trả analytical results ở P1.2–P1.6.
 Missing: đủ nến nhưng phép tính không xác định hoặc dependency chưa có;
 `unavailable_dependency` là missing của một output, khác lỗi request thiếu input
 bắt buộc. Invalid input: `Result::Err(ContractError {code,path})`, không trả
@@ -128,6 +137,39 @@ NumericValue thay thế. `NumericSample` gắn `observed_at` và `known_at`.
 Error enum còn dự trù `missing_dependency`, `state_mismatch`, `reset_required`
 cho P1+; semantics tại `docs/API.md`. Chưa có binding ánh xạ lỗi ở P0.
 
+P1.2 bổ sung `AnalysisError` cho phép tính: `Contract(ContractError)` giữ nguyên
+lỗi validation, `NumericOverflow {path}` có code `numeric_overflow` để phân
+biệt với `non_finite` của input. `code()`/`path()` là định danh machine-readable;
+Display chỉ để chẩn đoán, không là contract. `ErrorCode` thêm numeric_overflow;
+không đổi shape JSON, config/hash, schema hoặc algorithm bundle đã có. Bindings
+P2 sẽ ánh xạ lỗi; hiện chưa có wire serialization riêng cho AnalysisError.
+
+Primitives `indicators::rolling` nhận `&[FiniteF64]` và period `[1,1000000]`,
+trả `Vec<NumericValue>` dài N với n-1 warm-up, không có missing tự sinh. Không
+nhận as_of hoặc MarketData; caller phải dùng prefix khả dụng. Sum có bù số,
+variance dân số hai lượt, từng cửa sổ tính lại độc lập; lỗi trung gian không
+hữu hạn hủy toàn phép gọi, không sửa input. Quy tắc cửa sổ, underflow, overflow,
+độ phức tạp và thứ tự số tại [đặc tả P1.2](docs/algorithms/P1.md).
+
+P1.3 bổ sung `indicators::basic` cho SMA/EMA/WMA/TR/ATR/Momentum/ROC/Volume SMA/
+RVOL. `calculate_basic(data, config, as_of)` validate toàn data/config, chỉ
+tính prefix khả dụng và trả `ModuleResult<BasicIndicatorResult>` với đúng
+chín series trong BTreeMap theo IndicatorKind. Result Rust có kiểu, chưa có
+wire serialization riêng; không thay schema IndicatorResult của toàn P1.
+Warm-up n cho các trung bình/ATR/RVOL, n+1 cho Momentum/ROC, 1 cho TR.
+ROC/RVOL có missing zero_denominator và có thể ready trở lại ở nến tiếp theo.
+Không dùng sentinel 0/NaN. Samples, metadata/config hash và overflow theo
+contract trên; công thức và thứ tự số tại đặc tả P1.3 cùng tài liệu thuật toán.
+
+BasicIndicatorState giữ prefix owned, toàn AnalysisConfig, MarketMetadata và
+result/version. Update nhận snapshot tích lũy cùng config/as_of, yêu cầu đúng
+một nến mới, history/identity không đổi và as_of không giảm; chỉ giữ prefix,
+không giữ future. Lỗi identity là state_mismatch, sửa/xóa history hoặc gap cần
+reset_required; lỗi validation giữ nguyên code/path. Update/reset thất bại
+atomic, reset thành công tính lại batch trên revision/config mới. State tính
+lại batch mỗi update; không phải AnalysisState/ClosedBarUpdate của P1.6.
+Không có state serialization để tái dùng qua phiên bản engine/algorithm.
+
 ## Result có kiểu cho P1
 
 `AnalysisResult` có `metadata: ResultMetadata`, `indicators: Option<IndicatorResult>`,
@@ -144,7 +186,9 @@ tự enum khai báo trong `result.rs`, ổn định theo schema; không dựa ha
 StructureResult có pivots (ID/kind/label/level/time), trends (trend/time tại mỗi
 nến), breaks (ID/reference/kind/direction/level/close/strength/time), evidence.
 Label enum bao gồm HH/HL/LH/LL/EH/EL và unclassified theo rule P1. Các output có
-kiểu chỉ là contract; không có dấu hiệu engine đã được triển khai.
+kiểu này là contract cho analytical entry points; P1.3 chỉ tạo
+BasicIndicatorResult riêng cho chín chỉ báo nền, chưa tạo toàn bộ
+IndicatorResult/StructureResult từ orchestrator.
 
 ## Evidence và DecisionReport
 
@@ -164,7 +208,7 @@ chưa xảy ra. P5 phải chốt integrity references và guards chuyển trạn
 khi đánh giá; P0 chỉ kiểm tra serialization mẫu, không xác nhận report hợp lệ
 về nghiệp vụ. `confirmed` chỉ là thỏa quy tắc; không phải xác suất hay dự báo.
 
-## Hash, ID, state và FFI (đặc tả cho P1/P2)
+## Hash, ID runtime P1.1; state và FFI dự kiến P1/P2
 
 Canonical config v1: UTF-8 ASCII, LF, mỗi dòng `key=value`, theo đúng thứ tự
 `config_version`, `period`, `macd_fast`, `macd_slow`, `macd_signal`,
@@ -172,13 +216,22 @@ Canonical config v1: UTF-8 ASCII, LF, mỗi dòng `key=value`, theo đúng thứ
 không leading zero; multiplier dùng 16 chữ hex lowercase của `f64::to_bits()`
 (vd 2.0 = `4000000000000000`). Không phụ thuộc thứ tự JSON hoặc locale.
 `config_hash = "sha256:config-v1:" + lowercase_hex(SHA256(bytes))`.
-Đây là **spec**, chưa có hàm hash runtime P0.
+P1.1 thực thi bằng `AnalysisConfig::canonical_config()`/`config_hash()`,
+validate trước hashing; bao gồm toàn bộ config, không phụ thuộc modules/as_of.
+Config sai không được cấp hash; không đổi canonical spec đã chốt tại P0.
 
 Event ID v1: `sha256:event-v1:` + SHA256 của serialization length-prefixed từng
 trường UTF-8: engine_version, algorithm_version, symbol, timeframe, data_revision,
 config_hash, source_module, rule_id, event_type, observed_at, known_at, ordinal.
 Prefix mỗi trường là chiều dài byte decimal + `:`; timestamps/ordinal decimal.
 Ordinal là thứ tự phân giải quy tắc đã đặc tả, không phải thứ tự worker/hash map.
+P1.1 cung cấp `stable_event_id(&EventIdentity)`, timestamps i64 và ordinal u64;
+module dùng wire string chính xác. Chuỗi định danh không rỗng sau trim, giữ
+nguyên UTF-8 đầu vào; length là số bytes, không phải số ký tự. Hash config phải
+đúng prefix config-v1 và 64 hex lowercase. Sai metadata trả invalid_metadata,
+timestamp sai trả invalid_timestamp, observed_at>known_at trả invalid_evidence.
+Hàm không kiểm chứng lineage/as_of: module phát event phải kiểm tra những điều
+đó. Bộ vectors độc lập gồm Unicode, dấu hai chấm và u64 ordinal cực đại.
 Result order: observed_at, known_at, source_module wire string, rule_id, event_id;
 output module order theo danh mục phase, không theo thứ tự caller.
 

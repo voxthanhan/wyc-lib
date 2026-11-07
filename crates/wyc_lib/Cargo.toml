@@ -10,6 +10,7 @@ name = "wyc_lib"
 
 [dependencies]
 contracts.workspace = true
+indicators.workspace = true
 
 [dev-dependencies]
 serde.workspace = true
@@ -19,6 +20,10 @@ sha2.workspace = true
 [[test]]
 name = "foundation"
 path = "../../tests/foundation.rs"
+
+[[test]]
+name = "p1_foundation"
+path = "../../tests/p1_foundation.rs"
 
 [lints]
 workspace = true

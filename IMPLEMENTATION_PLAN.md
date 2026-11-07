@@ -29,7 +29,7 @@ Ngoài phạm vi V1.0: giao diện, chiến lược giao dịch, quản trị da
 | Giai đoạn | Điều kiện bắt đầu | Sản phẩm chính | Cổng |
 | --- | --- | --- | --- |
 | P0 — Nền móng | Thiết kế và nguyên tắc dự án | Workspace, contracts, đặc tả API, test harness, fixtures nền, CI cơ bản | G0 |
-| P1 — Rust nền tảng | G0 | Indicators, Market Structure, orchestration và state nền | G1 |
+| P1 — Rust nền tảng | G0; ngoại lệ local ngày 07/11/2026 tại mục 12 | Indicators, Market Structure, orchestration và state nền | G1 |
 | P2 — Đa ngôn ngữ | G1; contract FFI đã chốt | Node.js/Python packages, parity, kiểm tra cài đặt | G2 / Foundation |
 | P3 — Giá, khối lượng, RS | G2; đặc tả từng module | Price Zones, Volume/VSA/Profile, Relative Strength và bindings tương ứng | G3 |
 | P4 — Wyckoff và nhiều timeframe | G3; bảng quy tắc Wyckoff và contract nhiều timeframe | Wyckoff Engine, replay nhiều timeframe, bindings | G4 / Analysis |
@@ -132,7 +132,8 @@ Với mọi kết quả dẫn xuất, `known_at` không được sớm hơn th�
 
 **Mục tiêu:** tạo đường xử lý hoàn chỉnh đầu tiên từ input hợp lệ đến kết quả có thời gian khả dụng, chạy được batch và cập nhật theo nến đóng.
 
-**Điều kiện đầu vào:** G0 đạt; công thức và quy tắc cho từng bước đã được đặc tả.
+**Điều kiện đầu vào:** G0 đạt hoặc ngoại lệ local được phê duyệt tại mục 12;
+công thức và quy tắc cho từng bước đã được đặc tả.
 
 | Bước | Công việc và sản phẩm | Dependency |
 | --- | --- | --- |
@@ -453,10 +454,64 @@ Phần hiện trạng ở mục 1 và checklist ban đầu mô tả thời đi�
 validation nền, ARCHITECTURE/CONTRACTS/ADR, đặc tả API và toàn bộ công thức P1,
 fixtures tổng hợp/golden độc lập, test target foundation và workflow CI cơ bản.
 Chưa triển khai thuật toán P1 hoặc bindings. `available_len`/validation contract
-được thực thi sớm tại P0 để kiểm tra fixtures; hash/ID/state runtime vẫn ở P1.1.
+được thực thi sớm tại P0 để kiểm tra fixtures; hash/ID runtime thuộc P1.1,
+state engine thuộc P1.6.
 
 Trạng thái chi tiết P0.1–P0.7, kết quả local và các điều kiện G0 còn thiếu nằm
 trong [báo cáo G0](docs/acceptance/G0.md). Git đã khởi tạo, commit nền P0 đã đẩy
 lên voxthanhan/wyc-lib; clean clone Windows kiểm chứng thành công. CI đã được
 kích hoạt nhưng bị chặn trước khi cấp runner; người dùng yêu cầu chạy CI sau.
-G0 còn mở cho CI Windows/Linux; chưa bắt đầu P1 và không giảm điều kiện nghiệm thu.
+Tại thời điểm kết thúc P0, G0 còn mở cho CI Windows/Linux và P1 chưa bắt đầu.
+Quyết định tiếp tục sau đó được ghi riêng tại mục 12.
+
+## 12. Ngoại lệ G0 và triển khai P1.1 — 07/11/2026
+
+Theo yêu cầu trực tiếp của người dùng, **tạm hoãn CI và cho phép bắt đầu P1
+dựa trên kiểm chứng local**. Ngoại lệ chỉ thay điều kiện bắt đầu P1, không đánh
+dấu G0 đầy đủ hoặc CI Windows/Linux đạt. Bằng chứng checkout sạch P0, phạm vi,
+giới hạn và điều kiện hoàn tất CI nằm tại [báo cáo G0](docs/acceptance/G0.md).
+Các câu “chỉ sau G0” trong kế hoạch được áp dụng cùng ngoại lệ này.
+
+Phạm vi đợt P1.1: tái sử dụng input/as_of validation P0, tạo view
+read-only của tiền tố khả dụng, chuẩn hóa thứ tự module, kiểm tra numeric
+series/status/time, canonical config hash và stable event ID. Không triển khai
+rolling, chỉ báo, structure, state/update/reset hoặc analytical entry points.
+P1.1 **hoàn thành với kiểm chứng local Windows**; trạng thái và bằng chứng tại
+[báo cáo P1.1](docs/acceptance/P1.1.md). P1.2–P1.7
+và G1 chưa được nghiệm thu.
+
+## 13. Triển khai P1.2 — 07/11/2026
+
+Theo xác nhận của người dùng, **chỉ tạm hoãn CI, vẫn kiểm chứng local như
+P1.1**. Ngoại lệ G0 còn hiệu lực; không kích hoạt CI hoặc nghiệm thu Linux.
+
+P1.2 thêm crate `indicators` với rolling sum/mean/min/max, population variance
+và std. Input là slice FiniteF64 đã được caller chọn tiền tố; output có đủ
+warm-up. Tổng bù Neumaier, variance hai lượt và tính lại từng cửa sổ nhằm
+kiểm soát mất mát số/drift; arithmetic overflow có mã/path riêng qua
+AnalysisError ở contracts. Không đổi công thức/seed/schema/config/hash cũ,
+không thêm dependency bên ngoài. Tests/golden/oracle và kiểm biên/causal
+replay được bổ sung; chưa có incremental state, benchmark hoặc chỉ báo P1.3.
+
+P1.2 **hoàn thành với kiểm chứng local Windows**: format/Clippy/build và 28
+integration tests đạt, oracle độc lập và kiểm dependency/liên kết đạt.
+Trạng thái, bằng chứng local và giới hạn nghiệm thu tại
+[báo cáo P1.2](docs/acceptance/P1.2.md). P1.3–P1.7 và G1 chưa nghiệm thu;
+bản chuẩn O(N×min(n,N)) không được coi là baseline hiệu năng đã đo.
+
+## 14. Triển khai P1.3 — 07/11/2026
+
+Theo yêu cầu tiếp tục P1.3, **mở lại kiểm chứng CI cùng local**. Giữ bằng chứng
+lịch sử G0/P1.1/P1.2; không tự đổi các kết luận CI đã hoãn của những đợt trước.
+
+P1.3 thêm SMA/EMA/WMA, TR/ATR, ROC/Momentum, Volume SMA/RVOL; tái sử dụng mean
+và tổng bù P1.2, giữ seed/warm-up/algorithm bundle p1-v1. `calculate_basic`
+chỉ trả tập chín series có metadata/time; BasicIndicatorState nhận snapshot
+tích lũy, kiểm identity/history/availability, update/reset atomic bằng batch
+tính lại. Đây là state P1.3, chưa mở rộng sang AnalysisState/orchestrator P1.6.
+Không thêm dependency, thay schema/config/hash hoặc tối ưu chưa đo.
+
+Golden sáu case dùng oracle Fraction và smoothing dạng tổng hình học độc lập;
+tests kiểm mọi tiền tố, future/revision, period khác mặc định, biên số và lỗi
+state. Phạm vi, local/checkout sạch và kết quả CI thực tế tại
+[báo cáo P1.3](docs/acceptance/P1.3.md). P1.4–P1.7/G1 còn mở.
