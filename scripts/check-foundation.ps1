@@ -45,7 +45,9 @@ try {
         Write-Host "CHECK: $Command $($Arguments -join ' ')"
         $output = & $Command @Arguments 2>&1
         $code = $LASTEXITCODE
-        $output | Tee-Object -FilePath (Join-Path $evidencePath "$Name.txt")
+        $logFile = Join-Path $evidencePath "$Name.txt"
+        [System.IO.File]::WriteAllText($logFile, '')
+        $output | Tee-Object -FilePath $logFile
         $checks.Add([ordered]@{ name = $Name; command = $Command; arguments = $Arguments; exit_code = $code })
         if ($code -ne 0) { throw "$Name failed with exit code $code" }
     }
