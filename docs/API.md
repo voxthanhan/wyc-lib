@@ -1,8 +1,8 @@
 # API hiện có và API mục tiêu
 
-Utilities P1.1, primitives P1.2, chỉ báo/state P1.3, chỉ báo P1.4 và structure P1.5 đã có implementation.
-Các chữ ký analytical entry points/AnalysisState P1.6 vẫn là **thiết kế**, chưa xuất
-thành stub. Result từng engine phải có kiểu rõ ràng, không trả generic JSON.
+Utilities P1.1, primitives P1.2, chỉ báo/state P1.3, chỉ báo P1.4, structure P1.5
+và analytical entry points/AnalysisState P1.6 đã có implementation Rust.
+Result có kiểu rõ ràng; bindings thuộc P2, benchmark/G1 còn chờ P1.7.
 
 ## Utilities P1.1
 
@@ -161,21 +161,37 @@ overflow trả numeric_overflow; không trả output dở dang. Không có mutab
 Re-export crate này chưa phải `wyc_lib::analyze_structure` của P1.6.
 Kiểm chứng tại [báo cáo P1.5](acceptance/P1.5.md).
 
-### Analytical entry points/state dự kiến P1.6
+### Analytical entry points/state P1.6 đã triển khai
 
 ```rust,ignore
-fn calculate_indicators(data: &MarketData, config: &IndicatorConfig, as_of: i64)
+fn calculate_indicators(data: &MarketData, config: &AnalysisConfig, as_of: i64)
     -> Result<ModuleResult<IndicatorResult>, AnalysisError>;
-fn analyze_structure(data: &MarketData, config: &StructureConfig, as_of: i64)
+fn analyze_structure(data: &MarketData, config: &AnalysisConfig, as_of: i64)
     -> Result<ModuleResult<StructureResult>, AnalysisError>;
 fn analyze_batch(request: &AnalysisRequest) -> Result<AnalysisResult, AnalysisError>;
 impl AnalysisState {
     fn new(request: &AnalysisRequest) -> Result<Self, AnalysisError>;
+    fn result(&self) -> &AnalysisResult;
+    fn identity(&self) -> &StateIdentity;
+    fn history_len(&self) -> usize;
     fn update_closed_bar(&mut self, update: &ClosedBarUpdate)
         -> Result<AnalysisResult, AnalysisError>;
     fn reset(&mut self, request: &AnalysisRequest) -> Result<AnalysisResult, AnalysisError>;
 }
 ```
+
+Cả ba entry points và AnalysisState được export trực tiếp từ `wyc_lib`.
+Hai API đơn module nhận **toàn AnalysisConfig**, khác chữ ký draft P0 dùng
+IndicatorConfig/StructureConfig: giữ validation/hash nhất quán với engine đã
+có và batch; không tạo default cấu hình ẩn. Quyết định trước code tại
+[ADR-0003](adr/0003-p1-orchestration-state.md). API engine cũ vẫn giữ nguyên.
+
+`calculate_indicators` trả đúng 25 IndicatorKind: Sum/Sma/Ema/Wma/Min/Max/
+Variance/Std/Tr/Atr/Momentum/Roc/VolumeSma/Rvol/Rsi/MacdLine/MacdSignal/
+MacdHistogram/PlusDi/MinusDi/Dx/Adx/BollingerMiddle/BollingerUpper/BollingerLower.
+Rolling dùng close/period; Sma là rolling mean. Tái sử dụng basic/advanced/rolling,
+không sao chép công thức. Kiểm 25 keys, N samples, lineage và required/first-valid
+trước xuất kết quả. Structure gọi engine P1.5 với evidence đã validate.
 
 Ownership: borrow input, owned immutable outputs. No input mutation; state owns
 copies of necessary history. Result metadata: schema/engine/algorithm version,
@@ -189,24 +205,42 @@ Dependency không có input bắt buộc trả missing_dependency; bản P1 hai 
 không cần external input, nên không có trường hợp thiếu benchmark giả định.
 Module chưa triển khai trả unsupported_module, không âm thầm bỏ qua.
 
-`ClosedBarUpdate`: bar một hàng đủ OHLCV/availability, toàn metadata định danh,
-schema/engine/config/module identity và `as_of`. Chỉ nhận nến closed,
+`ClosedBarUpdate {identity: StateIdentity, metadata: MarketMetadata,
+bar: ClosedBar, as_of: i64}`; `ClosedBar` gồm timestamp, available_at,
+open/high/low/close/volume (Option<FiniteF64>) và is_closed. Hai DTO có serde,
+deny_unknown_fields; JSON null OHLCV được decode rồi báo missing_data khi update.
+Caller echo chính xác `state.identity().clone()` gồm last_timestamp/last_as_of
+và modules canonical; cursor cũ trả state_mismatch. Chỉ nhận nến closed,
 timestamp > last_timestamp, available_at >= last availability và <= as_of,
 as_of >= last_as_of. Không append vào state đang có nến đóng chưa khả dụng;
 khởi tạo state chỉ giữ tiền tố đã khả dụng. Update trùng/đảo timestamp là lỗi,
 đổi revision/config/units/source/symbol/timeframe/module là state_mismatch;
-gap hoặc sửa lịch sử trả reset_required. Thất bại phải atomic: state không đổi.
+gap khai báo trả reset_required. Protocol append không có history payload:
+không thể sửa history qua update; caller phải đổi revision và reset khi sửa
+lịch sử ngoài state. Core không phát hiện caller khai sai revision. Thất bại
+atomic: toàn state không đổi. State chỉ copy prefix, không clone/giữ future.
+
+Thứ tự lỗi update: gap → reset_required tại metadata.gaps; identity/metadata
+khác → state_mismatch tại state.identity; as_of ngoài miền → invalid_timestamp
+tại as_of; as_of giảm → invalid_availability tại as_of; nến chưa đóng →
+invalid_availability tại state.new_bar. Batch validation sau append giữ code/path
+của input (index trong history tích lũy); timestamp trùng/đảo không tự sửa.
+Nến chưa khả dụng trả invalid_availability tại state.new_bar. Equality
+available_at/as_of hợp lệ, chênh timestamp không tự được xem là gap.
 
 `reset` xây state mới bằng batch trên snapshot hợp lệ rồi thay thế atomic, không
 ghi đè các report trước mà caller đã giữ. Truy vấn as_of cũ dùng analyze_batch
 và snapshot/revision đúng mốc; không có query quá khứ từ state mới hơn.
-Update có thể batch tính lại trong P1; không cam kết O(1) hay throughput.
+Update P1.6 **tính lại batch** trên history retained; indicators
+O(N×min(n,N)), structure O(N×min(L+R+1,N)+N log N), bộ nhớ/output O(N), thêm
+validation và sao chép. Engine được gọi lại có thể lặp validation/primitives;
+không cam kết O(1) hoặc hiệu năng chưa đo. Không serialize mutable state.
 `AnalysisError` hiện bao bọc ContractError và numeric-overflow với code/path;
-State errors sau này đi qua ContractError có mã state_mismatch/reset_required.
+State errors đi qua ContractError có mã state_mismatch/reset_required.
 Không dùng panic cho dữ liệu hoặc lỗi dự kiến. Các typed output DTO P1 đã có
 trong `contracts/src/result.rs`; engine cần validation toàn kết quả trước khi
 xuất analytical entry points. P1.2 đã có
-AnalysisError và validation primitives, chưa có engine tạo toàn result catalog.
+AnalysisError và validation primitives; toàn result catalog được ghép tại P1.6.
 
 ## P3–P6: chữ ký khung và dependency
 

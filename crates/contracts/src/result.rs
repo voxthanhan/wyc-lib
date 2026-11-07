@@ -142,7 +142,7 @@ pub struct StructureResult {
     pub evidence: Vec<Evidence>,
 }
 
-/// Typed P1 output contract. No function produces analytical results in P0.
+/// Typed output of the P1 batch and state entry points.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct AnalysisResult {

@@ -76,7 +76,7 @@ API nhận borrow read-only, kết quả tương lai là owned. Request validate
 validation/availability rồi config và module selection. Danh sách module khác
 rỗng, không trùng; P0 validate nhận `indicators`, `market_structure`, còn module
 tương lai trả `unsupported_module`. P1.1 có `validate_and_select()` và
-`wyc_lib::prepare_request()` để chuẩn bị context; **chưa có API phân tích**.
+`wyc_lib::prepare_request()` để chuẩn bị context; P1.6 bổ sung API phân tích.
 Modules trong prepared context có thứ tự `indicators`, `market_structure`,
 không sửa thứ tự input của caller. `AvailableData` chỉ cho đọc tiền tố hợp lệ,
 `bar(index)` trả None ngoài prefix. Metadata được tạo owned và chỉ có getter
@@ -183,8 +183,8 @@ Không có state serialization để tái dùng qua phiên bản engine/algorith
 
 `AnalysisResult` có `metadata: ResultMetadata`, `indicators: Option<IndicatorResult>`,
 `structure: Option<StructureResult>`; None/JSON null nghĩa module không được yêu
-cầu. Module được yêu cầu trên input rỗng có container rỗng hợp lệ khi P1 triển
-khai; P0 không có hàm tạo kết quả phân tích. Metadata gồm schema/engine/algorithm
+cầu. Module được yêu cầu trên input rỗng có container rỗng hợp lệ ở P1.6;
+P0 chưa có hàm tạo kết quả phân tích. Metadata gồm schema/engine/algorithm
 version, symbol, timeframe, data_revision, config_hash, as_of.
 API đơn module dùng `ModuleResult<T> {metadata, output}` với cùng metadata.
 
@@ -262,3 +262,26 @@ Python float/int + typed status; JSON dùng tagged object như trên. Input null
 được báo missing_data. Mapping dự kiến Node TypeError/RangeError cho type/range,
 Python TypeError/ValueError tương ứng, kèm code/path; engine/state errors có
 error class riêng. Chi tiết ABI và handle đóng/finalize phải chốt ở P2.1.
+
+## Điều phối/state P1.6 đã triển khai
+
+Ba entry points và AnalysisState tại wyc_lib thực thi toàn P1; contracts chỉ
+chứa DTO/validation. IndicatorResult có đúng 25 keys, mỗi key N samples với
+warm-up/missing/time, serialization hiện có; AnalysisResult có null cho module
+không chọn. Chỉ chạy module được yêu cầu, không dùng tên source chọn thuật toán.
+API đơn module nhận toàn AnalysisConfig để hash giống batch/engine đã có;
+đây là quyết định thay chữ ký draft, không đổi public API đã triển khai trước.
+
+ClosedBar gồm timestamp/available_at, open/high/low/close/volume là Option<FiniteF64>,
+is_closed. ClosedBarUpdate gồm identity: StateIdentity, metadata: MarketMetadata,
+bar: ClosedBar, as_of: i64; serde deny_unknown_fields. Các DTO mới bổ sung vào
+schema 0.1.0 chưa phát hành, không thay shape cũ, hash hoặc algorithm bundle.
+Caller echo identity/cursor và metadata chính xác. Modules canonical, mọi
+version/revision/config_hash/symbol/timeframe/metadata phải giữ nguyên. State
+chỉ giữ prefix đã khả dụng, update một hàng closed/available, as_of không giảm.
+Lỗi update/reset atomic; gaps reset_required, identity/cursor state_mismatch,
+các lỗi input giữ code/path. Append không có payload sửa history: ứng dụng đổi
+revision và reset/replay snapshot khi sửa dữ liệu; không tự kiểm chứng revision.
+Reset có thể thay identity hoặc quay về snapshot cũ hợp lệ, không sửa report
+caller đã giữ. Truy vấn quá khứ dùng batch. Protocol/thứ tự lỗi/chi phí tại
+[ADR-0003](docs/adr/0003-p1-orchestration-state.md) và [API](docs/API.md).

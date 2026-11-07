@@ -1,14 +1,14 @@
 # wyc-lib — Kiến trúc thực thi
 
-## Hiện trạng P1.5
+## Hiện trạng P1.6
 
 Workspace có bốn package: `contracts` (wire types, cấu hình, kiểm tra contract,
 AnalysisError), `indicators` (rolling/statistics P1.2, chín chỉ báo nền và
 BasicIndicatorState P1.3, RSI/MACD/ADX/Bollinger P1.4), `market_structure`
 (pivot/labels/trend và BOS/CHoCH P1.5) và `wyc-lib`
-(`wyc_lib` trong Rust, re-export ba crate và `prepare_request`). Chưa có orchestrator
-phân tích toàn P1, AnalysisState hoặc bindings. Các hàm trong `WYC_LIB.md`
-là mục tiêu, không phải API đang chạy. Không tạo crate rỗng cho các phase sau.
+(`wyc_lib` trong Rust, re-export ba crate, `prepare_request`, ba entry points
+và AnalysisState P1.6). API P3–P6 trong `WYC_LIB.md` còn là mục tiêu;
+bindings thuộc P2. Không tạo crate rỗng cho các phase sau.
 
 ```text
 Application → bindings (P2) → wyc_lib → các crate thuật toán (P1–P6)
@@ -34,7 +34,8 @@ primitives và replay cùng AvailableData; target `p1_basic` chạy chín chỉ 
 batch/state, identity/reset và causal replay. Tất cả chạy trong workspace tests.
 Target `p1_advanced` kiểm 11 components P1.4, golden độc lập, warm-up,
 availability/revision và replay mọi tiền tố. Target `p1_structure` của wyc-lib
-kiểm P1.5 trên 15 fixtures và ca lỗi; verifier buộc đủ sáu targets.
+kiểm P1.5 trên 15 fixtures và ca lỗi. Target `p1_orchestration` kiểm API/state
+toàn P1, golden cũ, chọn module, identity và atomic errors; verifier buộc bảy targets.
 `tests/support/mod.rs` chứa so sánh JSON/số và replay contract, không phải engine.
 `serde` phục vụ wire types; `sha2` là runtime dependency của `contracts` cho
 canonical config hash và event ID theo contract. `serde_json` và `sha2` vẫn là
@@ -58,7 +59,7 @@ numeric series/status/time checks và canonical/hash/ID tại `contracts` để 
 crate thuật toán dùng chung. `wyc_lib::prepare_request` chuẩn hóa tập module và
 tạo metadata; không trả kết quả phân tích rỗng giả thành công. Không tạo thêm
 crate. Wire schema và seed/rule không đổi; dependency lock không đổi phiên bản.
-AnalysisState và orchestration toàn P1 thuộc P1.6, chưa triển khai.
+AnalysisState và orchestration toàn P1 được triển khai tại P1.6 bên dưới.
 
 P1.2 thêm crate `indicators` có dependency runtime duy nhất là `contracts`;
 không thêm dependency bên ngoài. `indicators::rolling` nhận slice FiniteF64,
@@ -97,3 +98,17 @@ Không đổi contracts/schema/config/hash; Cargo.lock chỉ thêm package nội
 cạnh dependency. Chi phí quét O(N×min(L+R+1,N)), sort evidence O(N log N), bộ nhớ
 O(N), validation toàn snapshot O(M). State chung còn thuộc P1.6.
 Kiểm chứng tại [báo cáo P1.5](docs/acceptance/P1.5.md).
+
+P1.6 thêm orchestration/state tại wyc_lib, DTO ClosedBar/ClosedBarUpdate tại
+contracts; không thêm package/dependency. `calculate_indicators` ghép 9 basic,
+11 advanced và 5 rolling thành 25 series, kiểm shape/time/warm-up; `analyze_structure`
+gọi engine đã có. `analyze_batch` chỉ chạy module được chọn theo thứ tự canonical;
+hai module P1 không phụ thuộc nhau. AnalysisState giữ prefix owned, config,
+modules/identity/metadata và result, mỗi append tính lại batch. Identity/cursor
+phải echo chính xác; gap cần reset, revision mới dùng reset/replay. Replacement
+chỉ commit sau validation/tính toán thành công. Không serialize state hoặc giữ
+future, không có query quá khứ từ state mới. Chi phí O(N×min(n,N)) cho indicators,
+O(N×min(L+R+1,N)+N log N) cho structure, bộ nhớ O(N); còn lặp validation và
+primitives qua các engine. [ADR-0003](docs/adr/0003-p1-orchestration-state.md)
+ghi chữ ký khác draft và protocol; [báo cáo P1.6](docs/acceptance/P1.6.md)
+ghi bằng chứng thực tế. P1.7/baseline và toàn G1 chưa nghiệm thu.

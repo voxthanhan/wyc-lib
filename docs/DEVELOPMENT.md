@@ -1,4 +1,4 @@
-# Phát triển và kiểm chứng P0–P1.5
+# Phát triển và kiểm chứng P0–P1.6
 
 ## Ma trận nền tảng
 
@@ -131,3 +131,14 @@ trên filesystem không hỗ trợ. `ci-evidence/` được ignore và chứa su
 log từng lệnh và metadata; summary ghi commit/tree, clean_before/clean_after,
 exit code từng check và URL run GitHub nếu có. Kiểm thêm dependency boundary,
 target foundation và liên kết Markdown bằng `scripts/verify_workspace.py`.
+
+## P1.6 — API điều phối và state
+
+Target `p1_orchestration` được buộc bởi workspace verifier cùng sáu target cũ.
+Nó đối chiếu golden độc lập có sẵn qua API mới, replay indicators/structure/cả
+hai theo nến, validation/availability/revision, toàn identity/metadata/cursor,
+module selection và atomic errors/reset. Fixtures/golden cũ giữ nguyên bytes.
+API và protocol tại [ADR-0003](adr/0003-p1-orchestration-state.md),
+[báo cáo P1.6](acceptance/P1.6.md). Dùng runner chung phía trên cho local/CI;
+không cần Node/Python bindings hoặc dữ liệu online. State tính lại batch,
+không là baseline hiệu năng hoặc nghiệm thu G1; P1.7 vẫn còn mở.

@@ -1,0 +1,9 @@
+PASS: all 16 previous fixture/golden/manifest/README files preserved byte-for-byte.
+PASS: indicators/market_structure implementation, dependency lock, toolchain and CI workflow unchanged.
+PASS: 60 exact SHA-256 source/test/config/script/fixture fingerprints recorded.
+PASS: git diff --check; dependency and documentation-link audit via foundation runner.
+REVIEW: full config hash across single/batch entry points; 25 series with first-valid/status/time validation.
+REVIEW: canonical module selection, unsupported rejection and null omitted outputs; no external dependency for P1.
+REVIEW: no future copy, exact identity/cursor and metadata, ordered availability and closed bars, append only.
+REVIEW: replacement after successful batch only; caller-owned historical reports unchanged on update/reset.
+LIMITS: full batch recomputation and repeated validation/primitives; no benchmark/state serialization/G1 acceptance.

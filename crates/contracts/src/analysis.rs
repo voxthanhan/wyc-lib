@@ -164,7 +164,7 @@ impl AnalysisRequest {
     }
 }
 
-/// Identity of a future P1 state handle; no mutable state engine is exported in P0.
+/// Versioned identity and cursor of a P1 analysis state.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct StateIdentity {
@@ -178,4 +178,29 @@ pub struct StateIdentity {
     pub modules: Vec<Module>,
     pub last_timestamp: Option<i64>,
     pub last_as_of: i64,
+}
+
+/// One append-only bar. Null numeric fields are reported as missing_data by
+/// market validation, just like the columnar batch input.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct ClosedBar {
+    pub timestamp: i64,
+    pub available_at: i64,
+    pub open: Option<FiniteF64>,
+    pub high: Option<FiniteF64>,
+    pub low: Option<FiniteF64>,
+    pub close: Option<FiniteF64>,
+    pub volume: Option<FiniteF64>,
+    pub is_closed: bool,
+}
+
+/// Echo the state's exact identity/cursor and full metadata on every append.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct ClosedBarUpdate {
+    pub identity: StateIdentity,
+    pub metadata: crate::MarketMetadata,
+    pub bar: ClosedBar,
+    pub as_of: i64,
 }
