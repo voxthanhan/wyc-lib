@@ -1,12 +1,12 @@
-# Phát triển và kiểm chứng P0–P1.6
+# Phát triển và kiểm chứng P0–P1.7
 
 ## Ma trận nền tảng
 
 | Thành phần | Chọn/mục tiêu | Tình trạng |
 | --- | --- | --- |
 | Rust | 1.85.1 pinned; MSRV 1.85; edition 2021 | Kết quả lần chạy trong báo cáo G0 |
-| Windows | x86_64-pc-windows-msvc; Visual Studio Build Tools 2022 + Windows SDK cho local | Local/checkout sạch P1.6, 85 tests tại 4460753; CI windows-latest P1.6 PASS cùng SHA |
-| Linux | x86_64-unknown-linux-gnu; Ubuntu 24.04 CI | CI ubuntu-24.04 P1.6 PASS tại 4460753 |
+| Windows | x86_64-pc-windows-msvc; Visual Studio Build Tools 2022 + Windows SDK cho local | Local/checkout sạch P1.7, 88 tests tại 7c57220; CI windows-latest P1.7 PASS cùng SHA |
+| Linux | x86_64-unknown-linux-gnu; Ubuntu 24.04 CI | CI ubuntu-24.04 P1.7 PASS tại 7c57220 |
 | macOS/ARM64 | Chưa chọn phiên bản/runner | Chưa công bố hỗ trợ |
 | Node | 22.x, NAPI-RS ở P2 | Mục tiêu, chưa chọn bản patch/ABI hoặc kiểm chứng |
 | Python | CPython 3.10–3.13, PyO3/Maturin ở P2 | Mục tiêu, chưa chọn bản patch/ABI hoặc kiểm chứng |
@@ -151,3 +151,32 @@ ZIP không đăng nhập trả 401. Giữ tách biệt metadata đã kiểm vớ
 P1.6 đã tích hợp main tại `5af2383`, tree khớp bản nghiệm thu; CI main run
 42396385077 đạt cả Windows/Linux. Commit bổ sung báo cáo sau run chỉ thay
 tài liệu/log, không thay code đã kiểm chứng.
+
+## P1.7 — Replay, baseline và G1
+
+Runner chung hiện buộc tám integration targets, thêm p1_replay và hai examples.
+Sau toàn bộ tests, runner chạy p1_walkthrough (input → append → revision/reset →
+JSON), build release p1_baseline rồi dùng measure_baseline.py đo riêng binary.
+Trace mỗi prefix tại `ci-evidence/replay-traces.json`; raw/tổng hợp baseline,
+CPU/time/RSS và scope phép đo ở `ci-evidence/baseline.json`. CI hai OS upload
+cùng artifact log đã có, không dùng giới hạn timing làm điều kiện pass/fail.
+
+Chạy từ checkout sạch bằng lệnh runner phía trên. Có thể chỉ chạy:
+
+```text
+cargo test --locked --package wyc-lib --test p1_replay
+cargo run --locked --package wyc-lib --example p1_walkthrough
+cargo build --release --locked --package wyc-lib --example p1_baseline
+```
+
+[Protocol baseline](../benchmarks/README.md) ghi chính xác workload/setup/timer
+và giới hạn RAM. Không so tốc độ Windows/Linux trên runner khác nhau như một
+thử nghiệm cùng môi trường. Không có state O(1), FFI hoặc bindings ở P1.7.
+[Báo cáo G1](acceptance/G1.md) ghi kết quả và commit thực tế; báo cáo cũ là
+bằng chứng lịch sử tại từng phase.
+
+P1.7/G1 đã đạt local, checkout sạch Windows và CI Windows/Linux tại `7c57220`,
+run 42398202869; cả hai job kiểm chứng/upload success. REST API hết hạn mức đọc
+ẩn danh, nên bằng chứng CI dùng trang run/job công khai với từng step, đúng SHA
+và artifact display metadata. Chưa tải payload ZIP; không coi digest hiển thị
+là digest đã tự kiểm. Chi tiết và tích hợp main tại báo cáo G1.

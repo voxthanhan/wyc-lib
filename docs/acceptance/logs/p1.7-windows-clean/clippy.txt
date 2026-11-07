@@ -1,0 +1,24 @@
+   Compiling proc-macro2 v1.0.107
+   Compiling version_check v0.9.5
+   Compiling quote v1.0.47
+   Compiling unicode-ident v1.0.27
+    Checking typenum v1.20.1
+   Compiling serde v1.0.219
+    Checking cfg-if v1.0.5
+    Checking cpufeatures v0.2.17
+   Compiling serde_json v1.0.140
+    Checking ryu v1.0.23
+    Checking itoa v1.0.18
+    Checking memchr v2.8.3
+   Compiling generic-array v0.14.7
+   Compiling syn v2.0.119
+    Checking block-buffer v0.10.4
+    Checking crypto-common v0.1.7
+    Checking digest v0.10.7
+    Checking sha2 v0.10.9
+   Compiling serde_derive v1.0.219
+    Checking contracts v0.1.0 (D:\Dev\Lib\.tools\p1.7-checkout\crates\contracts)
+    Checking indicators v0.1.0 (D:\Dev\Lib\.tools\p1.7-checkout\crates\indicators)
+    Checking market_structure v0.1.0 (D:\Dev\Lib\.tools\p1.7-checkout\crates\market_structure)
+    Checking wyc-lib v0.1.0 (D:\Dev\Lib\.tools\p1.7-checkout\crates\wyc_lib)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 43.56s

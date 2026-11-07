@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0 — P1.7, chưa phát hành
+
+- Thêm regression replay delayed/grouped availability trên toàn fixtures
+  structure qua ba lựa chọn module; reset revision tại nửa history rồi append,
+  first-valid lookback 1/2/3/8 và closed-form ramp độc lập.
+- Thêm ví dụ Rust p1_walkthrough và baseline release p1_baseline; runner
+  local/CI xuất prefix traces, năm mẫu timing/workload, CPU và peak RSS process.
+- Không đổi Core, công thức/seed/schema/config/hash, dependency hoặc golden.
+  State vẫn tính lại batch; không công bố tối ưu hay O(1).
+- G1 đạt local/checkout sạch Windows và CI Windows/Linux tại 7c57220, 88 tests,
+  run 42398202869. Có 1008 prefix traces và 65 source fingerprints khớp; bằng
+  chứng CI HTML/giới hạn artifact tại [báo cáo G1](docs/acceptance/G1.md).
+
 ## 0.1.0 — P1.6, chưa phát hành
 
 - Thêm calculate_indicators (25 series), analyze_structure, analyze_batch và

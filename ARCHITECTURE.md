@@ -1,6 +1,6 @@
 # wyc-lib — Kiến trúc thực thi
 
-## Hiện trạng P1.6
+## Hiện trạng P1.7
 
 Workspace có bốn package: `contracts` (wire types, cấu hình, kiểm tra contract,
 AnalysisError), `indicators` (rolling/statistics P1.2, chín chỉ báo nền và
@@ -111,4 +111,7 @@ future, không có query quá khứ từ state mới. Chi phí O(N×min(n,N)) ch
 O(N×min(L+R+1,N)+N log N) cho structure, bộ nhớ O(N); còn lặp validation và
 primitives qua các engine. [ADR-0003](docs/adr/0003-p1-orchestration-state.md)
 ghi chữ ký khác draft và protocol; [báo cáo P1.6](docs/acceptance/P1.6.md)
-ghi bằng chứng thực tế. P1.7/baseline và toàn G1 chưa nghiệm thu.
+ghi bằng chứng thực tế. P1.7 thêm replay/regression target và hai executable
+example/baseline, không đổi dependency graph hoặc Core. Runner local/CI đo
+CPU/time/RSS bên ngoài Core; không đưa clock vào quyết định phân tích.
+Kết quả toàn G1 tại [báo cáo G1](docs/acceptance/G1.md).
