@@ -91,6 +91,14 @@ hai artifact đã upload, 57 Git source blobs khớp bản local. Run/job/step v
 artifact metadata đã lưu trong repo; thử tải hai ZIP không đăng nhập trả 401,
 chưa đọc payload hoặc tự kiểm digest. P1.5 hoàn thành phạm vi nghiệm thu.
 
+## Luồng bàn giao Git
+
+Theo lựa chọn của người dùng, mặc định agent hoàn tất bàn giao trên `main`.
+Nếu dùng nhánh riêng để triển khai/kiểm chứng, agent tự tích hợp phần đã đạt
+vào `main` và đẩy lên GitHub; không để người dùng phải tự merge mỗi bước.
+Trước khi tích hợp, cập nhật remote, bảo toàn lịch sử/thay đổi hiện có và kiểm
+tra nội dung sau merge. Theo dõi CI của commit trên main đến kết quả thực tế.
+
 ## CI và nghiệm thu
 
 Workflow `.github/workflows/ci.yml` chạy format/lint/build/test/oracle trên
