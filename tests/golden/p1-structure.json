@@ -1,0 +1,3798 @@
+{
+  "fixture_id": "p1-structure-v1",
+  "algorithm_version": "p1-v1",
+  "cases": [
+    {
+      "id": "up-and-reversal",
+      "result": {
+        "metadata": {
+          "schema_version": "0.1.0",
+          "engine_version": "0.1.0",
+          "algorithm_version": "p1-v1",
+          "symbol": "STRUCTURE",
+          "timeframe": "synthetic-close-1s",
+          "data_revision": "structure-r1",
+          "config_hash": "sha256:config-v1:8db64bb86c4002815acc82f1067c771a2377a50cc8b993d8bf10b7c8c486502c",
+          "as_of": 19200
+        },
+        "output": {
+          "pivots": [
+            {
+              "pivot_id": "sha256:event-v1:b6568c7b80f8f807767150afa0931ce39fd14dce250e4c684a7493fd78400c33",
+              "kind": "high",
+              "label": "unclassified",
+              "level": 12,
+              "observed_at": 2000,
+              "known_at": 3200
+            },
+            {
+              "pivot_id": "sha256:event-v1:0a70ce0595fc5a825c6df1878506dbf3eeb9bb19b0d9b84c549bf86a9b2ce23c",
+              "kind": "low",
+              "label": "unclassified",
+              "level": 6,
+              "observed_at": 3000,
+              "known_at": 4200
+            },
+            {
+              "pivot_id": "sha256:event-v1:103ae03f6ad6c39359adc502f6913bef171d971f8be27ce5436845482313b12d",
+              "kind": "high",
+              "label": "lh",
+              "level": 11,
+              "observed_at": 4000,
+              "known_at": 5200
+            },
+            {
+              "pivot_id": "sha256:event-v1:a5ebfba1164ca54c5f0515874a7418b922a190f5a67a35bb86f902cc6e73f621",
+              "kind": "low",
+              "label": "hl",
+              "level": 7,
+              "observed_at": 5000,
+              "known_at": 6200
+            },
+            {
+              "pivot_id": "sha256:event-v1:16686c973944f1ffa92a234ba3807086bc8cc6a2a6d36669bb5691be7fcd8e00",
+              "kind": "high",
+              "label": "hh",
+              "level": 14,
+              "observed_at": 6000,
+              "known_at": 7200
+            },
+            {
+              "pivot_id": "sha256:event-v1:ea571a2de10b4fb5178967e94c0a5da25dbc677d579c9c5dd17bbc8dddb130c4",
+              "kind": "low",
+              "label": "hl",
+              "level": 8,
+              "observed_at": 7000,
+              "known_at": 8200
+            },
+            {
+              "pivot_id": "sha256:event-v1:98c8ff94973d564cdeda1672909b381257d9a6041b80712f881921d02946ab40",
+              "kind": "high",
+              "label": "hh",
+              "level": 16,
+              "observed_at": 10000,
+              "known_at": 11200
+            },
+            {
+              "pivot_id": "sha256:event-v1:de54655436f73888f31d9a0850689e30d776b80917d5372c4c46623ca45adc44",
+              "kind": "low",
+              "label": "ll",
+              "level": 7,
+              "observed_at": 13000,
+              "known_at": 14200
+            },
+            {
+              "pivot_id": "sha256:event-v1:5fe9b1ab18316202bb83d51aef2afdb2a6e8ed654ce7768b6666efbf45c0a78e",
+              "kind": "high",
+              "label": "lh",
+              "level": 14,
+              "observed_at": 14000,
+              "known_at": 15200
+            },
+            {
+              "pivot_id": "sha256:event-v1:9b38893127f955df9aed17e0a449d2557553d61ca5cb58771bf421d06ec09060",
+              "kind": "low",
+              "label": "ll",
+              "level": 6,
+              "observed_at": 15000,
+              "known_at": 16200
+            },
+            {
+              "pivot_id": "sha256:event-v1:55235bd05901f5be40bfe36a2a8d30c227f1ab471b3f026cd5ac5bff473ca4fa",
+              "kind": "high",
+              "label": "lh",
+              "level": 13,
+              "observed_at": 16000,
+              "known_at": 17200
+            },
+            {
+              "pivot_id": "sha256:event-v1:cb998a63f134ec10f9ce88ae889e03c35384f19d0a8b4ca9d664df3d2cf067b6",
+              "kind": "low",
+              "label": "ll",
+              "level": 5,
+              "observed_at": 17000,
+              "known_at": 18200
+            }
+          ],
+          "trends": [
+            {
+              "observed_at": 1000,
+              "known_at": 1200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 2000,
+              "known_at": 2200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 3000,
+              "known_at": 3200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 4000,
+              "known_at": 4200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 5000,
+              "known_at": 5200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 6000,
+              "known_at": 6200,
+              "trend": "sideways"
+            },
+            {
+              "observed_at": 7000,
+              "known_at": 7200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 8000,
+              "known_at": 8200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 9000,
+              "known_at": 9200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 10000,
+              "known_at": 10200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 11000,
+              "known_at": 11200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 12000,
+              "known_at": 12200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 13000,
+              "known_at": 13200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 14000,
+              "known_at": 14200,
+              "trend": "sideways"
+            },
+            {
+              "observed_at": 15000,
+              "known_at": 15200,
+              "trend": "downtrend"
+            },
+            {
+              "observed_at": 16000,
+              "known_at": 16200,
+              "trend": "downtrend"
+            },
+            {
+              "observed_at": 17000,
+              "known_at": 17200,
+              "trend": "downtrend"
+            },
+            {
+              "observed_at": 18000,
+              "known_at": 18200,
+              "trend": "downtrend"
+            },
+            {
+              "observed_at": 19000,
+              "known_at": 19200,
+              "trend": "downtrend"
+            }
+          ],
+          "breaks": [
+            {
+              "event_id": "sha256:event-v1:7747ae228c2be18ee175e1d01aafff8f60bac3c1c8cb9a3502753239eb94dd6f",
+              "reference_pivot_id": "sha256:event-v1:16686c973944f1ffa92a234ba3807086bc8cc6a2a6d36669bb5691be7fcd8e00",
+              "kind": "bos",
+              "direction": "up",
+              "level": 14,
+              "close": 15,
+              "strength": {
+                "status": "ready",
+                "value": 0.25
+              },
+              "observed_at": 9000,
+              "known_at": 9200
+            },
+            {
+              "event_id": "sha256:event-v1:dfe370078a8f28db332b9e107f776c916507c08aa925ff76f6893bb0555013fa",
+              "reference_pivot_id": "sha256:event-v1:ea571a2de10b4fb5178967e94c0a5da25dbc677d579c9c5dd17bbc8dddb130c4",
+              "kind": "choch",
+              "direction": "down",
+              "level": 8,
+              "close": 7,
+              "strength": {
+                "status": "ready",
+                "value": 0.2
+              },
+              "observed_at": 13000,
+              "known_at": 13200
+            },
+            {
+              "event_id": "sha256:event-v1:ceba8b49e28ed06509a8a8f72cae4774de6dc93f2134a7bdd89bc9523c90666c",
+              "reference_pivot_id": "sha256:event-v1:de54655436f73888f31d9a0850689e30d776b80917d5372c4c46623ca45adc44",
+              "kind": "bos",
+              "direction": "down",
+              "level": 7,
+              "close": 6,
+              "strength": {
+                "status": "ready",
+                "value": 0.16666666666666666
+              },
+              "observed_at": 15000,
+              "known_at": 15200
+            },
+            {
+              "event_id": "sha256:event-v1:51a0e1338b4eaa391a85e72a2e7f2323ea0c8ed2f805e70a8b4825914ae517c9",
+              "reference_pivot_id": "sha256:event-v1:9b38893127f955df9aed17e0a449d2557553d61ca5cb58771bf421d06ec09060",
+              "kind": "bos",
+              "direction": "down",
+              "level": 6,
+              "close": 5,
+              "strength": {
+                "status": "ready",
+                "value": 0.16666666666666666
+              },
+              "observed_at": 17000,
+              "known_at": 17200
+            },
+            {
+              "event_id": "sha256:event-v1:fea554c9bc09676ea3326f629a3ee009cc3cefe9c4877b9387d47e3266c1c461",
+              "reference_pivot_id": "sha256:event-v1:55235bd05901f5be40bfe36a2a8d30c227f1ab471b3f026cd5ac5bff473ca4fa",
+              "kind": "choch",
+              "direction": "up",
+              "level": 13,
+              "close": 15,
+              "strength": {
+                "status": "ready",
+                "value": 0.6666666666666666
+              },
+              "observed_at": 19000,
+              "known_at": 19200
+            }
+          ],
+          "evidence": [
+            {
+              "evidence_id": "sha256:event-v1:b6568c7b80f8f807767150afa0931ce39fd14dce250e4c684a7493fd78400c33",
+              "event_type": "swing_high",
+              "observed_at": 2000,
+              "known_at": 3200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 12
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:0a70ce0595fc5a825c6df1878506dbf3eeb9bb19b0d9b84c549bf86a9b2ce23c",
+              "event_type": "swing_low",
+              "observed_at": 3000,
+              "known_at": 4200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 6
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:103ae03f6ad6c39359adc502f6913bef171d971f8be27ce5436845482313b12d",
+              "event_type": "swing_high",
+              "observed_at": 4000,
+              "known_at": 5200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 11
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:a5ebfba1164ca54c5f0515874a7418b922a190f5a67a35bb86f902cc6e73f621",
+              "event_type": "swing_low",
+              "observed_at": 5000,
+              "known_at": 6200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 7
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:16686c973944f1ffa92a234ba3807086bc8cc6a2a6d36669bb5691be7fcd8e00",
+              "event_type": "swing_high",
+              "observed_at": 6000,
+              "known_at": 7200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 14
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:ea571a2de10b4fb5178967e94c0a5da25dbc677d579c9c5dd17bbc8dddb130c4",
+              "event_type": "swing_low",
+              "observed_at": 7000,
+              "known_at": 8200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 8
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:7747ae228c2be18ee175e1d01aafff8f60bac3c1c8cb9a3502753239eb94dd6f",
+              "event_type": "bos_up",
+              "observed_at": 9000,
+              "known_at": 9200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 14,
+                "close": 15,
+                "strength": 0.25
+              },
+              "rule_id": "structure-break-close-v1",
+              "status": "confirmed",
+              "layer": "confirmation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:98c8ff94973d564cdeda1672909b381257d9a6041b80712f881921d02946ab40",
+              "event_type": "swing_high",
+              "observed_at": 10000,
+              "known_at": 11200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 16
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:dfe370078a8f28db332b9e107f776c916507c08aa925ff76f6893bb0555013fa",
+              "event_type": "choch_down",
+              "observed_at": 13000,
+              "known_at": 13200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 8,
+                "close": 7,
+                "strength": 0.2
+              },
+              "rule_id": "structure-break-close-v1",
+              "status": "confirmed",
+              "layer": "confirmation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:de54655436f73888f31d9a0850689e30d776b80917d5372c4c46623ca45adc44",
+              "event_type": "swing_low",
+              "observed_at": 13000,
+              "known_at": 14200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 7
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:5fe9b1ab18316202bb83d51aef2afdb2a6e8ed654ce7768b6666efbf45c0a78e",
+              "event_type": "swing_high",
+              "observed_at": 14000,
+              "known_at": 15200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 14
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:ceba8b49e28ed06509a8a8f72cae4774de6dc93f2134a7bdd89bc9523c90666c",
+              "event_type": "bos_down",
+              "observed_at": 15000,
+              "known_at": 15200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 7,
+                "close": 6,
+                "strength": 0.16666666666666666
+              },
+              "rule_id": "structure-break-close-v1",
+              "status": "confirmed",
+              "layer": "confirmation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:9b38893127f955df9aed17e0a449d2557553d61ca5cb58771bf421d06ec09060",
+              "event_type": "swing_low",
+              "observed_at": 15000,
+              "known_at": 16200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 6
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:55235bd05901f5be40bfe36a2a8d30c227f1ab471b3f026cd5ac5bff473ca4fa",
+              "event_type": "swing_high",
+              "observed_at": 16000,
+              "known_at": 17200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 13
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:51a0e1338b4eaa391a85e72a2e7f2323ea0c8ed2f805e70a8b4825914ae517c9",
+              "event_type": "bos_down",
+              "observed_at": 17000,
+              "known_at": 17200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 6,
+                "close": 5,
+                "strength": 0.16666666666666666
+              },
+              "rule_id": "structure-break-close-v1",
+              "status": "confirmed",
+              "layer": "confirmation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:cb998a63f134ec10f9ce88ae889e03c35384f19d0a8b4ca9d664df3d2cf067b6",
+              "event_type": "swing_low",
+              "observed_at": 17000,
+              "known_at": 18200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 5
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:fea554c9bc09676ea3326f629a3ee009cc3cefe9c4877b9387d47e3266c1c461",
+              "event_type": "choch_up",
+              "observed_at": 19000,
+              "known_at": 19200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 13,
+                "close": 15,
+                "strength": 0.6666666666666666
+              },
+              "rule_id": "structure-break-close-v1",
+              "status": "confirmed",
+              "layer": "confirmation"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "down-and-reversal",
+      "result": {
+        "metadata": {
+          "schema_version": "0.1.0",
+          "engine_version": "0.1.0",
+          "algorithm_version": "p1-v1",
+          "symbol": "STRUCTURE",
+          "timeframe": "synthetic-close-1s",
+          "data_revision": "structure-r1",
+          "config_hash": "sha256:config-v1:8db64bb86c4002815acc82f1067c771a2377a50cc8b993d8bf10b7c8c486502c",
+          "as_of": 19200
+        },
+        "output": {
+          "pivots": [
+            {
+              "pivot_id": "sha256:event-v1:452669d8f4518d1ff38b82383b0475b6cc2b4a2e28649e336d7ca25b07d75868",
+              "kind": "low",
+              "label": "unclassified",
+              "level": -12,
+              "observed_at": 2000,
+              "known_at": 3200
+            },
+            {
+              "pivot_id": "sha256:event-v1:c9f8fd858f696499e5b96a7d04096cff7c705a56fc0df8409d143f8678f826c9",
+              "kind": "high",
+              "label": "unclassified",
+              "level": -6,
+              "observed_at": 3000,
+              "known_at": 4200
+            },
+            {
+              "pivot_id": "sha256:event-v1:ff6237c787ac916db36681ebe65d1a7ff4128ee81b46b3d21fef1837a3860636",
+              "kind": "low",
+              "label": "hl",
+              "level": -11,
+              "observed_at": 4000,
+              "known_at": 5200
+            },
+            {
+              "pivot_id": "sha256:event-v1:f4447d1cb32e2215596dd1866cd6db9bb87720d8d04b07759bf1121c3f5f4f7b",
+              "kind": "high",
+              "label": "lh",
+              "level": -7,
+              "observed_at": 5000,
+              "known_at": 6200
+            },
+            {
+              "pivot_id": "sha256:event-v1:b8ac051c13f540e4ca923bc9014c36babd10bd38a6d2de7d0c1e67959b8a4619",
+              "kind": "low",
+              "label": "ll",
+              "level": -14,
+              "observed_at": 6000,
+              "known_at": 7200
+            },
+            {
+              "pivot_id": "sha256:event-v1:d11d751276d3e5f1876f00b00d61a39649c6306ee902ad68b5fa5aff00fb41fe",
+              "kind": "high",
+              "label": "lh",
+              "level": -8,
+              "observed_at": 7000,
+              "known_at": 8200
+            },
+            {
+              "pivot_id": "sha256:event-v1:23df53cf4e5a0ec42b1657afb9ae36b83b4f18f504e7d2c6a60708db6f08bf6c",
+              "kind": "low",
+              "label": "ll",
+              "level": -16,
+              "observed_at": 10000,
+              "known_at": 11200
+            },
+            {
+              "pivot_id": "sha256:event-v1:433b437f77684a701d052215198e0add293109c11ff50198e86219715dbf9cd1",
+              "kind": "high",
+              "label": "hh",
+              "level": -7,
+              "observed_at": 13000,
+              "known_at": 14200
+            },
+            {
+              "pivot_id": "sha256:event-v1:185b9a3910628f12ab2b18a8bdd9396d63f1def75e14b11441d35e94cb44f5e2",
+              "kind": "low",
+              "label": "hl",
+              "level": -14,
+              "observed_at": 14000,
+              "known_at": 15200
+            },
+            {
+              "pivot_id": "sha256:event-v1:5f86d724002b044c95b5bf4b27e29bacdceb1b93d7b8ed16fff164d8f8dc83ea",
+              "kind": "high",
+              "label": "hh",
+              "level": -6,
+              "observed_at": 15000,
+              "known_at": 16200
+            },
+            {
+              "pivot_id": "sha256:event-v1:e948358547e53ed53ad2427fee29ef2437cd5dff7f39f5f0f2b465b7c5b50d28",
+              "kind": "low",
+              "label": "hl",
+              "level": -13,
+              "observed_at": 16000,
+              "known_at": 17200
+            },
+            {
+              "pivot_id": "sha256:event-v1:c07a8447df33df6f689c4187ad67161df9ec1f55e2a956d7c4663410cdbadf73",
+              "kind": "high",
+              "label": "hh",
+              "level": -5,
+              "observed_at": 17000,
+              "known_at": 18200
+            }
+          ],
+          "trends": [
+            {
+              "observed_at": 1000,
+              "known_at": 1200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 2000,
+              "known_at": 2200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 3000,
+              "known_at": 3200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 4000,
+              "known_at": 4200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 5000,
+              "known_at": 5200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 6000,
+              "known_at": 6200,
+              "trend": "sideways"
+            },
+            {
+              "observed_at": 7000,
+              "known_at": 7200,
+              "trend": "downtrend"
+            },
+            {
+              "observed_at": 8000,
+              "known_at": 8200,
+              "trend": "downtrend"
+            },
+            {
+              "observed_at": 9000,
+              "known_at": 9200,
+              "trend": "downtrend"
+            },
+            {
+              "observed_at": 10000,
+              "known_at": 10200,
+              "trend": "downtrend"
+            },
+            {
+              "observed_at": 11000,
+              "known_at": 11200,
+              "trend": "downtrend"
+            },
+            {
+              "observed_at": 12000,
+              "known_at": 12200,
+              "trend": "downtrend"
+            },
+            {
+              "observed_at": 13000,
+              "known_at": 13200,
+              "trend": "downtrend"
+            },
+            {
+              "observed_at": 14000,
+              "known_at": 14200,
+              "trend": "sideways"
+            },
+            {
+              "observed_at": 15000,
+              "known_at": 15200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 16000,
+              "known_at": 16200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 17000,
+              "known_at": 17200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 18000,
+              "known_at": 18200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 19000,
+              "known_at": 19200,
+              "trend": "uptrend"
+            }
+          ],
+          "breaks": [
+            {
+              "event_id": "sha256:event-v1:4942180e7d2ff9192bf94a5f68f49762dc276ee5e8f4aaa0721c23ad230626e2",
+              "reference_pivot_id": "sha256:event-v1:b8ac051c13f540e4ca923bc9014c36babd10bd38a6d2de7d0c1e67959b8a4619",
+              "kind": "bos",
+              "direction": "down",
+              "level": -14,
+              "close": -15,
+              "strength": {
+                "status": "ready",
+                "value": 0.25
+              },
+              "observed_at": 9000,
+              "known_at": 9200
+            },
+            {
+              "event_id": "sha256:event-v1:c551844251ff682d1d054ea2489f171de4c09a04f6d5a4e27da32ec53d2ec0c6",
+              "reference_pivot_id": "sha256:event-v1:d11d751276d3e5f1876f00b00d61a39649c6306ee902ad68b5fa5aff00fb41fe",
+              "kind": "choch",
+              "direction": "up",
+              "level": -8,
+              "close": -7,
+              "strength": {
+                "status": "ready",
+                "value": 0.2
+              },
+              "observed_at": 13000,
+              "known_at": 13200
+            },
+            {
+              "event_id": "sha256:event-v1:441c723e0e1e143b4a3df774ac258a1649dd66c535cb81b0fa68e540a5e5ddbf",
+              "reference_pivot_id": "sha256:event-v1:433b437f77684a701d052215198e0add293109c11ff50198e86219715dbf9cd1",
+              "kind": "bos",
+              "direction": "up",
+              "level": -7,
+              "close": -6,
+              "strength": {
+                "status": "ready",
+                "value": 0.16666666666666666
+              },
+              "observed_at": 15000,
+              "known_at": 15200
+            },
+            {
+              "event_id": "sha256:event-v1:5d40b1be191764d6ce24189166e7b59cfb408d37957575afcf32f309d3952be5",
+              "reference_pivot_id": "sha256:event-v1:5f86d724002b044c95b5bf4b27e29bacdceb1b93d7b8ed16fff164d8f8dc83ea",
+              "kind": "bos",
+              "direction": "up",
+              "level": -6,
+              "close": -5,
+              "strength": {
+                "status": "ready",
+                "value": 0.16666666666666666
+              },
+              "observed_at": 17000,
+              "known_at": 17200
+            },
+            {
+              "event_id": "sha256:event-v1:0a3a6f7ea4824a2ecc2168ec06bb71c7de10787e169303d28e67b9be7b14cb07",
+              "reference_pivot_id": "sha256:event-v1:e948358547e53ed53ad2427fee29ef2437cd5dff7f39f5f0f2b465b7c5b50d28",
+              "kind": "choch",
+              "direction": "down",
+              "level": -13,
+              "close": -15,
+              "strength": {
+                "status": "ready",
+                "value": 0.6666666666666666
+              },
+              "observed_at": 19000,
+              "known_at": 19200
+            }
+          ],
+          "evidence": [
+            {
+              "evidence_id": "sha256:event-v1:452669d8f4518d1ff38b82383b0475b6cc2b4a2e28649e336d7ca25b07d75868",
+              "event_type": "swing_low",
+              "observed_at": 2000,
+              "known_at": 3200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": -12
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:c9f8fd858f696499e5b96a7d04096cff7c705a56fc0df8409d143f8678f826c9",
+              "event_type": "swing_high",
+              "observed_at": 3000,
+              "known_at": 4200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": -6
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:ff6237c787ac916db36681ebe65d1a7ff4128ee81b46b3d21fef1837a3860636",
+              "event_type": "swing_low",
+              "observed_at": 4000,
+              "known_at": 5200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": -11
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:f4447d1cb32e2215596dd1866cd6db9bb87720d8d04b07759bf1121c3f5f4f7b",
+              "event_type": "swing_high",
+              "observed_at": 5000,
+              "known_at": 6200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": -7
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:b8ac051c13f540e4ca923bc9014c36babd10bd38a6d2de7d0c1e67959b8a4619",
+              "event_type": "swing_low",
+              "observed_at": 6000,
+              "known_at": 7200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": -14
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:d11d751276d3e5f1876f00b00d61a39649c6306ee902ad68b5fa5aff00fb41fe",
+              "event_type": "swing_high",
+              "observed_at": 7000,
+              "known_at": 8200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": -8
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:4942180e7d2ff9192bf94a5f68f49762dc276ee5e8f4aaa0721c23ad230626e2",
+              "event_type": "bos_down",
+              "observed_at": 9000,
+              "known_at": 9200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": -14,
+                "close": -15,
+                "strength": 0.25
+              },
+              "rule_id": "structure-break-close-v1",
+              "status": "confirmed",
+              "layer": "confirmation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:23df53cf4e5a0ec42b1657afb9ae36b83b4f18f504e7d2c6a60708db6f08bf6c",
+              "event_type": "swing_low",
+              "observed_at": 10000,
+              "known_at": 11200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": -16
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:c551844251ff682d1d054ea2489f171de4c09a04f6d5a4e27da32ec53d2ec0c6",
+              "event_type": "choch_up",
+              "observed_at": 13000,
+              "known_at": 13200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": -8,
+                "close": -7,
+                "strength": 0.2
+              },
+              "rule_id": "structure-break-close-v1",
+              "status": "confirmed",
+              "layer": "confirmation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:433b437f77684a701d052215198e0add293109c11ff50198e86219715dbf9cd1",
+              "event_type": "swing_high",
+              "observed_at": 13000,
+              "known_at": 14200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": -7
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:185b9a3910628f12ab2b18a8bdd9396d63f1def75e14b11441d35e94cb44f5e2",
+              "event_type": "swing_low",
+              "observed_at": 14000,
+              "known_at": 15200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": -14
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:441c723e0e1e143b4a3df774ac258a1649dd66c535cb81b0fa68e540a5e5ddbf",
+              "event_type": "bos_up",
+              "observed_at": 15000,
+              "known_at": 15200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": -7,
+                "close": -6,
+                "strength": 0.16666666666666666
+              },
+              "rule_id": "structure-break-close-v1",
+              "status": "confirmed",
+              "layer": "confirmation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:5f86d724002b044c95b5bf4b27e29bacdceb1b93d7b8ed16fff164d8f8dc83ea",
+              "event_type": "swing_high",
+              "observed_at": 15000,
+              "known_at": 16200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": -6
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:e948358547e53ed53ad2427fee29ef2437cd5dff7f39f5f0f2b465b7c5b50d28",
+              "event_type": "swing_low",
+              "observed_at": 16000,
+              "known_at": 17200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": -13
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:5d40b1be191764d6ce24189166e7b59cfb408d37957575afcf32f309d3952be5",
+              "event_type": "bos_up",
+              "observed_at": 17000,
+              "known_at": 17200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": -6,
+                "close": -5,
+                "strength": 0.16666666666666666
+              },
+              "rule_id": "structure-break-close-v1",
+              "status": "confirmed",
+              "layer": "confirmation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:c07a8447df33df6f689c4187ad67161df9ec1f55e2a956d7c4663410cdbadf73",
+              "event_type": "swing_high",
+              "observed_at": 17000,
+              "known_at": 18200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": -5
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:0a3a6f7ea4824a2ecc2168ec06bb71c7de10787e169303d28e67b9be7b14cb07",
+              "event_type": "choch_down",
+              "observed_at": 19000,
+              "known_at": 19200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": -13,
+                "close": -15,
+                "strength": 0.6666666666666666
+              },
+              "rule_id": "structure-break-close-v1",
+              "status": "confirmed",
+              "layer": "confirmation"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "equal-dual-sideways",
+      "result": {
+        "metadata": {
+          "schema_version": "0.1.0",
+          "engine_version": "0.1.0",
+          "algorithm_version": "p1-v1",
+          "symbol": "STRUCTURE",
+          "timeframe": "synthetic-close-1s",
+          "data_revision": "structure-r1",
+          "config_hash": "sha256:config-v1:8db64bb86c4002815acc82f1067c771a2377a50cc8b993d8bf10b7c8c486502c",
+          "as_of": 9200
+        },
+        "output": {
+          "pivots": [
+            {
+              "pivot_id": "sha256:event-v1:b6568c7b80f8f807767150afa0931ce39fd14dce250e4c684a7493fd78400c33",
+              "kind": "high",
+              "label": "unclassified",
+              "level": 9,
+              "observed_at": 2000,
+              "known_at": 3200
+            },
+            {
+              "pivot_id": "sha256:event-v1:452669d8f4518d1ff38b82383b0475b6cc2b4a2e28649e336d7ca25b07d75868",
+              "kind": "low",
+              "label": "unclassified",
+              "level": 1,
+              "observed_at": 2000,
+              "known_at": 3200
+            },
+            {
+              "pivot_id": "sha256:event-v1:103ae03f6ad6c39359adc502f6913bef171d971f8be27ce5436845482313b12d",
+              "kind": "high",
+              "label": "eh",
+              "level": 9,
+              "observed_at": 4000,
+              "known_at": 5200
+            },
+            {
+              "pivot_id": "sha256:event-v1:ff6237c787ac916db36681ebe65d1a7ff4128ee81b46b3d21fef1837a3860636",
+              "kind": "low",
+              "label": "el",
+              "level": 1,
+              "observed_at": 4000,
+              "known_at": 5200
+            },
+            {
+              "pivot_id": "sha256:event-v1:16686c973944f1ffa92a234ba3807086bc8cc6a2a6d36669bb5691be7fcd8e00",
+              "kind": "high",
+              "label": "hh",
+              "level": 10,
+              "observed_at": 6000,
+              "known_at": 7200
+            },
+            {
+              "pivot_id": "sha256:event-v1:b8ac051c13f540e4ca923bc9014c36babd10bd38a6d2de7d0c1e67959b8a4619",
+              "kind": "low",
+              "label": "hl",
+              "level": 2,
+              "observed_at": 6000,
+              "known_at": 7200
+            },
+            {
+              "pivot_id": "sha256:event-v1:2352596d0eae73362fb9d19a2d1a72abcf1407a7e49d4da80282da575f63c0ea",
+              "kind": "high",
+              "label": "hh",
+              "level": 11,
+              "observed_at": 8000,
+              "known_at": 9200
+            },
+            {
+              "pivot_id": "sha256:event-v1:57bda1203f2f3b3aee1a6f25ad2daaaf021d77d43a9b8232f0b9bf0479af0bad",
+              "kind": "low",
+              "label": "hl",
+              "level": 3,
+              "observed_at": 8000,
+              "known_at": 9200
+            }
+          ],
+          "trends": [
+            {
+              "observed_at": 1000,
+              "known_at": 1200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 2000,
+              "known_at": 2200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 3000,
+              "known_at": 3200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 4000,
+              "known_at": 4200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 5000,
+              "known_at": 5200,
+              "trend": "sideways"
+            },
+            {
+              "observed_at": 6000,
+              "known_at": 6200,
+              "trend": "sideways"
+            },
+            {
+              "observed_at": 7000,
+              "known_at": 7200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 8000,
+              "known_at": 8200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 9000,
+              "known_at": 9200,
+              "trend": "uptrend"
+            }
+          ],
+          "breaks": [
+            {
+              "event_id": "sha256:event-v1:46114f999ccfbf8587ea285753f49cd750b4c5cf74d4cd514e719cc519e90deb",
+              "reference_pivot_id": "sha256:event-v1:103ae03f6ad6c39359adc502f6913bef171d971f8be27ce5436845482313b12d",
+              "kind": "bos",
+              "direction": "up",
+              "level": 9,
+              "close": 10,
+              "strength": {
+                "status": "ready",
+                "value": 0.125
+              },
+              "observed_at": 6000,
+              "known_at": 6200
+            },
+            {
+              "event_id": "sha256:event-v1:060d87a08fffeefed094d0897e3bf83cc0b5cc2948e5d18d0731c1e95f3796fd",
+              "reference_pivot_id": "sha256:event-v1:16686c973944f1ffa92a234ba3807086bc8cc6a2a6d36669bb5691be7fcd8e00",
+              "kind": "bos",
+              "direction": "up",
+              "level": 10,
+              "close": 11,
+              "strength": {
+                "status": "ready",
+                "value": 0.125
+              },
+              "observed_at": 8000,
+              "known_at": 8200
+            }
+          ],
+          "evidence": [
+            {
+              "evidence_id": "sha256:event-v1:452669d8f4518d1ff38b82383b0475b6cc2b4a2e28649e336d7ca25b07d75868",
+              "event_type": "swing_low",
+              "observed_at": 2000,
+              "known_at": 3200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 1
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:b6568c7b80f8f807767150afa0931ce39fd14dce250e4c684a7493fd78400c33",
+              "event_type": "swing_high",
+              "observed_at": 2000,
+              "known_at": 3200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 9
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:103ae03f6ad6c39359adc502f6913bef171d971f8be27ce5436845482313b12d",
+              "event_type": "swing_high",
+              "observed_at": 4000,
+              "known_at": 5200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 9
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:ff6237c787ac916db36681ebe65d1a7ff4128ee81b46b3d21fef1837a3860636",
+              "event_type": "swing_low",
+              "observed_at": 4000,
+              "known_at": 5200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 1
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:46114f999ccfbf8587ea285753f49cd750b4c5cf74d4cd514e719cc519e90deb",
+              "event_type": "bos_up",
+              "observed_at": 6000,
+              "known_at": 6200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 9,
+                "close": 10,
+                "strength": 0.125
+              },
+              "rule_id": "structure-break-close-v1",
+              "status": "confirmed",
+              "layer": "confirmation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:16686c973944f1ffa92a234ba3807086bc8cc6a2a6d36669bb5691be7fcd8e00",
+              "event_type": "swing_high",
+              "observed_at": 6000,
+              "known_at": 7200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 10
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:b8ac051c13f540e4ca923bc9014c36babd10bd38a6d2de7d0c1e67959b8a4619",
+              "event_type": "swing_low",
+              "observed_at": 6000,
+              "known_at": 7200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 2
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:060d87a08fffeefed094d0897e3bf83cc0b5cc2948e5d18d0731c1e95f3796fd",
+              "event_type": "bos_up",
+              "observed_at": 8000,
+              "known_at": 8200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 10,
+                "close": 11,
+                "strength": 0.125
+              },
+              "rule_id": "structure-break-close-v1",
+              "status": "confirmed",
+              "layer": "confirmation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:2352596d0eae73362fb9d19a2d1a72abcf1407a7e49d4da80282da575f63c0ea",
+              "event_type": "swing_high",
+              "observed_at": 8000,
+              "known_at": 9200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 11
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:57bda1203f2f3b3aee1a6f25ad2daaaf021d77d43a9b8232f0b9bf0479af0bad",
+              "event_type": "swing_low",
+              "observed_at": 8000,
+              "known_at": 9200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 3
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "plateau",
+      "result": {
+        "metadata": {
+          "schema_version": "0.1.0",
+          "engine_version": "0.1.0",
+          "algorithm_version": "p1-v1",
+          "symbol": "STRUCTURE",
+          "timeframe": "synthetic-close-1s",
+          "data_revision": "structure-r1",
+          "config_hash": "sha256:config-v1:8db64bb86c4002815acc82f1067c771a2377a50cc8b993d8bf10b7c8c486502c",
+          "as_of": 5200
+        },
+        "output": {
+          "pivots": [],
+          "trends": [
+            {
+              "observed_at": 1000,
+              "known_at": 1200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 2000,
+              "known_at": 2200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 3000,
+              "known_at": 3200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 4000,
+              "known_at": 4200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 5000,
+              "known_at": 5200,
+              "trend": "unknown"
+            }
+          ],
+          "breaks": [],
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "delayed-right",
+      "result": {
+        "metadata": {
+          "schema_version": "0.1.0",
+          "engine_version": "0.1.0",
+          "algorithm_version": "p1-v1",
+          "symbol": "STRUCTURE",
+          "timeframe": "synthetic-close-1s",
+          "data_revision": "structure-r1",
+          "config_hash": "sha256:config-v1:5cec098804c010a6145bc0e9a69b9f407043b006aad01803497bb0159b152fc9",
+          "as_of": 9200
+        },
+        "output": {
+          "pivots": [
+            {
+              "pivot_id": "sha256:event-v1:6a11c34ffd6917cb20c55c1237e32721646d2c5cf921add4859710c0e7f62ec0",
+              "kind": "high",
+              "label": "unclassified",
+              "level": 5,
+              "observed_at": 2000,
+              "known_at": 4200
+            },
+            {
+              "pivot_id": "sha256:event-v1:688a042c0a056ea46f7e4449331df1a7a0651b229d6140874948b4f1f4411ed9",
+              "kind": "low",
+              "label": "unclassified",
+              "level": -1,
+              "observed_at": 5000,
+              "known_at": 7200
+            },
+            {
+              "pivot_id": "sha256:event-v1:c8825dbae4f7b2f6b87d1438ce27b7b284ffdcff6afcab98f302706636f9a51b",
+              "kind": "high",
+              "label": "hh",
+              "level": 6,
+              "observed_at": 6000,
+              "known_at": 8200
+            }
+          ],
+          "trends": [
+            {
+              "observed_at": 1000,
+              "known_at": 1200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 2000,
+              "known_at": 2200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 3000,
+              "known_at": 3200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 4000,
+              "known_at": 4200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 5000,
+              "known_at": 5200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 6000,
+              "known_at": 6200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 7000,
+              "known_at": 7200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 8000,
+              "known_at": 8200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 9000,
+              "known_at": 9200,
+              "trend": "unknown"
+            }
+          ],
+          "breaks": [],
+          "evidence": [
+            {
+              "evidence_id": "sha256:event-v1:6a11c34ffd6917cb20c55c1237e32721646d2c5cf921add4859710c0e7f62ec0",
+              "event_type": "swing_high",
+              "observed_at": 2000,
+              "known_at": 4200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 5
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:688a042c0a056ea46f7e4449331df1a7a0651b229d6140874948b4f1f4411ed9",
+              "event_type": "swing_low",
+              "observed_at": 5000,
+              "known_at": 7200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": -1
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:c8825dbae4f7b2f6b87d1438ce27b7b284ffdcff6afcab98f302706636f9a51b",
+              "event_type": "swing_high",
+              "observed_at": 6000,
+              "known_at": 8200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 6
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "left-three",
+      "result": {
+        "metadata": {
+          "schema_version": "0.1.0",
+          "engine_version": "0.1.0",
+          "algorithm_version": "p1-v1",
+          "symbol": "STRUCTURE",
+          "timeframe": "synthetic-close-1s",
+          "data_revision": "structure-r1",
+          "config_hash": "sha256:config-v1:00aad24609b5dc5275765d7171c3a4b73b699edfe211fbf21f0714402526e498",
+          "as_of": 13200
+        },
+        "output": {
+          "pivots": [
+            {
+              "pivot_id": "sha256:event-v1:0366f091e730ca3106458a270acc2376ba24fd1a0ee9219a7e8017db4a9cbee3",
+              "kind": "high",
+              "label": "unclassified",
+              "level": 8,
+              "observed_at": 4000,
+              "known_at": 5200
+            },
+            {
+              "pivot_id": "sha256:event-v1:65a30807adab439faf659fe6268cf1b8a1e20db29197b3e0e67b375d4d4a125e",
+              "kind": "low",
+              "label": "unclassified",
+              "level": 0,
+              "observed_at": 7000,
+              "known_at": 8200
+            },
+            {
+              "pivot_id": "sha256:event-v1:88bc09093fb363b097a83bf8bbbe753b6255cda03cc17bb695c976fa89062ed8",
+              "kind": "high",
+              "label": "lh",
+              "level": 7,
+              "observed_at": 8000,
+              "known_at": 9200
+            },
+            {
+              "pivot_id": "sha256:event-v1:ab6e30b6f1187b06d555909cbaae32f26257d9d2b9926c6e4a0674b5a75ec2f2",
+              "kind": "low",
+              "label": "ll",
+              "level": -1,
+              "observed_at": 11000,
+              "known_at": 12200
+            },
+            {
+              "pivot_id": "sha256:event-v1:f38fe5dadbe5b848467e40f530b21f0031daa6e5043e35952a08483b41d2b7c8",
+              "kind": "high",
+              "label": "lh",
+              "level": 6,
+              "observed_at": 12000,
+              "known_at": 13200
+            }
+          ],
+          "trends": [
+            {
+              "observed_at": 1000,
+              "known_at": 1200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 2000,
+              "known_at": 2200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 3000,
+              "known_at": 3200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 4000,
+              "known_at": 4200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 5000,
+              "known_at": 5200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 6000,
+              "known_at": 6200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 7000,
+              "known_at": 7200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 8000,
+              "known_at": 8200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 9000,
+              "known_at": 9200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 10000,
+              "known_at": 10200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 11000,
+              "known_at": 11200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 12000,
+              "known_at": 12200,
+              "trend": "downtrend"
+            },
+            {
+              "observed_at": 13000,
+              "known_at": 13200,
+              "trend": "downtrend"
+            }
+          ],
+          "breaks": [],
+          "evidence": [
+            {
+              "evidence_id": "sha256:event-v1:0366f091e730ca3106458a270acc2376ba24fd1a0ee9219a7e8017db4a9cbee3",
+              "event_type": "swing_high",
+              "observed_at": 4000,
+              "known_at": 5200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 8
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:65a30807adab439faf659fe6268cf1b8a1e20db29197b3e0e67b375d4d4a125e",
+              "event_type": "swing_low",
+              "observed_at": 7000,
+              "known_at": 8200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 0
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:88bc09093fb363b097a83bf8bbbe753b6255cda03cc17bb695c976fa89062ed8",
+              "event_type": "swing_high",
+              "observed_at": 8000,
+              "known_at": 9200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 7
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:ab6e30b6f1187b06d555909cbaae32f26257d9d2b9926c6e4a0674b5a75ec2f2",
+              "event_type": "swing_low",
+              "observed_at": 11000,
+              "known_at": 12200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": -1
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:f38fe5dadbe5b848467e40f530b21f0031daa6e5043e35952a08483b41d2b7c8",
+              "event_type": "swing_high",
+              "observed_at": 12000,
+              "known_at": 13200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 6
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "default-window",
+      "result": {
+        "metadata": {
+          "schema_version": "0.1.0",
+          "engine_version": "0.1.0",
+          "algorithm_version": "p1-v1",
+          "symbol": "STRUCTURE",
+          "timeframe": "synthetic-close-1s",
+          "data_revision": "structure-r1",
+          "config_hash": "sha256:config-v1:86fa00f140396f6ae60d9301e4358a47d3a60160de7d875423e65aad88c5bb1c",
+          "as_of": 25200
+        },
+        "output": {
+          "pivots": [
+            {
+              "pivot_id": "sha256:event-v1:04bf5ffc71d1b11c067fcb03e5998be6b4b9bad129365520459f041790b55675",
+              "kind": "high",
+              "label": "unclassified",
+              "level": 10,
+              "observed_at": 3000,
+              "known_at": 5200
+            },
+            {
+              "pivot_id": "sha256:event-v1:7592d28fb4f5570a0aa9f17fb896ad838854435968a40f4ba0eab69896385565",
+              "kind": "low",
+              "label": "unclassified",
+              "level": 3,
+              "observed_at": 5000,
+              "known_at": 7200
+            },
+            {
+              "pivot_id": "sha256:event-v1:9bdc3f7de49abe73cedbc29ec521d31f53ede44de47e15b5ad40ecf6abc5949e",
+              "kind": "high",
+              "label": "lh",
+              "level": 8,
+              "observed_at": 6000,
+              "known_at": 8200
+            },
+            {
+              "pivot_id": "sha256:event-v1:e67dcf34af80a3daf64f8c817bacb44d6254acfdd919d9710e436933945b3e2d",
+              "kind": "low",
+              "label": "ll",
+              "level": 1,
+              "observed_at": 9000,
+              "known_at": 11200
+            },
+            {
+              "pivot_id": "sha256:event-v1:050423f9979f777cc36aaed84227dfbbfafea52423ad399ec3551e8122bf57c2",
+              "kind": "high",
+              "label": "hh",
+              "level": 12,
+              "observed_at": 10000,
+              "known_at": 12200
+            },
+            {
+              "pivot_id": "sha256:event-v1:c83f9c8d47b2158170fba7572c1fb86b127973b7b792910e89a68d46398fdd91",
+              "kind": "low",
+              "label": "hl",
+              "level": 4,
+              "observed_at": 13000,
+              "known_at": 15200
+            },
+            {
+              "pivot_id": "sha256:event-v1:f1bc582864b5a4b716bed2b04feb0fc980e5d9634fe86dd740eea940076df43e",
+              "kind": "high",
+              "label": "lh",
+              "level": 10,
+              "observed_at": 14000,
+              "known_at": 16200
+            },
+            {
+              "pivot_id": "sha256:event-v1:51917d4917f8b136fc7fc46a6d8c15f8aafc233e7cd8f943055dfb7158fb9a4a",
+              "kind": "low",
+              "label": "ll",
+              "level": 2,
+              "observed_at": 17000,
+              "known_at": 19200
+            },
+            {
+              "pivot_id": "sha256:event-v1:4fe081ca3356f98baa48a40237c35476286b791867dbf00a5c0fe215117c178c",
+              "kind": "high",
+              "label": "hh",
+              "level": 14,
+              "observed_at": 18000,
+              "known_at": 20200
+            },
+            {
+              "pivot_id": "sha256:event-v1:c6d970020372821b0a81c582f9f4f1081290179b2c0e7b5f82424c6da7b9f7ee",
+              "kind": "low",
+              "label": "hl",
+              "level": 5,
+              "observed_at": 21000,
+              "known_at": 23200
+            },
+            {
+              "pivot_id": "sha256:event-v1:4d5176f2c22d43bd32eb8dc7a6ca410f230e0d2bff61b3e4af2b5c4beeff147f",
+              "kind": "high",
+              "label": "lh",
+              "level": 12,
+              "observed_at": 22000,
+              "known_at": 24200
+            }
+          ],
+          "trends": [
+            {
+              "observed_at": 1000,
+              "known_at": 1200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 2000,
+              "known_at": 2200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 3000,
+              "known_at": 3200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 4000,
+              "known_at": 4200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 5000,
+              "known_at": 5200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 6000,
+              "known_at": 6200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 7000,
+              "known_at": 7200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 8000,
+              "known_at": 8200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 9000,
+              "known_at": 9200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 10000,
+              "known_at": 10200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 11000,
+              "known_at": 11200,
+              "trend": "downtrend"
+            },
+            {
+              "observed_at": 12000,
+              "known_at": 12200,
+              "trend": "sideways"
+            },
+            {
+              "observed_at": 13000,
+              "known_at": 13200,
+              "trend": "sideways"
+            },
+            {
+              "observed_at": 14000,
+              "known_at": 14200,
+              "trend": "sideways"
+            },
+            {
+              "observed_at": 15000,
+              "known_at": 15200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 16000,
+              "known_at": 16200,
+              "trend": "sideways"
+            },
+            {
+              "observed_at": 17000,
+              "known_at": 17200,
+              "trend": "sideways"
+            },
+            {
+              "observed_at": 18000,
+              "known_at": 18200,
+              "trend": "sideways"
+            },
+            {
+              "observed_at": 19000,
+              "known_at": 19200,
+              "trend": "downtrend"
+            },
+            {
+              "observed_at": 20000,
+              "known_at": 20200,
+              "trend": "sideways"
+            },
+            {
+              "observed_at": 21000,
+              "known_at": 21200,
+              "trend": "sideways"
+            },
+            {
+              "observed_at": 22000,
+              "known_at": 22200,
+              "trend": "sideways"
+            },
+            {
+              "observed_at": 23000,
+              "known_at": 23200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 24000,
+              "known_at": 24200,
+              "trend": "sideways"
+            },
+            {
+              "observed_at": 25000,
+              "known_at": 25200,
+              "trend": "sideways"
+            }
+          ],
+          "breaks": [
+            {
+              "event_id": "sha256:event-v1:77a51fa49feb00856db8d0ed011406f8ecc39f66e53e25b2d26f1e0d3ddcf19c",
+              "reference_pivot_id": "sha256:event-v1:f1bc582864b5a4b716bed2b04feb0fc980e5d9634fe86dd740eea940076df43e",
+              "kind": "bos",
+              "direction": "up",
+              "level": 10,
+              "close": 12.0,
+              "strength": {
+                "status": "ready",
+                "value": 0.5
+              },
+              "observed_at": 18000,
+              "known_at": 18200
+            }
+          ],
+          "evidence": [
+            {
+              "evidence_id": "sha256:event-v1:04bf5ffc71d1b11c067fcb03e5998be6b4b9bad129365520459f041790b55675",
+              "event_type": "swing_high",
+              "observed_at": 3000,
+              "known_at": 5200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 10
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:7592d28fb4f5570a0aa9f17fb896ad838854435968a40f4ba0eab69896385565",
+              "event_type": "swing_low",
+              "observed_at": 5000,
+              "known_at": 7200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 3
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:9bdc3f7de49abe73cedbc29ec521d31f53ede44de47e15b5ad40ecf6abc5949e",
+              "event_type": "swing_high",
+              "observed_at": 6000,
+              "known_at": 8200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 8
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:e67dcf34af80a3daf64f8c817bacb44d6254acfdd919d9710e436933945b3e2d",
+              "event_type": "swing_low",
+              "observed_at": 9000,
+              "known_at": 11200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 1
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:050423f9979f777cc36aaed84227dfbbfafea52423ad399ec3551e8122bf57c2",
+              "event_type": "swing_high",
+              "observed_at": 10000,
+              "known_at": 12200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 12
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:c83f9c8d47b2158170fba7572c1fb86b127973b7b792910e89a68d46398fdd91",
+              "event_type": "swing_low",
+              "observed_at": 13000,
+              "known_at": 15200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 4
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:f1bc582864b5a4b716bed2b04feb0fc980e5d9634fe86dd740eea940076df43e",
+              "event_type": "swing_high",
+              "observed_at": 14000,
+              "known_at": 16200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 10
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:51917d4917f8b136fc7fc46a6d8c15f8aafc233e7cd8f943055dfb7158fb9a4a",
+              "event_type": "swing_low",
+              "observed_at": 17000,
+              "known_at": 19200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 2
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:77a51fa49feb00856db8d0ed011406f8ecc39f66e53e25b2d26f1e0d3ddcf19c",
+              "event_type": "bos_up",
+              "observed_at": 18000,
+              "known_at": 18200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 10,
+                "close": 12.0,
+                "strength": 0.5
+              },
+              "rule_id": "structure-break-close-v1",
+              "status": "confirmed",
+              "layer": "confirmation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:4fe081ca3356f98baa48a40237c35476286b791867dbf00a5c0fe215117c178c",
+              "event_type": "swing_high",
+              "observed_at": 18000,
+              "known_at": 20200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 14
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:c6d970020372821b0a81c582f9f4f1081290179b2c0e7b5f82424c6da7b9f7ee",
+              "event_type": "swing_low",
+              "observed_at": 21000,
+              "known_at": 23200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 5
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:4d5176f2c22d43bd32eb8dc7a6ca410f230e0d2bff61b3e4af2b5c4beeff147f",
+              "event_type": "swing_high",
+              "observed_at": 22000,
+              "known_at": 24200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 12
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "gap-zero-range",
+      "result": {
+        "metadata": {
+          "schema_version": "0.1.0",
+          "engine_version": "0.1.0",
+          "algorithm_version": "p1-v1",
+          "symbol": "STRUCTURE",
+          "timeframe": "synthetic-close-1s",
+          "data_revision": "structure-r1",
+          "config_hash": "sha256:config-v1:8db64bb86c4002815acc82f1067c771a2377a50cc8b993d8bf10b7c8c486502c",
+          "as_of": 10200
+        },
+        "output": {
+          "pivots": [
+            {
+              "pivot_id": "sha256:event-v1:b6568c7b80f8f807767150afa0931ce39fd14dce250e4c684a7493fd78400c33",
+              "kind": "high",
+              "label": "unclassified",
+              "level": 12,
+              "observed_at": 2000,
+              "known_at": 3200
+            },
+            {
+              "pivot_id": "sha256:event-v1:0a70ce0595fc5a825c6df1878506dbf3eeb9bb19b0d9b84c549bf86a9b2ce23c",
+              "kind": "low",
+              "label": "unclassified",
+              "level": 6,
+              "observed_at": 3000,
+              "known_at": 4200
+            },
+            {
+              "pivot_id": "sha256:event-v1:103ae03f6ad6c39359adc502f6913bef171d971f8be27ce5436845482313b12d",
+              "kind": "high",
+              "label": "lh",
+              "level": 11,
+              "observed_at": 4000,
+              "known_at": 5200
+            },
+            {
+              "pivot_id": "sha256:event-v1:a5ebfba1164ca54c5f0515874a7418b922a190f5a67a35bb86f902cc6e73f621",
+              "kind": "low",
+              "label": "hl",
+              "level": 7,
+              "observed_at": 5000,
+              "known_at": 6200
+            },
+            {
+              "pivot_id": "sha256:event-v1:16686c973944f1ffa92a234ba3807086bc8cc6a2a6d36669bb5691be7fcd8e00",
+              "kind": "high",
+              "label": "hh",
+              "level": 14,
+              "observed_at": 6000,
+              "known_at": 7200
+            },
+            {
+              "pivot_id": "sha256:event-v1:ea571a2de10b4fb5178967e94c0a5da25dbc677d579c9c5dd17bbc8dddb130c4",
+              "kind": "low",
+              "label": "hl",
+              "level": 8,
+              "observed_at": 7000,
+              "known_at": 8200
+            }
+          ],
+          "trends": [
+            {
+              "observed_at": 1000,
+              "known_at": 1200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 2000,
+              "known_at": 2200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 3000,
+              "known_at": 3200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 4000,
+              "known_at": 4200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 5000,
+              "known_at": 5200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 6000,
+              "known_at": 6200,
+              "trend": "sideways"
+            },
+            {
+              "observed_at": 7000,
+              "known_at": 7200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 8000,
+              "known_at": 8200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 9000,
+              "known_at": 9200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 10000,
+              "known_at": 10200,
+              "trend": "uptrend"
+            }
+          ],
+          "breaks": [
+            {
+              "event_id": "sha256:event-v1:7747ae228c2be18ee175e1d01aafff8f60bac3c1c8cb9a3502753239eb94dd6f",
+              "reference_pivot_id": "sha256:event-v1:16686c973944f1ffa92a234ba3807086bc8cc6a2a6d36669bb5691be7fcd8e00",
+              "kind": "bos",
+              "direction": "up",
+              "level": 14,
+              "close": 20,
+              "strength": {
+                "status": "missing",
+                "reason": "zero_denominator"
+              },
+              "observed_at": 9000,
+              "known_at": 9200
+            }
+          ],
+          "evidence": [
+            {
+              "evidence_id": "sha256:event-v1:b6568c7b80f8f807767150afa0931ce39fd14dce250e4c684a7493fd78400c33",
+              "event_type": "swing_high",
+              "observed_at": 2000,
+              "known_at": 3200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 12
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:0a70ce0595fc5a825c6df1878506dbf3eeb9bb19b0d9b84c549bf86a9b2ce23c",
+              "event_type": "swing_low",
+              "observed_at": 3000,
+              "known_at": 4200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 6
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:103ae03f6ad6c39359adc502f6913bef171d971f8be27ce5436845482313b12d",
+              "event_type": "swing_high",
+              "observed_at": 4000,
+              "known_at": 5200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 11
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:a5ebfba1164ca54c5f0515874a7418b922a190f5a67a35bb86f902cc6e73f621",
+              "event_type": "swing_low",
+              "observed_at": 5000,
+              "known_at": 6200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 7
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:16686c973944f1ffa92a234ba3807086bc8cc6a2a6d36669bb5691be7fcd8e00",
+              "event_type": "swing_high",
+              "observed_at": 6000,
+              "known_at": 7200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 14
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:ea571a2de10b4fb5178967e94c0a5da25dbc677d579c9c5dd17bbc8dddb130c4",
+              "event_type": "swing_low",
+              "observed_at": 7000,
+              "known_at": 8200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 8
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:7747ae228c2be18ee175e1d01aafff8f60bac3c1c8cb9a3502753239eb94dd6f",
+              "event_type": "bos_up",
+              "observed_at": 9000,
+              "known_at": 9200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 14,
+                "close": 20
+              },
+              "rule_id": "structure-break-close-v1",
+              "status": "confirmed",
+              "layer": "confirmation"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "gap-strength-over-one",
+      "result": {
+        "metadata": {
+          "schema_version": "0.1.0",
+          "engine_version": "0.1.0",
+          "algorithm_version": "p1-v1",
+          "symbol": "STRUCTURE",
+          "timeframe": "synthetic-close-1s",
+          "data_revision": "structure-r1",
+          "config_hash": "sha256:config-v1:8db64bb86c4002815acc82f1067c771a2377a50cc8b993d8bf10b7c8c486502c",
+          "as_of": 9200
+        },
+        "output": {
+          "pivots": [
+            {
+              "pivot_id": "sha256:event-v1:b6568c7b80f8f807767150afa0931ce39fd14dce250e4c684a7493fd78400c33",
+              "kind": "high",
+              "label": "unclassified",
+              "level": 12,
+              "observed_at": 2000,
+              "known_at": 3200
+            },
+            {
+              "pivot_id": "sha256:event-v1:0a70ce0595fc5a825c6df1878506dbf3eeb9bb19b0d9b84c549bf86a9b2ce23c",
+              "kind": "low",
+              "label": "unclassified",
+              "level": 6,
+              "observed_at": 3000,
+              "known_at": 4200
+            },
+            {
+              "pivot_id": "sha256:event-v1:103ae03f6ad6c39359adc502f6913bef171d971f8be27ce5436845482313b12d",
+              "kind": "high",
+              "label": "lh",
+              "level": 11,
+              "observed_at": 4000,
+              "known_at": 5200
+            },
+            {
+              "pivot_id": "sha256:event-v1:a5ebfba1164ca54c5f0515874a7418b922a190f5a67a35bb86f902cc6e73f621",
+              "kind": "low",
+              "label": "hl",
+              "level": 7,
+              "observed_at": 5000,
+              "known_at": 6200
+            },
+            {
+              "pivot_id": "sha256:event-v1:16686c973944f1ffa92a234ba3807086bc8cc6a2a6d36669bb5691be7fcd8e00",
+              "kind": "high",
+              "label": "hh",
+              "level": 14,
+              "observed_at": 6000,
+              "known_at": 7200
+            },
+            {
+              "pivot_id": "sha256:event-v1:ea571a2de10b4fb5178967e94c0a5da25dbc677d579c9c5dd17bbc8dddb130c4",
+              "kind": "low",
+              "label": "hl",
+              "level": 8,
+              "observed_at": 7000,
+              "known_at": 8200
+            }
+          ],
+          "trends": [
+            {
+              "observed_at": 1000,
+              "known_at": 1200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 2000,
+              "known_at": 2200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 3000,
+              "known_at": 3200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 4000,
+              "known_at": 4200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 5000,
+              "known_at": 5200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 6000,
+              "known_at": 6200,
+              "trend": "sideways"
+            },
+            {
+              "observed_at": 7000,
+              "known_at": 7200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 8000,
+              "known_at": 8200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 9000,
+              "known_at": 9200,
+              "trend": "uptrend"
+            }
+          ],
+          "breaks": [
+            {
+              "event_id": "sha256:event-v1:7747ae228c2be18ee175e1d01aafff8f60bac3c1c8cb9a3502753239eb94dd6f",
+              "reference_pivot_id": "sha256:event-v1:16686c973944f1ffa92a234ba3807086bc8cc6a2a6d36669bb5691be7fcd8e00",
+              "kind": "bos",
+              "direction": "up",
+              "level": 14,
+              "close": 21,
+              "strength": {
+                "status": "ready",
+                "value": 7.0
+              },
+              "observed_at": 9000,
+              "known_at": 9200
+            }
+          ],
+          "evidence": [
+            {
+              "evidence_id": "sha256:event-v1:b6568c7b80f8f807767150afa0931ce39fd14dce250e4c684a7493fd78400c33",
+              "event_type": "swing_high",
+              "observed_at": 2000,
+              "known_at": 3200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 12
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:0a70ce0595fc5a825c6df1878506dbf3eeb9bb19b0d9b84c549bf86a9b2ce23c",
+              "event_type": "swing_low",
+              "observed_at": 3000,
+              "known_at": 4200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 6
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:103ae03f6ad6c39359adc502f6913bef171d971f8be27ce5436845482313b12d",
+              "event_type": "swing_high",
+              "observed_at": 4000,
+              "known_at": 5200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 11
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:a5ebfba1164ca54c5f0515874a7418b922a190f5a67a35bb86f902cc6e73f621",
+              "event_type": "swing_low",
+              "observed_at": 5000,
+              "known_at": 6200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 7
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:16686c973944f1ffa92a234ba3807086bc8cc6a2a6d36669bb5691be7fcd8e00",
+              "event_type": "swing_high",
+              "observed_at": 6000,
+              "known_at": 7200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 14
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:ea571a2de10b4fb5178967e94c0a5da25dbc677d579c9c5dd17bbc8dddb130c4",
+              "event_type": "swing_low",
+              "observed_at": 7000,
+              "known_at": 8200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 8
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:7747ae228c2be18ee175e1d01aafff8f60bac3c1c8cb9a3502753239eb94dd6f",
+              "event_type": "bos_up",
+              "observed_at": 9000,
+              "known_at": 9200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 14,
+                "close": 21,
+                "strength": 7.0
+              },
+              "rule_id": "structure-break-close-v1",
+              "status": "confirmed",
+              "layer": "confirmation"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "unknown-never-breaks",
+      "result": {
+        "metadata": {
+          "schema_version": "0.1.0",
+          "engine_version": "0.1.0",
+          "algorithm_version": "p1-v1",
+          "symbol": "STRUCTURE",
+          "timeframe": "synthetic-close-1s",
+          "data_revision": "structure-r1",
+          "config_hash": "sha256:config-v1:8db64bb86c4002815acc82f1067c771a2377a50cc8b993d8bf10b7c8c486502c",
+          "as_of": 5200
+        },
+        "output": {
+          "pivots": [
+            {
+              "pivot_id": "sha256:event-v1:b6568c7b80f8f807767150afa0931ce39fd14dce250e4c684a7493fd78400c33",
+              "kind": "high",
+              "label": "unclassified",
+              "level": 4,
+              "observed_at": 2000,
+              "known_at": 3200
+            },
+            {
+              "pivot_id": "sha256:event-v1:0a70ce0595fc5a825c6df1878506dbf3eeb9bb19b0d9b84c549bf86a9b2ce23c",
+              "kind": "low",
+              "label": "unclassified",
+              "level": 0,
+              "observed_at": 3000,
+              "known_at": 4200
+            }
+          ],
+          "trends": [
+            {
+              "observed_at": 1000,
+              "known_at": 1200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 2000,
+              "known_at": 2200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 3000,
+              "known_at": 3200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 4000,
+              "known_at": 4200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 5000,
+              "known_at": 5200,
+              "trend": "unknown"
+            }
+          ],
+          "breaks": [],
+          "evidence": [
+            {
+              "evidence_id": "sha256:event-v1:b6568c7b80f8f807767150afa0931ce39fd14dce250e4c684a7493fd78400c33",
+              "event_type": "swing_high",
+              "observed_at": 2000,
+              "known_at": 3200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 4
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:0a70ce0595fc5a825c6df1878506dbf3eeb9bb19b0d9b84c549bf86a9b2ce23c",
+              "event_type": "swing_low",
+              "observed_at": 3000,
+              "known_at": 4200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 0
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "constant",
+      "result": {
+        "metadata": {
+          "schema_version": "0.1.0",
+          "engine_version": "0.1.0",
+          "algorithm_version": "p1-v1",
+          "symbol": "STRUCTURE",
+          "timeframe": "synthetic-close-1s",
+          "data_revision": "structure-r1",
+          "config_hash": "sha256:config-v1:8db64bb86c4002815acc82f1067c771a2377a50cc8b993d8bf10b7c8c486502c",
+          "as_of": 6200
+        },
+        "output": {
+          "pivots": [],
+          "trends": [
+            {
+              "observed_at": 1000,
+              "known_at": 1200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 2000,
+              "known_at": 2200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 3000,
+              "known_at": 3200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 4000,
+              "known_at": 4200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 5000,
+              "known_at": 5200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 6000,
+              "known_at": 6200,
+              "trend": "unknown"
+            }
+          ],
+          "breaks": [],
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "empty",
+      "result": {
+        "metadata": {
+          "schema_version": "0.1.0",
+          "engine_version": "0.1.0",
+          "algorithm_version": "p1-v1",
+          "symbol": "STRUCTURE",
+          "timeframe": "synthetic-close-1s",
+          "data_revision": "structure-r1",
+          "config_hash": "sha256:config-v1:8db64bb86c4002815acc82f1067c771a2377a50cc8b993d8bf10b7c8c486502c",
+          "as_of": 0
+        },
+        "output": {
+          "pivots": [],
+          "trends": [],
+          "breaks": [],
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "single",
+      "result": {
+        "metadata": {
+          "schema_version": "0.1.0",
+          "engine_version": "0.1.0",
+          "algorithm_version": "p1-v1",
+          "symbol": "STRUCTURE",
+          "timeframe": "synthetic-close-1s",
+          "data_revision": "structure-r1",
+          "config_hash": "sha256:config-v1:8db64bb86c4002815acc82f1067c771a2377a50cc8b993d8bf10b7c8c486502c",
+          "as_of": 1200
+        },
+        "output": {
+          "pivots": [],
+          "trends": [
+            {
+              "observed_at": 1000,
+              "known_at": 1200,
+              "trend": "unknown"
+            }
+          ],
+          "breaks": [],
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "tiny",
+      "result": {
+        "metadata": {
+          "schema_version": "0.1.0",
+          "engine_version": "0.1.0",
+          "algorithm_version": "p1-v1",
+          "symbol": "STRUCTURE",
+          "timeframe": "synthetic-close-1s",
+          "data_revision": "structure-r1",
+          "config_hash": "sha256:config-v1:8db64bb86c4002815acc82f1067c771a2377a50cc8b993d8bf10b7c8c486502c",
+          "as_of": 19200
+        },
+        "output": {
+          "pivots": [
+            {
+              "pivot_id": "sha256:event-v1:b6568c7b80f8f807767150afa0931ce39fd14dce250e4c684a7493fd78400c33",
+              "kind": "high",
+              "label": "unclassified",
+              "level": 1.2e-149,
+              "observed_at": 2000,
+              "known_at": 3200
+            },
+            {
+              "pivot_id": "sha256:event-v1:0a70ce0595fc5a825c6df1878506dbf3eeb9bb19b0d9b84c549bf86a9b2ce23c",
+              "kind": "low",
+              "label": "unclassified",
+              "level": 6e-150,
+              "observed_at": 3000,
+              "known_at": 4200
+            },
+            {
+              "pivot_id": "sha256:event-v1:103ae03f6ad6c39359adc502f6913bef171d971f8be27ce5436845482313b12d",
+              "kind": "high",
+              "label": "lh",
+              "level": 1.1e-149,
+              "observed_at": 4000,
+              "known_at": 5200
+            },
+            {
+              "pivot_id": "sha256:event-v1:a5ebfba1164ca54c5f0515874a7418b922a190f5a67a35bb86f902cc6e73f621",
+              "kind": "low",
+              "label": "hl",
+              "level": 7e-150,
+              "observed_at": 5000,
+              "known_at": 6200
+            },
+            {
+              "pivot_id": "sha256:event-v1:16686c973944f1ffa92a234ba3807086bc8cc6a2a6d36669bb5691be7fcd8e00",
+              "kind": "high",
+              "label": "hh",
+              "level": 1.4e-149,
+              "observed_at": 6000,
+              "known_at": 7200
+            },
+            {
+              "pivot_id": "sha256:event-v1:ea571a2de10b4fb5178967e94c0a5da25dbc677d579c9c5dd17bbc8dddb130c4",
+              "kind": "low",
+              "label": "hl",
+              "level": 8e-150,
+              "observed_at": 7000,
+              "known_at": 8200
+            },
+            {
+              "pivot_id": "sha256:event-v1:98c8ff94973d564cdeda1672909b381257d9a6041b80712f881921d02946ab40",
+              "kind": "high",
+              "label": "hh",
+              "level": 1.6e-149,
+              "observed_at": 10000,
+              "known_at": 11200
+            },
+            {
+              "pivot_id": "sha256:event-v1:de54655436f73888f31d9a0850689e30d776b80917d5372c4c46623ca45adc44",
+              "kind": "low",
+              "label": "ll",
+              "level": 7e-150,
+              "observed_at": 13000,
+              "known_at": 14200
+            },
+            {
+              "pivot_id": "sha256:event-v1:5fe9b1ab18316202bb83d51aef2afdb2a6e8ed654ce7768b6666efbf45c0a78e",
+              "kind": "high",
+              "label": "lh",
+              "level": 1.4e-149,
+              "observed_at": 14000,
+              "known_at": 15200
+            },
+            {
+              "pivot_id": "sha256:event-v1:9b38893127f955df9aed17e0a449d2557553d61ca5cb58771bf421d06ec09060",
+              "kind": "low",
+              "label": "ll",
+              "level": 6e-150,
+              "observed_at": 15000,
+              "known_at": 16200
+            },
+            {
+              "pivot_id": "sha256:event-v1:55235bd05901f5be40bfe36a2a8d30c227f1ab471b3f026cd5ac5bff473ca4fa",
+              "kind": "high",
+              "label": "lh",
+              "level": 1.3e-149,
+              "observed_at": 16000,
+              "known_at": 17200
+            },
+            {
+              "pivot_id": "sha256:event-v1:cb998a63f134ec10f9ce88ae889e03c35384f19d0a8b4ca9d664df3d2cf067b6",
+              "kind": "low",
+              "label": "ll",
+              "level": 5e-150,
+              "observed_at": 17000,
+              "known_at": 18200
+            }
+          ],
+          "trends": [
+            {
+              "observed_at": 1000,
+              "known_at": 1200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 2000,
+              "known_at": 2200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 3000,
+              "known_at": 3200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 4000,
+              "known_at": 4200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 5000,
+              "known_at": 5200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 6000,
+              "known_at": 6200,
+              "trend": "sideways"
+            },
+            {
+              "observed_at": 7000,
+              "known_at": 7200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 8000,
+              "known_at": 8200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 9000,
+              "known_at": 9200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 10000,
+              "known_at": 10200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 11000,
+              "known_at": 11200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 12000,
+              "known_at": 12200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 13000,
+              "known_at": 13200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 14000,
+              "known_at": 14200,
+              "trend": "sideways"
+            },
+            {
+              "observed_at": 15000,
+              "known_at": 15200,
+              "trend": "downtrend"
+            },
+            {
+              "observed_at": 16000,
+              "known_at": 16200,
+              "trend": "downtrend"
+            },
+            {
+              "observed_at": 17000,
+              "known_at": 17200,
+              "trend": "downtrend"
+            },
+            {
+              "observed_at": 18000,
+              "known_at": 18200,
+              "trend": "downtrend"
+            },
+            {
+              "observed_at": 19000,
+              "known_at": 19200,
+              "trend": "downtrend"
+            }
+          ],
+          "breaks": [
+            {
+              "event_id": "sha256:event-v1:7747ae228c2be18ee175e1d01aafff8f60bac3c1c8cb9a3502753239eb94dd6f",
+              "reference_pivot_id": "sha256:event-v1:16686c973944f1ffa92a234ba3807086bc8cc6a2a6d36669bb5691be7fcd8e00",
+              "kind": "bos",
+              "direction": "up",
+              "level": 1.4e-149,
+              "close": 1.5e-149,
+              "strength": {
+                "status": "ready",
+                "value": 0.25
+              },
+              "observed_at": 9000,
+              "known_at": 9200
+            },
+            {
+              "event_id": "sha256:event-v1:dfe370078a8f28db332b9e107f776c916507c08aa925ff76f6893bb0555013fa",
+              "reference_pivot_id": "sha256:event-v1:ea571a2de10b4fb5178967e94c0a5da25dbc677d579c9c5dd17bbc8dddb130c4",
+              "kind": "choch",
+              "direction": "down",
+              "level": 8e-150,
+              "close": 7e-150,
+              "strength": {
+                "status": "ready",
+                "value": 0.2
+              },
+              "observed_at": 13000,
+              "known_at": 13200
+            },
+            {
+              "event_id": "sha256:event-v1:ceba8b49e28ed06509a8a8f72cae4774de6dc93f2134a7bdd89bc9523c90666c",
+              "reference_pivot_id": "sha256:event-v1:de54655436f73888f31d9a0850689e30d776b80917d5372c4c46623ca45adc44",
+              "kind": "bos",
+              "direction": "down",
+              "level": 7e-150,
+              "close": 6e-150,
+              "strength": {
+                "status": "ready",
+                "value": 0.16666666666666666
+              },
+              "observed_at": 15000,
+              "known_at": 15200
+            },
+            {
+              "event_id": "sha256:event-v1:51a0e1338b4eaa391a85e72a2e7f2323ea0c8ed2f805e70a8b4825914ae517c9",
+              "reference_pivot_id": "sha256:event-v1:9b38893127f955df9aed17e0a449d2557553d61ca5cb58771bf421d06ec09060",
+              "kind": "bos",
+              "direction": "down",
+              "level": 6e-150,
+              "close": 5e-150,
+              "strength": {
+                "status": "ready",
+                "value": 0.16666666666666666
+              },
+              "observed_at": 17000,
+              "known_at": 17200
+            },
+            {
+              "event_id": "sha256:event-v1:fea554c9bc09676ea3326f629a3ee009cc3cefe9c4877b9387d47e3266c1c461",
+              "reference_pivot_id": "sha256:event-v1:55235bd05901f5be40bfe36a2a8d30c227f1ab471b3f026cd5ac5bff473ca4fa",
+              "kind": "choch",
+              "direction": "up",
+              "level": 1.3e-149,
+              "close": 1.5e-149,
+              "strength": {
+                "status": "ready",
+                "value": 0.6666666666666666
+              },
+              "observed_at": 19000,
+              "known_at": 19200
+            }
+          ],
+          "evidence": [
+            {
+              "evidence_id": "sha256:event-v1:b6568c7b80f8f807767150afa0931ce39fd14dce250e4c684a7493fd78400c33",
+              "event_type": "swing_high",
+              "observed_at": 2000,
+              "known_at": 3200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 1.2e-149
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:0a70ce0595fc5a825c6df1878506dbf3eeb9bb19b0d9b84c549bf86a9b2ce23c",
+              "event_type": "swing_low",
+              "observed_at": 3000,
+              "known_at": 4200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 6e-150
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:103ae03f6ad6c39359adc502f6913bef171d971f8be27ce5436845482313b12d",
+              "event_type": "swing_high",
+              "observed_at": 4000,
+              "known_at": 5200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 1.1e-149
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:a5ebfba1164ca54c5f0515874a7418b922a190f5a67a35bb86f902cc6e73f621",
+              "event_type": "swing_low",
+              "observed_at": 5000,
+              "known_at": 6200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 7e-150
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:16686c973944f1ffa92a234ba3807086bc8cc6a2a6d36669bb5691be7fcd8e00",
+              "event_type": "swing_high",
+              "observed_at": 6000,
+              "known_at": 7200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 1.4e-149
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:ea571a2de10b4fb5178967e94c0a5da25dbc677d579c9c5dd17bbc8dddb130c4",
+              "event_type": "swing_low",
+              "observed_at": 7000,
+              "known_at": 8200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 8e-150
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:7747ae228c2be18ee175e1d01aafff8f60bac3c1c8cb9a3502753239eb94dd6f",
+              "event_type": "bos_up",
+              "observed_at": 9000,
+              "known_at": 9200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 1.4e-149,
+                "close": 1.5e-149,
+                "strength": 0.25
+              },
+              "rule_id": "structure-break-close-v1",
+              "status": "confirmed",
+              "layer": "confirmation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:98c8ff94973d564cdeda1672909b381257d9a6041b80712f881921d02946ab40",
+              "event_type": "swing_high",
+              "observed_at": 10000,
+              "known_at": 11200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 1.6e-149
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:dfe370078a8f28db332b9e107f776c916507c08aa925ff76f6893bb0555013fa",
+              "event_type": "choch_down",
+              "observed_at": 13000,
+              "known_at": 13200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 8e-150,
+                "close": 7e-150,
+                "strength": 0.2
+              },
+              "rule_id": "structure-break-close-v1",
+              "status": "confirmed",
+              "layer": "confirmation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:de54655436f73888f31d9a0850689e30d776b80917d5372c4c46623ca45adc44",
+              "event_type": "swing_low",
+              "observed_at": 13000,
+              "known_at": 14200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 7e-150
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:5fe9b1ab18316202bb83d51aef2afdb2a6e8ed654ce7768b6666efbf45c0a78e",
+              "event_type": "swing_high",
+              "observed_at": 14000,
+              "known_at": 15200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 1.4e-149
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:ceba8b49e28ed06509a8a8f72cae4774de6dc93f2134a7bdd89bc9523c90666c",
+              "event_type": "bos_down",
+              "observed_at": 15000,
+              "known_at": 15200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 7e-150,
+                "close": 6e-150,
+                "strength": 0.16666666666666666
+              },
+              "rule_id": "structure-break-close-v1",
+              "status": "confirmed",
+              "layer": "confirmation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:9b38893127f955df9aed17e0a449d2557553d61ca5cb58771bf421d06ec09060",
+              "event_type": "swing_low",
+              "observed_at": 15000,
+              "known_at": 16200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 6e-150
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:55235bd05901f5be40bfe36a2a8d30c227f1ab471b3f026cd5ac5bff473ca4fa",
+              "event_type": "swing_high",
+              "observed_at": 16000,
+              "known_at": 17200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 1.3e-149
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:51a0e1338b4eaa391a85e72a2e7f2323ea0c8ed2f805e70a8b4825914ae517c9",
+              "event_type": "bos_down",
+              "observed_at": 17000,
+              "known_at": 17200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 6e-150,
+                "close": 5e-150,
+                "strength": 0.16666666666666666
+              },
+              "rule_id": "structure-break-close-v1",
+              "status": "confirmed",
+              "layer": "confirmation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:cb998a63f134ec10f9ce88ae889e03c35384f19d0a8b4ca9d664df3d2cf067b6",
+              "event_type": "swing_low",
+              "observed_at": 17000,
+              "known_at": 18200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 5e-150
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:fea554c9bc09676ea3326f629a3ee009cc3cefe9c4877b9387d47e3266c1c461",
+              "event_type": "choch_up",
+              "observed_at": 19000,
+              "known_at": 19200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 1.3e-149,
+                "close": 1.5e-149,
+                "strength": 0.6666666666666666
+              },
+              "rule_id": "structure-break-close-v1",
+              "status": "confirmed",
+              "layer": "confirmation"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "large",
+      "result": {
+        "metadata": {
+          "schema_version": "0.1.0",
+          "engine_version": "0.1.0",
+          "algorithm_version": "p1-v1",
+          "symbol": "STRUCTURE",
+          "timeframe": "synthetic-close-1s",
+          "data_revision": "structure-r1",
+          "config_hash": "sha256:config-v1:8db64bb86c4002815acc82f1067c771a2377a50cc8b993d8bf10b7c8c486502c",
+          "as_of": 19200
+        },
+        "output": {
+          "pivots": [
+            {
+              "pivot_id": "sha256:event-v1:b6568c7b80f8f807767150afa0931ce39fd14dce250e4c684a7493fd78400c33",
+              "kind": "high",
+              "label": "unclassified",
+              "level": 1.2000000000000001e+101,
+              "observed_at": 2000,
+              "known_at": 3200
+            },
+            {
+              "pivot_id": "sha256:event-v1:0a70ce0595fc5a825c6df1878506dbf3eeb9bb19b0d9b84c549bf86a9b2ce23c",
+              "kind": "low",
+              "label": "unclassified",
+              "level": 6.0000000000000005e+100,
+              "observed_at": 3000,
+              "known_at": 4200
+            },
+            {
+              "pivot_id": "sha256:event-v1:103ae03f6ad6c39359adc502f6913bef171d971f8be27ce5436845482313b12d",
+              "kind": "high",
+              "label": "lh",
+              "level": 1.1e+101,
+              "observed_at": 4000,
+              "known_at": 5200
+            },
+            {
+              "pivot_id": "sha256:event-v1:a5ebfba1164ca54c5f0515874a7418b922a190f5a67a35bb86f902cc6e73f621",
+              "kind": "low",
+              "label": "hl",
+              "level": 7e+100,
+              "observed_at": 5000,
+              "known_at": 6200
+            },
+            {
+              "pivot_id": "sha256:event-v1:16686c973944f1ffa92a234ba3807086bc8cc6a2a6d36669bb5691be7fcd8e00",
+              "kind": "high",
+              "label": "hh",
+              "level": 1.4e+101,
+              "observed_at": 6000,
+              "known_at": 7200
+            },
+            {
+              "pivot_id": "sha256:event-v1:ea571a2de10b4fb5178967e94c0a5da25dbc677d579c9c5dd17bbc8dddb130c4",
+              "kind": "low",
+              "label": "hl",
+              "level": 8e+100,
+              "observed_at": 7000,
+              "known_at": 8200
+            },
+            {
+              "pivot_id": "sha256:event-v1:98c8ff94973d564cdeda1672909b381257d9a6041b80712f881921d02946ab40",
+              "kind": "high",
+              "label": "hh",
+              "level": 1.6e+101,
+              "observed_at": 10000,
+              "known_at": 11200
+            },
+            {
+              "pivot_id": "sha256:event-v1:de54655436f73888f31d9a0850689e30d776b80917d5372c4c46623ca45adc44",
+              "kind": "low",
+              "label": "ll",
+              "level": 7e+100,
+              "observed_at": 13000,
+              "known_at": 14200
+            },
+            {
+              "pivot_id": "sha256:event-v1:5fe9b1ab18316202bb83d51aef2afdb2a6e8ed654ce7768b6666efbf45c0a78e",
+              "kind": "high",
+              "label": "lh",
+              "level": 1.4e+101,
+              "observed_at": 14000,
+              "known_at": 15200
+            },
+            {
+              "pivot_id": "sha256:event-v1:9b38893127f955df9aed17e0a449d2557553d61ca5cb58771bf421d06ec09060",
+              "kind": "low",
+              "label": "ll",
+              "level": 6.0000000000000005e+100,
+              "observed_at": 15000,
+              "known_at": 16200
+            },
+            {
+              "pivot_id": "sha256:event-v1:55235bd05901f5be40bfe36a2a8d30c227f1ab471b3f026cd5ac5bff473ca4fa",
+              "kind": "high",
+              "label": "lh",
+              "level": 1.3e+101,
+              "observed_at": 16000,
+              "known_at": 17200
+            },
+            {
+              "pivot_id": "sha256:event-v1:cb998a63f134ec10f9ce88ae889e03c35384f19d0a8b4ca9d664df3d2cf067b6",
+              "kind": "low",
+              "label": "ll",
+              "level": 5e+100,
+              "observed_at": 17000,
+              "known_at": 18200
+            }
+          ],
+          "trends": [
+            {
+              "observed_at": 1000,
+              "known_at": 1200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 2000,
+              "known_at": 2200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 3000,
+              "known_at": 3200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 4000,
+              "known_at": 4200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 5000,
+              "known_at": 5200,
+              "trend": "unknown"
+            },
+            {
+              "observed_at": 6000,
+              "known_at": 6200,
+              "trend": "sideways"
+            },
+            {
+              "observed_at": 7000,
+              "known_at": 7200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 8000,
+              "known_at": 8200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 9000,
+              "known_at": 9200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 10000,
+              "known_at": 10200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 11000,
+              "known_at": 11200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 12000,
+              "known_at": 12200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 13000,
+              "known_at": 13200,
+              "trend": "uptrend"
+            },
+            {
+              "observed_at": 14000,
+              "known_at": 14200,
+              "trend": "sideways"
+            },
+            {
+              "observed_at": 15000,
+              "known_at": 15200,
+              "trend": "downtrend"
+            },
+            {
+              "observed_at": 16000,
+              "known_at": 16200,
+              "trend": "downtrend"
+            },
+            {
+              "observed_at": 17000,
+              "known_at": 17200,
+              "trend": "downtrend"
+            },
+            {
+              "observed_at": 18000,
+              "known_at": 18200,
+              "trend": "downtrend"
+            },
+            {
+              "observed_at": 19000,
+              "known_at": 19200,
+              "trend": "downtrend"
+            }
+          ],
+          "breaks": [
+            {
+              "event_id": "sha256:event-v1:7747ae228c2be18ee175e1d01aafff8f60bac3c1c8cb9a3502753239eb94dd6f",
+              "reference_pivot_id": "sha256:event-v1:16686c973944f1ffa92a234ba3807086bc8cc6a2a6d36669bb5691be7fcd8e00",
+              "kind": "bos",
+              "direction": "up",
+              "level": 1.4e+101,
+              "close": 1.5e+101,
+              "strength": {
+                "status": "ready",
+                "value": 0.25
+              },
+              "observed_at": 9000,
+              "known_at": 9200
+            },
+            {
+              "event_id": "sha256:event-v1:dfe370078a8f28db332b9e107f776c916507c08aa925ff76f6893bb0555013fa",
+              "reference_pivot_id": "sha256:event-v1:ea571a2de10b4fb5178967e94c0a5da25dbc677d579c9c5dd17bbc8dddb130c4",
+              "kind": "choch",
+              "direction": "down",
+              "level": 8e+100,
+              "close": 7e+100,
+              "strength": {
+                "status": "ready",
+                "value": 0.19999999999999996
+              },
+              "observed_at": 13000,
+              "known_at": 13200
+            },
+            {
+              "event_id": "sha256:event-v1:ceba8b49e28ed06509a8a8f72cae4774de6dc93f2134a7bdd89bc9523c90666c",
+              "reference_pivot_id": "sha256:event-v1:de54655436f73888f31d9a0850689e30d776b80917d5372c4c46623ca45adc44",
+              "kind": "bos",
+              "direction": "down",
+              "level": 7e+100,
+              "close": 6.0000000000000005e+100,
+              "strength": {
+                "status": "ready",
+                "value": 0.16666666666666657
+              },
+              "observed_at": 15000,
+              "known_at": 15200
+            },
+            {
+              "event_id": "sha256:event-v1:51a0e1338b4eaa391a85e72a2e7f2323ea0c8ed2f805e70a8b4825914ae517c9",
+              "reference_pivot_id": "sha256:event-v1:9b38893127f955df9aed17e0a449d2557553d61ca5cb58771bf421d06ec09060",
+              "kind": "bos",
+              "direction": "down",
+              "level": 6.0000000000000005e+100,
+              "close": 5e+100,
+              "strength": {
+                "status": "ready",
+                "value": 0.16666666666666674
+              },
+              "observed_at": 17000,
+              "known_at": 17200
+            },
+            {
+              "event_id": "sha256:event-v1:fea554c9bc09676ea3326f629a3ee009cc3cefe9c4877b9387d47e3266c1c461",
+              "reference_pivot_id": "sha256:event-v1:55235bd05901f5be40bfe36a2a8d30c227f1ab471b3f026cd5ac5bff473ca4fa",
+              "kind": "choch",
+              "direction": "up",
+              "level": 1.3e+101,
+              "close": 1.5e+101,
+              "strength": {
+                "status": "ready",
+                "value": 0.6666666666666669
+              },
+              "observed_at": 19000,
+              "known_at": 19200
+            }
+          ],
+          "evidence": [
+            {
+              "evidence_id": "sha256:event-v1:b6568c7b80f8f807767150afa0931ce39fd14dce250e4c684a7493fd78400c33",
+              "event_type": "swing_high",
+              "observed_at": 2000,
+              "known_at": 3200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 1.2000000000000001e+101
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:0a70ce0595fc5a825c6df1878506dbf3eeb9bb19b0d9b84c549bf86a9b2ce23c",
+              "event_type": "swing_low",
+              "observed_at": 3000,
+              "known_at": 4200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 6.0000000000000005e+100
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:103ae03f6ad6c39359adc502f6913bef171d971f8be27ce5436845482313b12d",
+              "event_type": "swing_high",
+              "observed_at": 4000,
+              "known_at": 5200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 1.1e+101
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:a5ebfba1164ca54c5f0515874a7418b922a190f5a67a35bb86f902cc6e73f621",
+              "event_type": "swing_low",
+              "observed_at": 5000,
+              "known_at": 6200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 7e+100
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:16686c973944f1ffa92a234ba3807086bc8cc6a2a6d36669bb5691be7fcd8e00",
+              "event_type": "swing_high",
+              "observed_at": 6000,
+              "known_at": 7200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 1.4e+101
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:ea571a2de10b4fb5178967e94c0a5da25dbc677d579c9c5dd17bbc8dddb130c4",
+              "event_type": "swing_low",
+              "observed_at": 7000,
+              "known_at": 8200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 8e+100
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:7747ae228c2be18ee175e1d01aafff8f60bac3c1c8cb9a3502753239eb94dd6f",
+              "event_type": "bos_up",
+              "observed_at": 9000,
+              "known_at": 9200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 1.4e+101,
+                "close": 1.5e+101,
+                "strength": 0.25
+              },
+              "rule_id": "structure-break-close-v1",
+              "status": "confirmed",
+              "layer": "confirmation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:98c8ff94973d564cdeda1672909b381257d9a6041b80712f881921d02946ab40",
+              "event_type": "swing_high",
+              "observed_at": 10000,
+              "known_at": 11200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 1.6e+101
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:dfe370078a8f28db332b9e107f776c916507c08aa925ff76f6893bb0555013fa",
+              "event_type": "choch_down",
+              "observed_at": 13000,
+              "known_at": 13200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 8e+100,
+                "close": 7e+100,
+                "strength": 0.19999999999999996
+              },
+              "rule_id": "structure-break-close-v1",
+              "status": "confirmed",
+              "layer": "confirmation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:de54655436f73888f31d9a0850689e30d776b80917d5372c4c46623ca45adc44",
+              "event_type": "swing_low",
+              "observed_at": 13000,
+              "known_at": 14200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 7e+100
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:5fe9b1ab18316202bb83d51aef2afdb2a6e8ed654ce7768b6666efbf45c0a78e",
+              "event_type": "swing_high",
+              "observed_at": 14000,
+              "known_at": 15200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 1.4e+101
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:ceba8b49e28ed06509a8a8f72cae4774de6dc93f2134a7bdd89bc9523c90666c",
+              "event_type": "bos_down",
+              "observed_at": 15000,
+              "known_at": 15200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 7e+100,
+                "close": 6.0000000000000005e+100,
+                "strength": 0.16666666666666657
+              },
+              "rule_id": "structure-break-close-v1",
+              "status": "confirmed",
+              "layer": "confirmation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:9b38893127f955df9aed17e0a449d2557553d61ca5cb58771bf421d06ec09060",
+              "event_type": "swing_low",
+              "observed_at": 15000,
+              "known_at": 16200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 6.0000000000000005e+100
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:55235bd05901f5be40bfe36a2a8d30c227f1ab471b3f026cd5ac5bff473ca4fa",
+              "event_type": "swing_high",
+              "observed_at": 16000,
+              "known_at": 17200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 1.3e+101
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:51a0e1338b4eaa391a85e72a2e7f2323ea0c8ed2f805e70a8b4825914ae517c9",
+              "event_type": "bos_down",
+              "observed_at": 17000,
+              "known_at": 17200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 6.0000000000000005e+100,
+                "close": 5e+100,
+                "strength": 0.16666666666666674
+              },
+              "rule_id": "structure-break-close-v1",
+              "status": "confirmed",
+              "layer": "confirmation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:cb998a63f134ec10f9ce88ae889e03c35384f19d0a8b4ca9d664df3d2cf067b6",
+              "event_type": "swing_low",
+              "observed_at": 17000,
+              "known_at": 18200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 5e+100
+              },
+              "rule_id": "structure-pivot-strict-v1",
+              "status": "confirmed",
+              "layer": "observation"
+            },
+            {
+              "evidence_id": "sha256:event-v1:fea554c9bc09676ea3326f629a3ee009cc3cefe9c4877b9387d47e3266c1c461",
+              "event_type": "choch_up",
+              "observed_at": 19000,
+              "known_at": 19200,
+              "source_module": "market_structure",
+              "measured_values": {
+                "level": 1.3e+101,
+                "close": 1.5e+101,
+                "strength": 0.6666666666666669
+              },
+              "rule_id": "structure-break-close-v1",
+              "status": "confirmed",
+              "layer": "confirmation"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

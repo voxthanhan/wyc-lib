@@ -1,0 +1,6 @@
+PASS: 12 previous fixture/golden files preserved byte-for-byte; old manifest entries unchanged.
+PASS: contracts/indicators Rust, pinned toolchain and CI workflow unchanged.
+PASS: Cargo.lock adds only the internal market_structure package and wyc-lib dependency edge.
+PASS: 57 exact SHA-256 source/test/config/script/fixture fingerprints recorded.
+PASS: git diff --check.
+REVIEW: strict pivot delay, dual order, previous-bar break precedence, latest same-kind labels, one-shot references, evidence lineage/order, finite strength, whole-input validation.

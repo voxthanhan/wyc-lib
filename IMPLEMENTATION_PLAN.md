@@ -540,3 +540,19 @@ dùng cho phép rõ đẩy source công khai và chạy CI, run 42355665535 tạ
 51 source blobs tại CI khớp bytes bản local/checkout sạch. **P1.4 hoàn thành
 trong phạm vi đã giao**; bằng chứng và giới hạn tải payload artifact tại
 [báo cáo P1.4](docs/acceptance/P1.4.md). P1.5–P1.7 và toàn G1 còn mở.
+
+## 16. Triển khai P1.5 — 07/11/2026
+
+P1.5 thêm crate `market_structure` chỉ phụ thuộc contracts; dùng
+`calculate_structure(&MarketData, &AnalysisConfig, as_of)` trước API điều phối
+P1.6. Pivot strict với L/R nến đóng/khả dụng; labels cùng loại, trend, BOS/CHoCH
+theo close, strength và evidence confirmed có ID/time ổn định. Break xét trước
+xác nhận pivot và cập nhật trend; không tiêu thụ reference khi trend unknown,
+không chọn tùy ý khi hai hướng cùng kích hoạt. Giữ quy tắc p1-v1/schema/config,
+không thêm dependency ngoài, state chung hoặc benchmark ngoài phạm vi.
+
+15 golden từ oracle độc lập liệt kê cửa sổ/tập pivot, Fraction và hashlib;
+tests đối chiếu mọi trường, hand-trace, replay/future, delayed confirmation,
+revision, dual/equal, xung đột và overflow/underflow. Kết quả local, checkout
+sạch, CI và tiêu chí nghiệm thu tại [báo cáo P1.5](docs/acceptance/P1.5.md).
+Toàn G1 còn mở cho tích hợp/state P1.6 và nghiệm thu/baseline P1.7.

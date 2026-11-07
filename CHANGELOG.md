@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.1.0 — P1.5, chưa phát hành
+
+- Thêm crate market_structure và calculate_structure: pivot strict xác nhận,
+  HH/HL/LH/LL/EH/EL, trend, close-confirmed BOS/CHoCH, strength và evidence.
+- Quy định ID/rule/ordinal, missing strength, precedence và lỗi xung đột;
+  giữ schema/config/hash p1-v1, không sửa contracts hoặc công thức đã nghiệm thu.
+  Cargo.lock chỉ thêm package/cạnh dependency nội bộ, không thêm thư viện ngoài.
+- Thêm 15 golden độc lập, oracle cửa sổ/tập pivot, Fraction và hashlib; kiểm
+  đầy đủ output, replay mọi prefix/future/revision, ca biên và input bất biến.
+- CI verifier bắt buộc bốn packages/sáu targets. Kết quả local/CI và giới hạn
+  tại [báo cáo P1.5](docs/acceptance/P1.5.md). P1.6/P1.7 và G1 còn mở.
+
 ## 0.1.0 — P1.4, chưa phát hành
 
 - Thêm RSI Wilder, MACD line/signal/histogram, DI/DX/ADX và Bollinger population;

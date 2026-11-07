@@ -1,4 +1,4 @@
-# Fixtures nền P0–P1.4
+# Fixtures nền P0–P1.5
 
 Manifest `manifest.json` nhận diện file input/golden bằng SHA-256 của **bytes
 nguyên trạng**; không chuẩn hóa line endings trước hash. Không tự cập nhật hash
@@ -48,6 +48,15 @@ có dữ liệu thị trường hoặc bí mật; không dùng ngẫu nhiên (se
   tiêu giữ golden và kiểm thêm ngân sách sai số làm tròn theo thang input
   được công bố trong catalog P1. Script kiểm chỉ đọc; không đổi bộ golden cũ.
   Prefix/revision/availability và biên overflow được kiểm trong p1_advanced.
+
+- `p1-structure-v1`: 15 chuỗi OHLCV tường minh: đảo chiều và chuỗi phản chiếu,
+  equal/dual pivot, plateau, L/R bất đối xứng, cửa sổ mặc định, gap/range=0,
+  strength>1, unknown, hằng/rỗng/một nến, tiny/large. Golden tạo trước khi kiểm
+  Rust bằng oracle liệt kê cửa sổ và tập pivot tại mỗi tiền tố, Fraction strength,
+  hashlib config/event ID. Mọi trường/ID/time/evidence được đối chiếu, có các
+  anchor tính tay độc lập trong p1_structure. Các ca conflict/overflow/underflow,
+  revision/delayed availability và future mutation bổ sung trực tiếp trong tests.
+  Script kiểm chỉ đọc; fixture/golden/checksum các bộ trước giữ nguyên.
 
 Harness Rust kiểm SHA và shape/type/temporal expectations; hàm so sánh báo path
 cụ thể khi số, status, field hoặc timestamp khác. Ca âm sửa có chủ đích một

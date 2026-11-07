@@ -150,6 +150,37 @@
           "sha256": "4b71ed179d07ab2958d45780d11031ee6ae29e6d14cfe354fb6a5dd44f97c2cf"
         }
       ]
+    },
+    {
+      "fixture_id": "p1-structure-v1",
+      "purpose": "Strict confirmed pivots, every label/trend, BOS/CHoCH, close/wick/gap and causal timing",
+      "provenance": "Fifteen explicit synthetic OHLCV sequences; reflected, tiny and large variants of a hand-traceable reversal. Golden authored by declarative Python/Fraction oracle before Rust tests; no Rust output.",
+      "seed": null,
+      "timezone": "Etc/UTC",
+      "time_semantics": "UTC Unix milliseconds at bar close",
+      "data_revision": "structure-r1",
+      "config": {
+        "left": [
+          1,
+          2,
+          3
+        ],
+        "right": [
+          1,
+          2
+        ]
+      },
+      "verification": "scripts/structure_oracle.py enumerates all strict windows then derives each prefix trend from eligible pivot sets; Fraction strength and hashlib IDs. verify_oracles only reads existing files. Rust tests also assert hand-traced anchors.",
+      "files": [
+        {
+          "path": "tests/fixtures/p1-structure.json",
+          "sha256": "7d4770443c130cb4c51fe295542d35dd18110fb72e6bc2a9cbbd0bee8110c398"
+        },
+        {
+          "path": "tests/golden/p1-structure.json",
+          "sha256": "1158e5a5ef089c8a5c67e858c8245ea12ad74791763189620d450995f4584a69"
+        }
+      ]
     }
   ]
 }

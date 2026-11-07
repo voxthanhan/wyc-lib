@@ -1,11 +1,12 @@
 # wyc-lib — Kiến trúc thực thi
 
-## Hiện trạng P1.4
+## Hiện trạng P1.5
 
-Workspace có ba package: `contracts` (wire types, cấu hình, kiểm tra contract,
+Workspace có bốn package: `contracts` (wire types, cấu hình, kiểm tra contract,
 AnalysisError), `indicators` (rolling/statistics P1.2, chín chỉ báo nền và
-BasicIndicatorState P1.3, RSI/MACD/ADX/Bollinger P1.4) và `wyc-lib`
-(`wyc_lib` trong Rust, re-export contracts/indicators và `prepare_request`). Chưa có orchestrator
+BasicIndicatorState P1.3, RSI/MACD/ADX/Bollinger P1.4), `market_structure`
+(pivot/labels/trend và BOS/CHoCH P1.5) và `wyc-lib`
+(`wyc_lib` trong Rust, re-export ba crate và `prepare_request`). Chưa có orchestrator
 phân tích toàn P1, AnalysisState hoặc bindings. Các hàm trong `WYC_LIB.md`
 là mục tiêu, không phải API đang chạy. Không tạo crate rỗng cho các phase sau.
 
@@ -14,6 +15,7 @@ Application → bindings (P2) → wyc_lib → các crate thuật toán (P1–P6)
                                   ↘ contracts ↗
 P1.1: wyc_lib → contracts → serde / sha2
 P1.2: wyc_lib → indicators → contracts
+P1.5: wyc_lib → market_structure → contracts
 ```
 
 `contracts` không phụ thuộc ngược vào `wyc_lib`. Các thuật toán tương lai dùng
@@ -31,7 +33,8 @@ Test target `p1_foundation` chạy `tests/p1_foundation.rs` cho phần runtime P
 primitives và replay cùng AvailableData; target `p1_basic` chạy chín chỉ báo,
 batch/state, identity/reset và causal replay. Tất cả chạy trong workspace tests.
 Target `p1_advanced` kiểm 11 components P1.4, golden độc lập, warm-up,
-availability/revision và replay mọi tiền tố; verifier buộc đủ năm targets.
+availability/revision và replay mọi tiền tố. Target `p1_structure` của wyc-lib
+kiểm P1.5 trên 15 fixtures và ca lỗi; verifier buộc đủ sáu targets.
 `tests/support/mod.rs` chứa so sánh JSON/số và replay contract, không phải engine.
 `serde` phục vụ wire types; `sha2` là runtime dependency của `contracts` cho
 canonical config hash và event ID theo contract. `serde_json` và `sha2` vẫn là
@@ -39,7 +42,7 @@ dev-dependencies của `wyc-lib`, dùng round-trip/schema/checksum fixtures.
 Phiên bản chính xác và dependency bắc cầu nằm trong `Cargo.lock`.
 Các dependency trực tiếp hiện chọn có giấy phép MIT OR Apache-2.0;
 kiểm kê toàn bộ dependency trước phát hành thuộc G6. Chưa chọn giấy phép phát
-hành source của wyc-lib; `publish = false` cho cả ba package.
+hành source của wyc-lib; `publish = false` cho cả bốn package.
 
 ## Quyết định nền tảng
 
@@ -84,3 +87,13 @@ chín series P1.3; state/orchestrator toàn P1 thuộc P1.6. Không thêm depend
 Yêu cầu P1.3 mở lại kiểm chứng CI; kết quả tại [báo cáo P1.3](docs/acceptance/P1.3.md).
 Phạm vi và kiểm chứng P1.1 tại [báo cáo](docs/acceptance/P1.1.md).
 Phạm vi, kiểm chứng local và giới hạn P1.2 tại [báo cáo](docs/acceptance/P1.2.md).
+
+P1.5 thêm crate `market_structure`, runtime chỉ phụ thuộc contracts, không cần
+indicators vì strength dùng range nến hiện tại. `calculate_structure` validate
+toàn snapshot/config rồi tính AvailableData; trả StructureResult có kiểu và
+wire serialization hiện có. Break dùng reference/trend của nến trước, rồi mới
+xác nhận pivot high/low và tính trend. Evidence/ID giữ lineage và thứ tự ổn định.
+Không đổi contracts/schema/config/hash; Cargo.lock chỉ thêm package nội bộ và
+cạnh dependency. Chi phí quét O(N×min(L+R+1,N)), sort evidence O(N log N), bộ nhớ
+O(N), validation toàn snapshot O(M). State chung còn thuộc P1.6.
+Kiểm chứng tại [báo cáo P1.5](docs/acceptance/P1.5.md).

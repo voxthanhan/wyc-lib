@@ -1,4 +1,4 @@
-# Phát triển và kiểm chứng P0–P1.4
+# Phát triển và kiểm chứng P0–P1.5
 
 ## Ma trận nền tảng
 
@@ -59,8 +59,9 @@ golden mọi sample/status, batch–state mọi tiền tố, availability/future
 identity và atomic failure/reset. `p1-basic-v1` có sáu case độc lập dùng Fraction
 và smoothing dạng tổng hình học tại `scripts/basic_oracle.py`; script kiểm chỉ
 đọc expected có sẵn, không lấy output Rust hoặc tự cập nhật golden.
-Workspace verifier yêu cầu đúng ba package contracts/indicators/wyc-lib,
-dependency không vòng và đủ năm integration test targets.
+Workspace verifier từ P1.5 yêu cầu đúng bốn package
+contracts/indicators/market_structure/wyc-lib, dependency không vòng và đủ sáu
+integration test targets, gồm p1_structure.
 
 Từ P1.4, target `p1_advanced` chạy 12 ca kiểm 11 components RSI/MACD/ADX/Bollinger,
 mọi sample/status/time của tám fixture, prefix có/không future, revision,
@@ -74,6 +75,15 @@ P1.4 đạt local và checkout sạch Windows với 54 tests; CI Windows/Linux t
 CI đã đối chiếu với 51 SHA-256 bản local. Payload zip cần đăng nhập GitHub
 để tải (thử API không đăng nhập trả 401); report phân biệt metadata đã xác
 minh với payload chưa đọc. Không lấy local PASS thay cho bằng chứng Linux.
+
+Từ P1.5, target `p1_structure` kiểm 15 fixture/golden đầy đủ pivot, labels,
+trend, breaks, strength và evidence, cùng replay từng prefix và future thay đổi.
+Oracle `scripts/structure_oracle.py` liệt kê cửa sổ trước rồi suy trend mỗi mốc
+từ tập pivot khả dụng, strength Fraction và ID hashlib; không gọi Rust hoặc ghi
+golden khi kiểm. Tests bổ sung hand-trace, delayed right/availability, revision,
+dual/equal/plateau, reference one-shot/unknown/conflict, overflow/underflow,
+input bất biến và toàn config/hash. Chi tiết local/CI tại
+[báo cáo P1.5](acceptance/P1.5.md). State chung và benchmark ở P1.6/P1.7.
 
 ## CI và nghiệm thu
 

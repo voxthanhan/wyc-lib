@@ -1,6 +1,6 @@
 # API hiện có và API mục tiêu
 
-Utilities P1.1, primitives P1.2, chỉ báo/state P1.3 và chỉ báo P1.4 đã có implementation.
+Utilities P1.1, primitives P1.2, chỉ báo/state P1.3, chỉ báo P1.4 và structure P1.5 đã có implementation.
 Các chữ ký analytical entry points/AnalysisState P1.6 vẫn là **thiết kế**, chưa xuất
 thành stub. Result từng engine phải có kiểu rõ ràng, không trả generic JSON.
 
@@ -139,6 +139,27 @@ Rỗng hợp lệ trả 11 series rỗng. Warm-up riêng từng component, lỗi
 số tại [catalog](algorithms/P1.md). Kết quả là kiểu Rust, chưa serialization/FFI.
 Không mở rộng BasicIndicatorState; state và điều phối toàn P1 còn ở P1.6.
 Kiểm chứng tại [báo cáo P1.4](acceptance/P1.4.md).
+
+### Market Structure P1.5 đã triển khai
+
+Truy cập qua `market_structure` hoặc `wyc_lib::market_structure`:
+
+```rust,ignore
+fn calculate_structure(data: &MarketData, config: &AnalysisConfig, as_of: i64)
+    -> Result<ModuleResult<StructureResult>, AnalysisError>;
+```
+
+Nhận full AnalysisConfig để validation/hash nhất quán với các engine P1.3/P1.4;
+chỉ thực thi structure, không tính indicators. Input borrow read-only, output
+owned; validate toàn snapshot/config rồi chọn prefix closed/available. Rỗng
+hợp lệ trả bốn vector rỗng, ngắn trả N trend unknown samples và không bịa pivot.
+Pivot strict L/R, labels, trend, close break, one-shot reference và strength
+theo [catalog P1](algorithms/P1.md). StructureResult có serialization hiện có;
+evidence pivot/break confirmed cùng ID/time, chỉ break có reference_pivot_id.
+Lỗi input/config giữ code/path, xung đột hai break trả invalid_result,
+overflow trả numeric_overflow; không trả output dở dang. Không có mutable state.
+Re-export crate này chưa phải `wyc_lib::analyze_structure` của P1.6.
+Kiểm chứng tại [báo cáo P1.5](acceptance/P1.5.md).
 
 ### Analytical entry points/state dự kiến P1.6
 

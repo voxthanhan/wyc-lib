@@ -11,6 +11,7 @@ name = "wyc_lib"
 [dependencies]
 contracts.workspace = true
 indicators.workspace = true
+market_structure.workspace = true
 
 [dev-dependencies]
 serde.workspace = true
@@ -24,6 +25,10 @@ path = "../../tests/foundation.rs"
 [[test]]
 name = "p1_foundation"
 path = "../../tests/p1_foundation.rs"
+
+[[test]]
+name = "p1_structure"
+path = "../../tests/p1_structure.rs"
 
 [lints]
 workspace = true
