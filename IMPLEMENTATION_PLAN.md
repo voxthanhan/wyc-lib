@@ -119,11 +119,11 @@ Với mọi kết quả dẫn xuất, `known_at` không được sớm hơn th�
 
 **Nghiệm thu G0:**
 
-- [ ] Workspace build và các test contract hiện có chạy được từ checkout sạch trên nền tảng phát triển đã chọn.
-- [ ] Contract có ví dụ hợp lệ và phản ví dụ cho từng nhóm lỗi; có phân biệt missing, warm-up và invalid input.
-- [ ] Có ví dụ `as_of`, nến đóng nhưng chưa khả dụng, pivot cần xác nhận muộn và lịch sử được sửa; giải thích kết quả mong đợi.
-- [ ] Đặc tả P1 có công thức/seed/warm-up/tolerance cụ thể; không còn quyết định làm thay đổi kết quả bị để trống trước khi bắt đầu P1.
-- [ ] Fixtures nền có mã định danh, metadata, checksum, expected result và cách xác minh; harness phát hiện được sai lệch cố ý trong một ca kiểm tra âm.
+- [x] Workspace build và các test contract hiện có chạy được từ checkout sạch trên nền tảng phát triển đã chọn.
+- [x] Contract có ví dụ hợp lệ và phản ví dụ cho từng nhóm lỗi; có phân biệt missing, warm-up và invalid input.
+- [x] Có ví dụ `as_of`, nến đóng nhưng chưa khả dụng, pivot cần xác nhận muộn và lịch sử được sửa; giải thích kết quả mong đợi.
+- [x] Đặc tả P1 có công thức/seed/warm-up/tolerance cụ thể; không còn quyết định làm thay đổi kết quả bị để trống trước khi bắt đầu P1.
+- [x] Fixtures nền có mã định danh, metadata, checksum, expected result và cách xác minh; harness phát hiện được sai lệch cố ý trong một ca kiểm tra âm.
 - [ ] Dependency không có vòng; CI cơ bản đã chạy; ma trận hỗ trợ ghi rõ mục tiêu chưa kiểm chứng.
 
 **Bằng chứng cần lưu:** contracts/ADR, log CI của commit nghiệm thu, manifest fixtures và báo cáo G0 trong `docs/acceptance/`.
@@ -456,5 +456,7 @@ Chưa triển khai thuật toán P1 hoặc bindings. `available_len`/validation 
 được thực thi sớm tại P0 để kiểm tra fixtures; hash/ID/state runtime vẫn ở P1.1.
 
 Trạng thái chi tiết P0.1–P0.7, kết quả local và các điều kiện G0 còn thiếu nằm
-trong [báo cáo G0](docs/acceptance/G0.md). Chưa đánh dấu G0 đạt khi chưa có log
-CI và bằng chứng checkout sạch gắn với commit; không tự bắt đầu P1.
+trong [báo cáo G0](docs/acceptance/G0.md). Git đã khởi tạo, commit nền P0 đã đẩy
+lên voxthanhan/wyc-lib; clean clone Windows kiểm chứng thành công. CI đã được
+kích hoạt nhưng bị chặn trước khi cấp runner; người dùng yêu cầu chạy CI sau.
+G0 còn mở cho CI Windows/Linux; chưa bắt đầu P1 và không giảm điều kiện nghiệm thu.

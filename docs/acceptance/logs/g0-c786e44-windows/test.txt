@@ -1,0 +1,53 @@
+   Compiling typenum v1.20.1
+   Compiling cfg-if v1.0.5
+   Compiling itoa v1.0.18
+   Compiling ryu v1.0.23
+   Compiling cpufeatures v0.2.17
+   Compiling memchr v2.8.3
+   Compiling contracts v0.1.0 (D:\Dev\Lib\.tools\g0-checkout-c786e44\crates\contracts)
+   Compiling serde_json v1.0.140
+   Compiling generic-array v0.14.7
+   Compiling block-buffer v0.10.4
+   Compiling crypto-common v0.1.7
+   Compiling digest v0.10.7
+   Compiling sha2 v0.10.9
+   Compiling wyc-lib v0.1.0 (D:\Dev\Lib\.tools\g0-checkout-c786e44\crates\wyc_lib)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 10.73s
+     Running unittests src\lib.rs (target\debug\deps\contracts-c08803862b37e53d.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src\lib.rs (target\debug\deps\wyc_lib-f569c765d5b10bde.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running ..\..\tests\foundation.rs (target\debug\deps\foundation-c2c29bec0ed95907.exe)
+
+running 8 tests
+test harness_detects_intentional_numeric_schema_time_mask_and_checksum_drift ... ok
+test typed_result_schema_and_warmup_invariants ... ok
+test finite_numbers_statuses_and_draft_report_roundtrip ... ok
+test request_config_and_selection_contract ... ok
+test availability_replay_and_prefix_contract ... ok
+test all_columns_reject_length_mismatch_and_all_prices_reject_null ... ok
+test invalid_data_counterexamples_have_exact_codes_and_paths ... ok
+test manifest_checksums_and_fixture_schema ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+   Doc-tests contracts
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests wyc_lib
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

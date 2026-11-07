@@ -14,4 +14,6 @@ Package Rust `wyc-lib` được dùng với định danh `wyc_lib`.
 
 Ứng dụng cung cấp dữ liệu và availability/revision đã chuẩn hóa. Core không
 kết nối nguồn dữ liệu, tự sửa OHLCV hay quyết định chiến lược giao dịch.
-Source dự kiến riêng tư; các package hiện đặt `publish = false`.
+Repository hiện public theo lựa chọn của người dùng; định hướng chuyển private
+về sau. Các package hiện đặt `publish = false`. Git và kiểm chứng checkout sạch
+đã hoàn tất; G0 còn chờ CI Windows/Linux theo [báo cáo nghiệm thu](docs/acceptance/G0.md).

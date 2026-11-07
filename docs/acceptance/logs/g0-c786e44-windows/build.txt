@@ -1,0 +1,4 @@
+   Compiling serde v1.0.219
+   Compiling contracts v0.1.0 (D:\Dev\Lib\.tools\g0-checkout-c786e44\crates\contracts)
+   Compiling wyc-lib v0.1.0 (D:\Dev\Lib\.tools\g0-checkout-c786e44\crates\wyc_lib)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 6.85s

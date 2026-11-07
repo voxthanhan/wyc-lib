@@ -19,3 +19,9 @@ Test target khai báo tường minh trong package để Cargo chạy tài nguyê
 Hệ quả: P0 có thể nghiệm thu hợp đồng và oracle, không giả có public analytical
 API. CI chạy cùng commands như local. G0 còn cần log CI gắn commit thực tế;
 thư mục chưa có Git không cho phép giả lập bằng chứng đó.
+
+Cập nhật 07/11/2026: người dùng đã chỉ định kho voxthanhan/wyc-lib public hiện
+tại và dự kiến chuyển private sau; đây là ngoại lệ có ủy quyền đối với định
+hướng private source. Git/commit và kiểm chứng clean clone đã hoàn tất. CI đã
+kích hoạt nhưng chưa được cấp runner; người dùng yêu cầu để CI chạy sau.
+Không thay điều kiện G0 hoặc coi local checks là CI pass.

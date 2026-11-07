@@ -1,0 +1,38 @@
+{
+  "repository": "voxthanhan/wyc-lib",
+  "run_id": 42349069998,
+  "head_sha": "c786e4495e9a581aaa1823c68a0969468251e7a5",
+  "run_attempt": 1,
+  "status": "completed",
+  "conclusion": "failure",
+  "html_url": "https://github.com/voxthanhan/wyc-lib/actions/runs/42349069998",
+  "created_at": "2026-11-07T06:55:18Z",
+  "updated_at": "2026-11-07T06:55:22Z",
+  "failure_stage": "runner_not_started_external_account_restriction",
+  "jobs": [
+    {
+      "id": 128333110856,
+      "name": "foundation (windows-latest)",
+      "status": "completed",
+      "conclusion": "failure",
+      "html_url": "https://github.com/voxthanhan/wyc-lib/actions/runs/42349069998/job/128333110856",
+      "check_run_url": "https://api.github.com/repos/voxthanhan/wyc-lib/check-runs/128333110856",
+      "annotations_url": "https://api.github.com/repos/voxthanhan/wyc-lib/check-runs/128333110856/annotations",
+      "runner_name": "",
+      "steps": []
+    },
+    {
+      "id": 128333110952,
+      "name": "foundation (ubuntu-24.04)",
+      "status": "completed",
+      "conclusion": "failure",
+      "html_url": "https://github.com/voxthanhan/wyc-lib/actions/runs/42349069998/job/128333110952",
+      "check_run_url": "https://api.github.com/repos/voxthanhan/wyc-lib/check-runs/128333110952",
+      "annotations_url": "https://api.github.com/repos/voxthanhan/wyc-lib/check-runs/128333110952/annotations",
+      "runner_name": "",
+      "steps": []
+    }
+  ],
+  "artifact_count": 0,
+  "artifacts_url": "https://api.github.com/repos/voxthanhan/wyc-lib/actions/runs/42349069998/artifacts"
+}
