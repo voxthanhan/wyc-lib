@@ -1,0 +1,5 @@
+PASS: P1.6 four package boundaries, acyclic dependency graph, seven integration targets including p1_orchestration, 177 local links
+PASS: git diff --check.
+PASS: final documentation/evidence changes only; all 60 source/test/script/fixture/config SHA-256 values unchanged.
+PASS: main CI exact SHA and both jobs success; merged tree identical to accepted commit.
+LIMIT: artifact ZIP payload requires authentication (401); run/job/step and artifact metadata verified.

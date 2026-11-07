@@ -20,5 +20,12 @@
   "ubuntu": "success",
   "run_id": 42395906710,
   "run_url": "https://github.com/voxthanhan/wyc-lib/actions/runs/42395906710",
-  "artifact_payloads_downloaded": false
+  "artifact_payloads_downloaded": false,
+  "main_commit": "5af23834c98b5d32ef3c3b692db488a1076609fd",
+  "main_run_id": 42396385077,
+  "main_run_url": "https://github.com/voxthanhan/wyc-lib/actions/runs/42396385077",
+  "main_status": "completed_success",
+  "main_windows": "success",
+  "main_ubuntu": "success",
+  "main_tree_matches_accepted": true
 }

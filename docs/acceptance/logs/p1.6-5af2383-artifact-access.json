@@ -1,0 +1,22 @@
+{
+  "head_sha": "5af23834c98b5d32ef3c3b692db488a1076609fd",
+  "run_id": 42396385077,
+  "attempts": [
+    {
+      "artifact_id": 13584140151,
+      "name": "foundation-windows-latest-5af23834c98b5d32ef3c3b692db488a1076609fd",
+      "authentication": "none; no credentials read",
+      "payload_downloaded": false,
+      "http_status": 401,
+      "reason": "GitHub artifact archive API requires authentication"
+    },
+    {
+      "artifact_id": 13582569585,
+      "name": "foundation-ubuntu-24.04-5af23834c98b5d32ef3c3b692db488a1076609fd",
+      "authentication": "none; no credentials read",
+      "payload_downloaded": false,
+      "http_status": 401,
+      "reason": "GitHub artifact archive API requires authentication"
+    }
+  ]
+}

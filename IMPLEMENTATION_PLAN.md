@@ -584,4 +584,5 @@ tests, oracle/workspace PASS, 60 source fingerprints khớp. Sau xác nhận rõ
 người dùng cho phép đẩy source công khai, CI run 42395906710 đúng SHA đạt cả
 windows-latest và ubuntu-24.04, hai artifact log đã upload. Metadata CI/đối
 chiếu nguồn và giới hạn tải payload trong báo cáo. **P1.6 hoàn thành phạm vi
-được giao**; tích hợp main được theo dõi trong báo cáo, P1.7/toàn G1 còn mở.
+được giao**; đã tích hợp main tại `5af2383`, run main 42396385077 đạt cả
+Windows/Linux, tree khớp bản nghiệm thu. P1.7/toàn G1 còn mở.

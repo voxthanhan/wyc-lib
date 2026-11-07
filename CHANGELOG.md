@@ -13,6 +13,8 @@
 - Local/checkout sạch và CI Windows/Linux tại 4460753 đều đạt (85 tests),
   run 42395906710, hai artifact upload, 60 source fingerprints khớp.
   Bằng chứng tại [báo cáo P1.6](docs/acceptance/P1.6.md).
+- Đã tích hợp main tại 5af2383; CI main run 42396385077 đạt Windows/Linux,
+  tree khớp bản nghiệm thu và source bytes không đổi.
   State tính lại batch, baseline và nghiệm thu toàn G1 còn chờ P1.7.
 
 ## 0.1.0 — P1.5, chưa phát hành

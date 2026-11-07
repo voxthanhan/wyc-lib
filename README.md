@@ -53,3 +53,6 @@ P1.6 đạt local/checkout sạch Windows và CI Windows/Linux tại `4460753`,
 85 integration tests; [run 42395906710](https://github.com/voxthanhan/wyc-lib/actions/runs/42395906710)
 thành công và upload hai artifact. Báo cáo P1.6 ghi 60 source fingerprints,
 protocol state, bằng chứng nghiệm thu và tích hợp main. P1.7/baseline/G1 còn mở.
+
+Đã tích hợp P1.6 vào main tại `5af2383`; [CI main 42396385077](https://github.com/voxthanhan/wyc-lib/actions/runs/42396385077)
+đạt cả Windows/Linux. Checkout main đã đồng bộ phần mã và báo cáo nghiệm thu.

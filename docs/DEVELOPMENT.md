@@ -147,3 +147,7 @@ P1.6 đạt local/checkout sạch và CI Windows/Linux tại `4460753`, run 4239
 85 tests và 60 source fingerprints khớp. Hai artifact upload thành công; tải
 ZIP không đăng nhập trả 401. Giữ tách biệt metadata đã kiểm với payload chưa
 đọc; chi tiết/bàn giao main trong báo cáo P1.6 ở trên.
+
+P1.6 đã tích hợp main tại `5af2383`, tree khớp bản nghiệm thu; CI main run
+42396385077 đạt cả Windows/Linux. Commit bổ sung báo cáo sau run chỉ thay
+tài liệu/log, không thay code đã kiểm chứng.
