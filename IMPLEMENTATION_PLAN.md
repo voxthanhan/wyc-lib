@@ -562,3 +562,26 @@ tại commit `c7de17a` đạt cả windows-latest và ubuntu-24.04, hai artifact
 upload; 57 Git source blobs khớp local/checkout sạch. **P1.5 hoàn thành trong
 phạm vi đã giao**; metadata và giới hạn tải payload tại báo cáo trên.
 Toàn G1 còn mở cho tích hợp/state P1.6 và nghiệm thu/baseline P1.7.
+
+## 17. Triển khai P1.6 — 08/11/2026
+
+Theo yêu cầu tiếp tục P1.6, kiểm chứng local và CI Windows/Linux, rồi tự tích
+hợp main khi đạt. Thêm calculate_indicators/analyze_structure/analyze_batch và
+AnalysisState new/update/reset tại wyc_lib; chỉ chạy module được chọn. Catalog
+đủ 25 series qua engine/primitives cũ, không sao chép công thức. State giữ prefix
+khả dụng, identity/cursor/metadata và dùng batch tính lại, thay thế atomic.
+
+Chốt trước code [ADR-0003](docs/adr/0003-p1-orchestration-state.md): API đơn
+module nhận toàn AnalysisConfig thay config con của draft để giữ hash nhất
+quán; thêm DTO ClosedBar/ClosedBarUpdate, không đổi API engine đã triển khai,
+seed/rule/schema/config/hash hoặc dependency. Golden cũ giữ nguyên và đối chiếu
+qua API mới. Target p1_orchestration kiểm replay, identity/cursor, revision/reset,
+atomic errors và module selection. Workspace verifier buộc bảy test targets.
+
+Tiến độ và bằng chứng thực tế tại [báo cáo P1.6](docs/acceptance/P1.6.md).
+P1.6 đạt local/checkout sạch Windows tại `4460753`: format/Clippy/build, 85
+tests, oracle/workspace PASS, 60 source fingerprints khớp. Sau xác nhận rõ của
+người dùng cho phép đẩy source công khai, CI run 42395906710 đúng SHA đạt cả
+windows-latest và ubuntu-24.04, hai artifact log đã upload. Metadata CI/đối
+chiếu nguồn và giới hạn tải payload trong báo cáo. **P1.6 hoàn thành phạm vi
+được giao**; tích hợp main được theo dõi trong báo cáo, P1.7/toàn G1 còn mở.

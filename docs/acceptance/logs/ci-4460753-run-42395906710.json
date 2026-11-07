@@ -1,0 +1,263 @@
+{
+  "evidence_version": "1",
+  "observed_at_utc": "2026-11-07T17:23:16.388855+00:00",
+  "repository": "voxthanhan/wyc-lib",
+  "head_sha": "44607535fabfcb3929a7d18e9ea2ea542c82733b",
+  "run": {
+    "id": 42395906710,
+    "name": "Rust foundation",
+    "head_sha": "44607535fabfcb3929a7d18e9ea2ea542c82733b",
+    "head_branch": "codex/p1.6-orchestration",
+    "event": "push",
+    "status": "completed",
+    "conclusion": "success",
+    "run_attempt": 1,
+    "created_at": "2026-11-07T17:21:27Z",
+    "updated_at": "2026-11-07T17:22:53Z",
+    "html_url": "https://github.com/voxthanhan/wyc-lib/actions/runs/42395906710",
+    "path": ".github/workflows/ci.yml"
+  },
+  "jobs": [
+    {
+      "id": 128473096300,
+      "name": "foundation (ubuntu-24.04)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/voxthanhan/wyc-lib/actions/runs/42395906710/job/128473096300",
+      "check_run_url": "https://api.github.com/repos/voxthanhan/wyc-lib/check-runs/128473096300",
+      "runner_name": "GitHub Actions 1000000023",
+      "started_at": "2026-11-07T17:21:30Z",
+      "completed_at": "2026-11-07T17:22:00Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-07T17:21:30Z",
+          "completed_at": "2026-11-07T17:21:31Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-07T17:21:31Z",
+          "completed_at": "2026-11-07T17:21:32Z"
+        },
+        {
+          "name": "Install pinned Rust",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-07T17:21:32Z",
+          "completed_at": "2026-11-07T17:21:38Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-07T17:21:38Z",
+          "completed_at": "2026-11-07T17:21:43Z"
+        },
+        {
+          "name": "Check foundation and record evidence",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-07T17:21:43Z",
+          "completed_at": "2026-11-07T17:21:56Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-07T17:21:56Z",
+          "completed_at": "2026-11-07T17:21:57Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-11-07T17:21:57Z",
+          "completed_at": "2026-11-07T17:21:58Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-11-07T17:21:58Z",
+          "completed_at": "2026-11-07T17:21:58Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-07T17:21:58Z",
+          "completed_at": "2026-11-07T17:21:58Z"
+        }
+      ],
+      "annotations": [
+        {
+          "path": ".github",
+          "blob_href": "https://github.com/voxthanhan/wyc-lib/blob/44607535fabfcb3929a7d18e9ea2ea542c82733b/.github",
+          "start_line": 2,
+          "start_column": null,
+          "end_line": 2,
+          "end_column": null,
+          "annotation_level": "warning",
+          "title": "",
+          "message": "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/",
+          "raw_details": ""
+        }
+      ]
+    },
+    {
+      "id": 128473096482,
+      "name": "foundation (windows-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/voxthanhan/wyc-lib/actions/runs/42395906710/job/128473096482",
+      "check_run_url": "https://api.github.com/repos/voxthanhan/wyc-lib/check-runs/128473096482",
+      "runner_name": "GitHub Actions 1000000024",
+      "started_at": "2026-11-07T17:21:30Z",
+      "completed_at": "2026-11-07T17:22:52Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-07T17:21:31Z",
+          "completed_at": "2026-11-07T17:21:32Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-07T17:21:32Z",
+          "completed_at": "2026-11-07T17:21:38Z"
+        },
+        {
+          "name": "Install pinned Rust",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-07T17:21:38Z",
+          "completed_at": "2026-11-07T17:21:46Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-07T17:21:46Z",
+          "completed_at": "2026-11-07T17:22:21Z"
+        },
+        {
+          "name": "Check foundation and record evidence",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-07T17:22:21Z",
+          "completed_at": "2026-11-07T17:22:47Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-07T17:22:47Z",
+          "completed_at": "2026-11-07T17:22:49Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-11-07T17:22:49Z",
+          "completed_at": "2026-11-07T17:22:49Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-11-07T17:22:49Z",
+          "completed_at": "2026-11-07T17:22:50Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-07T17:22:50Z",
+          "completed_at": "2026-11-07T17:22:50Z"
+        }
+      ],
+      "annotations": [
+        {
+          "path": ".github",
+          "blob_href": "https://github.com/voxthanhan/wyc-lib/blob/44607535fabfcb3929a7d18e9ea2ea542c82733b/.github",
+          "start_line": 3,
+          "start_column": null,
+          "end_line": 3,
+          "end_column": null,
+          "annotation_level": "warning",
+          "title": "",
+          "message": "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/",
+          "raw_details": ""
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 13583208848,
+      "node_id": "MDg6QXJ0aWZhY3QxMzU4MzIwODg0OA==",
+      "name": "foundation-ubuntu-24.04-44607535fabfcb3929a7d18e9ea2ea542c82733b",
+      "size_in_bytes": 6593,
+      "url": "https://api.github.com/repos/voxthanhan/wyc-lib/actions/artifacts/13583208848",
+      "archive_download_url": "https://api.github.com/repos/voxthanhan/wyc-lib/actions/artifacts/13583208848/zip",
+      "expired": false,
+      "digest": "sha256:f478c3bfbaec36d2ff81ebd2ceae84f4e40199e598ea45f43eaa163d56e4faa9",
+      "created_at": "2026-11-07T17:21:57Z",
+      "updated_at": "2026-11-07T17:21:57Z",
+      "expires_at": "2027-02-05T17:21:27Z",
+      "workflow_run": {
+        "id": 42395906710,
+        "repository_id": 1449100439,
+        "head_repository_id": 1449100439,
+        "head_branch": "codex/p1.6-orchestration",
+        "head_sha": "44607535fabfcb3929a7d18e9ea2ea542c82733b"
+      }
+    },
+    {
+      "id": 13582638757,
+      "node_id": "MDg6QXJ0aWZhY3QxMzU4MjYzODc1Nw==",
+      "name": "foundation-windows-latest-44607535fabfcb3929a7d18e9ea2ea542c82733b",
+      "size_in_bytes": 6625,
+      "url": "https://api.github.com/repos/voxthanhan/wyc-lib/actions/artifacts/13582638757",
+      "archive_download_url": "https://api.github.com/repos/voxthanhan/wyc-lib/actions/artifacts/13582638757/zip",
+      "expired": false,
+      "digest": "sha256:9387984aca9571584756ffb53371e721d7f4424650eff199f198fb77245652df",
+      "created_at": "2026-11-07T17:22:48Z",
+      "updated_at": "2026-11-07T17:22:48Z",
+      "expires_at": "2027-02-05T17:21:27Z",
+      "workflow_run": {
+        "id": 42395906710,
+        "repository_id": 1449100439,
+        "head_repository_id": 1449100439,
+        "head_branch": "codex/p1.6-orchestration",
+        "head_sha": "44607535fabfcb3929a7d18e9ea2ea542c82733b"
+      }
+    }
+  ],
+  "artifact_payload_downloaded": false
+}

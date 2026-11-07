@@ -1,0 +1,248 @@
+{
+  "commit": "44607535fabfcb3929a7d18e9ea2ea542c82733b",
+  "compared_to": "p1.6-windows/sources.json",
+  "count": 60,
+  "all_match": true,
+  "files": {
+    ".gitattributes": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    ".github/workflows/ci.yml": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "Cargo.lock": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "Cargo.toml": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "crates/contracts/Cargo.toml": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "crates/contracts/src/analysis.rs": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "crates/contracts/src/available.rs": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "crates/contracts/src/error.rs": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "crates/contracts/src/identity.rs": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "crates/contracts/src/lib.rs": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "crates/contracts/src/market.rs": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "crates/contracts/src/report.rs": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "crates/contracts/src/result.rs": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "crates/contracts/src/value.rs": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "crates/indicators/Cargo.toml": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "crates/indicators/src/advanced.rs": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "crates/indicators/src/basic.rs": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "crates/indicators/src/basic_state.rs": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "crates/indicators/src/lib.rs": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "crates/indicators/src/rolling.rs": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "crates/market_structure/Cargo.toml": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "crates/market_structure/src/lib.rs": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "crates/wyc_lib/Cargo.toml": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "crates/wyc_lib/src/lib.rs": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "crates/wyc_lib/src/orchestration.rs": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "crates/wyc_lib/src/preparation.rs": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "crates/wyc_lib/src/state.rs": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "rust-toolchain.toml": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "scripts/advanced_oracle.py": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "scripts/basic_oracle.py": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "scripts/check-foundation.ps1": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "scripts/structure_oracle.py": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "scripts/verify_oracles.py": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "scripts/verify_workspace.py": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "tests/fixtures/README.md": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "tests/fixtures/manifest.json": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "tests/fixtures/p1-advanced.json": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "tests/fixtures/p1-arithmetic.json": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "tests/fixtures/p1-basic.json": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "tests/fixtures/p1-identity.json": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "tests/fixtures/p1-rolling.json": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "tests/fixtures/p1-structure.json": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "tests/fixtures/temporal.json": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "tests/foundation.rs": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "tests/golden/p1-advanced.json": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "tests/golden/p1-arithmetic.json": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "tests/golden/p1-basic.json": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "tests/golden/p1-identity.json": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "tests/golden/p1-rolling.json": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "tests/golden/p1-structure.json": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "tests/golden/temporal.json": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "tests/p1_advanced.rs": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "tests/p1_basic.rs": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "tests/p1_foundation.rs": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "tests/p1_orchestration.rs": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "tests/p1_rolling.rs": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "tests/p1_structure.rs": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "tests/parity/README.md": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "tests/regression/README.md": {
+      "clean_checkout": true,
+      "git_blob": true
+    },
+    "tests/support/mod.rs": {
+      "clean_checkout": true,
+      "git_blob": true
+    }
+  }
+}

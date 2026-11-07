@@ -1,12 +1,12 @@
-# Phát triển và kiểm chứng P0–P1.5
+# Phát triển và kiểm chứng P0–P1.6
 
 ## Ma trận nền tảng
 
 | Thành phần | Chọn/mục tiêu | Tình trạng |
 | --- | --- | --- |
 | Rust | 1.85.1 pinned; MSRV 1.85; edition 2021 | Kết quả lần chạy trong báo cáo G0 |
-| Windows | x86_64-pc-windows-msvc; Visual Studio Build Tools 2022 + Windows SDK cho local | Local/checkout sạch P1.5, 70 tests tại 6cbc517; CI windows-latest P1.5 PASS tại c7de17a |
-| Linux | x86_64-unknown-linux-gnu; Ubuntu 24.04 CI | CI ubuntu-24.04 P1.5 PASS tại c7de17a |
+| Windows | x86_64-pc-windows-msvc; Visual Studio Build Tools 2022 + Windows SDK cho local | Local/checkout sạch P1.6, 85 tests tại 4460753; CI windows-latest P1.6 PASS cùng SHA |
+| Linux | x86_64-unknown-linux-gnu; Ubuntu 24.04 CI | CI ubuntu-24.04 P1.6 PASS tại 4460753 |
 | macOS/ARM64 | Chưa chọn phiên bản/runner | Chưa công bố hỗ trợ |
 | Node | 22.x, NAPI-RS ở P2 | Mục tiêu, chưa chọn bản patch/ABI hoặc kiểm chứng |
 | Python | CPython 3.10–3.13, PyO3/Maturin ở P2 | Mục tiêu, chưa chọn bản patch/ABI hoặc kiểm chứng |
@@ -131,3 +131,19 @@ trên filesystem không hỗ trợ. `ci-evidence/` được ignore và chứa su
 log từng lệnh và metadata; summary ghi commit/tree, clean_before/clean_after,
 exit code từng check và URL run GitHub nếu có. Kiểm thêm dependency boundary,
 target foundation và liên kết Markdown bằng `scripts/verify_workspace.py`.
+
+## P1.6 — API điều phối và state
+
+Target `p1_orchestration` được buộc bởi workspace verifier cùng sáu target cũ.
+Nó đối chiếu golden độc lập có sẵn qua API mới, replay indicators/structure/cả
+hai theo nến, validation/availability/revision, toàn identity/metadata/cursor,
+module selection và atomic errors/reset. Fixtures/golden cũ giữ nguyên bytes.
+API và protocol tại [ADR-0003](adr/0003-p1-orchestration-state.md),
+[báo cáo P1.6](acceptance/P1.6.md). Dùng runner chung phía trên cho local/CI;
+không cần Node/Python bindings hoặc dữ liệu online. State tính lại batch,
+không là baseline hiệu năng hoặc nghiệm thu G1; P1.7 vẫn còn mở.
+
+P1.6 đạt local/checkout sạch và CI Windows/Linux tại `4460753`, run 42395906710,
+85 tests và 60 source fingerprints khớp. Hai artifact upload thành công; tải
+ZIP không đăng nhập trả 401. Giữ tách biệt metadata đã kiểm với payload chưa
+đọc; chi tiết/bàn giao main trong báo cáo P1.6 ở trên.

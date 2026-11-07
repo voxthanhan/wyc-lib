@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.1.0 — P1.6, chưa phát hành
+
+- Thêm calculate_indicators (25 series), analyze_structure, analyze_batch và
+  AnalysisState với new/result/identity/history_len/update_closed_bar/reset.
+- Thêm DTO ClosedBar/ClosedBarUpdate và protocol append identity/cursor,
+  metadata/revision/availability; update/reset atomic, chỉ giữ prefix khả dụng.
+- API đơn module dùng toàn AnalysisConfig thay chữ ký draft để giữ hash nhất
+  quán; giữ API engine cũ, công thức/seed/schema/config/hash và dependency.
+- Golden cũ được kiểm qua API mới; kiểm module selection bằng lỗi riêng từng
+  engine, replay mọi prefix, stale cursor, revision/reset và input bất biến.
+- Local/checkout sạch và CI Windows/Linux tại 4460753 đều đạt (85 tests),
+  run 42395906710, hai artifact upload, 60 source fingerprints khớp.
+  Bằng chứng tại [báo cáo P1.6](docs/acceptance/P1.6.md).
+  State tính lại batch, baseline và nghiệm thu toàn G1 còn chờ P1.7.
+
 ## 0.1.0 — P1.5, chưa phát hành
 
 - Thêm crate market_structure và calculate_structure: pivot strict xác nhận,

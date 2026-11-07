@@ -1,0 +1,24 @@
+{
+  "evidence_version": "1",
+  "repository": "voxthanhan/wyc-lib",
+  "repository_visibility": "public",
+  "code_commit": "44607535fabfcb3929a7d18e9ea2ea542c82733b",
+  "branch": "codex/p1.6-orchestration",
+  "status": "completed_success",
+  "automatic_review_rejection": {
+    "action": "git push -u origin codex/p1.6-orchestration",
+    "executed": false,
+    "reason": "Sensitive egress to public origin repository; destination authorization was not explicit in current request."
+  },
+  "user_approval": {
+    "question": "Bạn có cho phép đẩy mã nguồn P1.6 lên repository GitHub hiện tại voxthanhan/wyc-lib (đang công khai), chạy CI Windows/Linux và tự đưa vào main khi đạt không?",
+    "answer": "Cho phép đẩy và tự tích hợp khi đạt",
+    "blocking_condition_resolved": true
+  },
+  "conclusion": "success",
+  "windows": "success",
+  "ubuntu": "success",
+  "run_id": 42395906710,
+  "run_url": "https://github.com/voxthanhan/wyc-lib/actions/runs/42395906710",
+  "artifact_payloads_downloaded": false
+}

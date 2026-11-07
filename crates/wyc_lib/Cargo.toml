@@ -30,5 +30,9 @@ path = "../../tests/p1_foundation.rs"
 name = "p1_structure"
 path = "../../tests/p1_structure.rs"
 
+[[test]]
+name = "p1_orchestration"
+path = "../../tests/p1_orchestration.rs"
+
 [lints]
 workspace = true
