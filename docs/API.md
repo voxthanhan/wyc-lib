@@ -2,7 +2,24 @@
 
 Utilities P1.1, primitives P1.2, chỉ báo/state P1.3, chỉ báo P1.4, structure P1.5
 và analytical entry points/AnalysisState P1.6 đã có implementation Rust.
-Result có kiểu rõ ràng; bindings thuộc P2, benchmark/G1 còn chờ P1.7.
+Result có kiểu rõ ràng; bindings thuộc P2. Replay, baseline và ví dụ Rust P1.7
+được kiểm chứng trong [báo cáo G1](acceptance/G1.md).
+
+## Ví dụ Rust P1.7
+
+[p1_walkthrough.rs](../examples/p1_walkthrough.rs) nhận fixture OHLCV local,
+tạo AnalysisRequest với config tường minh, khởi tạo state rỗng, append từng
+nến đóng và đối chiếu batch cùng as_of. Sau đó khai revision mới, sửa lịch sử
+và reset/replay, xuất cả report cũ và mới bằng JSON:
+
+```text
+cargo run --locked --package wyc-lib --example p1_walkthrough
+```
+
+Input ứng dụng thay fixture phải giữ đủ metadata/time/units theo CONTRACTS;
+không dùng revision mới để trả lời as_of cũ. Mỗi update echo identity hiện tại;
+snapshot sửa lịch sử dùng reset. Ví dụ có assertion chạy thật trong runner CI.
+Protocol/đo baseline ở [benchmarks](../benchmarks/README.md), không đổi public API.
 
 ## Utilities P1.1
 

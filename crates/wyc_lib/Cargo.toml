@@ -34,5 +34,17 @@ path = "../../tests/p1_structure.rs"
 name = "p1_orchestration"
 path = "../../tests/p1_orchestration.rs"
 
+[[test]]
+name = "p1_replay"
+path = "../../tests/p1_replay.rs"
+
+[[example]]
+name = "p1_walkthrough"
+path = "../../examples/p1_walkthrough.rs"
+
+[[example]]
+name = "p1_baseline"
+path = "../../benchmarks/p1_baseline.rs"
+
 [lints]
 workspace = true

@@ -1,0 +1,8 @@
+PASS: 16 old fixture/golden/manifest/README files unchanged byte-for-byte.
+PASS: all Core code, workspace dependencies, lockfile, toolchain and workflow unchanged.
+PASS: 65 SHA-256 source/config/test/example/benchmark fingerprints recorded.
+PASS: git diff --check.
+REVIEW: replay full-output comparisons include IDs/times and original as_of, grouped data only compared after complete availability groups.
+REVIEW: revision reset at half-history then append rest; closed-form ramp independent of Rust numeric implementation.
+REVIEW: release timings exclude compilation, include declared ownership costs; no timing pass threshold.
+LIMIT: process CPU/RSS includes setup/warmups/output, Windows peak memory sampling can miss final interval, not per-operation heap/state bytes.

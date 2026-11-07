@@ -586,3 +586,19 @@ windows-latest và ubuntu-24.04, hai artifact log đã upload. Metadata CI/đố
 chiếu nguồn và giới hạn tải payload trong báo cáo. **P1.6 hoàn thành phạm vi
 được giao**; đã tích hợp main tại `5af2383`, run main 42396385077 đạt cả
 Windows/Linux, tree khớp bản nghiệm thu. P1.7/toàn G1 còn mở.
+
+## 18. Triển khai P1.7 — 08/11/2026
+
+Theo yêu cầu hoàn tất replay/batch–incremental/revision-reset/golden-regression,
+baseline Rust, ví dụ và tài liệu, kiểm chứng local/CI Windows/Linux rồi tự đưa
+vào main khi đạt. Người dùng cho phép rõ đẩy mã lên voxthanhan/wyc-lib công khai.
+Không đổi thuật toán/Core/config/hash/schema, dependency hoặc golden cũ.
+
+Target p1_replay thêm 1008 prefix traces trên 15 fixtures, ba lựa chọn module
+và hai lịch availability; reset revision ở nửa history rồi append phần còn lại,
+first-valid lookback 1/2/3/8 và closed-form ramp. Ví dụ Rust chạy input → append
+→ revision/reset → JSON. Baseline release 12 workload, năm mẫu sau warm-up,
+đo CPU/time/peak RSS process ngoài Core; không tuyên bố O(1) hoặc tối ưu.
+Runner local đã đạt 88 tests cùng format/Clippy/build/example/baseline/oracle/
+workspace. Trạng thái checkout sạch/CI/main và tiêu chí G1 cập nhật tại
+[báo cáo G1](docs/acceptance/G1.md); chưa đóng G1 chỉ từ local PASS.

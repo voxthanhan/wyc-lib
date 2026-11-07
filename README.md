@@ -29,6 +29,9 @@ Package Rust `wyc-lib` được dùng với định danh `wyc_lib`.
 - [Phạm vi và kiểm chứng P1.4](docs/acceptance/P1.4.md)
 - [Phạm vi và kiểm chứng P1.5](docs/acceptance/P1.5.md)
 - [Phạm vi và kiểm chứng P1.6](docs/acceptance/P1.6.md)
+- [Nghiệm thu G1/P1.7](docs/acceptance/G1.md) · [Baseline Rust](benchmarks/README.md)
+- [Ví dụ Rust chạy được](examples/p1_walkthrough.rs):
+  `cargo run --locked --package wyc-lib --example p1_walkthrough`
 
 Ứng dụng cung cấp dữ liệu và availability/revision đã chuẩn hóa. Core không
 kết nối nguồn dữ liệu, tự sửa OHLCV hay quyết định chiến lược giao dịch.

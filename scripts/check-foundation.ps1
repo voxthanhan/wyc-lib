@@ -21,6 +21,7 @@ try {
     if ($RequireClean -and $before.Count) { throw 'Checkout must be clean before verification.' }
     New-Item -ItemType Directory -Force -Path $EvidenceDirectory | Out-Null
     $evidencePath = (Resolve-Path $EvidenceDirectory).Path
+    $env:WYC_REPLAY_TRACE = Join-Path $evidencePath 'replay-traces.json'
     $checks = [System.Collections.Generic.List[object]]::new()
     $runUrl = $null
     if ($env:GITHUB_ACTIONS -eq 'true') {
@@ -62,6 +63,12 @@ try {
         Invoke-Check 'clippy' 'cargo' (@('clippy') + $locked + @('--all-targets', '--', '-D', 'warnings'))
         Invoke-Check 'build' 'cargo' (@('build') + $locked)
         Invoke-Check 'test' 'cargo' (@('test') + $locked)
+        Invoke-Check 'example' 'cargo' (@('run', '--example', 'p1_walkthrough', '--package', 'wyc-lib') + $locked[1..($locked.Length - 1)])
+        Invoke-Check 'baseline-build' 'cargo' (@('build', '--release', '--example', 'p1_baseline', '--package', 'wyc-lib') + $locked[1..($locked.Length - 1)])
+        $targetDir = if ($env:CARGO_TARGET_DIR) { $env:CARGO_TARGET_DIR } else { Join-Path $repoRoot 'target' }
+        $binaryName = if ($IsWindows) { 'p1_baseline.exe' } else { 'p1_baseline' }
+        $baselineBinary = Join-Path $targetDir "release/examples/$binaryName"
+        Invoke-Check 'baseline' 'python' @('scripts/measure_baseline.py', $baselineBinary, (Join-Path $evidencePath 'baseline.json'))
         Invoke-Check 'oracle' 'python' @('scripts/verify_oracles.py')
         $metadataArgs = @('metadata', '--format-version', '1', '--no-deps', '--locked')
         if ($Offline) { $metadataArgs += '--offline' }
