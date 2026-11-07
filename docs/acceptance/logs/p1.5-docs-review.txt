@@ -1,3 +1,5 @@
-PASS: local links and git diff --check.
-PASS: clean-checkout summary matches implementation SHA, every check exit code 0, clean_before/after true.
-PASS: documentation distinguishes local/clean PASS, CI blocked before push, and P1.6/P1.7/G1 still open.
+PASS: git diff --check, local documentation links and four-package/six-target workspace audit.
+PASS: final changes only documentation/acceptance evidence; all source/test/fixture/script/config bytes unchanged from successful CI c7de17a.
+PASS: 57 source blob fingerprints match verified local/clean checkout, CI SHA/branch/job/step/artifact metadata consistent.
+PASS: both CI jobs completed success; no failure annotations; one Node runtime deprecation warning per job recorded in acceptance report.
+PASS: report distinguishes artifact metadata from ZIP payloads unavailable without authentication (HTTP 401); G1 remains open for P1.6/P1.7.

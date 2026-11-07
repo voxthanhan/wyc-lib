@@ -1,0 +1,9 @@
+{
+  "evidence_version": "1",
+  "observed_at_utc": "2026-11-07T16:51:15.668858+00:00",
+  "implementation_commit": "6cbc5174e665238a6cbb5c0c6aaf5f9bc7d6555a",
+  "ci_commit": "c7de17acabc2547f6a9c2e5fdfe5ea4cbe9e85b3",
+  "file_count": 57,
+  "compared": "Git source/test/fixture/script/config blob bytes at CI HEAD against local verified SHA-256 fingerprints",
+  "differences": []
+}

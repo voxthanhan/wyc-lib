@@ -1,17 +1,36 @@
 {
   "evidence_version": "1",
-  "observed_at_utc": "2026-11-07T16:47:46.700698+00:00",
+  "observed_at_utc": "2026-11-07T16:53:43.796433+00:00",
   "repository": "voxthanhan/wyc-lib",
   "repository_public": true,
   "branch": "codex/p1.5-market-structure",
   "code_commit": "6cbc5174e665238a6cbb5c0c6aaf5f9bc7d6555a",
-  "ci_run": null,
-  "push_executed": false,
-  "status": "awaiting_explicit_public_source_push_approval",
-  "automatic_review": {
-    "action": "git push -u origin codex/p1.5-market-structure",
-    "outcome": "rejected_before_execution",
-    "reason": "Đẩy toàn bộ commit/source lên repository GitHub công khai là sensitive egress; yêu cầu CI không ủy quyền rõ việc công khai mã nguồn tới đích này, và có thể chạy kiểm tra local mà không cần push."
+  "ci_head_sha": "c7de17acabc2547f6a9c2e5fdfe5ea4cbe9e85b3",
+  "status": "completed_success",
+  "push_executed": true,
+  "user_authorized_public_source_push": true,
+  "user_reply": "Cho phép đẩy source P1.5 trên nhánh codex/p1.5-market-structure lên repository công khai voxthanhan/wyc-lib và chạy CI Windows/Linux. Kiểm chứng kết quả, cập nhật tài liệu và báo cáo nghiệm thu.",
+  "ci_run": 42393366227,
+  "ci_run_url": "https://github.com/voxthanhan/wyc-lib/actions/runs/42393366227",
+  "prior_status": {
+    "evidence_version": "1",
+    "observed_at_utc": "2026-11-07T16:47:46.700698+00:00",
+    "repository": "voxthanhan/wyc-lib",
+    "repository_public": true,
+    "branch": "codex/p1.5-market-structure",
+    "code_commit": "6cbc5174e665238a6cbb5c0c6aaf5f9bc7d6555a",
+    "ci_run": null,
+    "push_executed": false,
+    "status": "awaiting_explicit_public_source_push_approval",
+    "automatic_review": {
+      "action": "git push -u origin codex/p1.5-market-structure",
+      "outcome": "rejected_before_execution",
+      "reason": "Đẩy toàn bộ commit/source lên repository GitHub công khai là sensitive egress; yêu cầu CI không ủy quyền rõ việc công khai mã nguồn tới đích này, và có thể chạy kiểm tra local mà không cần push."
+    },
+    "required_action": "Explicit permission to push P1.5 source to the existing public repository and run Windows/Linux CI. No retry or workaround before approval."
   },
-  "required_action": "Explicit permission to push P1.5 source to the existing public repository and run Windows/Linux CI. No retry or workaround before approval."
+  "conclusion": "success",
+  "windows": "success",
+  "ubuntu": "success",
+  "artifact_payloads_downloaded": false
 }

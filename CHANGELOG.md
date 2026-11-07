@@ -11,8 +11,9 @@
   đầy đủ output, replay mọi prefix/future/revision, ca biên và input bất biến.
 - CI verifier bắt buộc bốn packages/sáu targets. Kết quả local/CI và giới hạn
   tại [báo cáo P1.5](docs/acceptance/P1.5.md). P1.6/P1.7 và G1 còn mở.
-- Local/checkout sạch Windows tại 6cbc517 đạt 70 tests; CI chưa chạy vì push
-  công khai bị kiểm duyệt tự động từ chối, cần cho phép rõ của người dùng.
+- Local/checkout sạch Windows tại 6cbc517 đạt 70 tests; sau khi người dùng cho
+  phép rõ push source P1.5 công khai, CI Windows/Linux tại c7de17a đều success,
+  run 42393366227, hai artifact đã upload. P1.5 hoàn thành phạm vi đã giao.
 
 ## 0.1.0 — P1.4, chưa phát hành
 

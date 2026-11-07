@@ -5,8 +5,8 @@
 | Thành phần | Chọn/mục tiêu | Tình trạng |
 | --- | --- | --- |
 | Rust | 1.85.1 pinned; MSRV 1.85; edition 2021 | Kết quả lần chạy trong báo cáo G0 |
-| Windows | x86_64-pc-windows-msvc; Visual Studio Build Tools 2022 + Windows SDK cho local | Local/checkout sạch P1.5, 70 tests tại 6cbc517; CI P1.5 chờ cho phép push; CI P1.4 PASS tại 4521da9 |
-| Linux | x86_64-unknown-linux-gnu; Ubuntu 24.04 CI | CI P1.4 PASS tại 4521da9; P1.5 chưa chạy |
+| Windows | x86_64-pc-windows-msvc; Visual Studio Build Tools 2022 + Windows SDK cho local | Local/checkout sạch P1.5, 70 tests tại 6cbc517; CI windows-latest P1.5 PASS tại c7de17a |
+| Linux | x86_64-unknown-linux-gnu; Ubuntu 24.04 CI | CI ubuntu-24.04 P1.5 PASS tại c7de17a |
 | macOS/ARM64 | Chưa chọn phiên bản/runner | Chưa công bố hỗ trợ |
 | Node | 22.x, NAPI-RS ở P2 | Mục tiêu, chưa chọn bản patch/ABI hoặc kiểm chứng |
 | Python | CPython 3.10–3.13, PyO3/Maturin ở P2 | Mục tiêu, chưa chọn bản patch/ABI hoặc kiểm chứng |
@@ -85,8 +85,11 @@ dual/equal/plateau, reference one-shot/unknown/conflict, overflow/underflow,
 input bất biến và toàn config/hash. Chi tiết local/CI tại
 [báo cáo P1.5](acceptance/P1.5.md). State chung và benchmark ở P1.6/P1.7.
 P1.5 đã đạt local/checkout sạch Windows tại 6cbc517 với 70 tests và 57
-source fingerprints khớp. CI chưa chạy vì kiểm duyệt tự động từ chối push
-source lên repo công khai, cần cho phép rõ của người dùng trước khi thử lại.
+source fingerprints khớp. Sau khi người dùng cho phép rõ đưa source P1.5
+lên repository công khai, CI run 42393366227 tại c7de17a đạt cả Windows/Linux,
+hai artifact đã upload, 57 Git source blobs khớp bản local. Run/job/step và
+artifact metadata đã lưu trong repo; thử tải hai ZIP không đăng nhập trả 401,
+chưa đọc payload hoặc tự kiểm digest. P1.5 hoàn thành phạm vi nghiệm thu.
 
 ## CI và nghiệm thu
 

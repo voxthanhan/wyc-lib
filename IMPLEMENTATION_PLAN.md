@@ -556,7 +556,9 @@ tests đối chiếu mọi trường, hand-trace, replay/future, delayed confirm
 revision, dual/equal, xung đột và overflow/underflow. Kết quả local, checkout
 sạch, CI và tiêu chí nghiệm thu tại [báo cáo P1.5](docs/acceptance/P1.5.md).
 P1.5 đạt local Windows và checkout sạch ở commit `6cbc517`: format/Clippy/build,
-70 tests, oracle và workspace checks PASS, 57 source fingerprints khớp. CI
-chưa chạy: kiểm duyệt tự động từ chối push source lên repository công khai,
-cần người dùng cho phép rõ trước khi thử lại. Chưa đánh dấu P1.5 hoàn thành CI.
+70 tests, oracle và workspace checks PASS, 57 source fingerprints khớp. Sau khi
+người dùng cho phép rõ push source P1.5 lên repository công khai, run 42393366227
+tại commit `c7de17a` đạt cả windows-latest và ubuntu-24.04, hai artifact log đã
+upload; 57 Git source blobs khớp local/checkout sạch. **P1.5 hoàn thành trong
+phạm vi đã giao**; metadata và giới hạn tải payload tại báo cáo trên.
 Toàn G1 còn mở cho tích hợp/state P1.6 và nghiệm thu/baseline P1.7.

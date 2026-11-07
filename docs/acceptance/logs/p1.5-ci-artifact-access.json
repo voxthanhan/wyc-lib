@@ -1,0 +1,27 @@
+{
+  "evidence_version": "1",
+  "observed_at_utc": "2026-11-07T16:53:43.780772+00:00",
+  "repository": "voxthanhan/wyc-lib",
+  "run_id": 42393366227,
+  "head_sha": "c7de17acabc2547f6a9c2e5fdfe5ea4cbe9e85b3",
+  "attempts": [
+    {
+      "artifact_id": 13582855168,
+      "name": "foundation-ubuntu-24.04-c7de17acabc2547f6a9c2e5fdfe5ea4cbe9e85b3",
+      "archive_download_url": "https://api.github.com/repos/voxthanhan/wyc-lib/actions/artifacts/13582855168/zip",
+      "authentication": "none; no credentials read",
+      "payload_downloaded": false,
+      "http_status": 401,
+      "reason": "GitHub artifact archive API requires authentication"
+    },
+    {
+      "artifact_id": 13582506783,
+      "name": "foundation-windows-latest-c7de17acabc2547f6a9c2e5fdfe5ea4cbe9e85b3",
+      "archive_download_url": "https://api.github.com/repos/voxthanhan/wyc-lib/actions/artifacts/13582506783/zip",
+      "authentication": "none; no credentials read",
+      "payload_downloaded": false,
+      "http_status": 401,
+      "reason": "GitHub artifact archive API requires authentication"
+    }
+  ]
+}
