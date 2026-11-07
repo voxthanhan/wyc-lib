@@ -116,6 +116,14 @@ max(revision_available_at, available_at[i]), warmup.available=i+1. Không bỏ
 warm-up hoặc thay missing thành 0. Các result container khác vẫn là DTO; engine
 P1 chịu trách nhiệm kiểm tra required/first-valid theo công thức, danh mục output
 và toàn bộ shape/lineage trước khi trả analytical results ở P1.2–P1.6.
+P1.4 có `calculate_advanced` trả riêng 11 series RSI, MACD line/signal/histogram,
+PlusDi/MinusDi/Dx/Adx và Bollinger middle/upper/lower. RSI/DI/DX required=n+1,
+ADX=2n, MACD line=slow, signal/histogram=slow+signal-1, bands=n. Chuỗi hằng
+RSI=50, DI/DX/ADX=0 là ready theo quy ước, không missing. Chữ ký/shape/lỗi
+và giới hạn sai số Bollinger gần triệt tiêu ở thang rất lớn được ghi tại
+[catalog P1](docs/algorithms/P1.md). BasicIndicatorState không tự mở rộng sang
+P1.4; state chung còn thuộc P1.6. Schema/config/hash không đổi.
+
 Missing: đủ nến nhưng phép tính không xác định hoặc dependency chưa có;
 `unavailable_dependency` là missing của một output, khác lỗi request thiếu input
 bắt buộc. Invalid input: `Result::Err(ContractError {code,path})`, không trả

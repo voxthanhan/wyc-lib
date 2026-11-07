@@ -1,0 +1,55 @@
+{
+  "evidence_version": "1",
+  "observed_at_utc": "2026-11-07T08:32:22.744644+00:00",
+  "repository": "voxthanhan/wyc-lib",
+  "branch": "codex/p1.4-advanced-indicators",
+  "code_commit": "5caf81bd63d0f55d5ce7ebe50f0687bd88dbc804",
+  "ci_commit": "4521da9fb79b8e54aab4c772bd68d588b641d741",
+  "status": "completed_success",
+  "user_authorized_public_source_push": true,
+  "push_executed": true,
+  "ci_run": {
+    "id": 42355665535,
+    "name": "Rust foundation",
+    "head_sha": "4521da9fb79b8e54aab4c772bd68d588b641d741",
+    "head_branch": "codex/p1.4-advanced-indicators",
+    "event": "push",
+    "status": "completed",
+    "conclusion": "success",
+    "run_attempt": 1,
+    "created_at": "2026-11-07T08:29:00Z",
+    "updated_at": "2026-11-07T08:30:42Z",
+    "html_url": "https://github.com/voxthanhan/wyc-lib/actions/runs/42355665535",
+    "path": ".github/workflows/ci.yml"
+  },
+  "evidence_file": "ci-4521da9-run-42355665535.json",
+  "artifact_payload_downloaded": false,
+  "prior_status": {
+    "evidence_version": "1",
+    "observed_at_utc": "2026-11-07T08:28:30.055701+00:00",
+    "repository": "voxthanhan/wyc-lib",
+    "branch": "codex/p1.4-advanced-indicators",
+    "code_commit": "5caf81bd63d0f55d5ce7ebe50f0687bd88dbc804",
+    "status": "authorized_awaiting_push_and_ci",
+    "push_executed": false,
+    "ci_run": null,
+    "user_authorized_public_source_push": true,
+    "user_reply": "Cho phép đẩy source công khai và chạy CI",
+    "prior_status": {
+      "evidence_version": "1",
+      "observed_at_utc": "2026-11-07T08:19:35.611651+00:00",
+      "repository": "voxthanhan/wyc-lib",
+      "branch": "codex/p1.4-advanced-indicators",
+      "code_commit": "5caf81bd63d0f55d5ce7ebe50f0687bd88dbc804",
+      "ci_run": null,
+      "status": "awaiting_explicit_public_source_push_approval",
+      "push_executed": false,
+      "automatic_review": {
+        "action": "git push -u origin codex/p1.4-advanced-indicators",
+        "outcome": "rejected_before_execution",
+        "reason": "The action pushes the full P1.4 source and history to an external GitHub repository whose ownership/trust and user authorization are not established; CI verification can be performed without this unapproved source egress."
+      },
+      "user_question": "Explicit permission requested to push P1.4 source to the public repository and run Windows/Linux CI; do not proceed until answered."
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # API hiện có và API mục tiêu
 
-Utilities P1.1, primitives P1.2 và chỉ báo/state P1.3 bên dưới đã có implementation.
+Utilities P1.1, primitives P1.2, chỉ báo/state P1.3 và chỉ báo P1.4 đã có implementation.
 Các chữ ký analytical entry points/AnalysisState P1.6 vẫn là **thiết kế**, chưa xuất
 thành stub. Result từng engine phải có kiểu rõ ràng, không trả generic JSON.
 
@@ -113,6 +113,32 @@ Mọi lỗi atomic, result cũ caller đã giữ không đổi. Batch và state 
 đường tính; chi phí mỗi update O(N×min(n,N)) + validation snapshot O(M),
 bộ nhớ O(N). Chưa có state serialization hoặc tối ưu incremental O(1).
 Kiểm chứng tại [báo cáo P1.3](acceptance/P1.3.md).
+
+### RSI/MACD/ADX/Bollinger P1.4 đã triển khai
+
+Truy cập qua `indicators::advanced` hoặc `wyc_lib::indicators::advanced`:
+
+```rust,ignore
+fn rsi(values: &[FiniteF64], period: usize) -> Result<Vec<NumericValue>, AnalysisError>;
+fn macd(values: &[FiniteF64], fast: usize, slow: usize, signal: usize)
+    -> Result<MacdResult, AnalysisError>;
+fn adx(high: &[FiniteF64], low: &[FiniteF64], close: &[FiniteF64], period: usize)
+    -> Result<AdxResult, AnalysisError>;
+fn bollinger_bands(values: &[FiniteF64], period: usize, multiplier: FiniteF64)
+    -> Result<BollingerResult, AnalysisError>;
+fn calculate_advanced(data: &MarketData, config: &AnalysisConfig, as_of: i64)
+    -> Result<ModuleResult<AdvancedIndicatorResult>, AnalysisError>;
+```
+
+MacdResult có line/signal/histogram; AdxResult có plus_di/minus_di/dx/adx;
+BollingerResult có middle/upper/lower, mỗi field `Vec<NumericValue>` dài N.
+AdvancedIndicatorResult có `series: BTreeMap<IndicatorKind, Vec<NumericSample>>`
+với đúng 11 components. Slice APIs yêu cầu prefix đã giới hạn; calculate_advanced
+validate toàn snapshot/config, chọn AvailableData và tự gắn lineage/hash.
+Rỗng hợp lệ trả 11 series rỗng. Warm-up riêng từng component, lỗi và giới hạn
+số tại [catalog](algorithms/P1.md). Kết quả là kiểu Rust, chưa serialization/FFI.
+Không mở rộng BasicIndicatorState; state và điều phối toàn P1 còn ở P1.6.
+Kiểm chứng tại [báo cáo P1.4](acceptance/P1.4.md).
 
 ### Analytical entry points/state dự kiến P1.6
 

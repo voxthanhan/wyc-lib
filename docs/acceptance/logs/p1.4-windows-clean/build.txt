@@ -1,0 +1,13 @@
+   Compiling typenum v1.20.1
+   Compiling cfg-if v1.0.5
+   Compiling cpufeatures v0.2.17
+   Compiling serde v1.0.219
+   Compiling generic-array v0.14.7
+   Compiling block-buffer v0.10.4
+   Compiling crypto-common v0.1.7
+   Compiling digest v0.10.7
+   Compiling sha2 v0.10.9
+   Compiling contracts v0.1.0 (D:\Dev\Lib\.tools\p1.4-checkout\crates\contracts)
+   Compiling indicators v0.1.0 (D:\Dev\Lib\.tools\p1.4-checkout\crates\indicators)
+   Compiling wyc-lib v0.1.0 (D:\Dev\Lib\.tools\p1.4-checkout\crates\wyc_lib)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 12.25s

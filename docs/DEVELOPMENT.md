@@ -1,12 +1,12 @@
-# Phát triển và kiểm chứng P0/P1.1/P1.2/P1.3
+# Phát triển và kiểm chứng P0–P1.4
 
 ## Ma trận nền tảng
 
 | Thành phần | Chọn/mục tiêu | Tình trạng |
 | --- | --- | --- |
 | Rust | 1.85.1 pinned; MSRV 1.85; edition 2021 | Kết quả lần chạy trong báo cáo G0 |
-| Windows | x86_64-pc-windows-msvc; Visual Studio Build Tools 2022 + Windows SDK cho local | Local/checkout sạch và CI windows-latest PASS; xem P1.3 |
-| Linux | x86_64-unknown-linux-gnu; Ubuntu 24.04 CI | CI ubuntu-24.04 PASS tại d86e6ff; xem P1.3 |
+| Windows | x86_64-pc-windows-msvc; Visual Studio Build Tools 2022 + Windows SDK cho local | Local/checkout sạch P1.4, 54 tests; CI windows-latest PASS tại 4521da9 |
+| Linux | x86_64-unknown-linux-gnu; Ubuntu 24.04 CI | CI ubuntu-24.04 P1.4 PASS tại 4521da9 |
 | macOS/ARM64 | Chưa chọn phiên bản/runner | Chưa công bố hỗ trợ |
 | Node | 22.x, NAPI-RS ở P2 | Mục tiêu, chưa chọn bản patch/ABI hoặc kiểm chứng |
 | Python | CPython 3.10–3.13, PyO3/Maturin ở P2 | Mục tiêu, chưa chọn bản patch/ABI hoặc kiểm chứng |
@@ -60,7 +60,20 @@ identity và atomic failure/reset. `p1-basic-v1` có sáu case độc lập dùn
 và smoothing dạng tổng hình học tại `scripts/basic_oracle.py`; script kiểm chỉ
 đọc expected có sẵn, không lấy output Rust hoặc tự cập nhật golden.
 Workspace verifier yêu cầu đúng ba package contracts/indicators/wyc-lib,
-dependency không vòng và đủ bốn integration test targets.
+dependency không vòng và đủ năm integration test targets.
+
+Từ P1.4, target `p1_advanced` chạy 12 ca kiểm 11 components RSI/MACD/ADX/Bollinger,
+mọi sample/status/time của tám fixture, prefix có/không future, revision,
+warm-up riêng, giá âm/zero/tiny/large, cấu hình lỗi và overflow/underflow.
+Oracle Fraction/Decimal tại `scripts/advanced_oracle.py` dùng closed-form
+smoothing và pairwise variance, khác đường tính Rust. Golden không tự cập nhật.
+P1.4 chưa có mutable state; batch–incremental toàn danh mục thuộc P1.6/P1.7.
+Kết quả local/CI mới nhất tại [báo cáo P1.4](acceptance/P1.4.md).
+P1.4 đạt local và checkout sạch Windows với 54 tests; CI Windows/Linux tại
+`4521da9`, run 42355665535 đều success và upload hai artifact. Source/test/config
+CI đã đối chiếu với 51 SHA-256 bản local. Payload zip cần đăng nhập GitHub
+để tải (thử API không đăng nhập trả 401); report phân biệt metadata đã xác
+minh với payload chưa đọc. Không lấy local PASS thay cho bằng chứng Linux.
 
 ## CI và nghiệm thu
 
@@ -70,7 +83,7 @@ CI không publish. Không ghi CI đã chạy chỉ vì có YAML hoặc local che
 Theo [ngoại lệ G0 ngày 07/11/2026](acceptance/G0.md), P1.1/P1.2 bắt đầu với
 kiểm chứng local và hoãn CI. Yêu cầu P1.3 mở lại kiểm chứng CI; workflow đổi
 tên hiển thị thành Rust foundation, giữ matrix và runner kiểm chung toàn
-workspace. Kết quả thực tế mới nhất tại [báo cáo P1.3](acceptance/P1.3.md).
+workspace. Kết quả đợt đó tại [báo cáo P1.3](acceptance/P1.3.md).
 P1.3 đạt local Windows và checkout sạch (42 tests); sau khi người dùng cho phép
 rõ đẩy mã lên repo công khai, CI run 42353272952 tại d86e6ff đạt cả Windows và
 Ubuntu, hai artifact đã upload. Run/job/step và artifact metadata đã lưu trong

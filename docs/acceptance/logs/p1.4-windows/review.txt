@@ -1,0 +1,3 @@
+PASS: 10 previous fixture/golden files unchanged byte-for-byte.
+PASS: Cargo.lock, workspace manifest, contracts, wyc_lib and CI workflow unchanged.
+PASS: 51 exact SHA-256 source/test/config/script/fixture fingerprints recorded.

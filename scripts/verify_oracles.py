@@ -11,6 +11,7 @@ from decimal import Decimal, localcontext
 from fractions import Fraction as F
 from pathlib import Path
 from basic_oracle import evaluate as evaluate_basic
+from advanced_oracle import evaluate as evaluate_advanced
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -202,6 +203,31 @@ def verify_basic():
                           f"basic {case['id']}.{name}[{i}] number")
 
 
+def verify_advanced():
+    data = read("tests/fixtures/p1-advanced.json")
+    golden = read("tests/golden/p1-advanced.json")
+    check(data["fixture_id"] == golden["fixture_id"] == "p1-advanced-v1", "advanced identity")
+    check(data["algorithm_version"] == golden["algorithm_version"] == "p1-v1", "advanced version")
+    check(len(data["cases"]) == len(golden["cases"]) == 8, "advanced cases")
+    for case, expected in zip(data["cases"], golden["cases"]):
+        independent = evaluate_advanced(case)
+        check(independent.keys() == expected.keys(), "advanced schema")
+        check(independent["id"] == expected["id"], "advanced case order")
+        for name, values in independent.items():
+            if name == "id":
+                continue
+            check(len(values) == len(expected[name]), "advanced length")
+            for i, (oracle, actual) in enumerate(zip(values, expected[name])):
+                if oracle is None:
+                    check(actual is None, f"advanced {case['id']}.{name}[{i}] warmup")
+                else:
+                    percent = name in {"rsi", "plus_di", "minus_di", "dx", "adx"}
+                    atol = 1e-10 if percent else 0.0 if case["id"] == "tiny" else 1e-12
+                    check(isinstance(actual, (int, float)) and math.isfinite(actual) and
+                          abs(actual-oracle) <= atol + 1e-12 * max(abs(actual), abs(oracle)),
+                          f"advanced {case['id']}.{name}[{i}] number")
+
+
 if __name__ == "__main__":
     verify_manifest()
     verify_temporal()
@@ -209,4 +235,5 @@ if __name__ == "__main__":
     verify_identity()
     verify_rolling()
     verify_basic()
-    print("PASS: SHA-256 manifest, temporal, Fraction/Decimal ramp, 8 rolling cases, 6 basic cases (closed-form smoothing), config/event vectors")
+    verify_advanced()
+    print("PASS: SHA-256 manifest, temporal, Fraction/Decimal ramp, 8 rolling cases, 6 basic cases, 8 advanced cases (independent closed-form smoothing/variance), config/event vectors")

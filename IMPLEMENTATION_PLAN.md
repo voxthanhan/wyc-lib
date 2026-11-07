@@ -521,3 +521,22 @@ upload. Source/tests/config của hai commit không khác nhau. Điều kiện C
 hoãn của G0 đã đóng tại commit hiện tại; P1.3 đạt phạm vi nghiệm thu, không
 coi là toàn G1. Phạm vi, metadata artifact và giới hạn tải log tại
 [báo cáo P1.3](docs/acceptance/P1.3.md). P1.4–P1.7/G1 còn mở.
+
+## 15. Triển khai P1.4 — 07/11/2026
+
+P1.4 thêm RSI Wilder, MACD line/signal/histogram, DI/DX/ADX và Bollinger
+population std trên primitives P1.2/P1.3. `calculate_advanced` trả riêng 11
+series có metadata/time và warm-up từng component. Không đổi seed/rule/schema,
+config/hash/dependency; BasicIndicatorState vẫn chỉ quản lý P1.3, state và
+orchestrator toàn P1 thuộc P1.6.
+
+Tám golden mới được tạo bằng oracle Fraction/Decimal độc lập với Rust;
+kiểm mọi sample, prefix với future bị thay đổi, availability/revision và
+biên số. Làm rõ giới hạn roundoff của bands gần triệt tiêu ở thang 1e100,
+giữ nguyên golden exact-real. Local Windows và checkout sạch tại `5caf81b`
+đạt format/Clippy/build, 54 tests, oracle và workspace checks. Sau khi người
+dùng cho phép rõ đẩy source công khai và chạy CI, run 42355665535 tại commit
+`4521da9` đạt cả windows-latest và ubuntu-24.04; hai artifact log đã upload.
+51 source blobs tại CI khớp bytes bản local/checkout sạch. **P1.4 hoàn thành
+trong phạm vi đã giao**; bằng chứng và giới hạn tải payload artifact tại
+[báo cáo P1.4](docs/acceptance/P1.4.md). P1.5–P1.7 và toàn G1 còn mở.

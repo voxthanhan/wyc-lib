@@ -1,0 +1,2 @@
+    Checking wyc-lib v0.1.0 (D:\Dev\Lib\crates\wyc_lib)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.70s
