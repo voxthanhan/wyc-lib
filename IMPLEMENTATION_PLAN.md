@@ -151,13 +151,13 @@ State bản đầu ưu tiên reset và replay toàn bộ khi lịch sử sửa �
 
 **Nghiệm thu G1:**
 
-- [ ] Tất cả chỉ báo liệt kê trong P1.3–P1.4 có đặc tả và tests; kiểm tra trước/tại/sau vị trí hợp lệ đầu tiên, bao gồm cấu hình lookback khác mặc định.
-- [ ] Chuỗi rỗng/ngắn/hằng, volume bằng 0, mẫu số bằng 0, giá trị lớn/nhỏ và input lỗi có kết quả hoặc lỗi đúng contract; input không bị sửa.
-- [ ] Pivot có `r` nến xác nhận bên phải chỉ khả dụng sau khi đủ `r` nến đã đóng và khả dụng. Test không cho phép xuất tín hiệu xác nhận tại vị trí pivot trước thời điểm đó.
-- [ ] BOS/CHoCH và trend không dùng pivot chưa xác nhận; các trường hợp đồng hạng và xung đột có kết quả ổn định.
-- [ ] Replay và batch tương đương ở mọi tiền tố được kiểm thử; nối dữ liệu tương lai không thay đổi đánh giá tại `as_of` cũ với cùng revision.
-- [ ] Reset/replay sau sửa lịch sử cho kết quả như batch trên revision mới; update sai symbol/config/thứ tự bị xử lý đúng contract.
-- [ ] Ví dụ Rust chạy từ input đến output; CI đạt; có baseline CPU/thời gian/bộ nhớ phù hợp khả năng đo hiện tại, ghi rõ số liệu chưa đo được.
+- [x] Tất cả chỉ báo liệt kê trong P1.3–P1.4 có đặc tả và tests; kiểm tra trước/tại/sau vị trí hợp lệ đầu tiên, bao gồm cấu hình lookback khác mặc định.
+- [x] Chuỗi rỗng/ngắn/hằng, volume bằng 0, mẫu số bằng 0, giá trị lớn/nhỏ và input lỗi có kết quả hoặc lỗi đúng contract; input không bị sửa.
+- [x] Pivot có `r` nến xác nhận bên phải chỉ khả dụng sau khi đủ `r` nến đã đóng và khả dụng. Test không cho phép xuất tín hiệu xác nhận tại vị trí pivot trước thời điểm đó.
+- [x] BOS/CHoCH và trend không dùng pivot chưa xác nhận; các trường hợp đồng hạng và xung đột có kết quả ổn định.
+- [x] Replay và batch tương đương ở mọi tiền tố được kiểm thử; nối dữ liệu tương lai không thay đổi đánh giá tại `as_of` cũ với cùng revision.
+- [x] Reset/replay sau sửa lịch sử cho kết quả như batch trên revision mới; update sai symbol/config/thứ tự bị xử lý đúng contract.
+- [x] Ví dụ Rust chạy từ input đến output; CI đạt; có baseline CPU/thời gian/bộ nhớ phù hợp khả năng đo hiện tại, ghi rõ số liệu chưa đo được.
 
 **Bằng chứng cần lưu:** golden đã đối chiếu công thức, replay traces, regression report, baseline Rust và báo cáo G1.
 
@@ -601,4 +601,9 @@ first-valid lookback 1/2/3/8 và closed-form ramp. Ví dụ Rust chạy input �
 đo CPU/time/peak RSS process ngoài Core; không tuyên bố O(1) hoặc tối ưu.
 Runner local đã đạt 88 tests cùng format/Clippy/build/example/baseline/oracle/
 workspace. Trạng thái checkout sạch/CI/main và tiêu chí G1 cập nhật tại
-[báo cáo G1](docs/acceptance/G1.md); chưa đóng G1 chỉ từ local PASS.
+[báo cáo G1](docs/acceptance/G1.md). Local/checkout sạch Windows tại `7c57220`
+đạt 88 tests và toàn checks; CI [run 42398202869](https://github.com/voxthanhan/wyc-lib/actions/runs/42398202869)
+đạt Windows/Linux đúng SHA, cả hai job kiểm chứng/upload thành công. **G1 đạt**;
+65 source fingerprints khớp. CI được xác minh qua HTML công khai sau khi REST
+API hết hạn mức; payload artifact chưa tải/kiểm digest. Tích hợp main ghi trong
+báo cáo G1; chưa triển khai P2 hoặc phát hành package.

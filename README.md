@@ -3,7 +3,7 @@
 One Analytical Core, Multiple Applications. Evidence Before Prediction.
 
 Thư viện lõi phân tích định lượng Rust dùng chung cho các ứng dụng. **Hiện trạng:
-P1.6** có workspace, typed contracts/validation, view dữ liệu khả dụng,
+P1.7** có workspace, typed contracts/validation, view dữ liệu khả dụng,
 chuẩn bị request, kiểm tra numeric series/status/time, config hash và event ID
 ổn định; crate `indicators` có rolling sum/mean/min/max và population variance/std,
 warm-up và lỗi overflow rõ ràng; thêm SMA/EMA/WMA, TR/ATR, ROC/Momentum,
@@ -59,3 +59,11 @@ protocol state, bằng chứng nghiệm thu và tích hợp main. P1.7/baseline/
 
 Đã tích hợp P1.6 vào main tại `5af2383`; [CI main 42396385077](https://github.com/voxthanhan/wyc-lib/actions/runs/42396385077)
 đạt cả Windows/Linux. Checkout main đã đồng bộ phần mã và báo cáo nghiệm thu.
+
+P1.7 hoàn tất replay/regression, ví dụ Rust và baseline release CPU/time/RSS.
+**G1 đạt** tại `7c57220`: local và checkout sạch Windows đạt 88 tests;
+[CI 42398202869](https://github.com/voxthanhan/wyc-lib/actions/runs/42398202869)
+đạt cả Windows/Linux. Báo cáo G1 ở trên ghi 1008 prefix traces, 65 source
+fingerprints, raw baseline và giới hạn artifact. Các kết luận G1 còn mở trong
+đoạn P1.3–P1.6 phía trên là lịch sử của từng bước. State vẫn tính lại batch;
+bindings P2 và Foundation release chưa triển khai.

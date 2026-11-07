@@ -1,0 +1,1 @@
+PASS: 12 workloads, five samples each; CPU=77.969s peak RSS=15597568 bytes
