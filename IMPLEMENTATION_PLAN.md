@@ -534,8 +534,9 @@ Tám golden mới được tạo bằng oracle Fraction/Decimal độc lập v�
 kiểm mọi sample, prefix với future bị thay đổi, availability/revision và
 biên số. Làm rõ giới hạn roundoff của bands gần triệt tiêu ở thang 1e100,
 giữ nguyên golden exact-real. Local Windows và checkout sạch tại `5caf81b`
-đạt format/Clippy/build, 54 tests, oracle và workspace checks. **P1.4 đang
-kiểm chứng, chưa nghiệm thu CI**: người dùng đã cho phép rõ đẩy source công
-khai và chạy CI sau lần push đầu bị kiểm duyệt từ chối. Đang thực thi kiểm
-chứng Windows/Linux. Trạng thái và bằng chứng tại [báo cáo P1.4](docs/acceptance/P1.4.md).
-Chưa nghiệm thu toàn G1/P1.5–P1.7.
+đạt format/Clippy/build, 54 tests, oracle và workspace checks. Sau khi người
+dùng cho phép rõ đẩy source công khai và chạy CI, run 42355665535 tại commit
+`4521da9` đạt cả windows-latest và ubuntu-24.04; hai artifact log đã upload.
+51 source blobs tại CI khớp bytes bản local/checkout sạch. **P1.4 hoàn thành
+trong phạm vi đã giao**; bằng chứng và giới hạn tải payload artifact tại
+[báo cáo P1.4](docs/acceptance/P1.4.md). P1.5–P1.7 và toàn G1 còn mở.

@@ -1,2 +1,3 @@
-PASS: P1.4 package boundaries, acyclic dependency graph, foundation/rolling/basic/advanced targets, 114 local links
-PASS: no source/test/fixture/script/config changes after clean-checkout commit 5caf81bd63d0f55d5ce7ebe50f0687bd88dbc804.
+PASS: P1.4 package boundaries, acyclic dependency graph, foundation/rolling/basic/advanced targets, 116 local links
+PASS: no source/test/fixture/script/config changes after local clean-checkout commit 5caf81bd63d0f55d5ce7ebe50f0687bd88dbc804 or successful Windows/Linux CI commit 4521da9fb79b8e54aab4c772bd68d588b641d741.
+PASS: exact-SHA CI run completed successfully; both evidence/upload steps succeeded, two matching artifact metadata records; artifact payload unauthenticated download returned HTTP 401.

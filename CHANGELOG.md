@@ -11,6 +11,8 @@
 - Làm rõ giới hạn làm tròn bands gần triệt tiêu ở thang 1e100; giữ nguyên golden,
   không clip giá trị. Ngân sách số và giới hạn trong catalog P1.
 - Kiểm chứng local/CI và phạm vi nghiệm thu tại [báo cáo P1.4](docs/acceptance/P1.4.md).
+  Local/checkout sạch đạt 54 tests; CI Windows/Linux đều success tại `4521da9`,
+  run 42355665535, hai artifact đã upload. P1.4 hoàn thành phạm vi được giao.
   Chưa nghiệm thu P1.5–P1.7/G1; không publish/tag hoặc đổi quyền repository.
 
 ## 0.1.0 — P1.3, chưa phát hành

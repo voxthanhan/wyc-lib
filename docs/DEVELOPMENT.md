@@ -5,8 +5,8 @@
 | Thành phần | Chọn/mục tiêu | Tình trạng |
 | --- | --- | --- |
 | Rust | 1.85.1 pinned; MSRV 1.85; edition 2021 | Kết quả lần chạy trong báo cáo G0 |
-| Windows | x86_64-pc-windows-msvc; Visual Studio Build Tools 2022 + Windows SDK cho local | Local/checkout sạch và CI windows-latest PASS; xem P1.3 |
-| Linux | x86_64-unknown-linux-gnu; Ubuntu 24.04 CI | CI ubuntu-24.04 PASS tại d86e6ff; xem P1.3 |
+| Windows | x86_64-pc-windows-msvc; Visual Studio Build Tools 2022 + Windows SDK cho local | Local/checkout sạch P1.4, 54 tests; CI windows-latest PASS tại 4521da9 |
+| Linux | x86_64-unknown-linux-gnu; Ubuntu 24.04 CI | CI ubuntu-24.04 P1.4 PASS tại 4521da9 |
 | macOS/ARM64 | Chưa chọn phiên bản/runner | Chưa công bố hỗ trợ |
 | Node | 22.x, NAPI-RS ở P2 | Mục tiêu, chưa chọn bản patch/ABI hoặc kiểm chứng |
 | Python | CPython 3.10–3.13, PyO3/Maturin ở P2 | Mục tiêu, chưa chọn bản patch/ABI hoặc kiểm chứng |
@@ -69,6 +69,11 @@ Oracle Fraction/Decimal tại `scripts/advanced_oracle.py` dùng closed-form
 smoothing và pairwise variance, khác đường tính Rust. Golden không tự cập nhật.
 P1.4 chưa có mutable state; batch–incremental toàn danh mục thuộc P1.6/P1.7.
 Kết quả local/CI mới nhất tại [báo cáo P1.4](acceptance/P1.4.md).
+P1.4 đạt local và checkout sạch Windows với 54 tests; CI Windows/Linux tại
+`4521da9`, run 42355665535 đều success và upload hai artifact. Source/test/config
+CI đã đối chiếu với 51 SHA-256 bản local. Payload zip cần đăng nhập GitHub
+để tải (thử API không đăng nhập trả 401); report phân biệt metadata đã xác
+minh với payload chưa đọc. Không lấy local PASS thay cho bằng chứng Linux.
 
 ## CI và nghiệm thu
 

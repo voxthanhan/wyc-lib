@@ -31,8 +31,9 @@ về sau. Các package hiện đặt `publish = false`. Git và kiểm chứng c
 Yêu cầu P1.3 mở lại kiểm chứng CI Windows/Linux; kết quả đợt đó nằm trong
 [báo cáo P1.3](docs/acceptance/P1.3.md): local/checkout sạch Windows đạt 42 tests;
 CI Windows/Linux đều đạt tại commit `d86e6ff`, run 42353272952, có hai artifact.
-P1.4 đạt local và checkout sạch Windows tại `5caf81b`, 54 tests. CI P1.4
-đang được kiểm chứng sau khi người dùng cho phép rõ đẩy source công khai;
-xem báo cáo P1.4 ở trên. Điều kiện CI hoãn của G0 đã đóng ở P1.3; toàn G1
-còn mở cho CI P1.4 và P1.5–P1.7.
+P1.4 đạt local và checkout sạch Windows tại `5caf81b`, 54 tests; CI Windows/Linux
+đều đạt tại `4521da9`, [run 42355665535](https://github.com/voxthanhan/wyc-lib/actions/runs/42355665535),
+có hai artifact log. Báo cáo P1.4 ở trên ghi phạm vi nghiệm thu và giới hạn
+tải payload artifact. Điều kiện CI hoãn của G0 đã đóng ở P1.3; toàn G1
+còn mở cho P1.5–P1.7.
 Báo cáo G0 có bổ sung CI; P1.1/P1.2 giữ bằng chứng lịch sử.
