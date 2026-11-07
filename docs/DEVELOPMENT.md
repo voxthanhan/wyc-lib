@@ -1,12 +1,12 @@
-# Phát triển và kiểm chứng P0–P1.4
+# Phát triển và kiểm chứng P0–P1.5
 
 ## Ma trận nền tảng
 
 | Thành phần | Chọn/mục tiêu | Tình trạng |
 | --- | --- | --- |
 | Rust | 1.85.1 pinned; MSRV 1.85; edition 2021 | Kết quả lần chạy trong báo cáo G0 |
-| Windows | x86_64-pc-windows-msvc; Visual Studio Build Tools 2022 + Windows SDK cho local | Local/checkout sạch P1.4, 54 tests; CI windows-latest PASS tại 4521da9 |
-| Linux | x86_64-unknown-linux-gnu; Ubuntu 24.04 CI | CI ubuntu-24.04 P1.4 PASS tại 4521da9 |
+| Windows | x86_64-pc-windows-msvc; Visual Studio Build Tools 2022 + Windows SDK cho local | Local/checkout sạch P1.5, 70 tests tại 6cbc517; CI windows-latest P1.5 PASS tại c7de17a |
+| Linux | x86_64-unknown-linux-gnu; Ubuntu 24.04 CI | CI ubuntu-24.04 P1.5 PASS tại c7de17a |
 | macOS/ARM64 | Chưa chọn phiên bản/runner | Chưa công bố hỗ trợ |
 | Node | 22.x, NAPI-RS ở P2 | Mục tiêu, chưa chọn bản patch/ABI hoặc kiểm chứng |
 | Python | CPython 3.10–3.13, PyO3/Maturin ở P2 | Mục tiêu, chưa chọn bản patch/ABI hoặc kiểm chứng |
@@ -59,8 +59,9 @@ golden mọi sample/status, batch–state mọi tiền tố, availability/future
 identity và atomic failure/reset. `p1-basic-v1` có sáu case độc lập dùng Fraction
 và smoothing dạng tổng hình học tại `scripts/basic_oracle.py`; script kiểm chỉ
 đọc expected có sẵn, không lấy output Rust hoặc tự cập nhật golden.
-Workspace verifier yêu cầu đúng ba package contracts/indicators/wyc-lib,
-dependency không vòng và đủ năm integration test targets.
+Workspace verifier từ P1.5 yêu cầu đúng bốn package
+contracts/indicators/market_structure/wyc-lib, dependency không vòng và đủ sáu
+integration test targets, gồm p1_structure.
 
 Từ P1.4, target `p1_advanced` chạy 12 ca kiểm 11 components RSI/MACD/ADX/Bollinger,
 mọi sample/status/time của tám fixture, prefix có/không future, revision,
@@ -74,6 +75,21 @@ P1.4 đạt local và checkout sạch Windows với 54 tests; CI Windows/Linux t
 CI đã đối chiếu với 51 SHA-256 bản local. Payload zip cần đăng nhập GitHub
 để tải (thử API không đăng nhập trả 401); report phân biệt metadata đã xác
 minh với payload chưa đọc. Không lấy local PASS thay cho bằng chứng Linux.
+
+Từ P1.5, target `p1_structure` kiểm 15 fixture/golden đầy đủ pivot, labels,
+trend, breaks, strength và evidence, cùng replay từng prefix và future thay đổi.
+Oracle `scripts/structure_oracle.py` liệt kê cửa sổ trước rồi suy trend mỗi mốc
+từ tập pivot khả dụng, strength Fraction và ID hashlib; không gọi Rust hoặc ghi
+golden khi kiểm. Tests bổ sung hand-trace, delayed right/availability, revision,
+dual/equal/plateau, reference one-shot/unknown/conflict, overflow/underflow,
+input bất biến và toàn config/hash. Chi tiết local/CI tại
+[báo cáo P1.5](acceptance/P1.5.md). State chung và benchmark ở P1.6/P1.7.
+P1.5 đã đạt local/checkout sạch Windows tại 6cbc517 với 70 tests và 57
+source fingerprints khớp. Sau khi người dùng cho phép rõ đưa source P1.5
+lên repository công khai, CI run 42393366227 tại c7de17a đạt cả Windows/Linux,
+hai artifact đã upload, 57 Git source blobs khớp bản local. Run/job/step và
+artifact metadata đã lưu trong repo; thử tải hai ZIP không đăng nhập trả 401,
+chưa đọc payload hoặc tự kiểm digest. P1.5 hoàn thành phạm vi nghiệm thu.
 
 ## CI và nghiệm thu
 

@@ -9,7 +9,8 @@ ngữ nghĩa trước khi dùng. Hai bước không được coi là tương đ�
 có field công khai để xây dữ liệu; không được coi struct vừa tạo là đã validate.
 `schema_version = "0.1.0"`, `config_version = "p1-v1"`; bản đầu trước 1.0,
 thay đổi kết quả/contract phải đổi phiên bản thích hợp và ghi changelog.
-Evidence/DecisionReport là schema nền/dự thảo P5, không phải bộ đánh giá đã chạy.
+Evidence được module P1.5 phát từ quy tắc đã chốt; bộ tổng hợp Evidence Engine
+và DecisionReport vẫn là thiết kế P5, chưa có bộ đánh giá tổng hợp.
 
 ## MarketData
 
@@ -196,7 +197,13 @@ nến), breaks (ID/reference/kind/direction/level/close/strength/time), evidence
 Label enum bao gồm HH/HL/LH/LL/EH/EL và unclassified theo rule P1. Các output có
 kiểu này là contract cho analytical entry points; P1.3 chỉ tạo
 BasicIndicatorResult riêng cho chín chỉ báo nền, chưa tạo toàn bộ
-IndicatorResult/StructureResult từ orchestrator.
+IndicatorResult từ orchestrator. P1.5 `market_structure::calculate_structure`
+đã tạo ModuleResult<StructureResult>: pivot/label/trend, break, strength và evidence
+confirmed theo `structure-strict-close-v1`. Validate toàn snapshot/config trước,
+N trend samples, không xuất pivot chưa xác nhận. Pivot/break ID dùng event-v1,
+evidence cùng ID/time; rule/event_type/ordinal, thứ tự, missing strength và lỗi
+xung đột/overflow tại [catalog P1](docs/algorithms/P1.md). Giữ wire shape/version
+cũ, không có state P1.5 hoặc serialization state.
 
 ## Evidence và DecisionReport
 
@@ -206,7 +213,8 @@ Evidence có `evidence_id`, `event_type`, `observed_at`, `known_at`, `source_mod
 watching/candidate/confirmed/invalidated. `validate_at` kiểm tra ID/rule/type khác
 rỗng và `0 <= observed_at <= known_at <= as_of <= 2^53-1`.
 Module tạo evidence chịu trách nhiệm `known_at >= max(availability của mọi input
-và xác nhận cần thiết)`. P0 chưa có engine xác minh lineage.
+và xác nhận cần thiết)`. P1.5 bảo đảm lineage từ cửa sổ pivot và reference/trend
+đã biết trước nến break; không phải bộ kiểm lineage tổng quát của các DTO caller tạo.
 
 DecisionReport nền gồm report_id, schema/engine/algorithm version, symbol,
 timeframe, as_of, data_revision, config_hash, hypothesis, status, evidence,

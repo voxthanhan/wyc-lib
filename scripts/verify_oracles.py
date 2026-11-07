@@ -12,6 +12,7 @@ from fractions import Fraction as F
 from pathlib import Path
 from basic_oracle import evaluate as evaluate_basic
 from advanced_oracle import evaluate as evaluate_advanced
+from structure_oracle import evaluate as evaluate_structure
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -228,6 +229,17 @@ def verify_advanced():
                           f"advanced {case['id']}.{name}[{i}] number")
 
 
+def verify_structure():
+    data = read("tests/fixtures/p1-structure.json")
+    golden = read("tests/golden/p1-structure.json")
+    check(data["fixture_id"] == golden["fixture_id"] == "p1-structure-v1", "structure identity")
+    check(data["algorithm_version"] == golden["algorithm_version"] == "p1-v1", "structure version")
+    check(len(data["cases"]) == len(golden["cases"]) == 15, "structure case count")
+    for case, expected in zip(data["cases"], golden["cases"]):
+        check(case["id"] == expected["id"], "structure case order")
+        check(evaluate_structure(case) == expected["result"], f"structure {case['id']}")
+
+
 if __name__ == "__main__":
     verify_manifest()
     verify_temporal()
@@ -236,4 +248,5 @@ if __name__ == "__main__":
     verify_rolling()
     verify_basic()
     verify_advanced()
-    print("PASS: SHA-256 manifest, temporal, Fraction/Decimal ramp, 8 rolling cases, 6 basic cases, 8 advanced cases (independent closed-form smoothing/variance), config/event vectors")
+    verify_structure()
+    print("PASS: SHA-256 manifest, temporal, Fraction/Decimal ramp, 8 rolling cases, 6 basic cases, 8 advanced cases, 15 structure cases (independent window sets/Fraction/IDs), config/event vectors")
