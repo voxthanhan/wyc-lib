@@ -70,6 +70,7 @@ try {
         $baselineBinary = Join-Path $targetDir "release/examples/$binaryName"
         Invoke-Check 'baseline' 'python' @('scripts/measure_baseline.py', $baselineBinary, (Join-Path $evidencePath 'baseline.json'))
         Invoke-Check 'oracle' 'python' @('scripts/verify_oracles.py')
+        Invoke-Check 'artifact-verifier' 'python' @('scripts/test_verify_ci_artifacts.py')
         $metadataArgs = @('metadata', '--format-version', '1', '--no-deps', '--locked')
         if ($Offline) { $metadataArgs += '--offline' }
         $metadata = & cargo @metadataArgs

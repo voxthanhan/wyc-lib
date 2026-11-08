@@ -40,3 +40,14 @@ song song. Runner CI chia sẻ máy; không suy chênh tốc độ giữa OS t�
 Thời gian hệ thống chỉ dùng trong công cụ đo bên ngoài Core.
 
 Kết quả gắn commit và môi trường ở [báo cáo G1](../docs/acceptance/G1.md).
+
+## So sánh incremental sau G1
+
+Giữ nguyên generator/workloads/config/profile/warmup/năm samples của baseline.
+Chạy binary bản 64fa87f trước sửa và binary bản mới trên cùng máy/toolchain;
+lưu cả raw samples, CPU/RSS và phạm vi đo, không đổi workload để lấy speedup.
+Append vẫn trả full owned report, nên số đo gồm chi phí copy O(N); seed/reset
+và batch-only workloads được báo riêng, không suy hiệu năng mọi input từ tam giác.
+BasicIndicatorState không có workload riêng trong baseline này; không công bố
+speedup API đó từ số đo AnalysisState. Kết quả tại
+[G1 bổ sung](../docs/acceptance/G1-incremental.md).

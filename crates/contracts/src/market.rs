@@ -111,47 +111,28 @@ impl MarketData {
             }
         }
         for i in 0..n {
-            validate_timestamp(self.timestamp[i], &format!("timestamp[{i}]"))?;
-            validate_timestamp(self.available_at[i], &format!("available_at[{i}]"))?;
-            if i > 0 && self.timestamp[i] <= self.timestamp[i - 1] {
-                let code = if self.timestamp[i] == self.timestamp[i - 1] {
-                    DuplicateTimestamp
+            validate_market_row(
+                i,
+                self.timestamp[i],
+                self.available_at[i],
+                self.is_closed[i],
+                [
+                    self.open[i],
+                    self.high[i],
+                    self.low[i],
+                    self.close[i],
+                    self.volume[i],
+                ],
+                if i > 0 {
+                    Some((
+                        self.timestamp[i - 1],
+                        self.available_at[i - 1],
+                        self.is_closed[i - 1],
+                    ))
                 } else {
-                    UnorderedTimestamp
-                };
-                return Err(ContractError::new(code, format!("timestamp[{i}]")));
-            }
-            if self.available_at[i] < self.timestamp[i]
-                || (i > 0 && self.available_at[i] < self.available_at[i - 1])
-                || (i > 0 && self.is_closed[i] && !self.is_closed[i - 1])
-            {
-                return Err(ContractError::new(
-                    InvalidAvailability,
-                    format!("available_at[{i}]"),
-                ));
-            }
-            let mut values = [0.0; 5];
-            for (j, (path, column)) in [
-                ("open", &self.open),
-                ("high", &self.high),
-                ("low", &self.low),
-                ("close", &self.close),
-                ("volume", &self.volume),
-            ]
-            .into_iter()
-            .enumerate()
-            {
-                values[j] = column[i]
-                    .ok_or_else(|| ContractError::new(MissingData, format!("{path}[{i}]")))?
-                    .get();
-            }
-            let [open, high, low, close, volume] = values;
-            if low > high || open < low || open > high || close < low || close > high {
-                return Err(ContractError::new(InvalidOhlc, format!("ohlc[{i}]")));
-            }
-            if volume < 0.0 {
-                return Err(ContractError::new(NegativeVolume, format!("volume[{i}]")));
-            }
+                    None
+                },
+            )?;
         }
         // Even valid declared gaps are refused by the initial continuous-series contract.
         for gap in &self.metadata.gaps {
@@ -187,4 +168,56 @@ impl MarketData {
             })
             .count())
     }
+}
+
+/// Shared batch/append row validation; caller has already checked column shapes.
+pub(crate) fn validate_market_row(
+    i: usize,
+    timestamp: i64,
+    available_at: i64,
+    is_closed: bool,
+    values: [Option<FiniteF64>; 5],
+    previous: Option<(i64, i64, bool)>,
+) -> Result<[FiniteF64; 5], ContractError> {
+    use ErrorCode::*;
+    validate_timestamp(timestamp, &format!("timestamp[{i}]"))?;
+    validate_timestamp(available_at, &format!("available_at[{i}]"))?;
+    if let Some((time, _, _)) = previous {
+        if timestamp <= time {
+            return Err(ContractError::new(
+                if timestamp == time {
+                    DuplicateTimestamp
+                } else {
+                    UnorderedTimestamp
+                },
+                format!("timestamp[{i}]"),
+            ));
+        }
+    }
+    if available_at < timestamp
+        || previous.is_some_and(|(_, avail, closed)| available_at < avail || (is_closed && !closed))
+    {
+        return Err(ContractError::new(
+            InvalidAvailability,
+            format!("available_at[{i}]"),
+        ));
+    }
+    let required = |name: &str, value: Option<FiniteF64>| {
+        value.ok_or_else(|| ContractError::new(MissingData, format!("{name}[{i}]")))
+    };
+    let numbers = [
+        required("open", values[0])?,
+        required("high", values[1])?,
+        required("low", values[2])?,
+        required("close", values[3])?,
+        required("volume", values[4])?,
+    ];
+    let [open, high, low, close, volume] = numbers;
+    if low > high || open < low || open > high || close < low || close > high {
+        return Err(ContractError::new(InvalidOhlc, format!("ohlc[{i}]")));
+    }
+    if volume.get() < 0.0 {
+        return Err(ContractError::new(NegativeVolume, format!("volume[{i}]")));
+    }
+    Ok(numbers)
 }

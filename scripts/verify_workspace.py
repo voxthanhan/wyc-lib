@@ -18,7 +18,7 @@ def main():
     packages = {p["name"]: p for p in metadata["packages"]}
     check(set(packages) == {"contracts", "indicators", "market_structure", "wyc-lib"}, "P1.7 workspace membership changed")
     check(all(p["publish"] == [] for p in packages.values()), "packages must remain non-publishable")
-    for target in ["foundation", "p1_foundation", "p1_rolling", "p1_basic", "p1_advanced", "p1_structure", "p1_orchestration", "p1_replay"]:
+    for target in ["foundation", "p1_foundation", "p1_rolling", "p1_basic", "p1_advanced", "p1_structure", "p1_orchestration", "p1_replay", "p1_incremental"]:
         check(any(t["name"] == target and "test" in t["kind"]
                   for p in packages.values() for t in p["targets"]), f"{target} test target missing")
     for name in ['p1_walkthrough', 'p1_baseline']:
@@ -57,7 +57,7 @@ def main():
             if target:
                 check((path.parent / target).exists(), f"broken link: {filename} -> {target}")
                 checked += 1
-    print(f"PASS: P1.7 four package boundaries, acyclic dependency graph, eight integration targets, two examples, {checked} local links")
+    print(f"PASS: G1 incremental four package boundaries, acyclic dependency graph, nine integration targets, two examples, {checked} local links")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,229 @@
+{
+  "algorithm_version": "p1-v1",
+  "baseline_version": "p1-baseline-v1",
+  "config": {
+    "config_version": "p1-v1",
+    "indicators": {
+      "bollinger_multiplier": 2.0,
+      "macd_fast": 12,
+      "macd_signal": 9,
+      "macd_slow": 26,
+      "period": 14
+    },
+    "structure": {
+      "left": 2,
+      "right": 2
+    }
+  },
+  "config_hash": "sha256:config-v1:86fa00f140396f6ae60d9301e4358a47d3a60160de7d875423e65aad88c5bb1c",
+  "dataset": "synthetic-triangle-v1",
+  "profile": "release",
+  "rows": [
+    {
+      "bars_per_symbol": 256,
+      "checksum": 537.5,
+      "max_ms": 1.8004,
+      "median_ms": 1.6233,
+      "min_ms": 1.5896000000000001,
+      "samples_ms": [
+        1.8004,
+        1.6233,
+        1.6335,
+        1.6027,
+        1.5896000000000001
+      ],
+      "units_per_sample": 256,
+      "units_per_second": 157703.44360253803,
+      "workload": "batch_indicators"
+    },
+    {
+      "bars_per_symbol": 256,
+      "checksum": 75.0,
+      "max_ms": 0.1374,
+      "median_ms": 0.1304,
+      "min_ms": 0.1289,
+      "samples_ms": [
+        0.1325,
+        0.1304,
+        0.1374,
+        0.1289,
+        0.1296
+      ],
+      "units_per_sample": 256,
+      "units_per_second": 1963190.18404908,
+      "workload": "batch_structure"
+    },
+    {
+      "bars_per_symbol": 256,
+      "checksum": 612.5,
+      "max_ms": 1.8573000000000002,
+      "median_ms": 1.7347000000000001,
+      "min_ms": 1.6842000000000001,
+      "samples_ms": [
+        1.7347000000000001,
+        1.6842000000000001,
+        1.7812,
+        1.8573000000000002,
+        1.7172
+      ],
+      "units_per_sample": 256,
+      "units_per_second": 147575.94973194212,
+      "workload": "batch_both"
+    },
+    {
+      "bars_per_symbol": 256,
+      "max_ms": 0.1751,
+      "median_ms": 0.17029999999999998,
+      "min_ms": 0.1666,
+      "samples_ms": [
+        0.17029999999999998,
+        0.1666,
+        0.1708,
+        0.1751,
+        0.1666
+      ],
+      "units_per_sample": 1,
+      "units_per_second": 5871.990604815033,
+      "workload": "append_one_both"
+    },
+    {
+      "bars_per_symbol": 256,
+      "checksum": 612.5,
+      "max_ms": 7.640499999999999,
+      "median_ms": 6.5092,
+      "min_ms": 5.6633,
+      "samples_ms": [
+        7.640499999999999,
+        6.6768,
+        6.5092,
+        6.050599999999999,
+        5.6633
+      ],
+      "units_per_sample": 256,
+      "units_per_second": 39328.94979413753,
+      "workload": "replay_both"
+    },
+    {
+      "bars_per_symbol": 256,
+      "checksum": 4900.0,
+      "max_ms": 13.3416,
+      "median_ms": 13.253499999999999,
+      "min_ms": 13.1742,
+      "samples_ms": [
+        13.2191,
+        13.3005,
+        13.1742,
+        13.253499999999999,
+        13.3416
+      ],
+      "units_per_sample": 2048,
+      "units_per_second": 154525.21975327272,
+      "workload": "watchlist_8_sequential"
+    },
+    {
+      "bars_per_symbol": 1024,
+      "checksum": 537.5,
+      "max_ms": 11.274799999999999,
+      "median_ms": 7.047999999999999,
+      "min_ms": 6.9669,
+      "samples_ms": [
+        11.274799999999999,
+        7.012700000000001,
+        7.047999999999999,
+        7.0821,
+        6.9669
+      ],
+      "units_per_sample": 1024,
+      "units_per_second": 145289.4438138479,
+      "workload": "batch_indicators"
+    },
+    {
+      "bars_per_symbol": 1024,
+      "checksum": 315.0,
+      "max_ms": 0.7058,
+      "median_ms": 0.49379999999999996,
+      "min_ms": 0.4827,
+      "samples_ms": [
+        0.5936,
+        0.7058,
+        0.49379999999999996,
+        0.49269999999999997,
+        0.4827
+      ],
+      "units_per_sample": 1024,
+      "units_per_second": 2073714.054272985,
+      "workload": "batch_structure"
+    },
+    {
+      "bars_per_symbol": 1024,
+      "checksum": 852.5,
+      "max_ms": 7.795,
+      "median_ms": 7.3812,
+      "min_ms": 7.3214,
+      "samples_ms": [
+        7.795,
+        7.3643,
+        7.3214,
+        7.5028,
+        7.3812
+      ],
+      "units_per_sample": 1024,
+      "units_per_second": 138730.82967539152,
+      "workload": "batch_both"
+    },
+    {
+      "bars_per_symbol": 1024,
+      "max_ms": 0.8127,
+      "median_ms": 0.7847000000000001,
+      "min_ms": 0.7487,
+      "samples_ms": [
+        0.7831,
+        0.8127,
+        0.7952,
+        0.7487,
+        0.7847000000000001
+      ],
+      "units_per_sample": 1,
+      "units_per_second": 1274.3723716069835,
+      "workload": "append_one_both"
+    },
+    {
+      "bars_per_symbol": 1024,
+      "checksum": 852.5,
+      "max_ms": 91.3251,
+      "median_ms": 87.5693,
+      "min_ms": 83.5243,
+      "samples_ms": [
+        91.3251,
+        87.5693,
+        85.272,
+        89.0549,
+        83.5243
+      ],
+      "units_per_sample": 1024,
+      "units_per_second": 11693.595814971684,
+      "workload": "replay_both"
+    },
+    {
+      "bars_per_symbol": 1024,
+      "checksum": 6820.0,
+      "max_ms": 57.671,
+      "median_ms": 57.4304,
+      "min_ms": 55.8344,
+      "samples_ms": [
+        57.4304,
+        57.671,
+        56.9711,
+        57.5757,
+        55.8344
+      ],
+      "units_per_sample": 8192,
+      "units_per_second": 142642.2243271856,
+      "workload": "watchlist_8_sequential"
+    }
+  ],
+  "samples_per_workload": 5,
+  "threads": 1,
+  "timing": "std::time::Instant; milliseconds",
+  "warmups": 1
+}

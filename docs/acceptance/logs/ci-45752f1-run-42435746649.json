@@ -1,0 +1,127 @@
+{
+  "evidence_version": "1",
+  "observed_at_utc": "2026-11-08T01:50:14.134576+00:00",
+  "repository": "voxthanhan/wyc-lib",
+  "head_sha": "45752f143d205474a85cde22bf71ddedd431ef9e",
+  "evidence_route": "public GitHub Actions run/job HTML; read-only evidence route",
+  "run": {
+    "id": "42435746649",
+    "head_sha": "45752f143d205474a85cde22bf71ddedd431ef9e",
+    "head_branch": "codex/g1-incremental",
+    "conclusion": "success",
+    "html_url": "https://github.com/voxthanhan/wyc-lib/actions/runs/42435746649"
+  },
+  "jobs": [
+    {
+      "id": "128594084294",
+      "name": "foundation (ubuntu-24.04)",
+      "conclusion": "success",
+      "html_url": "https://github.com/voxthanhan/wyc-lib/actions/runs/42435746649/job/128594084294",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install pinned Rust",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Check foundation and record evidence",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ],
+      "environment_warning": "Node.js 20 is deprecated; checkout@v4/setup-python@v5/upload-artifact@v4 forced onto Node.js 24",
+      "html_sha256": "b1358cf6790f6086a48279335ef3b35eaf0d234641a16646a456e5543b720f12"
+    },
+    {
+      "id": "128594084484",
+      "name": "foundation (windows-latest)",
+      "conclusion": "success",
+      "html_url": "https://github.com/voxthanhan/wyc-lib/actions/runs/42435746649/job/128594084484",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install pinned Rust",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Check foundation and record evidence",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ],
+      "environment_warning": "Node.js 20 is deprecated; checkout@v4/setup-python@v5/upload-artifact@v4 forced onto Node.js 24",
+      "html_sha256": "0ac09a7e24a8d88f188a8a9017bc56924e7dd24bb24181e274fe3c0f59fb0f32"
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "foundation-ubuntu-24.04-45752f143d205474a85cde22bf71ddedd431ef9e",
+      "display_size": "54.5 KB",
+      "published_digest": "sha256:4a58261956dadc5cb299937d99857326089cfc538d79bf1b1df3c4cf09f449d3",
+      "payload_downloaded": false
+    },
+    {
+      "name": "foundation-windows-latest-45752f143d205474a85cde22bf71ddedd431ef9e",
+      "display_size": "54.7 KB",
+      "published_digest": "sha256:3fa5737843dc1d0c364c54af8d887af916c49aa9c57874951475bcad39157f92",
+      "payload_downloaded": false
+    }
+  ],
+  "html_sha256": "b8eeff982c74f15075bc7b19385920d2e4a3e872914906d4720a94572157e13d",
+  "artifact_payload_downloaded": false,
+  "limits": "Sanitized facts extracted from public HTML; raw page contains transient anonymous session fields and is not committed. Archive payloads/ZIP digests not independently verified.",
+  "evidence_stage": "metadata observation before separate ZIP audit",
+  "zip_verification_report": "docs/acceptance/logs/g1-incremental-ci/42435746649/verification.json"
+}

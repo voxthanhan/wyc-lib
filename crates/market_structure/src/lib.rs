@@ -42,14 +42,73 @@ pub fn calculate_structure(
         breaks: Vec::new(),
         evidence: Vec::new(),
     };
-    // Most recent high/low and their consumption flags. Labels retain the
-    // direction of the two most recent pivots of each kind.
-    let mut high: Option<Reference> = None;
-    let mut low: Option<Reference> = None;
-    let mut trend = Trend::Unknown;
-    let left = config.structure.left as usize;
-    let right = config.structure.right as usize;
-    for (i, bar) in bars.iter().enumerate() {
+    let mut memory = StructureMemory::default();
+    for i in 0..bars.len() {
+        memory.advance(&bars[..=i], &config.structure, &metadata, &mut output)?;
+    }
+    output.evidence.sort_by(evidence_order);
+    for item in &output.evidence {
+        item.validate_at(as_of)?;
+    }
+    Ok(ModuleResult { metadata, output })
+}
+
+/// Low-level append cache. Prefix bars must be validated and immutable;
+/// wyc_lib binds this cache to the full state identity and revision.
+#[derive(Debug, Default, Clone, PartialEq)]
+pub struct StructureMemory {
+    high: Option<Reference>,
+    low: Option<Reference>,
+    trend: Option<Trend>,
+    last_known_at: i64,
+    processed: usize,
+}
+
+impl StructureMemory {
+    /// Stage one bar without mutating the cache. Return only new records.
+    pub fn prepare(
+        &self,
+        bars: &[AvailableBar],
+        config: &contracts::StructureConfig,
+        metadata: &ResultMetadata,
+    ) -> Result<(Self, StructureResult), AnalysisError> {
+        let mut next = self.clone();
+        let mut output = StructureResult {
+            pivots: Vec::new(),
+            trends: Vec::new(),
+            breaks: Vec::new(),
+            evidence: Vec::new(),
+        };
+        next.advance(bars, config, metadata, &mut output)?;
+        Ok((next, output))
+    }
+    fn advance(
+        &mut self,
+        bars: &[AvailableBar],
+        config: &contracts::StructureConfig,
+        metadata: &ResultMetadata,
+        output: &mut StructureResult,
+    ) -> Result<(), AnalysisError> {
+        let evidence_start = output.evidence.len();
+        if bars.len() != self.processed + 1 {
+            return Err(ContractError::new(ErrorCode::StateMismatch, "structure.prefix").into());
+        }
+        for (name, value) in [("left", config.left), ("right", config.right)] {
+            if !(1..=1_000_000).contains(&value) {
+                return Err(ContractError::new(
+                    ErrorCode::InvalidConfig,
+                    format!("config.structure.{name}"),
+                )
+                .into());
+            }
+        }
+        let i = self.processed;
+        let bar = &bars[i];
+        let mut high = self.high.take();
+        let mut low = self.low.take();
+        let mut trend = self.trend.unwrap_or(Trend::Unknown);
+        let left = config.left as usize;
+        let right = config.right as usize;
         if trend != Trend::Unknown {
             let up = high
                 .as_ref()
@@ -80,16 +139,10 @@ pub fn calculate_structure(
                     (BreakKind::Choch, Direction::Up) => "choch_up",
                     (BreakKind::Choch, Direction::Down) => "choch_down",
                 };
-                let trend_time = output.trends.last().map_or(0, |s| s.known_at);
+                let trend_time = self.last_known_at;
                 let known_at = bar.known_at.max(reference.pivot.known_at).max(trend_time);
-                let event_id = event_id(
-                    &metadata,
-                    BREAK_RULE,
-                    event_type,
-                    bar.timestamp,
-                    known_at,
-                    0,
-                )?;
+                let event_id =
+                    event_id(metadata, BREAK_RULE, event_type, bar.timestamp, known_at, 0)?;
                 let strength = strength(bar, reference.pivot.level, i)?;
                 let mut measured = BTreeMap::from([
                     ("level".into(), reference.pivot.level),
@@ -153,7 +206,7 @@ pub fn calculate_structure(
                     PivotKind::Low => ("swing_low", 1),
                 };
                 let id = event_id(
-                    &metadata,
+                    metadata,
                     PIVOT_RULE,
                     event_type,
                     bars[j].timestamp,
@@ -204,29 +257,34 @@ pub fn calculate_structure(
             known_at: bar.known_at,
             trend,
         });
+
+        for item in &output.evidence[evidence_start..] {
+            item.validate_at(metadata.as_of)?;
+        }
+        self.high = high;
+        self.low = low;
+        self.trend = Some(trend);
+        self.last_known_at = bar.known_at;
+        self.processed = i + 1;
+        Ok(())
     }
-    output.evidence.sort_by(|a, b| {
-        (
-            a.observed_at,
-            a.known_at,
-            a.source_module.as_str(),
-            &a.rule_id,
-            &a.evidence_id,
-        )
-            .cmp(&(
-                b.observed_at,
-                b.known_at,
-                b.source_module.as_str(),
-                &b.rule_id,
-                &b.evidence_id,
-            ))
-    });
-    for item in &output.evidence {
-        item.validate_at(as_of)?;
-    }
-    Ok(ModuleResult { metadata, output })
 }
 
+/// Merge a committed delta, preserving canonical evidence order even when
+/// a pivot observed earlier is confirmed after an intervening break.
+pub fn append_delta(output: &mut StructureResult, delta: StructureResult) {
+    output.pivots.extend(delta.pivots);
+    output.trends.extend(delta.trends);
+    output.breaks.extend(delta.breaks);
+    for item in delta.evidence {
+        let pos = output
+            .evidence
+            .partition_point(|e| evidence_order(e, &item).is_lt());
+        output.evidence.insert(pos, item);
+    }
+}
+
+#[derive(Debug, Clone, PartialEq)]
 struct Reference {
     pivot: Pivot,
     consumed: bool,
@@ -311,4 +369,21 @@ fn evidence(
         status: ReportStatus::Confirmed,
         layer,
     }
+}
+
+fn evidence_order(a: &Evidence, b: &Evidence) -> std::cmp::Ordering {
+    (
+        a.observed_at,
+        a.known_at,
+        a.source_module.as_str(),
+        &a.rule_id,
+        &a.evidence_id,
+    )
+        .cmp(&(
+            b.observed_at,
+            b.known_at,
+            b.source_module.as_str(),
+            &b.rule_id,
+            &b.evidence_id,
+        ))
 }

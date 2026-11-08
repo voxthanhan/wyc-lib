@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.1.0 — Incremental sau G1, chưa phát hành
+
+- AnalysisState/BasicIndicatorState append tính delta từ cache, shared numerical
+  kernels và structure step; không tính lại history trên đường thành công.
+- Shared row validation, atomic cache/delta và batch error-priority fallback
+  trên đường lỗi. Giữ API/schema/config/hash/p1-v1/golden và dependency.
+- Kiểm ZIP CI độc lập bằng digest/CRC, SHA/clean/checks/tests/traces/baseline;
+  thêm long/seed/rollback/revision tests và verifier negative controls.
+- Local/checkout sạch và CI Windows/Linux tại 45752f1 đạt 93 Rust tests +
+  5 Python controls; ZIP hai OS kiểm digest và payload độc lập, 1008 trace hashes
+  giữ nguyên. Baseline local N=1024 append khoảng 10×, replay khoảng 48× trong
+  cặp đo tham chiếu; full output vẫn O(N), batch-only không được coi cải thiện.
+  Số đo/giới hạn/tích hợp tại [G1 bổ sung](docs/acceptance/G1-incremental.md).
+
 ## 0.1.0 — P1.7, chưa phát hành
 
 - Thêm regression replay delayed/grouped availability trên toàn fixtures

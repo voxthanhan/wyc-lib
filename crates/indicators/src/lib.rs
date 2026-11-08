@@ -5,6 +5,7 @@
 pub mod advanced;
 pub mod basic;
 mod basic_state;
+pub mod incremental;
 pub mod rolling;
 
 pub use basic_state::BasicIndicatorState;

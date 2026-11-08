@@ -1,0 +1,242 @@
+{
+  "algorithm_version": "p1-v1",
+  "baseline_version": "p1-baseline-v1",
+  "config": {
+    "config_version": "p1-v1",
+    "indicators": {
+      "bollinger_multiplier": 2.0,
+      "macd_fast": 12,
+      "macd_signal": 9,
+      "macd_slow": 26,
+      "period": 14
+    },
+    "structure": {
+      "left": 2,
+      "right": 2
+    }
+  },
+  "config_hash": "sha256:config-v1:86fa00f140396f6ae60d9301e4358a47d3a60160de7d875423e65aad88c5bb1c",
+  "dataset": "synthetic-triangle-v1",
+  "profile": "release",
+  "rows": [
+    {
+      "bars_per_symbol": 256,
+      "checksum": 537.5,
+      "max_ms": 1.2307450000000002,
+      "median_ms": 1.216799,
+      "min_ms": 1.186952,
+      "samples_ms": [
+        1.216799,
+        1.2307450000000002,
+        1.197222,
+        1.21751,
+        1.186952
+      ],
+      "units_per_sample": 256,
+      "units_per_second": 210388.07559835273,
+      "workload": "batch_indicators"
+    },
+    {
+      "bars_per_symbol": 256,
+      "checksum": 75.0,
+      "max_ms": 0.100169,
+      "median_ms": 0.08045100000000001,
+      "min_ms": 0.080041,
+      "samples_ms": [
+        0.082595,
+        0.100169,
+        0.08045100000000001,
+        0.080311,
+        0.080041
+      ],
+      "units_per_sample": 256,
+      "units_per_second": 3182061.1303774966,
+      "workload": "batch_structure"
+    },
+    {
+      "bars_per_symbol": 256,
+      "checksum": 612.5,
+      "max_ms": 1.736807,
+      "median_ms": 1.495863,
+      "min_ms": 1.425321,
+      "samples_ms": [
+        1.571736,
+        1.495863,
+        1.4806249999999999,
+        1.736807,
+        1.425321
+      ],
+      "units_per_sample": 256,
+      "units_per_second": 171138.6671105576,
+      "workload": "batch_both"
+    },
+    {
+      "bars_per_symbol": 256,
+      "max_ms": 1.9087399999999999,
+      "median_ms": 1.696922,
+      "min_ms": 1.609126,
+      "samples_ms": [
+        1.696922,
+        1.69056,
+        1.7670540000000001,
+        1.9087399999999999,
+        1.609126
+      ],
+      "units_per_sample": 1,
+      "units_per_second": 589.3022778890249,
+      "workload": "append_one_both"
+    },
+    {
+      "bars_per_symbol": 256,
+      "checksum": 612.5,
+      "max_ms": 176.55855300000002,
+      "median_ms": 176.512528,
+      "min_ms": 175.929702,
+      "samples_ms": [
+        176.512528,
+        176.500886,
+        175.929702,
+        176.51814299999998,
+        176.55855300000002
+      ],
+      "units_per_sample": 256,
+      "units_per_second": 1450.3219850774558,
+      "workload": "replay_both"
+    },
+    {
+      "bars_per_symbol": 256,
+      "checksum": 4900.0,
+      "max_ms": 10.666571,
+      "median_ms": 10.616525999999999,
+      "min_ms": 10.572944000000001,
+      "samples_ms": [
+        10.609234,
+        10.658686000000001,
+        10.666571,
+        10.616525999999999,
+        10.572944000000001
+      ],
+      "units_per_sample": 2048,
+      "units_per_second": 192906.79455784312,
+      "workload": "watchlist_8_sequential"
+    },
+    {
+      "bars_per_symbol": 1024,
+      "checksum": 537.5,
+      "max_ms": 5.27208,
+      "median_ms": 5.258284000000001,
+      "min_ms": 5.2503899999999994,
+      "samples_ms": [
+        5.268243,
+        5.258284000000001,
+        5.27208,
+        5.2503899999999994,
+        5.256121
+      ],
+      "units_per_sample": 1024,
+      "units_per_second": 194740.33734199218,
+      "workload": "batch_indicators"
+    },
+    {
+      "bars_per_symbol": 1024,
+      "checksum": 315.0,
+      "max_ms": 0.344067,
+      "median_ms": 0.32525099999999996,
+      "min_ms": 0.32359899999999997,
+      "samples_ms": [
+        0.344067,
+        0.32525099999999996,
+        0.32359899999999997,
+        0.335671,
+        0.323668
+      ],
+      "units_per_sample": 1024,
+      "units_per_second": 3148337.745310545,
+      "workload": "batch_structure"
+    },
+    {
+      "bars_per_symbol": 1024,
+      "checksum": 852.5,
+      "max_ms": 5.551556,
+      "median_ms": 5.537469,
+      "min_ms": 5.517021000000001,
+      "samples_ms": [
+        5.530467,
+        5.539934,
+        5.517021000000001,
+        5.551556,
+        5.537469
+      ],
+      "units_per_sample": 1024,
+      "units_per_second": 184922.02845740537,
+      "workload": "batch_both"
+    },
+    {
+      "bars_per_symbol": 1024,
+      "max_ms": 6.224631,
+      "median_ms": 6.177132,
+      "min_ms": 5.971405,
+      "samples_ms": [
+        6.087253,
+        5.971405,
+        6.224631,
+        6.180679,
+        6.177132
+      ],
+      "units_per_sample": 1,
+      "units_per_second": 161.88742607410688,
+      "workload": "append_one_both"
+    },
+    {
+      "bars_per_symbol": 1024,
+      "checksum": 852.5,
+      "max_ms": 2987.5332590000003,
+      "median_ms": 2969.397913,
+      "min_ms": 2962.29034,
+      "samples_ms": [
+        2964.5118749999997,
+        2970.1481169999997,
+        2969.397913,
+        2987.5332590000003,
+        2962.29034
+      ],
+      "units_per_sample": 1024,
+      "units_per_second": 344.85105398536734,
+      "workload": "replay_both"
+    },
+    {
+      "bars_per_symbol": 1024,
+      "checksum": 6820.0,
+      "max_ms": 45.625506,
+      "median_ms": 45.412085,
+      "min_ms": 45.376077,
+      "samples_ms": [
+        45.512614,
+        45.412085,
+        45.398931,
+        45.625506,
+        45.376077
+      ],
+      "units_per_sample": 8192,
+      "units_per_second": 180392.51005541807,
+      "workload": "watchlist_8_sequential"
+    }
+  ],
+  "samples_per_workload": 5,
+  "threads": 1,
+  "timing": "std::time::Instant; milliseconds",
+  "warmups": 1,
+  "process": {
+    "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+    "cpu_model": "x86_64",
+    "logical_cpu_count": 4,
+    "wall_seconds": 19.349398451000013,
+    "cpu_seconds": 19.344498,
+    "peak_rss_bytes": 12152832,
+    "memory_method": "getrusage RUSAGE_CHILDREN ru_maxrss; one child, excludes compiler",
+    "scope": "whole benchmark process incl. setup/warmups/output; not per-operation heap/state size"
+  },
+  "commit": "223d742cf6e03ff91934d59647c50f30380c2eb6",
+  "clean": true,
+  "rustc": "rustc 1.85.1 (4eb161250 2025-03-15)\nbinary: rustc\ncommit-hash: 4eb161250e340c8f48f66e2b929ef4a5bed7c181\ncommit-date: 2025-03-15\nhost: x86_64-unknown-linux-gnu\nrelease: 1.85.1\nLLVM version: 19.1.7"
+}

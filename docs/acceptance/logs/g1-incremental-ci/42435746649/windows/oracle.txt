@@ -1,0 +1,1 @@
+PASS: SHA-256 manifest, temporal, Fraction/Decimal ramp, 8 rolling cases, 6 basic cases, 8 advanced cases, 15 structure cases (independent window sets/Fraction/IDs), config/event vectors

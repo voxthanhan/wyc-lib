@@ -124,7 +124,7 @@ impl CompensatedSum {
     }
 }
 
-fn sum(window: &[FiniteF64], path: &str) -> Result<f64, AnalysisError> {
+pub(crate) fn sum(window: &[FiniteF64], path: &str) -> Result<f64, AnalysisError> {
     let mut sum = CompensatedSum::default();
     for value in window {
         sum.add(value.get(), path)?;
@@ -136,7 +136,7 @@ pub(crate) fn mean(window: &[FiniteF64], path: &str) -> Result<f64, AnalysisErro
     finite(sum(window, path)? / window.len() as f64, path)
 }
 
-fn variance(window: &[FiniteF64], path: &str) -> Result<f64, AnalysisError> {
+pub(crate) fn variance(window: &[FiniteF64], path: &str) -> Result<f64, AnalysisError> {
     let mean = mean(window, path)?;
     // An exactly constant window has zero variance even when sum / n rounds
     // away from that constant (e.g. three 0.1s). Validate the mean first so
@@ -152,7 +152,7 @@ fn variance(window: &[FiniteF64], path: &str) -> Result<f64, AnalysisError> {
     finite(squares.finish(path)? / window.len() as f64, path)
 }
 
-fn extreme(window: &[FiniteF64], better: impl Fn(f64, f64) -> bool) -> f64 {
+pub(crate) fn extreme(window: &[FiniteF64], better: impl Fn(f64, f64) -> bool) -> f64 {
     // map_windows calls evaluation only with a full, nonempty window.
     let mut current = window[0].get();
     for value in &window[1..] {

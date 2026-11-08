@@ -4,6 +4,7 @@ Build separately so CPU/RSS exclude the compiler. RSS is process-level, not heap
 or retained-state bytes. CPU includes workload setup/warmups/JSON and timing.
 """
 import ctypes
+import hashlib
 import json
 import os
 import platform
@@ -74,6 +75,7 @@ def main():
         cpu_seconds=cpu, peak_rss_bytes=peak or None, memory_method=memory_method,
         scope='whole benchmark process incl. setup/warmups/output; not per-operation heap/state size')
     report['commit'] = subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip()
+    report['binary_sha256'] = hashlib.sha256(binary.read_bytes()).hexdigest()
     report['clean'] = not subprocess.check_output(['git', 'status', '--porcelain', '--untracked-files=normal'])
     report['rustc'] = subprocess.check_output(['rustc', '-Vv'], text=True).strip()
     output.write_text(json.dumps(report, indent=2)+'\n', encoding='utf-8')

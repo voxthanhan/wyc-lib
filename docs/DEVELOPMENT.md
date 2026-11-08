@@ -5,8 +5,8 @@
 | Thành phần | Chọn/mục tiêu | Tình trạng |
 | --- | --- | --- |
 | Rust | 1.85.1 pinned; MSRV 1.85; edition 2021 | Kết quả lần chạy trong báo cáo G0 |
-| Windows | x86_64-pc-windows-msvc; Visual Studio Build Tools 2022 + Windows SDK cho local | Local/checkout sạch P1.7, 88 tests tại 7c57220; CI windows-latest P1.7 PASS cùng SHA |
-| Linux | x86_64-unknown-linux-gnu; Ubuntu 24.04 CI | CI ubuntu-24.04 P1.7 PASS tại 7c57220 |
+| Windows | x86_64-pc-windows-msvc; Visual Studio Build Tools 2022 + Windows SDK cho local | Local/checkout sạch incremental, 93 Rust + 5 Python controls tại 45752f1; CI windows-latest PASS, ZIP payload verified |
+| Linux | x86_64-unknown-linux-gnu; Ubuntu 24.04 CI | CI ubuntu-24.04 incremental PASS tại 45752f1, ZIP payload verified |
 | macOS/ARM64 | Chưa chọn phiên bản/runner | Chưa công bố hỗ trợ |
 | Node | 22.x, NAPI-RS ở P2 | Mục tiêu, chưa chọn bản patch/ABI hoặc kiểm chứng |
 | Python | CPython 3.10–3.13, PyO3/Maturin ở P2 | Mục tiêu, chưa chọn bản patch/ABI hoặc kiểm chứng |
@@ -184,3 +184,19 @@ là digest đã tự kiểm. Chi tiết và tích hợp main tại báo cáo G1.
 Main đã tích hợp P1.7/G1 tại `223d742`; CI main run 42399120154 đạt Windows/Linux
 với cùng runner, mỗi job chín steps success. Tree khớp nhánh nghiệm thu và 65
 source blobs không đổi; bổ sung báo cáo sau run chỉ thay tài liệu/log.
+
+## Incremental và xác minh ZIP sau G1
+
+Runner hiện buộc thêm target p1_incremental (chín integration targets tổng cộng),
+chạy năm negative controls của artifact verifier. Công cụ verify_ci_artifacts.py
+nhận CI evidence JSON có head_sha/run/artifact names/digest và output directory;
+chỉ tải public ZIP, kiểm digest trước unzip và không đọc credentials. Ví dụ:
+
+```text
+python scripts/verify_ci_artifacts.py docs/acceptance/logs/ci-223d742-run-42399120154.json .tools/g1-artifacts/42399120154 --local-trace docs/acceptance/logs/p1.7-windows-clean/replay-traces.json
+```
+
+Đường nightly.link chỉ vận chuyển bytes của repo công khai, không cài app;
+GitHub published digest cùng summary SHA/run là bằng chứng. Không ghi signed
+redirect URL. Test verifier dùng synthetic local ZIP, không phụ thuộc network.
+G1 mới/benchmark trước-sau và các ZIP thực tế tại [báo cáo bổ sung](acceptance/G1-incremental.md).
