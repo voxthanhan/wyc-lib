@@ -2,7 +2,8 @@
 
 Ngày: 08/11/2026 (Asia/Saigon). Phạm vi theo yêu cầu tối ưu sau G1/P1.7;
 **Bản incremental đạt local, checkout sạch và CI Windows/Linux tại 45752f1**;
-hai ZIP CI mới đã tải/kiểm độc lập. Tích hợp main được ghi sau khi CI main đạt.
+hai ZIP CI nhánh mới đã tải/kiểm độc lập. **Đã tích hợp main tại 507fdad,
+CI main Windows/Linux đạt và hai ZIP main đã kiểm độc lập. Tổng tám ZIP đạt.**
 
 ## Thiết kế và sản phẩm
 
@@ -35,7 +36,7 @@ ZIP gốc ở `.tools/g1-artifacts/<run>/<artifact>/artifact.zip`; metadata/chec
 và selected payload logs được lưu nguyên bytes trong repository, toàn bộ file
 checksums và đối chiếu 1008 local trace digests nằm trong hai verification JSON.
 
-Tải qua HTTP redirect nightly.link từ artifact công khai, không token hoặc
+Tải qua HTTP redirect [nightly.link](https://github.com/oprypin/nightly.link) từ artifact công khai, không token hoặc
 cài/cấp quyền app; digest GitHub là chuẩn đối chiếu trước unzip. Không ghi URL
 redirect có chữ ký. Công cụ Chrome bị dừng do không xác định URL đủ tin cậy;
 không tiếp tục thao tác Chrome. Việc kiểm ZIP dùng script không điều khiển UI.
@@ -149,6 +150,38 @@ Các metadata snapshots trước ZIP được giữ tách khỏi verification sa
 không còn giới hạn chỉ đọc metadata cho run này. Không so tốc độ giữa hai OS
 trên hardware CI khác nhau. Node.js 20/24 warning ở actions giữ như trước,
 không có failed step. Không thay workflow hoặc thêm quyền/credentials.
+
+## Tích hợp main và ZIP CI main
+
+Đã fetch origin/main tại 64fa87f, merge nhánh nghiệm thu 5183e7b vào main tại
+**507fdad6f431c8c1a032397769181430ff20e96d**, push thành công. Tree
+`193eff05605195d989bad61b61df67b70a7b3259` khớp hoàn toàn nhánh nghiệm thu,
+không xung đột hoặc đổi nội dung do merge. [Parents/tree và byte audit](logs/g1-incremental-main-integration.json).
+
+[CI main 42436169902](https://github.com/voxthanhan/wyc-lib/actions/runs/42436169902)
+đúng SHA merge, Success. [Ubuntu job 128595359361](https://github.com/voxthanhan/wyc-lib/actions/runs/42436169902/job/128595359361)
+và [Windows job 128595359662](https://github.com/voxthanhan/wyc-lib/actions/runs/42436169902/job/128595359662)
+đều success, mỗi job chín steps success. Đã tải ZIP Ubuntu 55,779 bytes
+và Windows 56,070 bytes; SHA-256 khớp GitHub published digest, CRC
+đạt. Mỗi payload summary đúng SHA/run, clean trước/sau, 13 runner checks exit=0,
+93 Rust tests và năm verifier controls PASS, 1008 trace hashes bằng local/G1
+cũ, đủ 12 baseline workloads/raw samples/CPU/RSS. Các log payload chọn lưu trong
+Git giữ nguyên bytes, toàn ZIP gốc/payload ở `.tools/g1-artifacts/<run>/<artifact>/`.
+
+[Run/job/artifact metadata](logs/ci-507fdad-run-42436169902.json),
+[69 source blobs main khớp local/sạch](logs/g1-incremental-507fdad-source-comparison.json),
+[ZIP digest/member checksums và audit đầy đủ](logs/g1-incremental-ci/42436169902/verification.json),
+[Linux summary](logs/g1-incremental-ci/42436169902/linux/summary.json),
+[Windows summary](logs/g1-incremental-ci/42436169902/windows/summary.json),
+[Linux baseline](logs/g1-incremental-ci/42436169902/linux/baseline.json),
+[Windows baseline](logs/g1-incremental-ci/42436169902/windows/baseline.json).
+
+**G1 bổ sung đạt**: cả hai state dùng incremental compute, outputs/hashes cũ
+không đổi, local/checkout sạch/CI nhánh và main Windows/Linux đạt. Đã kiểm độc
+lập tám ZIP thuộc bốn run cũ/mới; giới hạn chưa đọc payload đã đóng. Bổ sung
+báo cáo sau CI chỉ đổi tài liệu/log, không thay 69 source fingerprints; kiểm
+liên kết, Markdown tables, whitespace và staged payload/source bytes trước
+commit cuối. [Review cuối](logs/g1-incremental-final-review.txt).
 
 ## Giới hạn còn lại
 

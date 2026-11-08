@@ -200,3 +200,8 @@ python scripts/verify_ci_artifacts.py docs/acceptance/logs/ci-223d742-run-423991
 GitHub published digest cùng summary SHA/run là bằng chứng. Không ghi signed
 redirect URL. Test verifier dùng synthetic local ZIP, không phụ thuộc network.
 G1 mới/benchmark trước-sau và các ZIP thực tế tại [báo cáo bổ sung](acceptance/G1-incremental.md).
+
+Incremental đã tích hợp main tại `507fdad`; CI main 42436169902 Windows/Linux
+đạt 93 Rust tests + năm verifier controls. ZIP hai job đã kiểm digest/CRC và
+summary/tests/1008 traces/raw baseline độc lập; tổng tám ZIP cũ/mới đã kiểm.
+Báo cáo sau run chỉ đổi docs/logs, giữ nguyên source fingerprints đã kiểm.

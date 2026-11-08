@@ -12,6 +12,8 @@
   5 Python controls; ZIP hai OS kiểm digest và payload độc lập, 1008 trace hashes
   giữ nguyên. Baseline local N=1024 append khoảng 10×, replay khoảng 48× trong
   cặp đo tham chiếu; full output vẫn O(N), batch-only không được coi cải thiện.
+  Đã tích hợp main tại 507fdad; CI main 42436169902 đạt hai OS, cả tám ZIP
+  G1 cũ/mới đã kiểm độc lập, source/output hashes giữ nguyên.
   Số đo/giới hạn/tích hợp tại [G1 bổ sung](docs/acceptance/G1-incremental.md).
 
 ## 0.1.0 — P1.7, chưa phát hành

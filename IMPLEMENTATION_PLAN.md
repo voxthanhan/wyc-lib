@@ -624,3 +624,10 @@ vì full output clone, evidence insertion và snapshot validation còn tuyến t
 Tải ZIP CI cũ/mới và kiểm độc lập digest/CRC/summary/checks/traces/baseline;
 kiểm local, checkout sạch, CI Windows/Linux rồi tự tích hợp main khi đạt.
 [Báo cáo G1 bổ sung](docs/acceptance/G1-incremental.md) ghi bằng chứng thực tế.
+
+Đợt incremental sau G1 đã đạt tại 45752f1 (local/checkout sạch, CI run 42435746649)
+và tích hợp main tại 507fdad (CI run 42436169902): Windows/Linux đều PASS,
+93 Rust tests + 5 Python controls, 69 source fingerprints khớp, 1008 prefix
+hashes giữ nguyên. Tám ZIP bốn run cũ/mới đã tải, kiểm digest/CRC và payload
+summary/checks/tests/traces/baseline độc lập. G1 bổ sung đạt; report clone O(N),
+snapshot Basic O(M) và noisy batch-only baseline được công bố, không claim O(1).

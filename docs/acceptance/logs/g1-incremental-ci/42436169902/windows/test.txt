@@ -1,0 +1,204 @@
+   Compiling memchr v2.8.3
+   Compiling ryu v1.0.23
+   Compiling itoa v1.0.18
+   Compiling market_structure v0.1.0 (D:\a\wyc-lib\wyc-lib\crates\market_structure)
+   Compiling contracts v0.1.0 (D:\a\wyc-lib\wyc-lib\crates\contracts)
+   Compiling serde_json v1.0.140
+   Compiling indicators v0.1.0 (D:\a\wyc-lib\wyc-lib\crates\indicators)
+   Compiling wyc-lib v0.1.0 (D:\a\wyc-lib\wyc-lib\crates\wyc_lib)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 10.50s
+     Running unittests src\lib.rs (target\debug\deps\contracts-fda5377640691565.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src\lib.rs (target\debug\deps\indicators-6d442b730892aa7b.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running ..\..\tests\p1_advanced.rs (target\debug\deps\p1_advanced-b0b6cd3cbbcadbe2.exe)
+
+running 12 tests
+test dm_ties_zero_ranges_and_transition_seed_do_not_use_first_range ... ok
+test empty_and_single_bar_inputs_preserve_all_component_shapes ... ok
+test invalid_configuration_is_rejected_even_for_empty_slices ... ok
+test ohlc_shape_and_future_invalid_data_are_rejected_without_mutation ... ok
+test delayed_availability_open_bars_and_revision_have_explicit_lineage ... ok
+test overflow_reports_component_paths_and_preserves_input ... ok
+test original_ramp_scalars_agree_with_p0_hand_calculations ... ok
+test underflow_is_finite_and_tiny_positive_denominators_are_not_missing ... ok
+test warmup_boundaries_cover_nondefault_and_maximum_periods ... ok
+test rsi_monotonic_and_flat_series_use_explicit_ready_conventions ... ok
+test independent_goldens_check_every_component_seed_and_sample ... ok
+test every_prefix_replays_exactly_and_future_prices_cannot_change_past ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+
+     Running ..\..\tests\p1_basic.rs (target\debug\deps\p1_basic-01d18b85c820b988.exe)
+
+running 14 tests
+test duplicate_out_of_order_skipped_unavailable_gap_and_history_updates_are_atomic ... ok
+test invalid_periods_shapes_ohlc_volume_and_nonfinite_are_rejected ... ok
+test market_api_validates_unavailable_tail_and_never_repairs_input ... ok
+test fraction_goldens_cover_every_sample_of_all_nine_indicators ... ok
+test overflow_is_explicit_and_period_one_avoids_unnecessary_smoothing_subtraction ... ok
+test original_p0_scalar_goldens_are_still_compatible ... ok
+test overflow_update_and_invalid_reset_do_not_destroy_state_or_prior_outputs ... ok
+test availability_delays_future_changes_and_prefix_replay_are_causal ... ok
+test underflow_and_negative_zero_follow_f64_without_epsilon ... ok
+test warmup_before_at_after_first_valid_and_empty_maximum_period ... ok
+test revision_reset_matches_new_batch_and_preserves_old_revision_replay ... ok
+test zero_denominators_recover_and_lag_does_not_use_current_mean ... ok
+test state_identity_changes_are_rejected_atomically ... ok
+test every_fixture_prefix_has_exact_batch_state_parity ... ok
+
+test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running ..\..\tests\p1_rolling.rs (target\debug\deps\p1_rolling-4ea79a5f6c66ef51.exe)
+
+running 10 tests
+test empty_short_and_first_valid_boundaries_include_maximum_period ... ok
+test delayed_revision_requires_new_snapshot_and_retains_old_replay ... ok
+test expired_extremes_and_compensation_do_not_leak_between_windows ... ok
+test finite_underflow_is_explicit_and_single_large_sample_has_zero_variance ... ok
+test invalid_periods_fail_even_on_empty_input_and_errors_preserve_codes ... ok
+test independently_authored_goldens_cover_all_six_operations ... ok
+test numeric_overflow_is_distinct_from_nonfinite_input_and_is_atomic ... ok
+test ramp_goldens_from_p0_remain_compatible ... ok
+test changing_closed_future_bars_cannot_change_any_old_prefix ... ok
+test closed_bar_replay_and_changed_future_match_every_causal_prefix_exactly ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running unittests src\lib.rs (target\debug\deps\market_structure-7c21a61640dfb54a.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src\lib.rs (target\debug\deps\wyc_lib-597e3d306e13f0c6.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running ..\..\tests\foundation.rs (target\debug\deps\foundation-89aafe4ea57b5eee.exe)
+
+running 8 tests
+test harness_detects_intentional_numeric_schema_time_mask_and_checksum_drift ... ok
+test finite_numbers_statuses_and_draft_report_roundtrip ... ok
+test availability_replay_and_prefix_contract ... ok
+test all_columns_reject_length_mismatch_and_all_prices_reject_null ... ok
+test request_config_and_selection_contract ... ok
+test typed_result_schema_and_warmup_invariants ... ok
+test invalid_data_counterexamples_have_exact_codes_and_paths ... ok
+test manifest_checksums_and_fixture_schema ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running ..\..\tests\p1_foundation.rs (target\debug\deps\p1_foundation-37408ed627bf0c4a.exe)
+
+running 10 tests
+test config_hash_is_order_independent_sensitive_to_every_field_and_validated ... ok
+test event_identity_rejects_invalid_fields_hash_and_time ... ok
+test canonical_config_and_event_ids_match_independent_vectors ... ok
+test numeric_series_preserves_statuses_and_rejects_shape_time_and_mask_drift ... ok
+test event_id_is_sensitive_to_every_identity_field_and_uses_wire_module_names ... ok
+test prepared_event_identity_is_stable_when_as_of_or_future_tail_changes ... ok
+test preparation_normalizes_selection_and_preserves_input ... ok
+test revision_and_delayed_availability_determine_sample_known_at ... ok
+test preparation_enforces_errors_and_validates_unavailable_tail ... ok
+test replay_prefix_and_extreme_future_values_do_not_change_selected_data ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running ..\..\tests\p1_incremental.rs (target\debug\deps\p1_incremental-8f86b5d8b2b60757.exe)
+
+running 5 tests
+test arithmetic_failure_near_seed_boundary_preserves_seed_then_recovers ... ok
+test structure_failure_after_indicator_stage_rolls_back_all_caches_and_recovers ... ok
+test basic_state_uses_only_basic_cache_even_when_advanced_variance_overflows ... ok
+test long_both_modules_reset_revision_then_append_keeps_event_order_and_ids ... ok
+test long_numeric_replay_is_exact_across_scales_and_seed_checkpoints ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 6.92s
+
+     Running ..\..\tests\p1_orchestration.rs (target\debug\deps\p1_orchestration-4acb53b55c33f0ae.exe)
+
+running 15 tests
+test delayed_open_and_changed_future_are_never_retained ... ok
+test complete_catalog_matches_hand_calculated_arithmetic_and_wire_shape ... ok
+test empty_short_and_long_warmup_have_complete_containers ... ok
+test every_identity_and_metadata_change_is_atomic ... ok
+test equal_availability_and_as_of_allow_appends_without_inventing_gaps ... ok
+test invalid_bars_and_as_of_preserve_exact_state ... ok
+test engine_errors_during_update_and_reset_are_atomic ... ok
+test normalized_module_order_and_request_errors ... ok
+test replay_both_modules_and_kept_reports_are_immutable ... ok
+test revised_history_requires_reset_and_reset_replays_new_identity ... ok
+test selection_proves_unrequested_engines_do_not_execute ... ok
+test update_wire_rejects_unknown_missing_nonfinite_and_bad_enum ... ok
+test reused_fixture_bytes_still_match_manifest ... ok
+test basic_and_advanced_independent_goldens_through_full_catalog ... ok
+test structure_goldens_and_all_prefixes_match_state_batch_and_old_as_of ... ok
+
+test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.52s
+
+     Running ..\..\tests\p1_replay.rs (target\debug\deps\p1_replay-4d8aefa83a341bc2.exe)
+
+running 3 tests
+test period_one_and_nondefault_first_valid_boundaries_through_public_api ... ok
+test revised_snapshot_reset_then_append_matches_fresh_replay ... ok
+test replay_matrix_keeps_old_as_of_and_emits_auditable_prefix_traces ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.85s
+
+     Running ..\..\tests\p1_structure.rs (target\debug\deps\p1_structure-571b3ba88868c93c.exe)
+
+running 16 tests
+test empty_short_plateau_and_max_windows_do_not_invent_pivots ... ok
+test config_and_invalid_data_keep_contract_errors_including_future ... ok
+test declared_gap_is_rejected_and_config_changes_event_identity ... ok
+test arithmetic_overflow_is_reported_without_partial_result ... ok
+test equal_outside_pivots_have_both_records_and_one_trend_sample ... ok
+test gaps_zero_denominator_and_strength_are_not_probabilities ... ok
+test hand_traced_labels_trends_and_break_precedence ... ok
+test manifest_checks_structure_bytes ... ok
+test revisions_change_timing_and_identity_and_require_availability ... ok
+test right_confirmation_waits_for_closed_available_bar ... ok
+test lineage_ids_references_and_evidence_order_are_stable ... ok
+test simultaneous_opposite_breaks_fail_instead_of_selecting_a_direction ... ok
+test unknown_trend_does_not_consume_a_crossed_reference ... ok
+test strength_subtraction_division_overflow_and_underflow_have_explicit_policy ... ok
+test golden_all_fields_and_read_only_input ... ok
+test every_prefix_replays_with_future_changed_and_append_keeps_history ... ok
+
+test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+
+   Doc-tests contracts
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests indicators
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests market_structure
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests wyc_lib
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

@@ -78,3 +78,9 @@ cache/sample/event mới; BasicIndicatorState cũng dùng cache chín series.
 Giữ batch chuẩn, golden, contract và atomic errors/reset. Full owned output
 vẫn clone O(N). Hai ZIP CI G1 cũ đã tải và kiểm digest cùng nội dung độc lập;
 trạng thái kiểm chứng/tích hợp bản mới trong báo cáo bổ sung.
+
+Đã tích hợp incremental vào main tại `507fdad`;
+[CI main 42436169902](https://github.com/voxthanhan/wyc-lib/actions/runs/42436169902)
+đạt Windows/Linux, mỗi payload có 93 Rust tests và năm verifier controls PASS.
+Cả tám ZIP G1 cũ/mới đã kiểm digest/CRC/summary/traces/baseline độc lập.
+Báo cáo bổ sung sau CI chỉ thay tài liệu/log; mã đã kiểm chứng giữ nguyên.

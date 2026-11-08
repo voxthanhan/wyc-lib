@@ -1,0 +1,14 @@
+{
+  "merge_commit": "507fdad6f431c8c1a032397769181430ff20e96d",
+  "accepted_commit": "5183e7b55779c095ac9cd7a51019c72e6b9f0d08",
+  "base_commit": "64fa87f1f1e66c46b970aa8ae1a1e70aae9b3b12",
+  "merge_tree": "193eff05605195d989bad61b61df67b70a7b3259",
+  "accepted_tree": "193eff05605195d989bad61b61df67b70a7b3259",
+  "trees_equal": true,
+  "parents": [
+    "64fa87f1f1e66c46b970aa8ae1a1e70aae9b3b12",
+    "5183e7b55779c095ac9cd7a51019c72e6b9f0d08"
+  ],
+  "branch_verified_payload_members_preserved": 14,
+  "main_ci_run_url": "https://github.com/voxthanhan/wyc-lib/actions/runs/42436169902"
+}

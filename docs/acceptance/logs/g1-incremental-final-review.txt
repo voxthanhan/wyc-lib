@@ -1,0 +1,4 @@
+PASS: 8 retained ZIP archives still match published GitHub SHA-256 digests.
+PASS: 52 selected original CI payload members match ZIP member SHA-256 checksums.
+PASS: all 69 tested source fingerprints unchanged after main CI.
+PASS: post-CI work changes only documentation/logs; staged payload bytes audited before final commit.
