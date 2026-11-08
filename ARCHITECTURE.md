@@ -1,6 +1,6 @@
 # wyc-lib — Kiến trúc thực thi
 
-## Hiện trạng P1.7
+## Hiện trạng G1 incremental
 
 Workspace có bốn package: `contracts` (wire types, cấu hình, kiểm tra contract,
 AnalysisError), `indicators` (rolling/statistics P1.2, chín chỉ báo nền và

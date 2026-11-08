@@ -1,7 +1,8 @@
 # G1 bổ sung — incremental state và ZIP artifact
 
 Ngày: 08/11/2026 (Asia/Saigon). Phạm vi theo yêu cầu tối ưu sau G1/P1.7;
-local/CI/main của bản mới đang được kiểm chứng, chưa lấy kết quả cũ thay bản mới.
+**Bản incremental đạt local, checkout sạch và CI Windows/Linux tại 45752f1**;
+hai ZIP CI mới đã tải/kiểm độc lập. Tích hợp main được ghi sau khi CI main đạt.
 
 ## Thiết kế và sản phẩm
 
@@ -70,8 +71,25 @@ workspace dependencies, toolchain, workflow và Rust benchmark generator không 
 [69 fingerprints](logs/g1-incremental-windows/sources.json).
 Summary ghi base HEAD 64fa87f, clean=false vì working tree chưa commit; không
 coi đây là checkout sạch. Các lượt Clippy đầu bắt needless_borrow ở kernel đã
-tách; sửa đúng tham chiếu, lượt đầy đủ cuối PASS. Checkout sạch/CI bản mới
-sẽ được bổ sung trước nghiệm thu cuối.
+tách; sửa đúng tham chiếu, lượt đầy đủ cuối PASS. Checkout sạch đã PASS ở dưới; CI bản mới đã PASS và ZIP được xác minh độc lập ở dưới.
+
+## Checkout sạch Windows
+
+Implementation commit `45752f143d205474a85cde22bf71ddedd431ef9e`. Clone local
+--no-hardlinks, target build mới `.tools/g1-incremental-clean-target`, cùng
+Rust/Cargo 1.85.1/cache offline. Runner -RequireClean -ExpectedCommit đúng SHA
+đạt format/Clippy/build, 93 Rust tests, 5 verifier controls, example, release
+baseline, oracle và dependency/link audit; clean_before=true/clean_after=true.
+1008 prefix hashes khớp cả local và G1 cũ, 69 source fingerprints khớp local,
+checkout sạch và Git blobs. Payload logs CI cũ được đối chiếu Git blobs với
+checksum ZIP member và giữ đúng bytes; -text không làm sai nội dung đã kiểm.
+
+[Summary sạch](logs/g1-incremental-windows-clean/summary.json),
+[tests sạch](logs/g1-incremental-windows-clean/test.txt),
+[baseline sạch](logs/g1-incremental-windows-clean/baseline.json),
+[source và payload byte comparison](logs/g1-incremental-source-comparison.json).
+Baseline sạch là lượt lặp xác minh trên cùng host, không thay raw cặp đo
+trước–sau để chọn số đẹp hơn. CPU toàn process 3.15625 s, peak RSS 14,577,664 bytes.
 
 ## Baseline trước–sau
 
@@ -106,6 +124,31 @@ không có thí nghiệm kiểm soát/statistical significance cho chênh batch.
 [baseline trước sửa lần đầu](logs/g1-incremental-windows/initial-before/baseline.json).
 Không đo speedup riêng BasicIndicatorState từ workload AnalysisState này.
 
+
+## CI nhánh và kiểm ZIP bản incremental
+
+[Run 42435746649](https://github.com/voxthanhan/wyc-lib/actions/runs/42435746649)
+đúng SHA `45752f143d205474a85cde22bf71ddedd431ef9e`, nhánh codex/g1-incremental,
+Success. [Ubuntu job 128594084294](https://github.com/voxthanhan/wyc-lib/actions/runs/42435746649/job/128594084294)
+và [Windows job 128594084484](https://github.com/voxthanhan/wyc-lib/actions/runs/42435746649/job/128594084484)
+đều success; chín steps/job gồm runner và upload đều success.
+[Metadata đúng run/SHA](logs/ci-45752f1-run-42435746649.json),
+[69 source blobs khớp bản local/sạch](logs/g1-incremental-45752f1-source-comparison.json).
+
+Đã tải ZIP Ubuntu 55,781 bytes và Windows 56,041 bytes, so SHA-256 từ bytes
+với digest GitHub công bố trước unzip, CRC đạt. Hai payload summary đúng SHA/run,
+clean_before/clean_after=true, 13 runner checks exit=0; **93 Rust tests** không
+failed/ignored và **5 verifier controls** PASS. Mỗi ZIP có **1008 trace hashes
+khớp local** (cũng khớp G1 cũ), 12 baseline rows/năm raw samples, CPU/RSS hợp lệ.
+[ZIP digest/member checksums và full audit](logs/g1-incremental-ci/42435746649/verification.json),
+[Linux summary](logs/g1-incremental-ci/42435746649/linux/summary.json),
+[Windows summary](logs/g1-incremental-ci/42435746649/windows/summary.json),
+[Linux baseline](logs/g1-incremental-ci/42435746649/linux/baseline.json),
+[Windows baseline](logs/g1-incremental-ci/42435746649/windows/baseline.json).
+Các metadata snapshots trước ZIP được giữ tách khỏi verification sau download;
+không còn giới hạn chỉ đọc metadata cho run này. Không so tốc độ giữa hai OS
+trên hardware CI khác nhau. Node.js 20/24 warning ở actions giữ như trước,
+không có failed step. Không thay workflow hoặc thêm quyền/credentials.
 
 ## Giới hạn còn lại
 

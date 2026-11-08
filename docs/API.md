@@ -275,7 +275,7 @@ chạy batch để giữ canonical error priority, không thay cache/history/res
 AnalysisState giữ history/output O(N), clone report O(N), chèn evidence O(E);
 chi phí tính sample O(period + seed windows), structure O(L+R+1), không O(1)
 cho tổng API. Low-level IndicatorMemory::new/prepare và
-StructureMemory::default/prepare/append_delta là integration API Rust cho
+StructureMemory::default/prepare cùng market_structure::append_delta là integration API Rust cho
 prefix AvailableBar đã validate, append-only, cùng identity/config/revision;
 caller không được sửa prefix hoặc tái dùng cache cho identity khác. Đây không
 phải state serialization hay FFI handle. AvailableBar::from_closed chia sẻ

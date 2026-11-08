@@ -5,8 +5,8 @@
 | Thành phần | Chọn/mục tiêu | Tình trạng |
 | --- | --- | --- |
 | Rust | 1.85.1 pinned; MSRV 1.85; edition 2021 | Kết quả lần chạy trong báo cáo G0 |
-| Windows | x86_64-pc-windows-msvc; Visual Studio Build Tools 2022 + Windows SDK cho local | Local/checkout sạch P1.7, 88 tests tại 7c57220; CI windows-latest P1.7 PASS cùng SHA |
-| Linux | x86_64-unknown-linux-gnu; Ubuntu 24.04 CI | CI ubuntu-24.04 P1.7 PASS tại 7c57220 |
+| Windows | x86_64-pc-windows-msvc; Visual Studio Build Tools 2022 + Windows SDK cho local | Local/checkout sạch incremental, 93 Rust + 5 Python controls tại 45752f1; CI windows-latest PASS, ZIP payload verified |
+| Linux | x86_64-unknown-linux-gnu; Ubuntu 24.04 CI | CI ubuntu-24.04 incremental PASS tại 45752f1, ZIP payload verified |
 | macOS/ARM64 | Chưa chọn phiên bản/runner | Chưa công bố hỗ trợ |
 | Node | 22.x, NAPI-RS ở P2 | Mục tiêu, chưa chọn bản patch/ABI hoặc kiểm chứng |
 | Python | CPython 3.10–3.13, PyO3/Maturin ở P2 | Mục tiêu, chưa chọn bản patch/ABI hoặc kiểm chứng |

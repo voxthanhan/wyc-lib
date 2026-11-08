@@ -1,0 +1,153 @@
+{
+  "evidence_version": "1",
+  "commit": "45752f143d205474a85cde22bf71ddedd431ef9e",
+  "tree": "4cd5490668a4719cb31e99cd5c97211291ab1774",
+  "started_at_utc": "2026-11-08T01:43:48.3863199+00:00",
+  "platform": "Microsoft Windows 10.0.26200",
+  "github_run_url": null,
+  "github_run_attempt": null,
+  "clean_before": true,
+  "clean_after": true,
+  "offline": true,
+  "checks": [
+    {
+      "name": "rustc",
+      "command": "rustc",
+      "arguments": [
+        "--version",
+        "--verbose"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "cargo",
+      "command": "cargo",
+      "arguments": [
+        "--version"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "python",
+      "command": "python",
+      "arguments": [
+        "--version"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "format",
+      "command": "cargo",
+      "arguments": [
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "clippy",
+      "command": "cargo",
+      "arguments": [
+        "clippy",
+        "--workspace",
+        "--locked",
+        "--offline",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "build",
+      "command": "cargo",
+      "arguments": [
+        "build",
+        "--workspace",
+        "--locked",
+        "--offline"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "test",
+      "command": "cargo",
+      "arguments": [
+        "test",
+        "--workspace",
+        "--locked",
+        "--offline"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "example",
+      "command": "cargo",
+      "arguments": [
+        "run",
+        "--example",
+        "p1_walkthrough",
+        "--package",
+        "wyc-lib",
+        "--locked",
+        "--offline"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "baseline-build",
+      "command": "cargo",
+      "arguments": [
+        "build",
+        "--release",
+        "--example",
+        "p1_baseline",
+        "--package",
+        "wyc-lib",
+        "--locked",
+        "--offline"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "baseline",
+      "command": "python",
+      "arguments": [
+        "scripts/measure_baseline.py",
+        "D:\\Dev\\Lib\\.tools\\g1-incremental-clean-target\\release\\examples\\p1_baseline.exe",
+        "D:\\Dev\\Lib\\.tools\\g1-incremental-checkout\\ci-evidence\\baseline.json"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "oracle",
+      "command": "python",
+      "arguments": [
+        "scripts/verify_oracles.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "artifact-verifier",
+      "command": "python",
+      "arguments": [
+        "scripts/test_verify_ci_artifacts.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "workspace",
+      "command": "python",
+      "arguments": [
+        "scripts/verify_workspace.py",
+        "D:\\Dev\\Lib\\.tools\\g1-incremental-checkout\\ci-evidence\\workspace-metadata.json"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "passed": true,
+  "finished_at_utc": "2026-11-08T01:46:49.0575230+00:00"
+}

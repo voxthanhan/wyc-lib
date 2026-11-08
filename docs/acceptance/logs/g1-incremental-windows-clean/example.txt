@@ -1,0 +1,2728 @@
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.64s
+     Running `D:\Dev\Lib\.tools\g1-incremental-clean-target\debug\examples\p1_walkthrough.exe`
+{
+  "after_reset": {
+    "indicators": {
+      "series": {
+        "adx": [
+          {
+            "known_at": 7000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 6,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 6,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 3000,
+            "result": {
+              "available": 3,
+              "required": 6,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 4000,
+            "result": {
+              "available": 4,
+              "required": 6,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 5000,
+            "result": {
+              "available": 5,
+              "required": 6,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 100.0
+            }
+          }
+        ],
+        "atr": [
+          {
+            "known_at": 7000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 2.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 2.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 2.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 2.0
+            }
+          }
+        ],
+        "bollinger_lower": [
+          {
+            "known_at": 7000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 0.9194475377420195
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 1.367006838144548
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 2.367006838144548
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 3.367006838144548
+            }
+          }
+        ],
+        "bollinger_middle": [
+          {
+            "known_at": 7000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 2.1666666666666665
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 3.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 4.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 5.0
+            }
+          }
+        ],
+        "bollinger_upper": [
+          {
+            "known_at": 7000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 3.4138857955913133
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 4.6329931618554525
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 5.6329931618554525
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 6.6329931618554525
+            }
+          }
+        ],
+        "dx": [
+          {
+            "known_at": 7000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 3000,
+            "result": {
+              "available": 3,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 100.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 100.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 100.0
+            }
+          }
+        ],
+        "ema": [
+          {
+            "known_at": 7000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 2.1666666666666665
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 3.083333333333333
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 4.041666666666666
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 5.020833333333333
+            }
+          }
+        ],
+        "macd_histogram": [
+          {
+            "known_at": 7000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 3000,
+            "result": {
+              "available": 3,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 0.013888888888889062
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 0.012345679012345956
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 0.00900205761316858
+            }
+          }
+        ],
+        "macd_line": [
+          {
+            "known_at": 7000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 0.4166666666666665
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 0.44444444444444464
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 0.46759259259259345
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 0.4822530864197532
+            }
+          }
+        ],
+        "macd_signal": [
+          {
+            "known_at": 7000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 3000,
+            "result": {
+              "available": 3,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 0.4305555555555556
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 0.4552469135802475
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 0.4732510288065846
+            }
+          }
+        ],
+        "max": [
+          {
+            "known_at": 7000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 3.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 4.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 5.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 6.0
+            }
+          }
+        ],
+        "min": [
+          {
+            "known_at": 7000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 1.5
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 2.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 3.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 4.0
+            }
+          }
+        ],
+        "minus_di": [
+          {
+            "known_at": 7000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 3000,
+            "result": {
+              "available": 3,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 0.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 0.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 0.0
+            }
+          }
+        ],
+        "momentum": [
+          {
+            "known_at": 7000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 3000,
+            "result": {
+              "available": 3,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 2.5
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 3.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 3.0
+            }
+          }
+        ],
+        "plus_di": [
+          {
+            "known_at": 7000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 3000,
+            "result": {
+              "available": 3,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 50.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 50.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 50.0
+            }
+          }
+        ],
+        "roc": [
+          {
+            "known_at": 7000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 3000,
+            "result": {
+              "available": 3,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 166.66666666666666
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 150.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 100.0
+            }
+          }
+        ],
+        "rsi": [
+          {
+            "known_at": 7000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 3000,
+            "result": {
+              "available": 3,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 100.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 100.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 100.0
+            }
+          }
+        ],
+        "rvol": [
+          {
+            "known_at": 7000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 2.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 1.5
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 1.3333333333333333
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 1.25
+            }
+          }
+        ],
+        "sma": [
+          {
+            "known_at": 7000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 2.1666666666666665
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 3.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 4.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 5.0
+            }
+          }
+        ],
+        "std": [
+          {
+            "known_at": 7000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 0.6236095644623235
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 0.816496580927726
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 0.816496580927726
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 0.816496580927726
+            }
+          }
+        ],
+        "sum": [
+          {
+            "known_at": 7000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 6.5
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 9.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 12.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 15.0
+            }
+          }
+        ],
+        "tr": [
+          {
+            "known_at": 7000,
+            "observed_at": 1000,
+            "result": {
+              "status": "ready",
+              "value": 2.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 2000,
+            "result": {
+              "status": "ready",
+              "value": 2.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 2.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 2.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 2.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 2.0
+            }
+          }
+        ],
+        "variance": [
+          {
+            "known_at": 7000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 0.38888888888888884
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 0.6666666666666666
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 0.6666666666666666
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 0.6666666666666666
+            }
+          }
+        ],
+        "volume_sma": [
+          {
+            "known_at": 7000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 10.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 20.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 30.0
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 40.0
+            }
+          }
+        ],
+        "wma": [
+          {
+            "known_at": 7000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 2.4166666666666665
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 3.3333333333333335
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 4.333333333333333
+            }
+          },
+          {
+            "known_at": 7000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 5.333333333333333
+            }
+          }
+        ]
+      }
+    },
+    "metadata": {
+      "algorithm_version": "p1-v1",
+      "as_of": 7000,
+      "config_hash": "sha256:config-v1:762f7104f6d7c7e6e384b20fa06af2a9fd18e4cd0d38699e7a469a3305a5e448",
+      "data_revision": "ramp-r2",
+      "engine_version": "0.1.0",
+      "schema_version": "0.1.0",
+      "symbol": "RAMP",
+      "timeframe": "synthetic-close-1s"
+    },
+    "structure": {
+      "breaks": [],
+      "evidence": [],
+      "pivots": [],
+      "trends": [
+        {
+          "known_at": 7000,
+          "observed_at": 1000,
+          "trend": "unknown"
+        },
+        {
+          "known_at": 7000,
+          "observed_at": 2000,
+          "trend": "unknown"
+        },
+        {
+          "known_at": 7000,
+          "observed_at": 3000,
+          "trend": "unknown"
+        },
+        {
+          "known_at": 7000,
+          "observed_at": 4000,
+          "trend": "unknown"
+        },
+        {
+          "known_at": 7000,
+          "observed_at": 5000,
+          "trend": "unknown"
+        },
+        {
+          "known_at": 7000,
+          "observed_at": 6000,
+          "trend": "unknown"
+        }
+      ]
+    }
+  },
+  "historical": {
+    "indicators": {
+      "series": {
+        "adx": [
+          {
+            "known_at": 1000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 6,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 2000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 6,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 3000,
+            "observed_at": 3000,
+            "result": {
+              "available": 3,
+              "required": 6,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 4000,
+            "observed_at": 4000,
+            "result": {
+              "available": 4,
+              "required": 6,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 5000,
+            "observed_at": 5000,
+            "result": {
+              "available": 5,
+              "required": 6,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 6000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 100.0
+            }
+          }
+        ],
+        "atr": [
+          {
+            "known_at": 1000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 2000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 3000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 2.0
+            }
+          },
+          {
+            "known_at": 4000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 2.0
+            }
+          },
+          {
+            "known_at": 5000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 2.0
+            }
+          },
+          {
+            "known_at": 6000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 2.0
+            }
+          }
+        ],
+        "bollinger_lower": [
+          {
+            "known_at": 1000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 2000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 3000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 0.36700683814454793
+            }
+          },
+          {
+            "known_at": 4000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 1.367006838144548
+            }
+          },
+          {
+            "known_at": 5000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 2.367006838144548
+            }
+          },
+          {
+            "known_at": 6000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 3.367006838144548
+            }
+          }
+        ],
+        "bollinger_middle": [
+          {
+            "known_at": 1000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 2000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 3000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 2.0
+            }
+          },
+          {
+            "known_at": 4000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 3.0
+            }
+          },
+          {
+            "known_at": 5000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 4.0
+            }
+          },
+          {
+            "known_at": 6000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 5.0
+            }
+          }
+        ],
+        "bollinger_upper": [
+          {
+            "known_at": 1000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 2000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 3000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 3.632993161855452
+            }
+          },
+          {
+            "known_at": 4000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 4.6329931618554525
+            }
+          },
+          {
+            "known_at": 5000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 5.6329931618554525
+            }
+          },
+          {
+            "known_at": 6000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 6.6329931618554525
+            }
+          }
+        ],
+        "dx": [
+          {
+            "known_at": 1000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 2000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 3000,
+            "observed_at": 3000,
+            "result": {
+              "available": 3,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 4000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 100.0
+            }
+          },
+          {
+            "known_at": 5000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 100.0
+            }
+          },
+          {
+            "known_at": 6000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 100.0
+            }
+          }
+        ],
+        "ema": [
+          {
+            "known_at": 1000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 2000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 3000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 2.0
+            }
+          },
+          {
+            "known_at": 4000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 3.0
+            }
+          },
+          {
+            "known_at": 5000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 4.0
+            }
+          },
+          {
+            "known_at": 6000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 5.0
+            }
+          }
+        ],
+        "macd_histogram": [
+          {
+            "known_at": 1000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 2000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 3000,
+            "observed_at": 3000,
+            "result": {
+              "available": 3,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 4000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 0.0
+            }
+          },
+          {
+            "known_at": 5000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 0.0
+            }
+          },
+          {
+            "known_at": 6000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 0.0
+            }
+          }
+        ],
+        "macd_line": [
+          {
+            "known_at": 1000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 2000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 3000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 0.5
+            }
+          },
+          {
+            "known_at": 4000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 0.5
+            }
+          },
+          {
+            "known_at": 5000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 0.5
+            }
+          },
+          {
+            "known_at": 6000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 0.5
+            }
+          }
+        ],
+        "macd_signal": [
+          {
+            "known_at": 1000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 2000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 3000,
+            "observed_at": 3000,
+            "result": {
+              "available": 3,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 4000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 0.5
+            }
+          },
+          {
+            "known_at": 5000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 0.5
+            }
+          },
+          {
+            "known_at": 6000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 0.5
+            }
+          }
+        ],
+        "max": [
+          {
+            "known_at": 1000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 2000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 3000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 3.0
+            }
+          },
+          {
+            "known_at": 4000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 4.0
+            }
+          },
+          {
+            "known_at": 5000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 5.0
+            }
+          },
+          {
+            "known_at": 6000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 6.0
+            }
+          }
+        ],
+        "min": [
+          {
+            "known_at": 1000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 2000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 3000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 1.0
+            }
+          },
+          {
+            "known_at": 4000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 2.0
+            }
+          },
+          {
+            "known_at": 5000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 3.0
+            }
+          },
+          {
+            "known_at": 6000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 4.0
+            }
+          }
+        ],
+        "minus_di": [
+          {
+            "known_at": 1000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 2000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 3000,
+            "observed_at": 3000,
+            "result": {
+              "available": 3,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 4000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 0.0
+            }
+          },
+          {
+            "known_at": 5000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 0.0
+            }
+          },
+          {
+            "known_at": 6000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 0.0
+            }
+          }
+        ],
+        "momentum": [
+          {
+            "known_at": 1000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 2000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 3000,
+            "observed_at": 3000,
+            "result": {
+              "available": 3,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 4000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 3.0
+            }
+          },
+          {
+            "known_at": 5000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 3.0
+            }
+          },
+          {
+            "known_at": 6000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 3.0
+            }
+          }
+        ],
+        "plus_di": [
+          {
+            "known_at": 1000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 2000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 3000,
+            "observed_at": 3000,
+            "result": {
+              "available": 3,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 4000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 50.0
+            }
+          },
+          {
+            "known_at": 5000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 50.0
+            }
+          },
+          {
+            "known_at": 6000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 50.0
+            }
+          }
+        ],
+        "roc": [
+          {
+            "known_at": 1000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 2000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 3000,
+            "observed_at": 3000,
+            "result": {
+              "available": 3,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 4000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 300.0
+            }
+          },
+          {
+            "known_at": 5000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 150.0
+            }
+          },
+          {
+            "known_at": 6000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 100.0
+            }
+          }
+        ],
+        "rsi": [
+          {
+            "known_at": 1000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 2000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 3000,
+            "observed_at": 3000,
+            "result": {
+              "available": 3,
+              "required": 4,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 4000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 100.0
+            }
+          },
+          {
+            "known_at": 5000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 100.0
+            }
+          },
+          {
+            "known_at": 6000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 100.0
+            }
+          }
+        ],
+        "rvol": [
+          {
+            "known_at": 1000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 2000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 3000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 2.0
+            }
+          },
+          {
+            "known_at": 4000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 1.5
+            }
+          },
+          {
+            "known_at": 5000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 1.3333333333333333
+            }
+          },
+          {
+            "known_at": 6000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 1.25
+            }
+          }
+        ],
+        "sma": [
+          {
+            "known_at": 1000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 2000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 3000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 2.0
+            }
+          },
+          {
+            "known_at": 4000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 3.0
+            }
+          },
+          {
+            "known_at": 5000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 4.0
+            }
+          },
+          {
+            "known_at": 6000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 5.0
+            }
+          }
+        ],
+        "std": [
+          {
+            "known_at": 1000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 2000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 3000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 0.816496580927726
+            }
+          },
+          {
+            "known_at": 4000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 0.816496580927726
+            }
+          },
+          {
+            "known_at": 5000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 0.816496580927726
+            }
+          },
+          {
+            "known_at": 6000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 0.816496580927726
+            }
+          }
+        ],
+        "sum": [
+          {
+            "known_at": 1000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 2000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 3000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 6.0
+            }
+          },
+          {
+            "known_at": 4000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 9.0
+            }
+          },
+          {
+            "known_at": 5000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 12.0
+            }
+          },
+          {
+            "known_at": 6000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 15.0
+            }
+          }
+        ],
+        "tr": [
+          {
+            "known_at": 1000,
+            "observed_at": 1000,
+            "result": {
+              "status": "ready",
+              "value": 2.0
+            }
+          },
+          {
+            "known_at": 2000,
+            "observed_at": 2000,
+            "result": {
+              "status": "ready",
+              "value": 2.0
+            }
+          },
+          {
+            "known_at": 3000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 2.0
+            }
+          },
+          {
+            "known_at": 4000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 2.0
+            }
+          },
+          {
+            "known_at": 5000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 2.0
+            }
+          },
+          {
+            "known_at": 6000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 2.0
+            }
+          }
+        ],
+        "variance": [
+          {
+            "known_at": 1000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 2000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 3000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 0.6666666666666666
+            }
+          },
+          {
+            "known_at": 4000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 0.6666666666666666
+            }
+          },
+          {
+            "known_at": 5000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 0.6666666666666666
+            }
+          },
+          {
+            "known_at": 6000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 0.6666666666666666
+            }
+          }
+        ],
+        "volume_sma": [
+          {
+            "known_at": 1000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 2000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 3000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 10.0
+            }
+          },
+          {
+            "known_at": 4000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 20.0
+            }
+          },
+          {
+            "known_at": 5000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 30.0
+            }
+          },
+          {
+            "known_at": 6000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 40.0
+            }
+          }
+        ],
+        "wma": [
+          {
+            "known_at": 1000,
+            "observed_at": 1000,
+            "result": {
+              "available": 1,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 2000,
+            "observed_at": 2000,
+            "result": {
+              "available": 2,
+              "required": 3,
+              "status": "warmup"
+            }
+          },
+          {
+            "known_at": 3000,
+            "observed_at": 3000,
+            "result": {
+              "status": "ready",
+              "value": 2.3333333333333335
+            }
+          },
+          {
+            "known_at": 4000,
+            "observed_at": 4000,
+            "result": {
+              "status": "ready",
+              "value": 3.3333333333333335
+            }
+          },
+          {
+            "known_at": 5000,
+            "observed_at": 5000,
+            "result": {
+              "status": "ready",
+              "value": 4.333333333333333
+            }
+          },
+          {
+            "known_at": 6000,
+            "observed_at": 6000,
+            "result": {
+              "status": "ready",
+              "value": 5.333333333333333
+            }
+          }
+        ]
+      }
+    },
+    "metadata": {
+      "algorithm_version": "p1-v1",
+      "as_of": 6000,
+      "config_hash": "sha256:config-v1:762f7104f6d7c7e6e384b20fa06af2a9fd18e4cd0d38699e7a469a3305a5e448",
+      "data_revision": "ramp-r1",
+      "engine_version": "0.1.0",
+      "schema_version": "0.1.0",
+      "symbol": "RAMP",
+      "timeframe": "synthetic-close-1s"
+    },
+    "structure": {
+      "breaks": [],
+      "evidence": [],
+      "pivots": [],
+      "trends": [
+        {
+          "known_at": 1000,
+          "observed_at": 1000,
+          "trend": "unknown"
+        },
+        {
+          "known_at": 2000,
+          "observed_at": 2000,
+          "trend": "unknown"
+        },
+        {
+          "known_at": 3000,
+          "observed_at": 3000,
+          "trend": "unknown"
+        },
+        {
+          "known_at": 4000,
+          "observed_at": 4000,
+          "trend": "unknown"
+        },
+        {
+          "known_at": 5000,
+          "observed_at": 5000,
+          "trend": "unknown"
+        },
+        {
+          "known_at": 6000,
+          "observed_at": 6000,
+          "trend": "unknown"
+        }
+      ]
+    }
+  }
+}

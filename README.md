@@ -3,12 +3,12 @@
 One Analytical Core, Multiple Applications. Evidence Before Prediction.
 
 Thư viện lõi phân tích định lượng Rust dùng chung cho các ứng dụng. **Hiện trạng:
-P1.7** có workspace, typed contracts/validation, view dữ liệu khả dụng,
+G1 incremental** có workspace, typed contracts/validation, view dữ liệu khả dụng,
 chuẩn bị request, kiểm tra numeric series/status/time, config hash và event ID
 ổn định; crate `indicators` có rolling sum/mean/min/max và population variance/std,
 warm-up và lỗi overflow rõ ràng; thêm SMA/EMA/WMA, TR/ATR, ROC/Momentum,
 Volume SMA/RVOL, `calculate_basic` và BasicIndicatorState với update/reset
-atomic, fixtures/oracle độc lập và test harness. State tính lại batch mỗi update.
+atomic, fixtures/oracle độc lập và test harness. Bản state đầu tính lại batch; bản incremental sau G1 dùng cache cho sample mới.
 P1.4 thêm RSI, MACD, DI/DX/ADX và Bollinger Bands cùng `calculate_advanced`
 trả 11 series có warm-up/thời gian riêng. P1.5 thêm `market_structure` với
 pivot xác nhận, HH/HL/LH/LL/EH/EL, trend, BOS/CHoCH, strength và evidence;
