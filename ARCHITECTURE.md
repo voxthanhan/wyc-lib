@@ -115,3 +115,13 @@ ghi bằng chứng thực tế. P1.7 thêm replay/regression target và hai exec
 example/baseline, không đổi dependency graph hoặc Core. Runner local/CI đo
 CPU/time/RSS bên ngoài Core; không đưa clock vào quyết định phân tích.
 Kết quả toàn G1 tại [báo cáo G1](docs/acceptance/G1.md).
+
+## Bổ sung incremental sau G1
+
+[ADR-0004](docs/adr/0004-incremental-state.md) dùng cache tại crate thuật toán,
+wyc_lib chỉ validate/điều phối/commit delta. Kernel số và StructureMemory step
+được batch lẫn incremental dùng chung; contracts chia sẻ row validation.
+BasicIndicatorState giữ mode chín series, AnalysisState mode toàn catalog.
+Không thêm crate/dependency hoặc đổi wire/schema/hash. Tính sample mới theo
+lookback, không replay history khi append thành công; clone full output và
+history vẫn O(N). Bằng chứng tại [G1 bổ sung](docs/acceptance/G1-incremental.md).

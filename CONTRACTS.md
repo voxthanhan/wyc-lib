@@ -285,3 +285,12 @@ revision và reset/replay snapshot khi sửa dữ liệu; không tự kiểm ch�
 Reset có thể thay identity hoặc quay về snapshot cũ hợp lệ, không sửa report
 caller đã giữ. Truy vấn quá khứ dùng batch. Protocol/thứ tự lỗi/chi phí tại
 [ADR-0003](docs/adr/0003-p1-orchestration-state.md) và [API](docs/API.md).
+
+## Incremental sau G1
+
+Không đổi DTO/schema/config/hash/algorithm. AvailableBar::from_closed dùng cùng
+row-validation helper với MarketData::validate, giữ index/path/thứ tự lỗi.
+AnalysisState giữ identity/cursor/revision và atomic update/reset như P1.6,
+nhưng append chỉ commit delta/cache sau tính thành công; cache không có wire
+serialization. BasicIndicatorState giữ snapshot protocol, chỉ thay cách tính.
+Chi phí/scope tại [ADR-0004](docs/adr/0004-incremental-state.md).

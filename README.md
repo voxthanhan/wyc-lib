@@ -72,3 +72,9 @@ bindings P2 và Foundation release chưa triển khai.
 [CI main 42399120154](https://github.com/voxthanhan/wyc-lib/actions/runs/42399120154)
 đạt cả Windows/Linux. Bổ sung báo cáo sau CI chỉ thay tài liệu/log, giữ nguyên
 mã đã kiểm chứng.
+
+Đợt [incremental sau G1](docs/acceptance/G1-incremental.md) chuyển append thành
+cache/sample/event mới; BasicIndicatorState cũng dùng cache chín series.
+Giữ batch chuẩn, golden, contract và atomic errors/reset. Full owned output
+vẫn clone O(N). Hai ZIP CI G1 cũ đã tải và kiểm digest cùng nội dung độc lập;
+trạng thái kiểm chứng/tích hợp bản mới trong báo cáo bổ sung.

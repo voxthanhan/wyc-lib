@@ -1,0 +1,10 @@
+PASS: all 16 existing fixture/golden/manifest/README files byte-identical.
+PASS: 1008 complete-result prefix hashes unchanged from accepted G1, including IDs/times.
+PASS: workspace dependencies/lock/toolchain/workflow/benchmark generator unchanged.
+PASS: 69 source/config/test/fixture/script/benchmark fingerprints recorded.
+REVIEW: append stage touches only bounded numerical cache and one structure step; no batch on success, canonical batch error fallback on failure.
+REVIEW: shared kernels and row validation, fixed identity/revision/cursor, atomic both modules, reset creates fresh caches.
+REVIEW: BasicIndicatorState cache selects only nine series; cumulative snapshot validation/history remains linear.
+REVIEW: full owned output clone and sorted evidence vector insertion remain O(N); no O(1) total API claim.
+REVIEW: artifact digest before parsing, CRC, size/path/symlink/duplicate guards, no credentials or signed URL logs, CI payload bytes preserved with -text.
+REVIEW: before/after raw samples retained for all workloads; noisy machine and slower batch-only samples disclosed.

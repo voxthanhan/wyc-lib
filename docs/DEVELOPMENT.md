@@ -184,3 +184,19 @@ là digest đã tự kiểm. Chi tiết và tích hợp main tại báo cáo G1.
 Main đã tích hợp P1.7/G1 tại `223d742`; CI main run 42399120154 đạt Windows/Linux
 với cùng runner, mỗi job chín steps success. Tree khớp nhánh nghiệm thu và 65
 source blobs không đổi; bổ sung báo cáo sau run chỉ thay tài liệu/log.
+
+## Incremental và xác minh ZIP sau G1
+
+Runner hiện buộc thêm target p1_incremental (chín integration targets tổng cộng),
+chạy năm negative controls của artifact verifier. Công cụ verify_ci_artifacts.py
+nhận CI evidence JSON có head_sha/run/artifact names/digest và output directory;
+chỉ tải public ZIP, kiểm digest trước unzip và không đọc credentials. Ví dụ:
+
+```text
+python scripts/verify_ci_artifacts.py docs/acceptance/logs/ci-223d742-run-42399120154.json .tools/g1-artifacts/42399120154 --local-trace docs/acceptance/logs/p1.7-windows-clean/replay-traces.json
+```
+
+Đường nightly.link chỉ vận chuyển bytes của repo công khai, không cài app;
+GitHub published digest cùng summary SHA/run là bằng chứng. Không ghi signed
+redirect URL. Test verifier dùng synthetic local ZIP, không phụ thuộc network.
+G1 mới/benchmark trước-sau và các ZIP thực tế tại [báo cáo bổ sung](acceptance/G1-incremental.md).

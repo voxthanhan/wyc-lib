@@ -26,8 +26,6 @@ pub fn ema(values: &[FiniteF64], period: usize) -> Result<Vec<NumericValue>, Ana
 
 pub fn wma(values: &[FiniteF64], period: usize) -> Result<Vec<NumericValue>, AnalysisError> {
     validate_period(period)?;
-    let n = period as f64;
-    let denominator = n * (n + 1.0) / 2.0;
     let mut output = Vec::with_capacity(values.len());
     for index in 0..values.len() {
         if index + 1 < period {
@@ -35,11 +33,10 @@ pub fn wma(values: &[FiniteF64], period: usize) -> Result<Vec<NumericValue>, Ana
             continue;
         }
         let path = format!("indicators.wma[{index}]");
-        let mut sum = CompensatedSum::default();
-        for (weight, value) in values[index + 1 - period..=index].iter().enumerate() {
-            sum.add(finite((weight + 1) as f64 * value.get(), &path)?, &path)?;
-        }
-        output.push(ready(sum.finish(&path)? / denominator, &path)?);
+        output.push(ready(
+            weighted_mean(&values[index + 1 - period..=index], &path)?,
+            &path,
+        )?);
     }
     Ok(output)
 }
@@ -224,7 +221,6 @@ pub(crate) fn smooth_at(
     validate_period(period)?;
     let mut output = Vec::with_capacity(values.len());
     let mut previous = None;
-    let alpha = 2.0 / (period as f64 + 1.0);
     for (index, current) in values.iter().enumerate() {
         if index + 1 < period {
             output.push(warmup(period + offset, index + offset));
@@ -234,16 +230,7 @@ pub(crate) fn smooth_at(
         let value = if period == 1 {
             current.get()
         } else if let Some(previous) = previous {
-            let delta = finite(current.get() - previous, &path)?;
-            let change = finite(
-                if wilder {
-                    delta / period as f64
-                } else {
-                    alpha * delta
-                },
-                &path,
-            )?;
-            finite(previous + change, &path)?
+            smooth_next(previous, current.get(), period, wilder, &path)?
         } else {
             mean(&values[..period], &path)?
         };
@@ -282,18 +269,7 @@ fn lagged(
         }
         let path = format!("indicators.{name}[{index}]");
         let previous = values[index - period].get();
-        if percent && previous == 0.0 {
-            output.push(zero_denominator());
-            continue;
-        }
-        let current = values[index].get();
-        let value = if percent {
-            let ratio = finite(current / previous, &path)?;
-            finite(finite(ratio - 1.0, &path)? * 100.0, &path)?
-        } else {
-            finite(current - previous, &path)?
-        };
-        output.push(ready(value, &path)?);
+        output.push(lag_value(values[index].get(), previous, percent, &path)?);
     }
     Ok(output)
 }
@@ -358,4 +334,48 @@ pub(crate) fn validate_ohlc(
         }
     }
     Ok(())
+}
+
+pub(crate) fn smooth_next(
+    previous: f64,
+    current: f64,
+    period: usize,
+    wilder: bool,
+    path: &str,
+) -> Result<f64, AnalysisError> {
+    let delta = finite(current - previous, path)?;
+    let change = finite(
+        if wilder {
+            delta / period as f64
+        } else {
+            (2.0 / (period as f64 + 1.0)) * delta
+        },
+        path,
+    )?;
+    finite(previous + change, path)
+}
+pub(crate) fn weighted_mean(window: &[FiniteF64], path: &str) -> Result<f64, AnalysisError> {
+    let n = window.len() as f64;
+    let mut sum = CompensatedSum::default();
+    for (weight, value) in window.iter().enumerate() {
+        sum.add(finite((weight + 1) as f64 * value.get(), path)?, path)?;
+    }
+    Ok(sum.finish(path)? / (n * (n + 1.0) / 2.0))
+}
+pub(crate) fn lag_value(
+    current: f64,
+    previous: f64,
+    percent: bool,
+    path: &str,
+) -> Result<NumericValue, AnalysisError> {
+    if percent && previous == 0.0 {
+        return Ok(zero_denominator());
+    }
+    let value = if percent {
+        let ratio = finite(current / previous, path)?;
+        finite(finite(ratio - 1.0, path)? * 100.0, path)?
+    } else {
+        finite(current - previous, path)?
+    };
+    ready(value, path)
 }

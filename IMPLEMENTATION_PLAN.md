@@ -613,3 +613,14 @@ báo cáo G1; chưa triển khai P2 hoặc phát hành package.
 đạt Windows/Linux, hai job kiểm chứng/upload success, 65 source blobs khớp.
 Báo cáo G1 lưu bằng chứng và giới hạn payload artifact. **P1.7/G1 hoàn thành**;
 P2/G2/Foundation release còn ngoài phạm vi triển khai lần này.
+
+## 19. Tối ưu state và kiểm ZIP sau G1 — 08/11/2026
+
+Theo yêu cầu tiếp theo của người dùng, tối ưu cả AnalysisState và
+BasicIndicatorState bằng cache/kernel dùng chung, giữ batch làm chuẩn và toàn
+semantics/golden, atomic lỗi/reset, identity/revision/as_of. Chốt
+[ADR-0004](docs/adr/0004-incremental-state.md); không tuyên bố tổng API O(1)
+vì full output clone, evidence insertion và snapshot validation còn tuyến tính.
+Tải ZIP CI cũ/mới và kiểm độc lập digest/CRC/summary/checks/traces/baseline;
+kiểm local, checkout sạch, CI Windows/Linux rồi tự tích hợp main khi đạt.
+[Báo cáo G1 bổ sung](docs/acceptance/G1-incremental.md) ghi bằng chứng thực tế.

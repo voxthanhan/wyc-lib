@@ -38,6 +38,10 @@ path = "../../tests/p1_orchestration.rs"
 name = "p1_replay"
 path = "../../tests/p1_replay.rs"
 
+[[test]]
+name = "p1_incremental"
+path = "../../tests/p1_incremental.rs"
+
 [[example]]
 name = "p1_walkthrough"
 path = "../../examples/p1_walkthrough.rs"

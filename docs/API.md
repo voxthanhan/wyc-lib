@@ -259,6 +259,29 @@ trong `contracts/src/result.rs`; engine cần validation toàn kết quả trư�
 xuất analytical entry points. P1.2 đã có
 AnalysisError và validation primitives; toàn result catalog được ghép tại P1.6.
 
+## State incremental sau G1
+
+[ADR-0004](adr/0004-incremental-state.md) thay cách tính lại batch của P1.6
+đã mô tả ở trên, giữ nguyên chữ ký và wire contracts. Append AnalysisState
+validate một hàng bằng cùng helper batch, stage cache indicators/structure,
+commit delta sau khi cả hai thành công; đường thành công không gọi analyze_batch.
+EMA/Wilder giữ previous/seed, rolling chỉ dùng cửa sổ hiện tại theo đúng thứ tự
+số. Structure giữ reference/consumption/trend và xác nhận pivot mới đủ R nến.
+New/reset vẫn validate bằng batch rồi dựng cache từ prefix khả dụng.
+
+BasicIndicatorState cũng dùng cache chín series, không tính advanced; snapshot
+API vẫn validate toàn input/so history nên có chi phí O(M). Lỗi stage có thể
+chạy batch để giữ canonical error priority, không thay cache/history/result.
+AnalysisState giữ history/output O(N), clone report O(N), chèn evidence O(E);
+chi phí tính sample O(period + seed windows), structure O(L+R+1), không O(1)
+cho tổng API. Low-level IndicatorMemory::new/prepare và
+StructureMemory::default/prepare/append_delta là integration API Rust cho
+prefix AvailableBar đã validate, append-only, cùng identity/config/revision;
+caller không được sửa prefix hoặc tái dùng cache cho identity khác. Đây không
+phải state serialization hay FFI handle. AvailableBar::from_closed chia sẻ
+row validation với batch; không tự chứng minh provenance của metadata/history.
+[Kết quả và baseline](acceptance/G1-incremental.md).
+
 ## P3–P6: chữ ký khung và dependency
 
 Các result/config/input sau còn **draft**, phải được cụ thể hóa khi tới phase.

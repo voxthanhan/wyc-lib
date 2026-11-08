@@ -105,3 +105,48 @@ impl<'a> AvailableData<'a> {
         Ok(())
     }
 }
+
+impl AvailableBar {
+    /// Validate one append row using exactly the batch row rules and global index.
+    /// The previous row must come from the same validated immutable history.
+    pub fn from_closed(
+        bar: &crate::ClosedBar,
+        previous: Option<&Self>,
+        index: usize,
+        revision_available_at: i64,
+        as_of: i64,
+    ) -> Result<Self, ContractError> {
+        crate::validate_timestamp(as_of, "as_of")?;
+        crate::validate_timestamp(revision_available_at, "metadata.revision_available_at")?;
+        if revision_available_at > as_of {
+            return Err(ContractError::new(
+                ErrorCode::RevisionNotAvailable,
+                "metadata.revision_available_at",
+            ));
+        }
+        let [open, high, low, close, volume] = crate::market::validate_market_row(
+            index,
+            bar.timestamp,
+            bar.available_at,
+            bar.is_closed,
+            [bar.open, bar.high, bar.low, bar.close, bar.volume],
+            previous.map(|b| (b.timestamp, b.available_at, true)),
+        )?;
+        if !bar.is_closed || bar.timestamp > as_of || bar.available_at > as_of {
+            return Err(ContractError::new(
+                ErrorCode::InvalidAvailability,
+                "state.new_bar",
+            ));
+        }
+        Ok(Self {
+            timestamp: bar.timestamp,
+            available_at: bar.available_at,
+            known_at: bar.available_at.max(revision_available_at),
+            open,
+            high,
+            low,
+            close,
+            volume,
+        })
+    }
+}

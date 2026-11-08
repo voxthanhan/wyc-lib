@@ -15,3 +15,11 @@ Runner xuất `ci-evidence/replay-traces.json`: config fixture, modules, prefix,
 as_of và digest toàn output. Đây là dấu vết parity/causality, không tạo expected
 bằng implementation để thay golden số độc lập. Golden cũ được checksum và
 oracle Fraction/Decimal/hashlib kiểm lại, không tự cập nhật khi chạy test.
+
+Sau G1, target p1_incremental kiểm cache qua chuỗi dài, zero/tiny/large,
+lookback 1/7/32/512, checkpoint giữa seed, rollback sau module indicators trước
+lỗi structure và recover, revision/reset rồi append. BasicIndicatorState được
+kiểm ở 1e200 để chứng minh không tính advanced variance ngoài chín series.
+Toàn bộ 1008 prefix hashes của G1 cũ phải giữ nguyên. Các artifact đã tải được
+kiểm digest/CRC rồi đối chiếu summary/checks/tests/trace/raw baseline độc lập;
+verified CI payload logs được giữ nguyên bytes bằng .gitattributes -text.

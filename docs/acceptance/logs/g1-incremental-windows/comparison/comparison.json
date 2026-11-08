@@ -1,0 +1,114 @@
+{
+  "reference_source_commit": "64fa87f1f1e66c46b970aa8ae1a1e70aae9b3b12",
+  "reference_binary": "copied before first optimized release build",
+  "before_binary_sha256": "2f55dbdf6bc0835259993ea5fae02b18477a130e441221eeec1d73caadbc515a",
+  "after_binary_sha256": "bb3345b8cf0d274949e273f81b7ece3dd9e0835d1f6af543489294a6fcee1925",
+  "same_workload_config_profile_toolchain": true,
+  "rows": [
+    {
+      "workload": "batch_indicators",
+      "bars_per_symbol": 256,
+      "before_median_ms": 4.464799999999999,
+      "after_median_ms": 6.907,
+      "ratio_before_over_after": 0.6464166787317214
+    },
+    {
+      "workload": "batch_structure",
+      "bars_per_symbol": 256,
+      "before_median_ms": 0.4128,
+      "after_median_ms": 1.4191,
+      "ratio_before_over_after": 0.2908885913607216
+    },
+    {
+      "workload": "batch_both",
+      "bars_per_symbol": 256,
+      "before_median_ms": 4.5733,
+      "after_median_ms": 4.8405000000000005,
+      "ratio_before_over_after": 0.9447990910029954
+    },
+    {
+      "workload": "append_one_both",
+      "bars_per_symbol": 256,
+      "before_median_ms": 5.1532,
+      "after_median_ms": 0.6952,
+      "ratio_before_over_after": 7.412543153049482
+    },
+    {
+      "workload": "replay_both",
+      "bars_per_symbol": 256,
+      "before_median_ms": 612.0742,
+      "after_median_ms": 24.7656,
+      "ratio_before_over_after": 24.714692961204253
+    },
+    {
+      "workload": "watchlist_8_sequential",
+      "bars_per_symbol": 256,
+      "before_median_ms": 39.8139,
+      "after_median_ms": 39.3348,
+      "ratio_before_over_after": 1.0121800543030597
+    },
+    {
+      "workload": "batch_indicators",
+      "bars_per_symbol": 1024,
+      "before_median_ms": 17.5164,
+      "after_median_ms": 20.4787,
+      "ratio_before_over_after": 0.8553472632540152
+    },
+    {
+      "workload": "batch_structure",
+      "bars_per_symbol": 1024,
+      "before_median_ms": 1.4337,
+      "after_median_ms": 3.0216000000000003,
+      "ratio_before_over_after": 0.47448371723590144
+    },
+    {
+      "workload": "batch_both",
+      "bars_per_symbol": 1024,
+      "before_median_ms": 18.4477,
+      "after_median_ms": 21.729,
+      "ratio_before_over_after": 0.8489898292604354
+    },
+    {
+      "workload": "append_one_both",
+      "bars_per_symbol": 1024,
+      "before_median_ms": 20.5307,
+      "after_median_ms": 2.0454000000000003,
+      "ratio_before_over_after": 10.037498777745183
+    },
+    {
+      "workload": "replay_both",
+      "bars_per_symbol": 1024,
+      "before_median_ms": 8418.0689,
+      "after_median_ms": 174.1173,
+      "ratio_before_over_after": 48.34711369863879
+    },
+    {
+      "workload": "watchlist_8_sequential",
+      "bars_per_symbol": 1024,
+      "before_median_ms": 137.53009999999998,
+      "after_median_ms": 147.4732,
+      "ratio_before_over_after": 0.9325769021083151
+    }
+  ],
+  "before_process": {
+    "platform": "Windows-10-10.0.26200-SP0",
+    "cpu_model": "Intel64 Family 6 Model 142 Stepping 10, GenuineIntel",
+    "logical_cpu_count": 8,
+    "wall_seconds": 62.98914719989989,
+    "cpu_seconds": 61.140625,
+    "peak_rss_bytes": 14946304,
+    "memory_method": "GetProcessMemoryInfo PeakWorkingSetSize sampled every 10ms; may miss final interval",
+    "scope": "whole benchmark process incl. setup/warmups/output; not per-operation heap/state size"
+  },
+  "after_process": {
+    "platform": "Windows-10-10.0.26200-SP0",
+    "cpu_model": "Intel64 Family 6 Model 142 Stepping 10, GenuineIntel",
+    "logical_cpu_count": 8,
+    "wall_seconds": 3.406556300004013,
+    "cpu_seconds": 3.09375,
+    "peak_rss_bytes": 13594624,
+    "memory_method": "GetProcessMemoryInfo PeakWorkingSetSize sampled every 10ms; may miss final interval",
+    "scope": "whole benchmark process incl. setup/warmups/output; not per-operation heap/state size"
+  },
+  "limits": "One sequential before-after pair, five samples per workload plus independent earlier pair; noisy host, no statistical significance claim. Full report copy included, not O(1). Batch-only rows included even when slower."
+}

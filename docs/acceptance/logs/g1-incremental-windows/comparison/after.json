@@ -1,0 +1,243 @@
+{
+  "algorithm_version": "p1-v1",
+  "baseline_version": "p1-baseline-v1",
+  "config": {
+    "config_version": "p1-v1",
+    "indicators": {
+      "bollinger_multiplier": 2.0,
+      "macd_fast": 12,
+      "macd_signal": 9,
+      "macd_slow": 26,
+      "period": 14
+    },
+    "structure": {
+      "left": 2,
+      "right": 2
+    }
+  },
+  "config_hash": "sha256:config-v1:86fa00f140396f6ae60d9301e4358a47d3a60160de7d875423e65aad88c5bb1c",
+  "dataset": "synthetic-triangle-v1",
+  "profile": "release",
+  "rows": [
+    {
+      "bars_per_symbol": 256,
+      "checksum": 537.5,
+      "max_ms": 13.532399999999999,
+      "median_ms": 6.907,
+      "min_ms": 5.5471,
+      "samples_ms": [
+        5.5471,
+        5.5573999999999995,
+        6.907,
+        9.334200000000001,
+        13.532399999999999
+      ],
+      "units_per_sample": 256,
+      "units_per_second": 37063.848269871145,
+      "workload": "batch_indicators"
+    },
+    {
+      "bars_per_symbol": 256,
+      "checksum": 75.0,
+      "max_ms": 1.4459,
+      "median_ms": 1.4191,
+      "min_ms": 1.3039,
+      "samples_ms": [
+        1.4191,
+        1.4392999999999998,
+        1.4459,
+        1.4149,
+        1.3039
+      ],
+      "units_per_sample": 256,
+      "units_per_second": 180396.0256500599,
+      "workload": "batch_structure"
+    },
+    {
+      "bars_per_symbol": 256,
+      "checksum": 612.5,
+      "max_ms": 6.1837,
+      "median_ms": 4.8405000000000005,
+      "min_ms": 4.8126,
+      "samples_ms": [
+        6.1837,
+        4.839300000000001,
+        4.8405000000000005,
+        4.8126,
+        5.5478000000000005
+      ],
+      "units_per_sample": 256,
+      "units_per_second": 52887.098440243775,
+      "workload": "batch_both"
+    },
+    {
+      "bars_per_symbol": 256,
+      "max_ms": 0.7274,
+      "median_ms": 0.6952,
+      "min_ms": 0.612,
+      "samples_ms": [
+        0.7262,
+        0.612,
+        0.7274,
+        0.6386000000000001,
+        0.6952
+      ],
+      "units_per_sample": 1,
+      "units_per_second": 1438.43498273878,
+      "workload": "append_one_both"
+    },
+    {
+      "bars_per_symbol": 256,
+      "checksum": 612.5,
+      "max_ms": 37.4817,
+      "median_ms": 24.7656,
+      "min_ms": 20.0627,
+      "samples_ms": [
+        24.7656,
+        37.4817,
+        32.932900000000004,
+        20.0627,
+        20.2199
+      ],
+      "units_per_sample": 256,
+      "units_per_second": 10336.918952094842,
+      "workload": "replay_both"
+    },
+    {
+      "bars_per_symbol": 256,
+      "checksum": 4900.0,
+      "max_ms": 44.051,
+      "median_ms": 39.3348,
+      "min_ms": 38.9618,
+      "samples_ms": [
+        38.9618,
+        44.051,
+        44.028400000000005,
+        39.3348,
+        39.317
+      ],
+      "units_per_sample": 2048,
+      "units_per_second": 52065.85517150207,
+      "workload": "watchlist_8_sequential"
+    },
+    {
+      "bars_per_symbol": 1024,
+      "checksum": 537.5,
+      "max_ms": 36.709199999999996,
+      "median_ms": 20.4787,
+      "min_ms": 19.313299999999998,
+      "samples_ms": [
+        20.4787,
+        19.313299999999998,
+        19.520699999999998,
+        28.2092,
+        36.709199999999996
+      ],
+      "units_per_sample": 1024,
+      "units_per_second": 50003.17402960149,
+      "workload": "batch_indicators"
+    },
+    {
+      "bars_per_symbol": 1024,
+      "checksum": 315.0,
+      "max_ms": 4.0875,
+      "median_ms": 3.0216000000000003,
+      "min_ms": 1.928,
+      "samples_ms": [
+        4.0875,
+        3.8868,
+        3.0216000000000003,
+        2.1505,
+        1.928
+      ],
+      "units_per_sample": 1024,
+      "units_per_second": 338893.3015620863,
+      "workload": "batch_structure"
+    },
+    {
+      "bars_per_symbol": 1024,
+      "checksum": 852.5,
+      "max_ms": 35.0853,
+      "median_ms": 21.729,
+      "min_ms": 20.638,
+      "samples_ms": [
+        21.729,
+        20.638,
+        21.089,
+        23.0433,
+        35.0853
+      ],
+      "units_per_sample": 1024,
+      "units_per_second": 47125.96069768513,
+      "workload": "batch_both"
+    },
+    {
+      "bars_per_symbol": 1024,
+      "max_ms": 2.2163,
+      "median_ms": 2.0454000000000003,
+      "min_ms": 1.9744,
+      "samples_ms": [
+        2.1092,
+        2.0202,
+        1.9744,
+        2.0454000000000003,
+        2.2163
+      ],
+      "units_per_sample": 1,
+      "units_per_second": 488.9019262735894,
+      "workload": "append_one_both"
+    },
+    {
+      "bars_per_symbol": 1024,
+      "checksum": 852.5,
+      "max_ms": 262.92179999999996,
+      "median_ms": 174.1173,
+      "min_ms": 141.4973,
+      "samples_ms": [
+        174.1173,
+        141.4973,
+        152.6056,
+        198.6282,
+        262.92179999999996
+      ],
+      "units_per_sample": 1024,
+      "units_per_second": 5881.092803529575,
+      "workload": "replay_both"
+    },
+    {
+      "bars_per_symbol": 1024,
+      "checksum": 6820.0,
+      "max_ms": 158.43679999999998,
+      "median_ms": 147.4732,
+      "min_ms": 142.8787,
+      "samples_ms": [
+        158.43679999999998,
+        150.6042,
+        147.4732,
+        142.8787,
+        147.1661
+      ],
+      "units_per_sample": 8192,
+      "units_per_second": 55549.07603551018,
+      "workload": "watchlist_8_sequential"
+    }
+  ],
+  "samples_per_workload": 5,
+  "threads": 1,
+  "timing": "std::time::Instant; milliseconds",
+  "warmups": 1,
+  "process": {
+    "platform": "Windows-10-10.0.26200-SP0",
+    "cpu_model": "Intel64 Family 6 Model 142 Stepping 10, GenuineIntel",
+    "logical_cpu_count": 8,
+    "wall_seconds": 3.406556300004013,
+    "cpu_seconds": 3.09375,
+    "peak_rss_bytes": 13594624,
+    "memory_method": "GetProcessMemoryInfo PeakWorkingSetSize sampled every 10ms; may miss final interval",
+    "scope": "whole benchmark process incl. setup/warmups/output; not per-operation heap/state size"
+  },
+  "commit": "64fa87f1f1e66c46b970aa8ae1a1e70aae9b3b12",
+  "binary_sha256": "bb3345b8cf0d274949e273f81b7ece3dd9e0835d1f6af543489294a6fcee1925",
+  "clean": false,
+  "rustc": "rustc 1.85.1 (4eb161250 2025-03-15)\nbinary: rustc\ncommit-hash: 4eb161250e340c8f48f66e2b929ef4a5bed7c181\ncommit-date: 2025-03-15\nhost: x86_64-pc-windows-msvc\nrelease: 1.85.1\nLLVM version: 19.1.7"
+}

@@ -55,19 +55,7 @@ pub fn rsi(values: &[FiniteF64], period: usize) -> Result<Vec<NumericValue>, Ana
         let path = format!("indicators.rsi[{}]", index + 1);
         output.push(match (gain, loss) {
             (NumericValue::Ready { value: gain }, NumericValue::Ready { value: loss }) => {
-                let (gain, loss) = (gain.get(), loss.get());
-                let value = if gain == 0.0 && loss == 0.0 {
-                    50.0
-                } else if loss == 0.0 {
-                    100.0
-                } else if gain == 0.0 {
-                    0.0
-                } else {
-                    let ratio = finite(gain / loss, &path)?;
-                    let denominator = finite(1.0 + ratio, &path)?;
-                    finite(100.0 - finite(100.0 / denominator, &path)?, &path)?
-                };
-                ready(value, &path)?
+                ready(rsi_ratio(gain.get(), loss.get(), &path)?, &path)?
             }
             (warmup, _) => warmup,
         });
@@ -95,8 +83,9 @@ pub fn macd(
         if index + 1 < slow {
             line.push(warmup(slow, index));
         } else {
-            let value = finite(
-                number(&fast)? - number(&slow_value)?,
+            let value = difference(
+                number(&fast)?,
+                number(&slow_value)?,
                 &format!("indicators.macd_line[{index}]"),
             )?;
             valid_line.push(FiniteF64::new(value)?);
@@ -118,7 +107,11 @@ pub fn macd(
         .enumerate()
         .map(|(index, (line, signal))| match signal {
             NumericValue::Ready { value } => ready(
-                number(line)? - value.get(),
+                difference(
+                    number(line)?,
+                    value.get(),
+                    &format!("indicators.macd_histogram[{index}]"),
+                )?,
                 &format!("indicators.macd_histogram[{index}]"),
             ),
             other => Ok(other.clone()),
@@ -144,18 +137,15 @@ pub fn adx(
     let mut minus_dm = Vec::with_capacity(ranges.capacity());
     for index in 1..close.len() {
         let path = format!("indicators.adx_dm[{index}]");
-        let up = finite(high[index].get() - high[index - 1].get(), &path)?;
-        let down = finite(low[index - 1].get() - low[index].get(), &path)?;
-        plus_dm.push(FiniteF64::new(if up > down && up > 0.0 {
-            up
-        } else {
-            0.0
-        })?);
-        minus_dm.push(FiniteF64::new(if down > up && down > 0.0 {
-            down
-        } else {
-            0.0
-        })?);
+        let (plus, minus) = directional_movement(
+            high[index].get(),
+            low[index].get(),
+            high[index - 1].get(),
+            low[index - 1].get(),
+            &path,
+        )?;
+        plus_dm.push(FiniteF64::new(plus)?);
+        minus_dm.push(FiniteF64::new(minus)?);
         ranges.push(FiniteF64::new(range_at(
             high,
             low,
@@ -187,13 +177,7 @@ pub fn adx(
             &format!("indicators.minus_di[{index}]"),
         )?;
         let path = format!("indicators.dx[{index}]");
-        let denominator = finite(plus + minus, &path)?;
-        let dx_value = if denominator == 0.0 {
-            0.0
-        } else {
-            let difference = finite(plus - minus, &path)?.abs();
-            finite(finite(100.0 * difference, &path)? / denominator, &path)?
-        };
+        let dx_value = dx_ratio(plus, minus, &path)?;
         plus_di.push(ready(plus, &format!("indicators.plus_di[{index}]"))?);
         minus_di.push(ready(minus, &format!("indicators.minus_di[{index}]"))?);
         dx.push(ready(dx_value, &path)?);
@@ -232,18 +216,9 @@ pub fn bollinger_bands(
             lower.push(warmup(period, index));
             continue;
         }
-        let width = finite(
-            multiplier.get() * number(&std)?,
-            &format!("indicators.bollinger_width[{index}]"),
-        )?;
-        upper.push(ready(
-            number(mean)? + width,
-            &format!("indicators.bollinger_upper[{index}]"),
-        )?);
-        lower.push(ready(
-            number(mean)? - width,
-            &format!("indicators.bollinger_lower[{index}]"),
-        )?);
+        let (up, down) = bands_at(number(mean)?, number(&std)?, multiplier, index)?;
+        upper.push(up);
+        lower.push(down);
     }
     Ok(BollingerResult {
         middle,
@@ -331,7 +306,7 @@ pub fn calculate_advanced(
     })
 }
 
-fn directional_index(dm: f64, tr: f64, path: &str) -> Result<f64, AnalysisError> {
+pub(crate) fn directional_index(dm: f64, tr: f64, path: &str) -> Result<f64, AnalysisError> {
     if tr == 0.0 {
         Ok(0.0)
     } else {
@@ -350,4 +325,67 @@ fn number(value: &NumericValue) -> Result<f64, AnalysisError> {
         NumericValue::Ready { value } => Ok(value.get()),
         _ => Err(ContractError::new(ErrorCode::InvalidResult, "indicators.dependency").into()),
     }
+}
+
+pub(crate) fn rsi_ratio(gain: f64, loss: f64, path: &str) -> Result<f64, AnalysisError> {
+    let value = if gain == 0.0 && loss == 0.0 {
+        50.0
+    } else if loss == 0.0 {
+        100.0
+    } else if gain == 0.0 {
+        0.0
+    } else {
+        let ratio = finite(gain / loss, path)?;
+        let denominator = finite(1.0 + ratio, path)?;
+        finite(100.0 - finite(100.0 / denominator, path)?, path)?
+    };
+    Ok(value)
+}
+
+pub(crate) fn difference(a: f64, b: f64, path: &str) -> Result<f64, AnalysisError> {
+    finite(a - b, path)
+}
+pub(crate) fn directional_movement(
+    high: f64,
+    low: f64,
+    previous_high: f64,
+    previous_low: f64,
+    path: &str,
+) -> Result<(f64, f64), AnalysisError> {
+    let up = finite(high - previous_high, path)?;
+    let down = finite(previous_low - low, path)?;
+    Ok((
+        if up > down && up > 0.0 { up } else { 0.0 },
+        if down > up && down > 0.0 { down } else { 0.0 },
+    ))
+}
+pub(crate) fn dx_ratio(plus: f64, minus: f64, path: &str) -> Result<f64, AnalysisError> {
+    let denominator = finite(plus + minus, path)?;
+    if denominator == 0.0 {
+        Ok(0.0)
+    } else {
+        let difference = finite(plus - minus, path)?.abs();
+        finite(finite(100.0 * difference, path)? / denominator, path)
+    }
+}
+pub(crate) fn bands_at(
+    mean: f64,
+    std: f64,
+    multiplier: FiniteF64,
+    index: usize,
+) -> Result<(NumericValue, NumericValue), AnalysisError> {
+    let width = finite(
+        multiplier.get() * std,
+        &format!("indicators.bollinger_width[{index}]"),
+    )?;
+    Ok((
+        ready(
+            mean + width,
+            &format!("indicators.bollinger_upper[{index}]"),
+        )?,
+        ready(
+            mean - width,
+            &format!("indicators.bollinger_lower[{index}]"),
+        )?,
+    ))
 }
