@@ -1,6 +1,7 @@
 # wyc-lib — Kiến trúc thực thi
 
 **P2.3 đạt phạm vi Python P1 tại e4424af:** CI native/Core Windows/Linux PASS.
+Đã tích hợp main tại `46041c6` qua PR #3; CI main Core/native đều PASS hai OS.
 Python dict API/AnalysisState và converters
 NumPy/Pandas/Polars dùng PyO3 → shared transport → public Core P1.
 Wrapper chỉ copy/kiểm host types/ánh xạ exception, không chứa công thức.

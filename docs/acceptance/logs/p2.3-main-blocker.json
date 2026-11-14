@@ -7,5 +7,7 @@
   "performed": false,
   "automatic_approval_review": "rejected",
   "reason": "Approval covered uploading P2.3 and running CI; default main mutation was not explicitly covered. A pull request is safer.",
-  "resolution": "User approved merging PR #3 and granted standing project-scoped Git/CI authorization. Update and verify workflows before merging the current tested HEAD."
+  "resolution": "User approved merging PR #3 and granted standing project-scoped Git/CI authorization. Verified aaf535b push/PR Core/native CI on Windows/Linux, merged PR #3 into 46041c61c82b1aff57822e0f5461c2ffda4f059c, and verified main Core/native CI successfully.",
+  "final_merge_performed": true,
+  "final_merge_commit": "46041c61c82b1aff57822e0f5461c2ffda4f059c"
 }

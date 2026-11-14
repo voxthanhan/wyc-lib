@@ -168,7 +168,10 @@ converters Pandas/Polars đã triển khai theo [ADR-0007](docs/adr/0007-p2-pyth
 CI Core/native Windows/Linux PASS: 102 Rust tests/OS, 72 plain và 79 extras
 native Python assertions/OS, 67 host assertions/OS, mypy strict và Node/JSON
 regression. 97 source blobs khớp local; --locked/checkout sạch, 43 native
-commands/OS exit 0. Chưa tích hợp main; bàn giao qua pull request.
+commands/OS exit 0. Đã gộp PR #3 vào main tại `46041c6`; CI main Core/native
+PASS Windows/Linux với cùng tests/gates. Quy trình commit/push/CI/merge cho
+tác vụ được giao đã được ủy quyền thường trực tại AGENTS.md mục 12;
+[nghiệm thu workflow](docs/acceptance/Git-CI-workflow.md) lưu bằng chứng.
 Kết quả thực chạy và giới hạn tại [báo cáo P2.3](docs/acceptance/P2.3.md).
 P2.4–P2.6/G2/Foundation còn mở.
 

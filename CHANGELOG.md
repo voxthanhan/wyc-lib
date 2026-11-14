@@ -7,6 +7,8 @@
 - Core/native CI nhận `work/**` và PR vào main; concurrency hủy run cũ trên
   nhánh/PR, giữ run main. Không cần liệt kê riêng từng nhánh phase.
 - Native CI không tự bootstrap khi thiếu lock; quyền workflow vẫn contents: read.
+- Đã gộp PR #3 tại main `46041c6`; Core/native CI main Windows/Linux PASS,
+  43 native commands/OS exit 0 và locked-source/checkout sạch.
 
 ## 0.1.0 — P2.3 Python P1, chưa phát hành
 
@@ -18,7 +20,8 @@
 - Core/golden/schema/config/hash/native lockfiles giữ nguyên; G2 còn mở.
 - P2.3 đạt tại e4424af: CI Core/native Windows/Linux PASS, 72 plain và 79 extras
   Python assertions/OS, 67 host assertions/OS, mypy strict và Node/JSON regression.
-  97 source blobs khớp local; --locked/checkout sạch. Chưa tích hợp main; bàn giao PR.
+  97 source blobs khớp local; --locked/checkout sạch. Đã tích hợp main `46041c6`,
+  CI main Core/native Windows/Linux PASS; ủy quyền Git/CI đã lưu tại AGENTS.md mục 12.
 - Kết quả thực tế tại [báo cáo P2.3](docs/acceptance/P2.3.md).
 
 ## 0.1.0 — P2.2 Node.js P1, chưa phát hành

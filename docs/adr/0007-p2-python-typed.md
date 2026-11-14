@@ -51,5 +51,6 @@ Next.js, FFI benchmark và Foundation còn ở P2.4–P2.6.
 P2.3 đạt tại e4424af trên CI Windows/Linux: wheel cài ngoài source, 72 plain
 và 79 extras native Python assertions/OS, 67 host assertions/OS, mypy strict,
 Node/TypeScript/JSON regression PASS; --locked/checkout sạch và 97 source blobs
-khớp local. Native local chưa xác minh. Chưa tích hợp main; bàn giao PR.
+khớp local. Native local chưa xác minh. Đã gộp PR #3 vào main tại `46041c6`;
+CI main Core/native Windows/Linux PASS, giữ nguyên contract và thuật toán.
 [Báo cáo P2.3](../acceptance/P2.3.md) lưu SHA/run/checksums và giới hạn bằng chứng.

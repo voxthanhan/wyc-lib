@@ -1,5 +1,9 @@
 # wyc-lib — Contracts 0.1.0
 
+P2.3 đã tích hợp main tại `46041c6` qua PR #3; CI main Core/native PASS
+Windows/Linux, không đổi Core/schema/config/hash. Quy trình Git/CI đã được
+ủy quyền thường trực tại [AGENTS.md mục 12](AGENTS.md).
+
 **Python P2.3 đạt tại e4424af**, CI Core/native Windows/Linux PASS: mapping host tại
 [ADR-0007](docs/adr/0007-p2-python-typed.md): owned dict/list/tuple/NumPy,
 timestamp int an toàn, tagged numeric output, code/path exceptions và

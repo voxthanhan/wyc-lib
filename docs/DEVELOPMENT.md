@@ -39,7 +39,9 @@ P2.3 đạt tại e4424af: Core/native CI Windows/Linux PASS, 72 plain và 79 ex
 native Python assertions/OS, 67 host assertions/OS, mypy strict, 83 Node typed
 assertions/OS và 40-action JSON smoke/runtime. 97 source blobs khớp local;
 43 native commands/OS exit 0, --locked, checkout sạch, không bootstrap.
-Native local chưa xác minh; source trên nhánh work/p2-3-python-adapter, chưa gộp main.
+Native local chưa xác minh. PR #3 đã gộp main tại `46041c6`; CI main Core/native
+Windows/Linux PASS. [Nghiệm thu workflow](acceptance/Git-CI-workflow.md) lưu
+ủy quyền, kiểm chứng event filters và run/jobs/artifacts theo commit.
 
 ## P2.1 — Kiểm chứng shared transport và native pilot
 

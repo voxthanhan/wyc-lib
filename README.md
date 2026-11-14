@@ -1,10 +1,15 @@
 # wyc-lib
 
 **P2.3 đạt phạm vi Python P1 tại e4424af:** CI Core/native Windows/Linux PASS,
-wheel ngoài source, NumPy/Pandas/Polars và mypy strict đạt. Chưa tích hợp main;
-bàn giao qua pull request. Xem
+wheel ngoài source, NumPy/Pandas/Polars và mypy strict đạt. Đã gộp PR #3 vào
+main tại `46041c6`; CI main Core/native đều PASS Windows/Linux. Xem
 [API Python](docs/API.md), [contract](docs/adr/0007-p2-python-typed.md) và
 [báo cáo P2.3](docs/acceptance/P2.3.md). P2.4–P2.6/G2/Foundation còn mở.
+
+Quy trình Git/CI đã được ủy quyền thường trực tại [AGENTS.md, mục 12](AGENTS.md):
+agent tự commit/push/PR, kiểm CI và gộp main khi đúng HEAD đạt đủ checks cho
+tác vụ được giao, không hỏi lại từng bước. CI nhận `work/**` và PR vào main;
+[nghiệm thu workflow](docs/acceptance/Git-CI-workflow.md) ghi kết quả thực chạy.
 
 **P2.2 đạt phạm vi Node.js P1** tại `5946286`: local Core/shared transport,
 host conversion và CI native/TypeScript Windows/Linux PASS. Đã tích hợp cùng
