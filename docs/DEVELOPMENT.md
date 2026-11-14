@@ -247,3 +247,14 @@ Incremental đã tích hợp main tại `507fdad`; CI main 42436169902 Windows/L
 đạt 93 Rust tests + năm verifier controls. ZIP hai job đã kiểm digest/CRC và
 summary/tests/1008 traces/raw baseline độc lập; tổng tám ZIP cũ/mới đã kiểm.
 Báo cáo sau run chỉ đổi docs/logs, giữ nguyên source fingerprints đã kiểm.
+
+## Kiểm chứng P2.2
+
+Chạy `python scripts/check_p2.py` sau khi chuẩn bị toolchain như phần P2.1.
+Runner bổ sung TypeScript 5.7.3 (dev-only) ở consumer ngoài source, compile
+strict có ca sai kiểu, rồi chạy tests/parity/p2_node.cjs từ tarball đã cài.
+Test gồm object/Float64Array, ba API, warm-up/empty/Unicode/zero volume,
+shape/NaN/precision/errors, input/output owned, state append/reset atomic và
+close/GC. JSON smoke Node/Python P2.1 vẫn chạy. Workflow native chạy thêm nhánh
+work/p2-2-node-adapter trên Windows/Linux Node 22.22.0; không publish package.
+Native local thiếu cache/mạng phải ghi riêng, không gọi là PASS vì CI đạt.

@@ -52,6 +52,7 @@ def main():
         if not npm:
             raise RuntimeError("npm is required")
         run("npm-version", [npm, "--version"])
+        run("node-host-boundary", ["node", root / "tests/parity/p2_node_boundary.cjs"])
         run("maturin-version", [sys.executable, "-m", "maturin", "--version"])
         for adapter in ("node", "python"):
             manifest = root / "bindings" / adapter / "Cargo.toml"
@@ -101,6 +102,14 @@ def main():
         shutil.copy2(root / "tests/parity/p2_smoke.py", consumer / "smoke.py")
         references = {name: json.loads(run(f"reference-{name}", [reference], input_text=json.dumps(r)))
                       for name, r in requests.items()}
+        typed_input = consumer / "typed-input.json"
+        typed_input.write_text(json.dumps(dict(actions=actions, references=references)), encoding="utf-8")
+        for name in ("p2_node.cjs", "p2_node_types.ts"):
+            shutil.copy2(root / "tests/parity" / name, consumer / name)
+        run("typescript-install", [npm, "install", "--ignore-scripts", "--no-audit", "--no-fund", "--save-dev", "--save-exact", "typescript@5.7.3"], cwd=consumer)
+        run("typescript-strict", ["node", consumer / "node_modules/typescript/bin/tsc", "--strict", "--noEmit",
+                                  "--target", "ES2022", "--module", "node16", "--moduleResolution", "node16", "p2_node_types.ts"], cwd=consumer)
+        summary["node_typed"] = json.loads(run("node-typed", ["node", "--expose-gc", "p2_node.cjs", typed_input], cwd=consumer))
         node_records = json.loads(run("node-smoke", ["node", "--expose-gc", "smoke.cjs", actions_path], cwd=consumer))
         python_records = json.loads(run("python-smoke", [python, "smoke.py", actions_path], cwd=consumer))
         assert [r["name"] for r in node_records] == [a["name"] for a in actions], "Node action coverage"

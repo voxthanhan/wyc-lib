@@ -236,3 +236,36 @@ fn unicode_and_exact_safe_timestamp_boundary_roundtrip() -> TestResult {
     assert_eq!(result["value"]["metadata"]["as_of"], json!(MAX_TIMESTAMP));
     Ok(())
 }
+
+#[test]
+fn single_module_transport_matches_core_and_reports_errors() -> TestResult {
+    for n in [0, 1, 3, 6] {
+        let r = request(n)?;
+        let input = serde_json::to_string(&r)?;
+        let indicators = response(&wyc_binding_contract::indicators_json(&input))?;
+        let structure = response(&wyc_binding_contract::structure_json(&input))?;
+        assert_eq!(indicators["ok"], true);
+        assert_eq!(structure["ok"], true);
+        assert_eq!(
+            indicators["value"],
+            serde_json::to_value(wyc_lib::calculate_indicators(&r.data, &r.config, r.as_of)?)?
+        );
+        assert_eq!(
+            structure["value"],
+            serde_json::to_value(wyc_lib::analyze_structure(&r.data, &r.config, r.as_of)?)?
+        );
+    }
+    for call in [
+        wyc_binding_contract::indicators_json,
+        wyc_binding_contract::structure_json,
+    ] {
+        assert_eq!(response(&call("{}"))?["error"]["code"], "invalid_type");
+        let mut r = request(3)?;
+        r.config.indicators.period = 0;
+        assert_eq!(
+            response(&call(&serde_json::to_string(&r)?))?["error"]["code"],
+            "invalid_config"
+        );
+    }
+    Ok(())
+}

@@ -143,3 +143,17 @@
   đơn vị dữ liệu, gaps và FiniteF64/status có thể chuyển JSON rõ ràng.
 - Đặc tả API/state, công thức P1, temporal fixtures và golden tính độc lập.
 - Chưa có analytical engine hoặc bindings. Tình trạng nghiệm thu tại báo cáo G0.
+
+
+## P2.2 — Node.js API P1
+
+Node có `analyze_batch(request)`, `calculate_indicators(data, config, as_of)`,
+`analyze_structure(data, config, as_of)` và `AnalysisState(request)` nhận object.
+State có result/identity/update_closed_bar/reset/close; JSON pilot P2.1 vẫn giữ.
+Khai báo TypeScript bao phủ DTO P1, 25 series, cấu trúc/evidence và tagged status.
+Input nhận array đặc/Float64Array cho cột số; copy-owned, không ép kiểu hoặc giữ
+reference. NaN/Infinity, unsafe integer, sparse/accessor/cycle được chặn trước
+JSON serialization; validation nghiệp vụ và mọi phép tính vẫn ở Rust.
+Sync Node Runtime, không dùng browser/Edge; Python typed thuộc P2.3, full parity
+thuộc P2.4. [ADR-0006](docs/adr/0006-p2-node-typed.md) và
+[báo cáo P2.2](docs/acceptance/P2.2.md) ghi contract và mức kiểm chứng thực tế.

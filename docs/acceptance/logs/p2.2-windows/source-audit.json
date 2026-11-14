@@ -1,0 +1,270 @@
+{
+  "p21_commit": "cf6c46450b3dca68ddfdffdee1b19fe5817fa991",
+  "checks": [
+    {
+      "path": "Cargo.lock",
+      "p21_blob": "10a1bad81aeaa3d3536265e30b585daffd975ff5",
+      "local_blob": "10a1bad81aeaa3d3536265e30b585daffd975ff5",
+      "unchanged": true
+    },
+    {
+      "path": "Cargo.toml",
+      "p21_blob": "8026572f16ed1d35d353cf6f35640c52fd827f3e",
+      "local_blob": "8026572f16ed1d35d353cf6f35640c52fd827f3e",
+      "unchanged": true
+    },
+    {
+      "path": "bindings/node/Cargo.lock",
+      "p21_blob": "b4084dfbd4cd00aa41feeb1eae3b17ce7ed051dc",
+      "local_blob": "b4084dfbd4cd00aa41feeb1eae3b17ce7ed051dc",
+      "unchanged": true
+    },
+    {
+      "path": "bindings/python/Cargo.lock",
+      "p21_blob": "266053bb84fe0dfc89bffff6271642b0606b32ea",
+      "local_blob": "266053bb84fe0dfc89bffff6271642b0606b32ea",
+      "unchanged": true
+    },
+    {
+      "path": "crates/contracts/Cargo.toml",
+      "p21_blob": "daf4f4a4df326f9aaf33fe023f3968cdf36c0f16",
+      "local_blob": "daf4f4a4df326f9aaf33fe023f3968cdf36c0f16",
+      "unchanged": true
+    },
+    {
+      "path": "crates/contracts/src/analysis.rs",
+      "p21_blob": "3bbbac8677f0859a58f328de2ff88c2d5b3cc6e5",
+      "local_blob": "3bbbac8677f0859a58f328de2ff88c2d5b3cc6e5",
+      "unchanged": true
+    },
+    {
+      "path": "crates/contracts/src/available.rs",
+      "p21_blob": "af023e09df6775ae1bcb46e90cb2a3fd8c350395",
+      "local_blob": "af023e09df6775ae1bcb46e90cb2a3fd8c350395",
+      "unchanged": true
+    },
+    {
+      "path": "crates/contracts/src/error.rs",
+      "p21_blob": "62baf17f10c4a09627f7c0067078b40ce947b51f",
+      "local_blob": "62baf17f10c4a09627f7c0067078b40ce947b51f",
+      "unchanged": true
+    },
+    {
+      "path": "crates/contracts/src/identity.rs",
+      "p21_blob": "d219a86260e7ea77f4c6bbdb9cbb7eef0cd44a8e",
+      "local_blob": "d219a86260e7ea77f4c6bbdb9cbb7eef0cd44a8e",
+      "unchanged": true
+    },
+    {
+      "path": "crates/contracts/src/lib.rs",
+      "p21_blob": "619f3b5a5ec9e87fe2d76e1950a6f370641c6f75",
+      "local_blob": "619f3b5a5ec9e87fe2d76e1950a6f370641c6f75",
+      "unchanged": true
+    },
+    {
+      "path": "crates/contracts/src/market.rs",
+      "p21_blob": "2066648b5be65cbf7fd412f50c2d6c168fd0e28e",
+      "local_blob": "2066648b5be65cbf7fd412f50c2d6c168fd0e28e",
+      "unchanged": true
+    },
+    {
+      "path": "crates/contracts/src/report.rs",
+      "p21_blob": "a521819477bde5adf40e5b8d09b55d00fa01fde0",
+      "local_blob": "a521819477bde5adf40e5b8d09b55d00fa01fde0",
+      "unchanged": true
+    },
+    {
+      "path": "crates/contracts/src/result.rs",
+      "p21_blob": "9a611e8eb63633cb3908f3ec02cf976269301e2b",
+      "local_blob": "9a611e8eb63633cb3908f3ec02cf976269301e2b",
+      "unchanged": true
+    },
+    {
+      "path": "crates/contracts/src/value.rs",
+      "p21_blob": "dcb136a0a6833c1b6e5a2fdf10cf3592567187e1",
+      "local_blob": "dcb136a0a6833c1b6e5a2fdf10cf3592567187e1",
+      "unchanged": true
+    },
+    {
+      "path": "crates/indicators/Cargo.toml",
+      "p21_blob": "6e2459dbaf681a31a1e80f6667e9dfa1bbba7346",
+      "local_blob": "6e2459dbaf681a31a1e80f6667e9dfa1bbba7346",
+      "unchanged": true
+    },
+    {
+      "path": "crates/indicators/src/advanced.rs",
+      "p21_blob": "a23b083850dddd94ddcb4fa754a751d7ad0c6356",
+      "local_blob": "a23b083850dddd94ddcb4fa754a751d7ad0c6356",
+      "unchanged": true
+    },
+    {
+      "path": "crates/indicators/src/basic.rs",
+      "p21_blob": "a6c52c1e0f4ce87eaf3ed006b603ebea41d4b407",
+      "local_blob": "a6c52c1e0f4ce87eaf3ed006b603ebea41d4b407",
+      "unchanged": true
+    },
+    {
+      "path": "crates/indicators/src/basic_state.rs",
+      "p21_blob": "15d6c5b5ce0e7bea6238f46b3486f1003e54e757",
+      "local_blob": "15d6c5b5ce0e7bea6238f46b3486f1003e54e757",
+      "unchanged": true
+    },
+    {
+      "path": "crates/indicators/src/incremental.rs",
+      "p21_blob": "ba29917054fa8bf8ad1edf4d1b7d97433852b6a4",
+      "local_blob": "ba29917054fa8bf8ad1edf4d1b7d97433852b6a4",
+      "unchanged": true
+    },
+    {
+      "path": "crates/indicators/src/lib.rs",
+      "p21_blob": "50e1de4eaa12f327f9f4c3c1458a10c753d82314",
+      "local_blob": "50e1de4eaa12f327f9f4c3c1458a10c753d82314",
+      "unchanged": true
+    },
+    {
+      "path": "crates/indicators/src/rolling.rs",
+      "p21_blob": "4308e89ab4a6908c50ef97c3a436cfdb58a1096c",
+      "local_blob": "4308e89ab4a6908c50ef97c3a436cfdb58a1096c",
+      "unchanged": true
+    },
+    {
+      "path": "crates/market_structure/Cargo.toml",
+      "p21_blob": "afadd26ea9cbc1c4f5bf191bc4f9bd7c28cabc2a",
+      "local_blob": "afadd26ea9cbc1c4f5bf191bc4f9bd7c28cabc2a",
+      "unchanged": true
+    },
+    {
+      "path": "crates/market_structure/src/lib.rs",
+      "p21_blob": "0c69ad9dac7a2083e06efa5d85f414cd8e5a9283",
+      "local_blob": "0c69ad9dac7a2083e06efa5d85f414cd8e5a9283",
+      "unchanged": true
+    },
+    {
+      "path": "crates/wyc_lib/Cargo.toml",
+      "p21_blob": "9fb318713ed2ed0a84faad8b50f67477cd7530fa",
+      "local_blob": "9fb318713ed2ed0a84faad8b50f67477cd7530fa",
+      "unchanged": true
+    },
+    {
+      "path": "crates/wyc_lib/src/lib.rs",
+      "p21_blob": "4077113b11acc91e54b800d18ea604da6b5eac0a",
+      "local_blob": "4077113b11acc91e54b800d18ea604da6b5eac0a",
+      "unchanged": true
+    },
+    {
+      "path": "crates/wyc_lib/src/orchestration.rs",
+      "p21_blob": "ca83ba4dc9fa2257fb1a1842252214c24e13515b",
+      "local_blob": "ca83ba4dc9fa2257fb1a1842252214c24e13515b",
+      "unchanged": true
+    },
+    {
+      "path": "crates/wyc_lib/src/preparation.rs",
+      "p21_blob": "f40cf5d3584500233c95b404622f46a1deab73f7",
+      "local_blob": "f40cf5d3584500233c95b404622f46a1deab73f7",
+      "unchanged": true
+    },
+    {
+      "path": "crates/wyc_lib/src/state.rs",
+      "p21_blob": "a858950cbd7ebe8b20d2666eb7734c9605d004d3",
+      "local_blob": "a858950cbd7ebe8b20d2666eb7734c9605d004d3",
+      "unchanged": true
+    },
+    {
+      "path": "tests/fixtures/README.md",
+      "p21_blob": "289f8401562ca8b95932da0e962f0ce748aa1e66",
+      "local_blob": "289f8401562ca8b95932da0e962f0ce748aa1e66",
+      "unchanged": true
+    },
+    {
+      "path": "tests/fixtures/manifest.json",
+      "p21_blob": "217e6ea660ce6e3fd17912d553d24b7c584dcf13",
+      "local_blob": "217e6ea660ce6e3fd17912d553d24b7c584dcf13",
+      "unchanged": true
+    },
+    {
+      "path": "tests/fixtures/p1-advanced.json",
+      "p21_blob": "a48c31c2761669eda1d288a7f855ab1b38291deb",
+      "local_blob": "a48c31c2761669eda1d288a7f855ab1b38291deb",
+      "unchanged": true
+    },
+    {
+      "path": "tests/fixtures/p1-arithmetic.json",
+      "p21_blob": "2609f6e8026581f178d213b943b546ea910dcb33",
+      "local_blob": "2609f6e8026581f178d213b943b546ea910dcb33",
+      "unchanged": true
+    },
+    {
+      "path": "tests/fixtures/p1-basic.json",
+      "p21_blob": "bf9ca697a0873620b33acc653876f89e43f79735",
+      "local_blob": "bf9ca697a0873620b33acc653876f89e43f79735",
+      "unchanged": true
+    },
+    {
+      "path": "tests/fixtures/p1-identity.json",
+      "p21_blob": "635941d02168d8fc9eb915e0e4be7741b695a1b5",
+      "local_blob": "635941d02168d8fc9eb915e0e4be7741b695a1b5",
+      "unchanged": true
+    },
+    {
+      "path": "tests/fixtures/p1-rolling.json",
+      "p21_blob": "c8f62cb6ed9b7ac53a4caaa7de587670c9a38592",
+      "local_blob": "c8f62cb6ed9b7ac53a4caaa7de587670c9a38592",
+      "unchanged": true
+    },
+    {
+      "path": "tests/fixtures/p1-structure.json",
+      "p21_blob": "9d1d6445eb32c38ead488853bb788cbccb435d88",
+      "local_blob": "9d1d6445eb32c38ead488853bb788cbccb435d88",
+      "unchanged": true
+    },
+    {
+      "path": "tests/fixtures/temporal.json",
+      "p21_blob": "a7b9a6a7048a48fda9e52f764c50f87d377ca168",
+      "local_blob": "a7b9a6a7048a48fda9e52f764c50f87d377ca168",
+      "unchanged": true
+    },
+    {
+      "path": "tests/golden/p1-advanced.json",
+      "p21_blob": "287e2a59171d4a01fb2f0e0fada604c8d0b73180",
+      "local_blob": "287e2a59171d4a01fb2f0e0fada604c8d0b73180",
+      "unchanged": true
+    },
+    {
+      "path": "tests/golden/p1-arithmetic.json",
+      "p21_blob": "b7e1ecfd219c77d095cc483c4532d97c362d177d",
+      "local_blob": "b7e1ecfd219c77d095cc483c4532d97c362d177d",
+      "unchanged": true
+    },
+    {
+      "path": "tests/golden/p1-basic.json",
+      "p21_blob": "28606162b8629772f3c7ed3c2c375d242b32b4a3",
+      "local_blob": "28606162b8629772f3c7ed3c2c375d242b32b4a3",
+      "unchanged": true
+    },
+    {
+      "path": "tests/golden/p1-identity.json",
+      "p21_blob": "82ebd60a41e24bfcfea9a6dd5a0ec78a11cf6ecc",
+      "local_blob": "82ebd60a41e24bfcfea9a6dd5a0ec78a11cf6ecc",
+      "unchanged": true
+    },
+    {
+      "path": "tests/golden/p1-rolling.json",
+      "p21_blob": "eb0ee103abfb1b33bdffdfe6075bc1a1c67205c9",
+      "local_blob": "eb0ee103abfb1b33bdffdfe6075bc1a1c67205c9",
+      "unchanged": true
+    },
+    {
+      "path": "tests/golden/p1-structure.json",
+      "p21_blob": "7d85748f573278a06b763faf0f806ee6faf2e864",
+      "local_blob": "7d85748f573278a06b763faf0f806ee6faf2e864",
+      "unchanged": true
+    },
+    {
+      "path": "tests/golden/temporal.json",
+      "p21_blob": "24686a36add6167885d2bcdaac1a5320c32ddb24",
+      "local_blob": "24686a36add6167885d2bcdaac1a5320c32ddb24",
+      "unchanged": true
+    }
+  ],
+  "all_unchanged": true
+}

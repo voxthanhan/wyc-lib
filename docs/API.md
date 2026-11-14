@@ -327,3 +327,28 @@ cung cấp dữ liệu ngoại sinh, Core không tải benchmark. Dependency b�
 trả missing_dependency trước tính toán. Mỗi extension phải có batch/update/reset,
 availability, golden và parity tại cổng của nó. Không ép spec tương lai thành
 contract đã nghiệm thu hoặc tuyên bố phần chưa có implementation là chạy được.
+
+## Node.js P2.2
+
+```javascript
+const {analyze_batch, calculate_indicators, analyze_structure, AnalysisState} = require('wyc-lib');
+const report = analyze_batch(request); // AnalysisRequest object, không phải string
+const indicators = calculate_indicators(request.data, request.config, request.as_of);
+const structure = analyze_structure(request.data, request.config, request.as_of);
+const state = new AnalysisState(request);
+try {
+  const cursor = state.identity();
+  // update = {identity: cursor, metadata, bar, as_of}; echo đúng cursor/metadata
+  const snapshot = state.result();
+} finally { state.close(); }
+```
+
+Batch/state trả AnalysisResult; single-module trả `{metadata, output}` như Rust.
+Các input readonly, array đặc hoặc Float64Array cho cột số; boolean dùng array.
+Không nhận BigInt, undefined, NaN/Infinity, getter/toJSON, cycle, sparse array.
+Các timestamp dùng safe integer UTC ms; không làm tròn. Exception có code/path;
+NaN/Infinity host là RangeError/non_finite; malformed host là TypeError/invalid_type.
+Output owned, sửa input/output sau lời gọi không đổi Rust state. Close idempotent,
+vĩnh viễn; update/reset lỗi giữ state/cursor. Không chia sẻ state giữa workers.
+TypeScript definitions đi cùng npm package; Python hiện vẫn là JSON pilot.
+[Contract P2.2](adr/0006-p2-node-typed.md), [nghiệm thu](acceptance/P2.2.md).

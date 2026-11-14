@@ -2,9 +2,18 @@
   "name": "wyc-lib",
   "version": "0.1.0",
   "private": true,
-  "description": "P2.1 native JSON pilot, not a Foundation release",
+  "description": "P2 Node.js P1 adapter; not a Foundation release",
   "main": "index.cjs",
   "types": "index.d.ts",
-  "engines": { "node": "22.22.0 || 24.20.0" },
-  "files": ["index.cjs", "index.d.ts", "wyc_lib.node"]
+  "engines": {
+    "node": "22.22.0"
+  },
+  "files": [
+    "index.cjs",
+    "index.d.ts",
+    "wyc_lib.node"
+  ],
+  "devDependencies": {
+    "typescript": "5.7.3"
+  }
 }

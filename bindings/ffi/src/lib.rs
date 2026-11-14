@@ -82,6 +82,21 @@ pub fn analyze_json(input: &str) -> String {
     )
 }
 
+/// Single-module APIs preserve the exact Core signatures and metadata.
+pub fn indicators_json(input: &str) -> String {
+    encode(decode::<AnalysisRequest>(input, "request").and_then(|r| {
+        wyc_lib::calculate_indicators(&r.data, &r.config, r.as_of).map_err(Into::into)
+    }))
+}
+
+pub fn structure_json(input: &str) -> String {
+    encode(
+        decode::<AnalysisRequest>(input, "request").and_then(|r| {
+            wyc_lib::analyze_structure(&r.data, &r.config, r.as_of).map_err(Into::into)
+        }),
+    )
+}
+
 /// Opaque runtime-owned handle; no registry, raw pointers or serialized caches.
 #[derive(Default)]
 pub struct Handle {

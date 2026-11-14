@@ -1,0 +1,14 @@
+    Updating crates.io index
+error: failed to get `proc-macro2` as a dependency of package `serde_derive v1.0.219`
+    ... which satisfies dependency `serde_derive = "=1.0.219"` (locked to 1.0.219) of package `serde v1.0.219`
+    ... which satisfies dependency `serde = "=1.0.219"` (locked to 1.0.219) of package `wyc-binding-contract v0.1.0 (D:\Dev\Lib\bindings\ffi)`
+    ... which satisfies path dependency `wyc-binding-contract` (locked to 0.1.0) of package `wyc-node-pilot v0.1.0 (D:\Dev\Lib\bindings\node)`
+
+Caused by:
+  download of config.json failed
+
+Caused by:
+  failed to download from `https://index.crates.io/config.json`
+
+Caused by:
+  [6] Could not resolve hostname (getaddrinfo() thread failed to start)

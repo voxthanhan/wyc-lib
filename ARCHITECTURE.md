@@ -1,5 +1,9 @@
 # wyc-lib — Kiến trúc thực thi
 
+**P2.2 hiện tại:** Node.js object API/TypeScript đã triển khai, local Core/host
+conversion đạt; native/TypeScript CI đang được triển khai sau khi được phép gửi source lên GitHub.
+Chưa nghiệm thu P2.2/G2. Xem [báo cáo P2.2](docs/acceptance/P2.2.md).
+
 ## Hiện trạng P2.1 — Native JSON pilot
 
 Root workspace có thêm package `wyc-binding-contract` tại `bindings/ffi`, chỉ
@@ -142,3 +146,17 @@ BasicIndicatorState giữ mode chín series, AnalysisState mode toàn catalog.
 Không thêm crate/dependency hoặc đổi wire/schema/hash. Tính sample mới theo
 lookback, không replay history khi append thành công; clone full output và
 history vẫn O(N). Bằng chứng tại [G1 bổ sung](docs/acceptance/G1-incremental.md).
+
+
+## P2.2 — Node.js API P1
+
+Node có `analyze_batch(request)`, `calculate_indicators(data, config, as_of)`,
+`analyze_structure(data, config, as_of)` và `AnalysisState(request)` nhận object.
+State có result/identity/update_closed_bar/reset/close; JSON pilot P2.1 vẫn giữ.
+Khai báo TypeScript bao phủ DTO P1, 25 series, cấu trúc/evidence và tagged status.
+Input nhận array đặc/Float64Array cho cột số; copy-owned, không ép kiểu hoặc giữ
+reference. NaN/Infinity, unsafe integer, sparse/accessor/cycle được chặn trước
+JSON serialization; validation nghiệp vụ và mọi phép tính vẫn ở Rust.
+Sync Node Runtime, không dùng browser/Edge; Python typed thuộc P2.3, full parity
+thuộc P2.4. [ADR-0006](docs/adr/0006-p2-node-typed.md) và
+[báo cáo P2.2](docs/acceptance/P2.2.md) ghi contract và mức kiểm chứng thực tế.

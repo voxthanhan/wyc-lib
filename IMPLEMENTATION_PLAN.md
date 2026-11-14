@@ -182,6 +182,9 @@ State bản đầu ưu tiên reset và replay toàn bộ khi lịch sử sửa �
 43578612827 và native 43578612862 đều PASS Windows/Linux. Native locks khớp;
 --locked, checkout sạch, 40 actions/runtime/OS, 14 Rust references và 20 ca lỗi.
 Native local chưa xác minh do mạng/Git shell bị hạn chế; G2/P2.2–P2.6 còn mở.
+P2.2 đã có implementation Node/TypeScript và kiểm tra local; native CI chưa
+chạy xong; người dùng đã cho phép gửi source mới lên repository công khai.
+Chưa đánh dấu P2.2 đạt; xem [báo cáo P2.2](docs/acceptance/P2.2.md).
 Chi tiết và bằng chứng tại [báo cáo](docs/acceptance/P2.1.md).
 
 Khởi đầu với đường chuyển đổi có copy và ownership rõ ràng. Adapter Pandas/Polars tái sử dụng đường NumPy/mảng khi phù hợp; không viết lại indicators bằng các thư viện đó. Quy định rõ vùng timestamp an toàn cho từng biểu diễn Node.js và từ chối giá trị không thể biểu diễn chính xác theo contract.
@@ -639,3 +642,17 @@ và tích hợp main tại 507fdad (CI run 42436169902): Windows/Linux đều PA
 hashes giữ nguyên. Tám ZIP bốn run cũ/mới đã tải, kiểm digest/CRC và payload
 summary/checks/tests/traces/baseline độc lập. G1 bổ sung đạt; report clone O(N),
 snapshot Basic O(M) và noisy batch-only baseline được công bố, không claim O(1).
+
+
+## P2.2 — Node.js API P1
+
+Node có `analyze_batch(request)`, `calculate_indicators(data, config, as_of)`,
+`analyze_structure(data, config, as_of)` và `AnalysisState(request)` nhận object.
+State có result/identity/update_closed_bar/reset/close; JSON pilot P2.1 vẫn giữ.
+Khai báo TypeScript bao phủ DTO P1, 25 series, cấu trúc/evidence và tagged status.
+Input nhận array đặc/Float64Array cho cột số; copy-owned, không ép kiểu hoặc giữ
+reference. NaN/Infinity, unsafe integer, sparse/accessor/cycle được chặn trước
+JSON serialization; validation nghiệp vụ và mọi phép tính vẫn ở Rust.
+Sync Node Runtime, không dùng browser/Edge; Python typed thuộc P2.3, full parity
+thuộc P2.4. [ADR-0006](docs/adr/0006-p2-node-typed.md) và
+[báo cáo P2.2](docs/acceptance/P2.2.md) ghi contract và mức kiểm chứng thực tế.

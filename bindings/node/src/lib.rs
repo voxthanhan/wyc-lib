@@ -7,6 +7,16 @@ pub fn analyze_json(input: String) -> String {
 }
 
 #[napi]
+pub fn indicators_json(input: String) -> String {
+    wyc_binding_contract::indicators_json(&input)
+}
+
+#[napi]
+pub fn structure_json(input: String) -> String {
+    wyc_binding_contract::structure_json(&input)
+}
+
+#[napi]
 pub struct NativeState {
     handle: Handle,
 }
