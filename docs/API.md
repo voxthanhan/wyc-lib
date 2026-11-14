@@ -27,7 +27,8 @@ không serialize cache/state và không dùng identity như con trỏ hoặc han
 
 Utilities P1.1, primitives P1.2, chỉ báo/state P1.3, chỉ báo P1.4, structure P1.5
 và analytical entry points/AnalysisState P1.6 đã có implementation Rust.
-Result có kiểu rõ ràng; bindings thuộc P2. Replay, baseline và ví dụ Rust P1.7
+Result có kiểu rõ ràng; Node typed bindings đã có ở P2.2, Python typed ở P2.3.
+Replay, baseline và ví dụ Rust P1.7
 được kiểm chứng trong [báo cáo G1](acceptance/G1.md).
 
 ## Ví dụ Rust P1.7

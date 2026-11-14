@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.0 — P2.2 Node.js P1, chưa phát hành
+
+- Thêm ba object APIs, AnalysisState và khai báo TypeScript đầy đủ P1; giữ JSON pilot.
+- Copy-owned array/Float64Array, chặn input host gây mất dữ liệu trước JSON; Rust giữ mọi phép tính.
+- Local 102 Rust tests/5 controls/24 host assertions; CI Windows/Linux typed Node
+  83 assertions, TypeScript strict, native package và JSON smoke PASS tại 5946286.
+- Đã tích hợp main; CI main Core/native đều PASS Windows/Linux. Native local chưa xác minh, G2 còn mở.
+- Bằng chứng và giới hạn tại [báo cáo P2.2](docs/acceptance/P2.2.md).
+
 ## 0.1.0 - P2.1 native JSON pilot, chưa phát hành
 
 - Chốt FFI v1: f64/safe integer time, tagged numeric status, config/result,

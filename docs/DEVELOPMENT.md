@@ -39,8 +39,8 @@ native dependencies nên chỉ xác minh Core/shared Rust tại local. Bằng ch
 native là CI Node 22.22.0/Python 3.10.9, không suy thành hỗ trợ Node 24 local.
 GC smoke chỉ kiểm 100 handle bỏ tham chiếu không crash; chưa đo leak/RSS.
 Wheel Linux dùng linux_x86_64, chưa claim manylinux, abi3 hay hỗ trợ 3.11+.
-Xem [báo cáo P2.1](acceptance/P2.1.md). Typed API, NumPy/Pandas/Polars, ma trận
-phân phối đầy đủ và Next.js smoke còn ở P2.2–P2.6; chưa nghiệm thu G2.
+Xem [báo cáo P2.1](acceptance/P2.1.md). Node typed API đã nghiệm thu P2.2; NumPy/Pandas/Polars, ma trận
+phân phối đầy đủ và Next.js smoke còn ở P2.3–P2.6; chưa nghiệm thu G2.
 
 ## Ma trận nền tảng
 
@@ -50,7 +50,7 @@ phân phối đầy đủ và Next.js smoke còn ở P2.2–P2.6; chưa nghiệm
 | Windows | x86_64-pc-windows-msvc; Visual Studio Build Tools 2022 + Windows SDK cho local | Local/checkout sạch incremental, 93 Rust + 5 Python controls tại 45752f1; CI windows-latest PASS, ZIP payload verified |
 | Linux | x86_64-unknown-linux-gnu; Ubuntu 24.04 CI | CI ubuntu-24.04 incremental PASS tại 45752f1, ZIP payload verified |
 | macOS/ARM64 | Chưa chọn phiên bản/runner | Chưa công bố hỗ trợ |
-| Node | 22.22.0; NAPI-RS 2.16.17, Node-API v8 | Pilot x64 Windows/Linux đã có build/cài package/smoke CI; full adapter ở P2.2 |
+| Node | 22.22.0; NAPI-RS 2.16.17, Node-API v8 | Pilot x64 Windows/Linux đã có build/cài package/smoke CI; typed P1 adapter P2.2 đã có CI |
 | Python | CPython 3.10.9; PyO3 0.23.5/Maturin 1.8.3 | Pilot wheel cp310 Windows/Linux đã có CI; 3.11–3.13 và abi3 chưa kiểm |
 | Server | Linux x64 Node Runtime, gồm khảo sát Vercel P2 | Chưa kiểm chứng; browser/Edge/WASM ngoài phạm vi |
 
@@ -258,3 +258,9 @@ shape/NaN/precision/errors, input/output owned, state append/reset atomic và
 close/GC. JSON smoke Node/Python P2.1 vẫn chạy. Workflow native chạy thêm nhánh
 work/p2-2-node-adapter trên Windows/Linux Node 22.22.0; không publish package.
 Native local thiếu cache/mạng phải ghi riêng, không gọi là PASS vì CI đạt.
+
+P2.2 đã chạy tại 5946286 trên Windows/Linux: TypeScript strict và 83 native Node
+assertions/OS đạt, 40-action JSON smoke/runtime đạt; 89 source blobs khớp local.
+Local vẫn chỉ xác minh Core/shared transport và 24 host conversion assertions;
+cache thiếu napi-derive và shell không tải dependency, không claim native local.
+[Báo cáo P2.2](acceptance/P2.2.md) lưu run/commit/checksum và giới hạn payload ZIP.

@@ -1,14 +1,15 @@
 # wyc-lib
 
-**P2.2 hiện tại:** Node.js object API/TypeScript đã triển khai, local Core/host
-conversion đạt; native/TypeScript CI đang được triển khai sau khi được phép gửi source lên GitHub.
-Chưa nghiệm thu P2.2/G2. Xem [báo cáo P2.2](docs/acceptance/P2.2.md).
+**P2.2 đạt phạm vi Node.js P1** tại `5946286`: local Core/shared transport,
+host conversion và CI native/TypeScript Windows/Linux PASS. Đã tích hợp cùng
+commit vào main; CI main Core/native đều PASS Windows/Linux. Native local chưa xác minh; G2/Foundation
+và P2.3–P2.6 còn mở. Xem [báo cáo P2.2](docs/acceptance/P2.2.md).
 
 One Analytical Core, Multiple Applications. Evidence Before Prediction.
 
 **P2.1 — native JSON pilot:** contract FFI v1, shared Rust transport và adapter
 NAPI-RS/PyO3 đã có kiểm chứng local Rust và CI native Windows/Linux.
-Typed adapters P2.2/P2.3, G2 và Foundation release chưa hoàn tất.
+Node typed adapter P2.2 đã đạt; Python typed P2.3, G2 và Foundation còn mở.
 Xem [báo cáo P2.1](docs/acceptance/P2.1.md),
 [contract FFI](docs/adr/0005-p2-ffi-pilot.md) và
 [cách kiểm tra](docs/DEVELOPMENT.md). Các đoạn dưới ghi lịch sử G0/G1.

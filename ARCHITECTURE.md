@@ -1,8 +1,9 @@
 # wyc-lib — Kiến trúc thực thi
 
-**P2.2 hiện tại:** Node.js object API/TypeScript đã triển khai, local Core/host
-conversion đạt; native/TypeScript CI đang được triển khai sau khi được phép gửi source lên GitHub.
-Chưa nghiệm thu P2.2/G2. Xem [báo cáo P2.2](docs/acceptance/P2.2.md).
+**P2.2 đạt phạm vi Node.js P1** tại `5946286`: local Core/shared transport,
+host conversion và CI native/TypeScript Windows/Linux PASS. Đã tích hợp cùng
+commit vào main; CI main Core/native đều PASS Windows/Linux. Native local chưa xác minh; G2/Foundation
+và P2.3–P2.6 còn mở. Xem [báo cáo P2.2](docs/acceptance/P2.2.md).
 
 ## Hiện trạng P2.1 — Native JSON pilot
 
@@ -16,7 +17,8 @@ Mỗi workspace native có Cargo.lock riêng, đã đối chiếu giống nhau g
 Pilot và hợp đồng ownership/error/state tại
 [ADR-0005](docs/adr/0005-p2-ffi-pilot.md). Native addon NAPI-RS và wheel
 PyO3/Maturin đã build, cài ngoài source tree và chạy smoke trên CI Windows/Linux.
-Đây là pilot JSON đồng bộ; typed adapters và Foundation/G2 còn ở P2.2–P2.6.
+Node object API P2.2 đã đạt, giữ JSON pilot tương thích; Python typed và
+Foundation/G2 còn ở P2.3–P2.6.
 [Báo cáo P2.1](docs/acceptance/P2.1.md) ghi từng mức kiểm chứng, commit và giới hạn
 local/CI. Các đoạn P1 dưới đây giữ
 lịch sử quyết định và được phần incremental sau G1 thay thế về cách tính state.

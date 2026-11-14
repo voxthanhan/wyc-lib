@@ -30,3 +30,11 @@ không ngụ ý freeze output. TypeScript không thay runtime validation. Compil
 pin 5.7.3 là dev-only, không thêm dependency runtime. CI cài tarball ngoài tree,
 compile consumer strict và chạy native tests trên Windows/Linux Node 22.22.0.
 Node 24.20.0 chỉ được ghi hỗ trợ sau khi native local thực chạy. P2.3–P2.6 còn mở.
+
+## Kiểm chứng
+
+P2.2 đạt tại 5946286: local 102 Rust tests/5 verifier controls/24 host assertions;
+CI Windows/Linux 83 typed Node assertions, TypeScript strict và native package
+install ngoài tree PASS, --locked/checkout sạch. 89 source blobs khớp local.
+Giữ native local chưa xác minh, full parity/G2 ở các bước sau.
+[Báo cáo P2.2](../acceptance/P2.2.md) lưu run/checksum/bằng chứng và giới hạn.

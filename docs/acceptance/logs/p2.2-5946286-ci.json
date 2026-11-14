@@ -1,0 +1,462 @@
+{
+  "commit": "5946286f392f960454d5c64b4cc97142e4ab23a5",
+  "runs": [
+    {
+      "id": 43580931063,
+      "name": "P2 native adapters",
+      "head_sha": "5946286f392f960454d5c64b4cc97142e4ab23a5",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/voxthanhan/wyc-lib/actions/runs/43580931063"
+    },
+    {
+      "id": 43580931140,
+      "name": "Rust foundation",
+      "head_sha": "5946286f392f960454d5c64b4cc97142e4ab23a5",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/voxthanhan/wyc-lib/actions/runs/43580931140"
+    }
+  ],
+  "jobs": [
+    {
+      "id": 132405295595,
+      "name": "native-pilot (windows-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43580931063,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Install pinned Rust",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Install pinned build tool",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Check Core and shared transport",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Build and test installed native packages",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19
+        }
+      ]
+    },
+    {
+      "id": 132405295823,
+      "name": "native-pilot (ubuntu-24.04)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43580931063,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Install pinned Rust",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Install pinned build tool",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Check Core and shared transport",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Build and test installed native packages",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19
+        }
+      ]
+    }
+  ],
+  "core_artifacts": [
+    {
+      "id": 14108706034,
+      "name": "foundation-ubuntu-24.04-5946286f392f960454d5c64b4cc97142e4ab23a5",
+      "size_in_bytes": 56227,
+      "url": "https://api.github.com/repos/voxthanhan/wyc-lib/actions/artifacts/14108706034",
+      "archive_download_url": "https://api.github.com/repos/voxthanhan/wyc-lib/actions/artifacts/14108706034/zip",
+      "expired": false,
+      "created_at": "2026-11-14T09:32:16Z",
+      "expires_at": "2027-02-12T09:31:13Z",
+      "updated_at": "2026-11-14T09:32:16Z",
+      "digest": "sha256:706b07523a4be10720095f9257294a42ed2b8a21b1135659016605db8f8ddeea",
+      "workflow_run": {
+        "id": 43580931140,
+        "repository_id": 1449100439,
+        "head_repository_id": 1449100439,
+        "head_branch": "work/p2-2-node-adapter",
+        "head_sha": "5946286f392f960454d5c64b4cc97142e4ab23a5"
+      }
+    },
+    {
+      "id": 14107774339,
+      "name": "foundation-windows-latest-5946286f392f960454d5c64b4cc97142e4ab23a5",
+      "size_in_bytes": 56509,
+      "url": "https://api.github.com/repos/voxthanhan/wyc-lib/actions/artifacts/14107774339",
+      "archive_download_url": "https://api.github.com/repos/voxthanhan/wyc-lib/actions/artifacts/14107774339/zip",
+      "expired": false,
+      "created_at": "2026-11-14T09:33:27Z",
+      "expires_at": "2027-02-12T09:31:13Z",
+      "updated_at": "2026-11-14T09:33:27Z",
+      "digest": "sha256:f8a64db4158a24405d4429f0e5095e10480ce24883b6a8dcb5a9782553ecbc8a",
+      "workflow_run": {
+        "id": 43580931140,
+        "repository_id": 1449100439,
+        "head_repository_id": 1449100439,
+        "head_branch": "work/p2-2-node-adapter",
+        "head_sha": "5946286f392f960454d5c64b4cc97142e4ab23a5"
+      }
+    }
+  ],
+  "native_artifacts": [
+    {
+      "id": 14108316771,
+      "name": "p2-pilot-windows-latest-5946286f392f960454d5c64b4cc97142e4ab23a5",
+      "size_in_bytes": 806232,
+      "url": "https://api.github.com/repos/voxthanhan/wyc-lib/actions/artifacts/14108316771",
+      "archive_download_url": "https://api.github.com/repos/voxthanhan/wyc-lib/actions/artifacts/14108316771/zip",
+      "expired": false,
+      "created_at": "2026-11-14T09:34:01Z",
+      "expires_at": "2027-02-12T09:31:13Z",
+      "updated_at": "2026-11-14T09:34:01Z",
+      "digest": "sha256:3999cd01bdbd32df4e79ccf9ff3e4523c90d648e66a7834c8288ac7e50d6f196",
+      "workflow_run": {
+        "id": 43580931063,
+        "repository_id": 1449100439,
+        "head_repository_id": 1449100439,
+        "head_branch": "work/p2-2-node-adapter",
+        "head_sha": "5946286f392f960454d5c64b4cc97142e4ab23a5"
+      }
+    },
+    {
+      "id": 14107819273,
+      "name": "p2-pilot-ubuntu-24.04-5946286f392f960454d5c64b4cc97142e4ab23a5",
+      "size_in_bytes": 1115380,
+      "url": "https://api.github.com/repos/voxthanhan/wyc-lib/actions/artifacts/14107819273",
+      "archive_download_url": "https://api.github.com/repos/voxthanhan/wyc-lib/actions/artifacts/14107819273/zip",
+      "expired": false,
+      "created_at": "2026-11-14T09:33:50Z",
+      "expires_at": "2027-02-12T09:31:13Z",
+      "updated_at": "2026-11-14T09:33:50Z",
+      "digest": "sha256:f942b68f588a7ba9d46430cd9207bf312f1bb1221d634e1709fee7876a172291",
+      "workflow_run": {
+        "id": 43580931063,
+        "repository_id": 1449100439,
+        "head_repository_id": 1449100439,
+        "head_branch": "work/p2-2-node-adapter",
+        "head_sha": "5946286f392f960454d5c64b4cc97142e4ab23a5"
+      }
+    }
+  ],
+  "zip_payload_locally_verified": false,
+  "artifact_digests": "GitHub metadata; not an independent local ZIP digest check",
+  "core_validation": {
+    "windows": {
+      "job_id": 132405295882,
+      "run_id": 43580931140,
+      "tests": 102,
+      "passed": true,
+      "test_results": [
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s",
+        "test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s",
+        "test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s",
+        "test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 7.14s",
+        "test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.54s",
+        "test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.88s",
+        "test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+      ],
+      "checks": [
+        "CHECK: rustc --version --verbose",
+        "CHECK: cargo --version",
+        "CHECK: python --version",
+        "CHECK: cargo fmt --all -- --check",
+        "CHECK: cargo clippy --workspace --locked --all-targets -- -D warnings",
+        "CHECK: cargo build --workspace --locked",
+        "CHECK: cargo test --workspace --locked",
+        "CHECK: cargo run --example p1_walkthrough --package wyc-lib --locked",
+        "CHECK: cargo build --release --example p1_baseline --package wyc-lib --locked",
+        "CHECK: python scripts/measure_baseline.py D:\\a\\wyc-lib\\wyc-lib\\target\\release\\examples\\p1_baseline.exe D:\\a\\wyc-lib\\wyc-lib\\ci-evidence\\baseline.json",
+        "CHECK: python scripts/verify_oracles.py",
+        "CHECK: python scripts/test_verify_ci_artifacts.py",
+        "CHECK: python scripts/verify_workspace.py D:\\a\\wyc-lib\\wyc-lib\\ci-evidence\\workspace-metadata.json"
+      ],
+      "jobs": [
+        {
+          "id": 132405295882,
+          "name": "foundation (windows-latest)",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 43580931140,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Install pinned Rust",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Check foundation and record evidence",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Run actions/upload-artifact@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Post Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 12
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13
+            }
+          ]
+        },
+        {
+          "id": 132405296040,
+          "name": "foundation (ubuntu-24.04)",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 43580931140,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Install pinned Rust",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Check foundation and record evidence",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Run actions/upload-artifact@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Post Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 12
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13
+            }
+          ]
+        }
+      ]
+    },
+    "linux": {
+      "job_id": 132405296040,
+      "tests": 102,
+      "passed": true
+    }
+  }
+}

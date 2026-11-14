@@ -181,11 +181,16 @@ State bản đầu ưu tiên reset và replay toàn bộ khi lịch sử sửa �
 `cf6c464`, đã tích hợp main: local 101 Rust tests + 5 Python controls; CI Core
 43578612827 và native 43578612862 đều PASS Windows/Linux. Native locks khớp;
 --locked, checkout sạch, 40 actions/runtime/OS, 14 Rust references và 20 ca lỗi.
-Native local chưa xác minh do mạng/Git shell bị hạn chế; G2/P2.2–P2.6 còn mở.
-P2.2 đã có implementation Node/TypeScript và kiểm tra local; native CI chưa
-chạy xong; người dùng đã cho phép gửi source mới lên repository công khai.
-Chưa đánh dấu P2.2 đạt; xem [báo cáo P2.2](docs/acceptance/P2.2.md).
-Chi tiết và bằng chứng tại [báo cáo](docs/acceptance/P2.1.md).
+Native local chưa xác minh do mạng/Git shell bị hạn chế. Chi tiết tại
+[báo cáo P2.1](docs/acceptance/P2.1.md).
+
+**P2.2 đạt phạm vi Node P1** tại `5946286`: ba object APIs và AnalysisState,
+TypeScript DTOs, array/Float64Array, input shape/error/lifetime checks.
+Local 102 Rust tests + 5 controls + 24 host assertions PASS; CI Core 43580931140
+và native 43580931063 đạt Windows/Linux, typed Node 83 assertions/OS,
+TypeScript strict, JSON Node/Python smoke và locked/clean acceptance.
+Đã tích hợp main cùng commit, CI main Core/native đều PASS Windows/Linux. Native local chưa xác minh;
+P2.3–P2.6/G2/Foundation còn mở. [Báo cáo P2.2](docs/acceptance/P2.2.md).
 
 Khởi đầu với đường chuyển đổi có copy và ownership rõ ràng. Adapter Pandas/Polars tái sử dụng đường NumPy/mảng khi phù hợp; không viết lại indicators bằng các thư viện đó. Quy định rõ vùng timestamp an toàn cho từng biểu diễn Node.js và từ chối giá trị không thể biểu diễn chính xác theo contract.
 
