@@ -1,5 +1,9 @@
 # wyc-lib
 
+**P2.4 đang kiểm chứng:** ma trận parity chung Rust–Node.js–Python cho 39 ca
+fixtures, batch/update/reset và lỗi. Xem [bộ parity](tests/parity/README.md) và
+[báo cáo P2.4](docs/acceptance/P2.4.md). P2.5–P2.6/G2/Foundation chưa nghiệm thu.
+
 **P2.3 đạt phạm vi Python P1 tại e4424af:** CI Core/native Windows/Linux PASS,
 wheel ngoài source, NumPy/Pandas/Polars và mypy strict đạt. Đã gộp PR #3 vào
 main tại `46041c6`; CI main Core/native đều PASS Windows/Linux. Xem

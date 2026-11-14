@@ -308,3 +308,18 @@ assertions/OS đạt, 40-action JSON smoke/runtime đạt; 89 source blobs khớ
 Local vẫn chỉ xác minh Core/shared transport và 24 host conversion assertions;
 cache thiếu napi-derive và shell không tải dependency, không claim native local.
 [Báo cáo P2.2](acceptance/P2.2.md) lưu run/commit/checksum và giới hạn payload ZIP.
+
+## Kiểm chứng P2.4
+
+`python scripts/check_p2.py` bắt buộc chạy matrix 39 ca từ cùng fixtures/config
+qua direct Rust Core reference và hai typed drivers trong consumer ngoài source.
+Không cần dữ liệu thị trường/mạng cho tính toán; mạng chỉ để lấy build/test dependencies.
+Node/CPython/toolchain/extras giữ nguyên matrix pin của workflow native P2.3.
+Ngoài regression P2.1–P2.3, runner thêm năm comparator controls, reference build,
+ba runtime records và `ci-evidence/p2/parity-report.json` có action/fixture hashes.
+Chi tiết [protocol](../tests/parity/README.md), [nghiệm thu](acceptance/P2.4.md).
+
+Core-only và negative controls có thể chạy offline như protocol; không chứng
+minh native ABI. Checkout local có thay đổi phải ghi clean=false, không dùng
+HEAD Git cũ đại diện cho working tree mới. CI yêu cầu --locked và checkout sạch.
+P2.5 server/Next.js và P2.6 FFI baseline chưa thuộc nghiệm thu này.

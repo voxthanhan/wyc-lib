@@ -33,6 +33,8 @@ def main():
     check(edges["wyc-binding-contract"] == {"wyc-lib"}, "FFI must call only the public Core API")
     check(any(t['name'] == 'p2_reference' and 'bin' in t['kind']
               for t in packages['wyc-binding-contract']['targets']), 'Rust FFI reference executable missing')
+    check(any(t['name'] == 'p2_parity_reference' and 'bin' in t['kind']
+              for t in packages['wyc-binding-contract']['targets']), 'Direct Core parity executable missing')
     active, visited = set(), set()
 
     def visit(name):
@@ -60,7 +62,7 @@ def main():
             if target:
                 check((path.parent / target).exists(), f"broken link: {filename} -> {target}")
                 checked += 1
-    print(f"PASS: P2.1 five package boundaries, acyclic dependency graph, ten integration targets, two examples, FFI reference, {checked} local links")
+    print(f"PASS: P2 five package boundaries, acyclic dependency graph, ten integration targets, two examples, two Core references, {checked} local links")
 
 
 if __name__ == "__main__":

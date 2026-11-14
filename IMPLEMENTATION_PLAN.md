@@ -163,6 +163,12 @@ State bản đầu ưu tiên reset và replay toàn bộ khi lịch sử sửa �
 
 ### P2 — Node.js và Python Bindings; Foundation Release
 
+**P2.4 đang kiểm chứng (14/11/2026):** bộ parity chung 39 ca fixtures,
+direct public Rust Core reference, typed Node/Python từ package đã cài;
+batch/single-module/update/reset, lỗi, ownership, availability/revision replay.
+Không thay Core/schema/config/hash/golden. Phạm vi, kết quả thực chạy và giới hạn
+tại [báo cáo P2.4](docs/acceptance/P2.4.md); P2.5–P2.6/G2/Foundation còn mở.
+
 **P2.3 đạt tại e4424af (14/11/2026):** Python API P1, AnalysisState, NumPy và
 converters Pandas/Polars đã triển khai theo [ADR-0007](docs/adr/0007-p2-python-typed.md).
 CI Core/native Windows/Linux PASS: 102 Rust tests/OS, 72 plain và 79 extras

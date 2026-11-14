@@ -1,5 +1,10 @@
 # wyc-lib — Contracts 0.1.0
 
+P2.4 không thay contract/schema/config/hash hoặc thuật toán. Bộ parity kiểm
+chính xác shape/status/mask/ID/time/error code/path và dùng tolerance P1 cho số
+thực qua FFI; input host ngoài DTO chung được kiểm bằng boundary tests riêng.
+[Protocol kiểm chứng](tests/parity/README.md), [báo cáo P2.4](docs/acceptance/P2.4.md).
+
 P2.3 đã tích hợp main tại `46041c6` qua PR #3; CI main Core/native PASS
 Windows/Linux, không đổi Core/schema/config/hash. Quy trình Git/CI đã được
 ủy quyền thường trực tại [AGENTS.md mục 12](AGENTS.md).
