@@ -1,4 +1,4 @@
-"""Build/copy/package/install the P2.1 native pilot and audit both consumers.
+"""Build/copy/package/install P2.1-P2.3 native adapters and audit both consumers.
 
 Network is needed only to fetch build dependencies. No credentials, publication,
 source execution from wheels/tarballs outside normal install, or market feed.
@@ -110,6 +110,15 @@ def main():
         run("typescript-strict", ["node", consumer / "node_modules/typescript/bin/tsc", "--strict", "--noEmit",
                                   "--target", "ES2022", "--module", "node16", "--moduleResolution", "node16", "p2_node_types.ts"], cwd=consumer)
         summary["node_typed"] = json.loads(run("node-typed", ["node", "--expose-gc", "p2_node.cjs", typed_input], cwd=consumer))
+        for name in ("p2_python.py", "p2_python_types.py"):
+            shutil.copy2(root / "tests/parity" / name, consumer / name)
+        summary["python_plain"] = json.loads(run("python-plain", [python, "p2_python.py", typed_input], cwd=consumer))
+        run("python-extras-install", [python, "-m", "pip", "install", "numpy==2.2.6", "pandas==2.2.3", "polars==1.30.0", "mypy==1.15.0"], cwd=consumer)
+        run("python-dependencies", [python, "-m", "pip", "check"], cwd=consumer)
+        run("python-types", [python, "-m", "mypy", "--strict", "--no-incremental", "p2_python_types.py"], cwd=consumer)
+        summary["python_typed"] = json.loads(run("python-typed", [python, "p2_python.py", typed_input, "--extras"], cwd=consumer))
+        # Conversion tests load source with an inert native stub; native tests above use the installed wheel.
+        summary["python_host"] = json.loads(run("python-host", [python, root / "tests/parity/p2_python_boundary.py"], cwd=consumer))
         node_records = json.loads(run("node-smoke", ["node", "--expose-gc", "smoke.cjs", actions_path], cwd=consumer))
         python_records = json.loads(run("python-smoke", [python, "smoke.py", actions_path], cwd=consumer))
         assert [r["name"] for r in node_records] == [a["name"] for a in actions], "Node action coverage"

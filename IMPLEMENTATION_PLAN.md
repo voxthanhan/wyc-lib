@@ -163,6 +163,12 @@ State bản đầu ưu tiên reset và replay toàn bộ khi lịch sử sửa �
 
 ### P2 — Node.js và Python Bindings; Foundation Release
 
+**P2.3 đang kiểm chứng (14/11/2026):** Python API P1, AnalysisState, NumPy và
+converters Pandas/Polars đã triển khai theo [ADR-0007](docs/adr/0007-p2-python-typed.md).
+CI thêm plain/extras/type checks trên wheel cài ngoài source Windows/Linux.
+Kết quả thực chạy và giới hạn tại [báo cáo P2.3](docs/acceptance/P2.3.md).
+P2.4–P2.6/G2/Foundation còn mở.
+
 **Mục tiêu:** cùng một thuật toán Rust có thể dùng ổn định từ hai ngôn ngữ mà không thay đổi semantics dữ liệu hoặc thời gian.
 
 **Điều kiện đầu vào:** G1 đạt; contract FFI và ma trận hỗ trợ của Foundation đã chốt, có phiên bản chính xác trước khi build package.

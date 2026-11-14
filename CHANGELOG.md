@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.0 — P2.3 Python P1, chưa phát hành
+
+- Thêm ba dict APIs và AnalysisState/context manager gọi Rust qua PyO3; giữ JSON pilot.
+- Copy-owned list/tuple/NumPy và converters Pandas/Polars; không triển khai lại thuật toán.
+- Schema PEP 561/TypedDict cho P1, tagged missing/warmup và class/code/path errors.
+- CI kiểm wheel ngoài source, plain Python không extras, NumPy/Pandas/Polars,
+  mypy strict, ownership/append/reset/close và native JSON regression Windows/Linux.
+- Core/golden/schema/config/hash/native lockfiles giữ nguyên; G2 còn mở.
+- Kết quả thực tế tại [báo cáo P2.3](docs/acceptance/P2.3.md).
+
 ## 0.1.0 — P2.2 Node.js P1, chưa phát hành
 
 - Thêm ba object APIs, AnalysisState và khai báo TypeScript đầy đủ P1; giữ JSON pilot.

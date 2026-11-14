@@ -1,4 +1,18 @@
-# Phát triển và kiểm chứng P0–P2.1
+# Phát triển và kiểm chứng P0-P2.3
+
+## Kiểm chứng Python P2.3
+
+`python scripts/check_p2.py` build native bằng lock đã commit, đóng wheel và cài
+vào venv mới ngoài source. Runner kiểm plain Python trước khi cài extras, rồi
+NumPy 2.2.6/Pandas 2.2.3/Polars 1.30.0, `pip check`, mypy 1.15.0 strict và
+tests/parity/p2_python.py với direct-Core references. Kiểm JSON Node/Python,
+typed Node/TypeScript và Core cũ vẫn bắt buộc. Không publish package.
+
+`python tests/parity/p2_python_boundary.py` chỉ kiểm conversion bằng native
+stub trống, không kiểm ABI/thuật toán. Script cần NumPy/Pandas/Polars. Native
+CI chạy CPython 3.10.9, PyO3 0.23.5/Maturin 1.8.3, Rust 1.85.1, Windows x64
+MSVC và Ubuntu 24.04 x64 GNU. Không claim macOS/ARM/manylinux/abi3/CPython 3.11+.
+Kết quả và giới hạn tại [báo cáo P2.3](acceptance/P2.3.md).
 
 ## P2.1 — Kiểm chứng shared transport và native pilot
 

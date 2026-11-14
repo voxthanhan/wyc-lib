@@ -1,5 +1,10 @@
 # wyc-lib
 
+**P2.3 đang kiểm chứng:** Python API P1 và AnalysisState, schema TypedDict,
+đầu vào NumPy, converters Pandas/Polars đã có. Xem
+[API Python](docs/API.md), [contract](docs/adr/0007-p2-python-typed.md) và
+[báo cáo P2.3](docs/acceptance/P2.3.md). P2.4–P2.6/G2/Foundation còn mở.
+
 **P2.2 đạt phạm vi Node.js P1** tại `5946286`: local Core/shared transport,
 host conversion và CI native/TypeScript Windows/Linux PASS. Đã tích hợp cùng
 commit vào main; CI main Core/native đều PASS Windows/Linux. Native local chưa xác minh; G2/Foundation

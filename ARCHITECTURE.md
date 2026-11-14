@@ -1,5 +1,12 @@
 # wyc-lib — Kiến trúc thực thi
 
+**P2.3 đang kiểm chứng:** Python dict API/AnalysisState và converters
+NumPy/Pandas/Polars dùng PyO3 → shared transport → public Core P1.
+Wrapper chỉ copy/kiểm host types/ánh xạ exception, không chứa công thức.
+TypedDict/py.typed mô tả output schema; GIL giữ trong lời gọi đồng bộ.
+[ADR-0007](docs/adr/0007-p2-python-typed.md) và
+[báo cáo P2.3](docs/acceptance/P2.3.md) ghi contract và mức kiểm chứng.
+
 **P2.2 đạt phạm vi Node.js P1** tại `5946286`: local Core/shared transport,
 host conversion và CI native/TypeScript Windows/Linux PASS. Đã tích hợp cùng
 commit vào main; CI main Core/native đều PASS Windows/Linux. Native local chưa xác minh; G2/Foundation

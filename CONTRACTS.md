@@ -1,5 +1,12 @@
 # wyc-lib — Contracts 0.1.0
 
+**Python P2.3 đang kiểm chứng:** mapping host tại
+[ADR-0007](docs/adr/0007-p2-python-typed.md): owned dict/list/tuple/NumPy,
+timestamp int an toàn, tagged numeric output, code/path exceptions và
+state close/context manager. Pandas/Polars chỉ copy tám cột tường minh.
+Không thay contract/validation/schema/config/hash của Core. Kết quả thực chạy
+tại [báo cáo P2.3](docs/acceptance/P2.3.md).
+
 **P2.2 đạt phạm vi Node.js P1** tại `5946286`: local Core/shared transport,
 host conversion và CI native/TypeScript Windows/Linux PASS. Đã tích hợp cùng
 commit vào main; CI main Core/native đều PASS Windows/Linux. Native local chưa xác minh; G2/Foundation

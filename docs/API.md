@@ -1,5 +1,65 @@
 # API hiện có và API mục tiêu
 
+## Python P2.3 — API P1
+
+Contract tại [ADR-0007](adr/0007-p2-python-typed.md), kiểm chứng tại
+[báo cáo P2.3](acceptance/P2.3.md). Import `wyc_lib`; các hàm đồng bộ giữ GIL.
+Output là dict/list owned, snake_case. `__init__.pyi` và `py.typed` mô tả
+schema P1, 25 indicator keys, pivots/trends/breaks/evidence và state identity.
+Tên TypedDict trong stub dùng cho type checking (`TYPE_CHECKING`), không phải
+constructor runtime. Giữ tagged `ready/warmup/missing` thay vì 0/NaN.
+
+| API Python | Input → output |
+| --- | --- |
+| `analyze_batch(request)` | AnalysisRequest dict → AnalysisResult dict |
+| `calculate_indicators(data, config, as_of)` | MarketData/config/int → ModuleResult[IndicatorResult] |
+| `analyze_structure(data, config, as_of)` | MarketData/config/int → ModuleResult[StructureResult] |
+| `AnalysisState(request)` | Copy snapshot; result/identity/update_closed_bar/reset/close |
+| `market_data_from_pandas(frame, *, symbol, timeframe, metadata)` | Copy tám cột DataFrame → MarketData dict |
+| `market_data_from_polars(frame, *, symbol, timeframe, metadata)` | Copy tám cột DataFrame → MarketData dict |
+
+Input dict/list/tuple builtin; scalar int/float/bool/str/None, không nhận custom
+classes. Mọi int trong ±9007199254740991; timestamp/config integer phải là int,
+không bool/float. None giữ cho Rust báo missing_data; NaN/Infinity trả
+ValueError/non_finite trước JSON. Error có code/path; mapping
+TypeError/ValueError/WycStateError/WycEngineError như JSON pilot.
+
+NumPy optional: ndarray 1D int64 cho timestamp/available_at, float64 hoặc int64
+cho OHLCV, bool cho is_closed. Copy cả array strided/read-only; không giữ view.
+Không nhận masked/object/float32/uint64/2D hoặc scalar NumPy riêng lẻ.
+Pandas/Polars cần đúng tám cột `timestamp`, `available_at`, `open`, `high`, `low`,
+`close`, `volume`, `is_closed`; thứ tự cột tùy ý, dtypes như NumPy.
+Pandas nullable extension dtype chưa nhận. Không đọc index làm timestamp,
+cast datetime/string, đổi timezone/đơn vị, sort, fill hay điều chỉnh giá.
+Polars null giữ None; converter không thay validation nghiệp vụ Core.
+
+Ví dụ với `request.json` đầy đủ contract, không cần extras:
+
+```python
+import json
+import wyc_lib
+
+with open("request.json", encoding="utf-8") as source:
+    request = json.load(source)
+report = wyc_lib.analyze_batch(request)
+with wyc_lib.AnalysisState(request) as state:
+    assert state.result() == report
+    cursor = state.identity()  # Echo trong ClosedBarUpdate.
+```
+
+Ví dụ với DataFrame đã chuẩn hóa:
+
+```python
+data = wyc_lib.market_data_from_pandas(
+    frame, symbol="ABC", timeframe="1d", metadata=metadata)
+report = wyc_lib.calculate_indicators(data, config, as_of)
+# market_data_from_polars nhận cùng keyword arguments.
+```
+
+Update/reset lỗi giữ state. `close()` idempotent và vĩnh viễn; context manager
+đóng cả khi có exception. Không dùng cùng state để sửa đồng thời hoặc serialize
+cache. Full fixture parity thuộc P2.4, Foundation còn ở P2.4–P2.6.
+
 ## Pilot P2.1
 
 Contract đã chốt tại [ADR-0005](adr/0005-p2-ffi-pilot.md). Shared Rust transport
