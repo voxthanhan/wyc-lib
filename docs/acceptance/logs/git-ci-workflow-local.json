@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "validation": "PyYAML BaseLoader structural validation and existing workspace/link verifier",
+  "workflows": [".github/workflows/ci.yml", ".github/workflows/p2-pilot.yml"],
+  "push_branches": ["main", "work/**"],
+  "pull_request_base": "main",
+  "permissions": {"contents": "read"},
+  "main_concurrency_group_uses_run_id": true,
+  "missing_lock_auto_bootstrap": false,
+  "manual_bootstrap_default": false,
+  "local_links_verified": 353,
+  "git_diff_check_passed": true,
+  "core_algorithm_changed": false
+}

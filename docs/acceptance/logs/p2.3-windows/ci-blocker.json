@@ -1,0 +1,18 @@
+{
+  "phase": "P2.3",
+  "record_kind": "historical_initial_attempt_before_user_approval",
+  "repository": "voxthanhan/wyc-lib",
+  "remote_base_commit": "41c8a29fd97b876a7206b286e6442df2e3419430",
+  "repository_verified_public": true,
+  "github_tree_created": false,
+  "github_commit_created": false,
+  "ci_run_started": false,
+  "blocked_action": "GitHub create_tree for scoped Python P2.3 source, documentation and local acceptance evidence",
+  "blocker": "Automatic approval review rejected public repository mutation/disclosure without authorization recognized for P2.3",
+  "prior_authorization": "User explicitly authorized public source update during P2.2; retrieved history did not establish a general P2.3 authorization",
+  "resolved": true,
+  "resolution": "User explicitly approved uploading P2.3 changes to the public repository and running CI in the next conversation turn: Ok. Đồng ý",
+  "next_required_decision": null,
+  "local_native_limit": "Cargo offline cache misses locked itoa 1.0.19; online cannot resolve index.crates.io. mypy is not installed locally.",
+  "not_claimed": ["P2.3 native ABI acceptance", "P2.3 CI success", "main integration", "G2", "Foundation release"]
+}

@@ -1,15 +1,21 @@
 # wyc-lib
 
+**P2.3 đạt phạm vi Python P1 tại e4424af:** CI Core/native Windows/Linux PASS,
+wheel ngoài source, NumPy/Pandas/Polars và mypy strict đạt. Chưa tích hợp main;
+bàn giao qua pull request. Xem
+[API Python](docs/API.md), [contract](docs/adr/0007-p2-python-typed.md) và
+[báo cáo P2.3](docs/acceptance/P2.3.md). P2.4–P2.6/G2/Foundation còn mở.
+
 **P2.2 đạt phạm vi Node.js P1** tại `5946286`: local Core/shared transport,
 host conversion và CI native/TypeScript Windows/Linux PASS. Đã tích hợp cùng
 commit vào main; CI main Core/native đều PASS Windows/Linux. Native local chưa xác minh; G2/Foundation
-và P2.3–P2.6 còn mở. Xem [báo cáo P2.2](docs/acceptance/P2.2.md).
+và P2.4–P2.6 còn mở. Xem [báo cáo P2.2](docs/acceptance/P2.2.md).
 
 One Analytical Core, Multiple Applications. Evidence Before Prediction.
 
 **P2.1 — native JSON pilot:** contract FFI v1, shared Rust transport và adapter
 NAPI-RS/PyO3 đã có kiểm chứng local Rust và CI native Windows/Linux.
-Node typed adapter P2.2 đã đạt; Python typed P2.3, G2 và Foundation còn mở.
+Node typed adapter P2.2 và Python typed P2.3 đã đạt; G2 và Foundation còn mở.
 Xem [báo cáo P2.1](docs/acceptance/P2.1.md),
 [contract FFI](docs/adr/0005-p2-ffi-pilot.md) và
 [cách kiểm tra](docs/DEVELOPMENT.md). Các đoạn dưới ghi lịch sử G0/G1.

@@ -1,0 +1,11 @@
+{
+  "core_rust_tests": 102,
+  "core_runner_passed": true,
+  "host_assertions": 67,
+  "replay_equal_to_p2_2": true,
+  "stub_syntax": true,
+  "python_native_format": true,
+  "python_compile": true,
+  "native_ci_run": false,
+  "local_clean_checkout": false
+}

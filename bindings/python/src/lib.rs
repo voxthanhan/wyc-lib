@@ -6,6 +6,16 @@ fn analyze_json(input: String) -> String {
     wyc_binding_contract::analyze_json(&input)
 }
 
+#[pyfunction]
+fn indicators_json(input: String) -> String {
+    wyc_binding_contract::indicators_json(&input)
+}
+
+#[pyfunction]
+fn structure_json(input: String) -> String {
+    wyc_binding_contract::structure_json(&input)
+}
+
 #[pyclass]
 struct NativeState {
     handle: Handle,
@@ -39,6 +49,8 @@ impl NativeState {
 #[pymodule]
 fn _native(module: &Bound<'_, PyModule>) -> PyResult<()> {
     module.add_function(wrap_pyfunction!(analyze_json, module)?)?;
+    module.add_function(wrap_pyfunction!(indicators_json, module)?)?;
+    module.add_function(wrap_pyfunction!(structure_json, module)?)?;
     module.add_class::<NativeState>()?;
     Ok(())
 }

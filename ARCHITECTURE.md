@@ -1,9 +1,17 @@
 # wyc-lib — Kiến trúc thực thi
 
+**P2.3 đạt phạm vi Python P1 tại e4424af:** CI native/Core Windows/Linux PASS.
+Python dict API/AnalysisState và converters
+NumPy/Pandas/Polars dùng PyO3 → shared transport → public Core P1.
+Wrapper chỉ copy/kiểm host types/ánh xạ exception, không chứa công thức.
+TypedDict/py.typed mô tả output schema; GIL giữ trong lời gọi đồng bộ.
+[ADR-0007](docs/adr/0007-p2-python-typed.md) và
+[báo cáo P2.3](docs/acceptance/P2.3.md) ghi contract và mức kiểm chứng.
+
 **P2.2 đạt phạm vi Node.js P1** tại `5946286`: local Core/shared transport,
 host conversion và CI native/TypeScript Windows/Linux PASS. Đã tích hợp cùng
 commit vào main; CI main Core/native đều PASS Windows/Linux. Native local chưa xác minh; G2/Foundation
-và P2.3–P2.6 còn mở. Xem [báo cáo P2.2](docs/acceptance/P2.2.md).
+và P2.4–P2.6 còn mở. Xem [báo cáo P2.2](docs/acceptance/P2.2.md).
 
 ## Hiện trạng P2.1 — Native JSON pilot
 
@@ -17,8 +25,8 @@ Mỗi workspace native có Cargo.lock riêng, đã đối chiếu giống nhau g
 Pilot và hợp đồng ownership/error/state tại
 [ADR-0005](docs/adr/0005-p2-ffi-pilot.md). Native addon NAPI-RS và wheel
 PyO3/Maturin đã build, cài ngoài source tree và chạy smoke trên CI Windows/Linux.
-Node object API P2.2 đã đạt, giữ JSON pilot tương thích; Python typed và
-Foundation/G2 còn ở P2.3–P2.6.
+Node object API P2.2 và Python P2.3 đã đạt, giữ JSON pilot tương thích;
+full parity/Foundation/G2 còn ở P2.4–P2.6.
 [Báo cáo P2.1](docs/acceptance/P2.1.md) ghi từng mức kiểm chứng, commit và giới hạn
 local/CI. Các đoạn P1 dưới đây giữ
 lịch sử quyết định và được phần incremental sau G1 thay thế về cách tính state.

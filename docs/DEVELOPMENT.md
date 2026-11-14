@@ -1,4 +1,45 @@
-# Phát triển và kiểm chứng P0–P2.1
+# Phát triển và kiểm chứng P0-P2.3
+
+## Quy trình tự động cho các tác vụ được giao
+
+Người dùng đã ủy quyền thường trực tại [AGENTS.md, mục 12](../AGENTS.md):
+agent tự commit/push source công khai, tạo PR, kiểm CI, sửa lỗi thuộc phạm vi,
+gộp vào main khi đúng HEAD đạt toàn bộ checks và kiểm CI sau gộp. Không hỏi lại
+xác nhận cho từng bước này; không tự mở rộng phase hoặc phát hành package.
+
+Hai workflow Core/native chạy khi push `main` hoặc `work/**`, khi PR nhắm
+`main`, và khi chạy thủ công. Không cần thêm tên nhánh mỗi lần triển khai.
+Concurrency tách theo workflow/event/ref, hủy run cũ của cùng nhánh/PR khi có
+run mới; main có group riêng theo run_id để giữ bằng chứng cho từng commit.
+
+CI mặc định luôn dùng native locks đã commit. Thiếu lock phải lỗi; chỉ cho
+bootstrap bằng input thủ công tường minh, không coi bootstrap là nghiệm thu
+locked-source. Không dùng `[skip ci]` trên PR cần checks để gộp. Tài liệu
+nghiệm thu sau CI phải ghi rõ SHA source đã kiểm chứng.
+
+Việc gộp là bước agent thực hiện sau khi kiểm đủ gates bằng GitHub connector;
+workflow CI không được cấp quyền ghi hoặc tự merge mọi PR. Quy trình này không
+thay đổi sandbox/ACL local hoặc cơ chế duyệt của nền tảng.
+
+## Kiểm chứng Python P2.3
+
+`python scripts/check_p2.py` build native bằng lock đã commit, đóng wheel và cài
+vào venv mới ngoài source. Runner kiểm plain Python trước khi cài extras, rồi
+NumPy 2.2.6/Pandas 2.2.3/Polars 1.30.0, `pip check`, mypy 1.15.0 strict và
+tests/parity/p2_python.py với direct-Core references. Kiểm JSON Node/Python,
+typed Node/TypeScript và Core cũ vẫn bắt buộc. Không publish package.
+
+`python tests/parity/p2_python_boundary.py` chỉ kiểm conversion bằng native
+stub trống, không kiểm ABI/thuật toán. Script cần NumPy/Pandas/Polars. Native
+CI chạy CPython 3.10.9, PyO3 0.23.5/Maturin 1.8.3, Rust 1.85.1, Windows x64
+MSVC và Ubuntu 24.04 x64 GNU. Không claim macOS/ARM/manylinux/abi3/CPython 3.11+.
+Kết quả và giới hạn tại [báo cáo P2.3](acceptance/P2.3.md).
+
+P2.3 đạt tại e4424af: Core/native CI Windows/Linux PASS, 72 plain và 79 extras
+native Python assertions/OS, 67 host assertions/OS, mypy strict, 83 Node typed
+assertions/OS và 40-action JSON smoke/runtime. 97 source blobs khớp local;
+43 native commands/OS exit 0, --locked, checkout sạch, không bootstrap.
+Native local chưa xác minh; source trên nhánh work/p2-3-python-adapter, chưa gộp main.
 
 ## P2.1 — Kiểm chứng shared transport và native pilot
 
@@ -30,9 +71,10 @@ CI không bootstrap chỉ đạt khi checkout sạch trước/sau; sai điều k
 
 Chỉ dùng --bootstrap-native-locks khi chủ ý tạo/cập nhật locks. Rà soát và commit
 hai Cargo.lock, chạy lại không bootstrap từ checkout sạch trước nghiệm thu.
-Bootstrap tự động khi thiếu locks vẫn được ghi locked_source_acceptance=false.
-Workflow .github/workflows/p2-pilot.yml chạy push main/work/p2-1-ffi-pilot hoặc
-workflow_dispatch trên Windows/Ubuntu; không publish npm/PyPI hoặc tạo release.
+Bootstrap chỉ bật qua workflow_dispatch khi chọn input tương ứng và vẫn ghi
+locked_source_acceptance=false. Workflow .github/workflows/p2-pilot.yml chạy
+push main/work/**, PR vào main hoặc workflow_dispatch trên Windows/Ubuntu;
+không publish npm/PyPI hoặc tạo release.
 
 Local hiện có Node 24.20.0/npm 11.19.0, CPython 3.10.9; shell không tải được
 native dependencies nên chỉ xác minh Core/shared Rust tại local. Bằng chứng

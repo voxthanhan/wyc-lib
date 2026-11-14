@@ -1,9 +1,16 @@
 # wyc-lib — Contracts 0.1.0
 
+**Python P2.3 đạt tại e4424af**, CI Core/native Windows/Linux PASS: mapping host tại
+[ADR-0007](docs/adr/0007-p2-python-typed.md): owned dict/list/tuple/NumPy,
+timestamp int an toàn, tagged numeric output, code/path exceptions và
+state close/context manager. Pandas/Polars chỉ copy tám cột tường minh.
+Không thay contract/validation/schema/config/hash của Core. Kết quả thực chạy
+tại [báo cáo P2.3](docs/acceptance/P2.3.md).
+
 **P2.2 đạt phạm vi Node.js P1** tại `5946286`: local Core/shared transport,
 host conversion và CI native/TypeScript Windows/Linux PASS. Đã tích hợp cùng
 commit vào main; CI main Core/native đều PASS Windows/Linux. Native local chưa xác minh; G2/Foundation
-và P2.3–P2.6 còn mở. Xem [báo cáo P2.2](docs/acceptance/P2.2.md).
+và P2.4–P2.6 còn mở. Xem [báo cáo P2.2](docs/acceptance/P2.2.md).
 
 ## Phạm vi và phiên bản
 
@@ -13,8 +20,8 @@ code/path exception và opaque state handle có close/GC. Không đổi schema,
 config/hash, algorithm hoặc DTO Core. Shared transport Rust có tests local;
 native Node/Python có build/ABI/package smoke trên CI Windows/Linux.
 Các đoạn FFI dự kiến ở cuối tài liệu nay được ADR này cụ thể hóa cho pilot;
-Node typed object API đã đạt ở P2.2; NumPy adapters và parity đầy đủ
-vẫn thuộc P2.3–P2.4.
+Node typed object API đã đạt ở P2.2; Python/NumPy adapters đạt ở P2.3,
+parity đầy đủ vẫn thuộc P2.4.
 
 Nguồn kiểu Rust: `crates/contracts/src/`. JSON UTF-8 dùng tên trường snake_case,
 enum là chuỗi snake_case; field lạ, thiếu field bắt buộc và enum lạ bị từ chối

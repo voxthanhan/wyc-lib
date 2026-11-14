@@ -1,5 +1,26 @@
 # Changelog
 
+## Quy trình Git/CI — 14/11/2026
+
+- Lưu ủy quyền thường trực của người dùng trong AGENTS.md cho commit/push/PR,
+  CI và tự gộp main sau khi đúng HEAD đạt kiểm tra, trong phạm vi tác vụ đã giao.
+- Core/native CI nhận `work/**` và PR vào main; concurrency hủy run cũ trên
+  nhánh/PR, giữ run main. Không cần liệt kê riêng từng nhánh phase.
+- Native CI không tự bootstrap khi thiếu lock; quyền workflow vẫn contents: read.
+
+## 0.1.0 — P2.3 Python P1, chưa phát hành
+
+- Thêm ba dict APIs và AnalysisState/context manager gọi Rust qua PyO3; giữ JSON pilot.
+- Copy-owned list/tuple/NumPy và converters Pandas/Polars; không triển khai lại thuật toán.
+- Schema PEP 561/TypedDict cho P1, tagged missing/warmup và class/code/path errors.
+- CI kiểm wheel ngoài source, plain Python không extras, NumPy/Pandas/Polars,
+  mypy strict, ownership/append/reset/close và native JSON regression Windows/Linux.
+- Core/golden/schema/config/hash/native lockfiles giữ nguyên; G2 còn mở.
+- P2.3 đạt tại e4424af: CI Core/native Windows/Linux PASS, 72 plain và 79 extras
+  Python assertions/OS, 67 host assertions/OS, mypy strict và Node/JSON regression.
+  97 source blobs khớp local; --locked/checkout sạch. Chưa tích hợp main; bàn giao PR.
+- Kết quả thực tế tại [báo cáo P2.3](docs/acceptance/P2.3.md).
+
 ## 0.1.0 — P2.2 Node.js P1, chưa phát hành
 
 - Thêm ba object APIs, AnalysisState và khai báo TypeScript đầy đủ P1; giữ JSON pilot.

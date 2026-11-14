@@ -1,0 +1,11 @@
+{
+  "phase": "P2.3",
+  "record_kind": "historical_initial_merge_attempt",
+  "resolved": true,
+  "user_authorization": "Tôi đồng ý. Hãy chỉnh lại workflow để những lần sau tự động chạy, không cần hỏi lại tôi",
+  "action": "fast-forward main from 41c8a29fd97b876a7206b286e6442df2e3419430 to e4424afb8147f4889a6b3c850ded8e862078f73e",
+  "performed": false,
+  "automatic_approval_review": "rejected",
+  "reason": "Approval covered uploading P2.3 and running CI; default main mutation was not explicitly covered. A pull request is safer.",
+  "resolution": "User approved merging PR #3 and granted standing project-scoped Git/CI authorization. Update and verify workflows before merging the current tested HEAD."
+}

@@ -1,0 +1,227 @@
+{
+  "base_commit": "41c8a29fd97b876a7206b286e6442df2e3419430",
+  "normalization": "CRLF to LF per .gitattributes",
+  "unchanged": 44,
+  "files": [
+    {
+      "path": "Cargo.lock",
+      "base_sha": "10a1bad81aeaa3d3536265e30b585daffd975ff5",
+      "local_sha": "10a1bad81aeaa3d3536265e30b585daffd975ff5"
+    },
+    {
+      "path": "Cargo.toml",
+      "base_sha": "8026572f16ed1d35d353cf6f35640c52fd827f3e",
+      "local_sha": "8026572f16ed1d35d353cf6f35640c52fd827f3e"
+    },
+    {
+      "path": "bindings/node/Cargo.lock",
+      "base_sha": "b4084dfbd4cd00aa41feeb1eae3b17ce7ed051dc",
+      "local_sha": "b4084dfbd4cd00aa41feeb1eae3b17ce7ed051dc"
+    },
+    {
+      "path": "bindings/python/Cargo.lock",
+      "base_sha": "266053bb84fe0dfc89bffff6271642b0606b32ea",
+      "local_sha": "266053bb84fe0dfc89bffff6271642b0606b32ea"
+    },
+    {
+      "path": "crates/contracts/Cargo.toml",
+      "base_sha": "daf4f4a4df326f9aaf33fe023f3968cdf36c0f16",
+      "local_sha": "daf4f4a4df326f9aaf33fe023f3968cdf36c0f16"
+    },
+    {
+      "path": "crates/contracts/src/analysis.rs",
+      "base_sha": "3bbbac8677f0859a58f328de2ff88c2d5b3cc6e5",
+      "local_sha": "3bbbac8677f0859a58f328de2ff88c2d5b3cc6e5"
+    },
+    {
+      "path": "crates/contracts/src/available.rs",
+      "base_sha": "af023e09df6775ae1bcb46e90cb2a3fd8c350395",
+      "local_sha": "af023e09df6775ae1bcb46e90cb2a3fd8c350395"
+    },
+    {
+      "path": "crates/contracts/src/error.rs",
+      "base_sha": "62baf17f10c4a09627f7c0067078b40ce947b51f",
+      "local_sha": "62baf17f10c4a09627f7c0067078b40ce947b51f"
+    },
+    {
+      "path": "crates/contracts/src/identity.rs",
+      "base_sha": "d219a86260e7ea77f4c6bbdb9cbb7eef0cd44a8e",
+      "local_sha": "d219a86260e7ea77f4c6bbdb9cbb7eef0cd44a8e"
+    },
+    {
+      "path": "crates/contracts/src/lib.rs",
+      "base_sha": "619f3b5a5ec9e87fe2d76e1950a6f370641c6f75",
+      "local_sha": "619f3b5a5ec9e87fe2d76e1950a6f370641c6f75"
+    },
+    {
+      "path": "crates/contracts/src/market.rs",
+      "base_sha": "2066648b5be65cbf7fd412f50c2d6c168fd0e28e",
+      "local_sha": "2066648b5be65cbf7fd412f50c2d6c168fd0e28e"
+    },
+    {
+      "path": "crates/contracts/src/report.rs",
+      "base_sha": "a521819477bde5adf40e5b8d09b55d00fa01fde0",
+      "local_sha": "a521819477bde5adf40e5b8d09b55d00fa01fde0"
+    },
+    {
+      "path": "crates/contracts/src/result.rs",
+      "base_sha": "9a611e8eb63633cb3908f3ec02cf976269301e2b",
+      "local_sha": "9a611e8eb63633cb3908f3ec02cf976269301e2b"
+    },
+    {
+      "path": "crates/contracts/src/value.rs",
+      "base_sha": "dcb136a0a6833c1b6e5a2fdf10cf3592567187e1",
+      "local_sha": "dcb136a0a6833c1b6e5a2fdf10cf3592567187e1"
+    },
+    {
+      "path": "crates/indicators/Cargo.toml",
+      "base_sha": "6e2459dbaf681a31a1e80f6667e9dfa1bbba7346",
+      "local_sha": "6e2459dbaf681a31a1e80f6667e9dfa1bbba7346"
+    },
+    {
+      "path": "crates/indicators/src/advanced.rs",
+      "base_sha": "a23b083850dddd94ddcb4fa754a751d7ad0c6356",
+      "local_sha": "a23b083850dddd94ddcb4fa754a751d7ad0c6356"
+    },
+    {
+      "path": "crates/indicators/src/basic.rs",
+      "base_sha": "a6c52c1e0f4ce87eaf3ed006b603ebea41d4b407",
+      "local_sha": "a6c52c1e0f4ce87eaf3ed006b603ebea41d4b407"
+    },
+    {
+      "path": "crates/indicators/src/basic_state.rs",
+      "base_sha": "15d6c5b5ce0e7bea6238f46b3486f1003e54e757",
+      "local_sha": "15d6c5b5ce0e7bea6238f46b3486f1003e54e757"
+    },
+    {
+      "path": "crates/indicators/src/incremental.rs",
+      "base_sha": "ba29917054fa8bf8ad1edf4d1b7d97433852b6a4",
+      "local_sha": "ba29917054fa8bf8ad1edf4d1b7d97433852b6a4"
+    },
+    {
+      "path": "crates/indicators/src/lib.rs",
+      "base_sha": "50e1de4eaa12f327f9f4c3c1458a10c753d82314",
+      "local_sha": "50e1de4eaa12f327f9f4c3c1458a10c753d82314"
+    },
+    {
+      "path": "crates/indicators/src/rolling.rs",
+      "base_sha": "4308e89ab4a6908c50ef97c3a436cfdb58a1096c",
+      "local_sha": "4308e89ab4a6908c50ef97c3a436cfdb58a1096c"
+    },
+    {
+      "path": "crates/market_structure/Cargo.toml",
+      "base_sha": "afadd26ea9cbc1c4f5bf191bc4f9bd7c28cabc2a",
+      "local_sha": "afadd26ea9cbc1c4f5bf191bc4f9bd7c28cabc2a"
+    },
+    {
+      "path": "crates/market_structure/src/lib.rs",
+      "base_sha": "0c69ad9dac7a2083e06efa5d85f414cd8e5a9283",
+      "local_sha": "0c69ad9dac7a2083e06efa5d85f414cd8e5a9283"
+    },
+    {
+      "path": "crates/wyc_lib/Cargo.toml",
+      "base_sha": "9fb318713ed2ed0a84faad8b50f67477cd7530fa",
+      "local_sha": "9fb318713ed2ed0a84faad8b50f67477cd7530fa"
+    },
+    {
+      "path": "crates/wyc_lib/src/lib.rs",
+      "base_sha": "4077113b11acc91e54b800d18ea604da6b5eac0a",
+      "local_sha": "4077113b11acc91e54b800d18ea604da6b5eac0a"
+    },
+    {
+      "path": "crates/wyc_lib/src/orchestration.rs",
+      "base_sha": "ca83ba4dc9fa2257fb1a1842252214c24e13515b",
+      "local_sha": "ca83ba4dc9fa2257fb1a1842252214c24e13515b"
+    },
+    {
+      "path": "crates/wyc_lib/src/preparation.rs",
+      "base_sha": "f40cf5d3584500233c95b404622f46a1deab73f7",
+      "local_sha": "f40cf5d3584500233c95b404622f46a1deab73f7"
+    },
+    {
+      "path": "crates/wyc_lib/src/state.rs",
+      "base_sha": "a858950cbd7ebe8b20d2666eb7734c9605d004d3",
+      "local_sha": "a858950cbd7ebe8b20d2666eb7734c9605d004d3"
+    },
+    {
+      "path": "tests/fixtures/README.md",
+      "base_sha": "289f8401562ca8b95932da0e962f0ce748aa1e66",
+      "local_sha": "289f8401562ca8b95932da0e962f0ce748aa1e66"
+    },
+    {
+      "path": "tests/fixtures/manifest.json",
+      "base_sha": "217e6ea660ce6e3fd17912d553d24b7c584dcf13",
+      "local_sha": "217e6ea660ce6e3fd17912d553d24b7c584dcf13"
+    },
+    {
+      "path": "tests/fixtures/p1-advanced.json",
+      "base_sha": "a48c31c2761669eda1d288a7f855ab1b38291deb",
+      "local_sha": "a48c31c2761669eda1d288a7f855ab1b38291deb"
+    },
+    {
+      "path": "tests/fixtures/p1-arithmetic.json",
+      "base_sha": "2609f6e8026581f178d213b943b546ea910dcb33",
+      "local_sha": "2609f6e8026581f178d213b943b546ea910dcb33"
+    },
+    {
+      "path": "tests/fixtures/p1-basic.json",
+      "base_sha": "bf9ca697a0873620b33acc653876f89e43f79735",
+      "local_sha": "bf9ca697a0873620b33acc653876f89e43f79735"
+    },
+    {
+      "path": "tests/fixtures/p1-identity.json",
+      "base_sha": "635941d02168d8fc9eb915e0e4be7741b695a1b5",
+      "local_sha": "635941d02168d8fc9eb915e0e4be7741b695a1b5"
+    },
+    {
+      "path": "tests/fixtures/p1-rolling.json",
+      "base_sha": "c8f62cb6ed9b7ac53a4caaa7de587670c9a38592",
+      "local_sha": "c8f62cb6ed9b7ac53a4caaa7de587670c9a38592"
+    },
+    {
+      "path": "tests/fixtures/p1-structure.json",
+      "base_sha": "9d1d6445eb32c38ead488853bb788cbccb435d88",
+      "local_sha": "9d1d6445eb32c38ead488853bb788cbccb435d88"
+    },
+    {
+      "path": "tests/fixtures/temporal.json",
+      "base_sha": "a7b9a6a7048a48fda9e52f764c50f87d377ca168",
+      "local_sha": "a7b9a6a7048a48fda9e52f764c50f87d377ca168"
+    },
+    {
+      "path": "tests/golden/p1-advanced.json",
+      "base_sha": "287e2a59171d4a01fb2f0e0fada604c8d0b73180",
+      "local_sha": "287e2a59171d4a01fb2f0e0fada604c8d0b73180"
+    },
+    {
+      "path": "tests/golden/p1-arithmetic.json",
+      "base_sha": "b7e1ecfd219c77d095cc483c4532d97c362d177d",
+      "local_sha": "b7e1ecfd219c77d095cc483c4532d97c362d177d"
+    },
+    {
+      "path": "tests/golden/p1-basic.json",
+      "base_sha": "28606162b8629772f3c7ed3c2c375d242b32b4a3",
+      "local_sha": "28606162b8629772f3c7ed3c2c375d242b32b4a3"
+    },
+    {
+      "path": "tests/golden/p1-identity.json",
+      "base_sha": "82ebd60a41e24bfcfea9a6dd5a0ec78a11cf6ecc",
+      "local_sha": "82ebd60a41e24bfcfea9a6dd5a0ec78a11cf6ecc"
+    },
+    {
+      "path": "tests/golden/p1-rolling.json",
+      "base_sha": "eb0ee103abfb1b33bdffdfe6075bc1a1c67205c9",
+      "local_sha": "eb0ee103abfb1b33bdffdfe6075bc1a1c67205c9"
+    },
+    {
+      "path": "tests/golden/p1-structure.json",
+      "base_sha": "7d85748f573278a06b763faf0f806ee6faf2e864",
+      "local_sha": "7d85748f573278a06b763faf0f806ee6faf2e864"
+    },
+    {
+      "path": "tests/golden/temporal.json",
+      "base_sha": "24686a36add6167885d2bcdaac1a5320c32ddb24",
+      "local_sha": "24686a36add6167885d2bcdaac1a5320c32ddb24"
+    }
+  ]
+}
