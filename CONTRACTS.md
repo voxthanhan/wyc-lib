@@ -4,6 +4,8 @@ P2.4 không thay contract/schema/config/hash hoặc thuật toán. Bộ parity k
 chính xác shape/status/mask/ID/time/error code/path và dùng tolerance P1 cho số
 thực qua FFI; input host ngoài DTO chung được kiểm bằng boundary tests riêng.
 [Protocol kiểm chứng](tests/parity/README.md), [báo cáo P2.4](docs/acceptance/P2.4.md).
+P2.4 đã đạt trên CI push/PR tại `7aea33e` và main tại `8df94f5`, Windows/Linux;
+4.409 actions/runtime, 2.514 equivalences, 57 ca lỗi thuộc 17 codes.
 
 P2.3 đã tích hợp main tại `46041c6` qua PR #3; CI main Core/native PASS
 Windows/Linux, không đổi Core/schema/config/hash. Quy trình Git/CI đã được
@@ -19,7 +21,7 @@ tại [báo cáo P2.3](docs/acceptance/P2.3.md).
 **P2.2 đạt phạm vi Node.js P1** tại `5946286`: local Core/shared transport,
 host conversion và CI native/TypeScript Windows/Linux PASS. Đã tích hợp cùng
 commit vào main; CI main Core/native đều PASS Windows/Linux. Native local chưa xác minh; G2/Foundation
-và P2.4–P2.6 còn mở. Xem [báo cáo P2.2](docs/acceptance/P2.2.md).
+và P2.5–P2.6 còn mở. Xem [báo cáo P2.2](docs/acceptance/P2.2.md).
 
 ## Phạm vi và phiên bản
 
@@ -30,7 +32,7 @@ config/hash, algorithm hoặc DTO Core. Shared transport Rust có tests local;
 native Node/Python có build/ABI/package smoke trên CI Windows/Linux.
 Các đoạn FFI dự kiến ở cuối tài liệu nay được ADR này cụ thể hóa cho pilot;
 Node typed object API đã đạt ở P2.2; Python/NumPy adapters đạt ở P2.3,
-parity đầy đủ vẫn thuộc P2.4.
+bộ parity P2.4 đã đạt theo protocol ở trên.
 
 Nguồn kiểu Rust: `crates/contracts/src/`. JSON UTF-8 dùng tên trường snake_case,
 enum là chuỗi snake_case; field lạ, thiếu field bắt buộc và enum lạ bị từ chối

@@ -1,14 +1,15 @@
 # wyc-lib
 
-**P2.4 đang kiểm chứng:** ma trận parity chung Rust–Node.js–Python cho 39 ca
-fixtures, batch/update/reset và lỗi. Xem [bộ parity](tests/parity/README.md) và
+**P2.4 đã đạt:** parity Rust–Node.js–Python cho 39 ca, 4.409 actions/runtime,
+batch/update/reset và 57 ca lỗi. PR #4 đã gộp tại `8df94f5`; CI Core/native main
+Windows/Linux PASS. Xem [bộ parity](tests/parity/README.md) và
 [báo cáo P2.4](docs/acceptance/P2.4.md). P2.5–P2.6/G2/Foundation chưa nghiệm thu.
 
 **P2.3 đạt phạm vi Python P1 tại e4424af:** CI Core/native Windows/Linux PASS,
 wheel ngoài source, NumPy/Pandas/Polars và mypy strict đạt. Đã gộp PR #3 vào
 main tại `46041c6`; CI main Core/native đều PASS Windows/Linux. Xem
 [API Python](docs/API.md), [contract](docs/adr/0007-p2-python-typed.md) và
-[báo cáo P2.3](docs/acceptance/P2.3.md). P2.4–P2.6/G2/Foundation còn mở.
+[báo cáo P2.3](docs/acceptance/P2.3.md). P2.5–P2.6/G2/Foundation còn mở.
 
 Quy trình Git/CI đã được ủy quyền thường trực tại [AGENTS.md, mục 12](AGENTS.md):
 agent tự commit/push/PR, kiểm CI và gộp main khi đúng HEAD đạt đủ checks cho
@@ -18,7 +19,7 @@ tác vụ được giao, không hỏi lại từng bước. CI nhận `work/**` 
 **P2.2 đạt phạm vi Node.js P1** tại `5946286`: local Core/shared transport,
 host conversion và CI native/TypeScript Windows/Linux PASS. Đã tích hợp cùng
 commit vào main; CI main Core/native đều PASS Windows/Linux. Native local chưa xác minh; G2/Foundation
-và P2.4–P2.6 còn mở. Xem [báo cáo P2.2](docs/acceptance/P2.2.md).
+và P2.5–P2.6 còn mở. Xem [báo cáo P2.2](docs/acceptance/P2.2.md).
 
 One Analytical Core, Multiple Applications. Evidence Before Prediction.
 

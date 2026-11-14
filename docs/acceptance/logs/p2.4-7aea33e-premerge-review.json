@@ -1,0 +1,101 @@
+{
+  "pr": 4,
+  "head_sha": "7aea33e20cbba07dfecce20b878bb7e654782df7",
+  "base_sha": "20a45d2cac7c39d44c452231c0b36bfc207767d5",
+  "main_sha": "20a45d2cac7c39d44c452231c0b36bfc207767d5",
+  "mergeable": true,
+  "changed_files": 29,
+  "scope_paths": [
+    "ARCHITECTURE.md",
+    "CHANGELOG.md",
+    "CONTRACTS.md",
+    "IMPLEMENTATION_PLAN.md",
+    "README.md",
+    "docs/API.md",
+    "docs/DEVELOPMENT.md",
+    "scripts/check_p2.py",
+    "scripts/verify_workspace.py",
+    "tests/parity/README.md",
+    "bindings/ffi/src/bin/p2_parity_reference.rs",
+    "docs/acceptance/P2.4.md",
+    "scripts/p2_parity.py",
+    "scripts/test_p2_parity.py",
+    "tests/parity/p2_parity.cjs",
+    "tests/parity/p2_parity.py",
+    "docs/acceptance/logs/p2.4-windows/summary.json",
+    "docs/acceptance/logs/p2.4-windows/test.txt",
+    "docs/acceptance/logs/p2.4-windows/oracle.txt",
+    "docs/acceptance/logs/p2.4-windows/artifact-verifier.txt",
+    "docs/acceptance/logs/p2.4-windows/workspace.txt",
+    "docs/acceptance/logs/p2.4-windows/clippy.txt",
+    "docs/acceptance/logs/p2.4-windows/build.txt",
+    "docs/acceptance/logs/p2.4-windows/format.txt",
+    "docs/acceptance/logs/p2.4-windows/parity-core.json",
+    "docs/acceptance/logs/p2.4-windows/parity-controls.txt",
+    "docs/acceptance/logs/p2.4-windows/native-local-summary.json",
+    "docs/acceptance/logs/p2.4-windows/native-local-blocker.txt",
+    "docs/acceptance/logs/p2.4-windows/workspace-final.txt"
+  ],
+  "source_files_match": 102,
+  "branch_tree": "fbb5c6cc0509eed07c362fe8e2bd1228ab84f354",
+  "pr_merge_ref_tree": "fbb5c6cc0509eed07c362fe8e2bd1228ab84f354",
+  "checks": [
+    {
+      "name": "native-pilot (ubuntu-24.04)",
+      "head_sha": "7aea33e20cbba07dfecce20b878bb7e654782df7",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/voxthanhan/wyc-lib/actions/runs/43601811455/job/132467965309"
+    },
+    {
+      "name": "native-pilot (windows-latest)",
+      "head_sha": "7aea33e20cbba07dfecce20b878bb7e654782df7",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/voxthanhan/wyc-lib/actions/runs/43601811455/job/132467965135"
+    },
+    {
+      "name": "foundation (windows-latest)",
+      "head_sha": "7aea33e20cbba07dfecce20b878bb7e654782df7",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/voxthanhan/wyc-lib/actions/runs/43601811440/job/132467964846"
+    },
+    {
+      "name": "foundation (ubuntu-24.04)",
+      "head_sha": "7aea33e20cbba07dfecce20b878bb7e654782df7",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/voxthanhan/wyc-lib/actions/runs/43601811440/job/132467964662"
+    },
+    {
+      "name": "foundation (ubuntu-24.04)",
+      "head_sha": "7aea33e20cbba07dfecce20b878bb7e654782df7",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/voxthanhan/wyc-lib/actions/runs/43601799475/job/132467928797"
+    },
+    {
+      "name": "native-pilot (ubuntu-24.04)",
+      "head_sha": "7aea33e20cbba07dfecce20b878bb7e654782df7",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/voxthanhan/wyc-lib/actions/runs/43601799502/job/132467928794"
+    },
+    {
+      "name": "native-pilot (windows-latest)",
+      "head_sha": "7aea33e20cbba07dfecce20b878bb7e654782df7",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/voxthanhan/wyc-lib/actions/runs/43601799502/job/132467928652"
+    },
+    {
+      "name": "foundation (windows-latest)",
+      "head_sha": "7aea33e20cbba07dfecce20b878bb7e654782df7",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/voxthanhan/wyc-lib/actions/runs/43601799475/job/132467928548"
+    }
+  ],
+  "all_gates_passed": true
+}

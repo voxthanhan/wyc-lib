@@ -163,11 +163,16 @@ State bản đầu ưu tiên reset và replay toàn bộ khi lịch sử sửa �
 
 ### P2 — Node.js và Python Bindings; Foundation Release
 
-**P2.4 đang kiểm chứng (14/11/2026):** bộ parity chung 39 ca fixtures,
+**P2.4 đã đạt (14/11/2026):** bộ parity chung 39 ca fixtures,
 direct public Rust Core reference, typed Node/Python từ package đã cài;
 batch/single-module/update/reset, lỗi, ownership, availability/revision replay.
 Không thay Core/schema/config/hash/golden. Phạm vi, kết quả thực chạy và giới hạn
 tại [báo cáo P2.4](docs/acceptance/P2.4.md); P2.5–P2.6/G2/Foundation còn mở.
+Commit `7aea33e` đạt Core/native CI push/PR Windows/Linux; PR #4 gộp main
+`8df94f5`, CI main Core 43602436859 và native 43602436917 đều PASS hai OS.
+4.409 actions/runtime, 2.514 equivalences, 57 ca lỗi/17 codes; 48 commands/native
+job, 102 Rust tests/OS, 102 source blobs khớp local/commit CI. Native local chưa
+xác minh do thiếu maturin; P2.4 không nghiệm thu thay P2.5/P2.6 hoặc G2.
 
 **P2.3 đạt tại e4424af (14/11/2026):** Python API P1, AnalysisState, NumPy và
 converters Pandas/Polars đã triển khai theo [ADR-0007](docs/adr/0007-p2-python-typed.md).
@@ -179,7 +184,7 @@ PASS Windows/Linux với cùng tests/gates. Quy trình commit/push/CI/merge cho
 tác vụ được giao đã được ủy quyền thường trực tại AGENTS.md mục 12;
 [nghiệm thu workflow](docs/acceptance/Git-CI-workflow.md) lưu bằng chứng.
 Kết quả thực chạy và giới hạn tại [báo cáo P2.3](docs/acceptance/P2.3.md).
-P2.4–P2.6/G2/Foundation còn mở.
+P2.5–P2.6/G2/Foundation còn mở.
 
 **Mục tiêu:** cùng một thuật toán Rust có thể dùng ổn định từ hai ngôn ngữ mà không thay đổi semantics dữ liệu hoặc thời gian.
 

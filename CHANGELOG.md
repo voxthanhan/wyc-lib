@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.0 — P2.4 parity, đang kiểm chứng
+## 0.1.0 — P2.4 parity, chưa phát hành
 
 - Thêm ma trận 39 ca fixtures qua direct Core reference và typed Node/Python,
   batch/single-module/update/reset, replay availability và revision/reset.
@@ -8,6 +8,10 @@
   input/output ownership, lỗi atomic, recovery và năm comparator controls.
 - Native runner bắt buộc parity report trên Windows/Linux từ packages đã cài.
   Không đổi engine/bindings/lockfiles/golden; P2.5–P2.6/G2 còn mở.
+- P2.4 đạt tại `7aea33e`, PR #4 gộp main `8df94f5`; Core/native CI push/PR/main
+  Windows/Linux PASS. 4.409 actions/runtime, 2.514 equivalences, 57 ca lỗi/17 codes;
+  48 native commands/job, 102 Rust tests/OS, source/checkout sạch khớp nghiệm thu.
+- [Báo cáo P2.4](docs/acceptance/P2.4.md) lưu SHA/run/checksum và giới hạn local/ZIP.
 
 ## Quy trình Git/CI — 14/11/2026
 

@@ -1,0 +1,13 @@
+{
+  "source_commit": "7aea33e20cbba07dfecce20b878bb7e654782df7",
+  "pr_merge_ref": "a57027eecc54ffe55c1fd74dcdb154f041f2192b",
+  "main_commit": "8df94f5cd4da9bca387248523ea201bdef0bc031",
+  "tree": "fbb5c6cc0509eed07c362fe8e2bd1228ab84f354",
+  "same_tree_as_accepted_branch": true,
+  "source_blob_matches": 102,
+  "all_source_blobs_match": true,
+  "branch_comparison_file": "p2.4-7aea33e-source-comparison.json",
+  "main_linux_parity_summary_equals_branch": true,
+  "main_windows_parity_summary_equals_branch": true,
+  "binary_byte_reproducibility_claimed": false
+}
