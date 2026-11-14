@@ -5,6 +5,8 @@ AnalysisState, độc lập shared transport đang được kiểm thử. Hai dr
 Node/Python chạy cùng actions từ package đã cài ngoài source. Bộ tạo/comparator
 chỉ thuộc test harness, không thêm công thức hoặc runtime dependency cho Core.
 [Protocol parity](tests/parity/README.md), [báo cáo](docs/acceptance/P2.4.md).
+P2.4 đã đạt tại `7aea33e`, gộp main `8df94f5`; CI Core/native Windows/Linux
+PASS cả push/PR/main. P2.5–P2.6/G2/Foundation còn mở.
 
 **P2.3 đạt phạm vi Python P1 tại e4424af:** CI native/Core Windows/Linux PASS.
 Đã tích hợp main tại `46041c6` qua PR #3; CI main Core/native đều PASS hai OS.
@@ -18,7 +20,7 @@ TypedDict/py.typed mô tả output schema; GIL giữ trong lời gọi đồng b
 **P2.2 đạt phạm vi Node.js P1** tại `5946286`: local Core/shared transport,
 host conversion và CI native/TypeScript Windows/Linux PASS. Đã tích hợp cùng
 commit vào main; CI main Core/native đều PASS Windows/Linux. Native local chưa xác minh; G2/Foundation
-và P2.4–P2.6 còn mở. Xem [báo cáo P2.2](docs/acceptance/P2.2.md).
+và P2.5–P2.6 còn mở. Xem [báo cáo P2.2](docs/acceptance/P2.2.md).
 
 ## Hiện trạng P2.1 — Native JSON pilot
 
@@ -33,7 +35,7 @@ Pilot và hợp đồng ownership/error/state tại
 [ADR-0005](docs/adr/0005-p2-ffi-pilot.md). Native addon NAPI-RS và wheel
 PyO3/Maturin đã build, cài ngoài source tree và chạy smoke trên CI Windows/Linux.
 Node object API P2.2 và Python P2.3 đã đạt, giữ JSON pilot tương thích;
-full parity/Foundation/G2 còn ở P2.4–P2.6.
+parity P2.4 đã đạt; Foundation/G2 còn chờ P2.5–P2.6.
 [Báo cáo P2.1](docs/acceptance/P2.1.md) ghi từng mức kiểm chứng, commit và giới hạn
 local/CI. Các đoạn P1 dưới đây giữ
 lịch sử quyết định và được phần incremental sau G1 thay thế về cách tính state.

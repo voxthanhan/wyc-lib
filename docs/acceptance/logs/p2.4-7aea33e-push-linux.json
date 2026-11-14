@@ -1,0 +1,670 @@
+{
+  "run_id": 43601799502,
+  "job_id": 132467928794,
+  "source_head_sha": "7aea33e20cbba07dfecce20b878bb7e654782df7",
+  "core_rust_tests": 102,
+  "summary": {
+    "started_at_utc": "2026-11-14T13:52:04.206709+00:00",
+    "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+    "python": "3.10.9 (main, Oct  3 2024, 05:05:25) [GCC 13.2.0]",
+    "checks": [
+      {
+        "name": "commit",
+        "command": [
+          "git",
+          "rev-parse",
+          "HEAD"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "status-before",
+        "command": [
+          "git",
+          "status",
+          "--porcelain"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "node-version",
+        "command": [
+          "node",
+          "--version"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "npm-version",
+        "command": [
+          "/opt/hostedtoolcache/node/22.22.0/x64/bin/npm",
+          "--version"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "node-host-boundary",
+        "command": [
+          "node",
+          "/home/runner/work/wyc-lib/wyc-lib/tests/parity/p2_node_boundary.cjs"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "parity-controls",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.10.9/x64/bin/python",
+          "/home/runner/work/wyc-lib/wyc-lib/scripts/test_p2_parity.py"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "maturin-version",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.10.9/x64/bin/python",
+          "-m",
+          "maturin",
+          "--version"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "node-format",
+        "command": [
+          "cargo",
+          "fmt",
+          "--manifest-path",
+          "/home/runner/work/wyc-lib/wyc-lib/bindings/node/Cargo.toml",
+          "--",
+          "--check"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "node-clippy",
+        "command": [
+          "cargo",
+          "clippy",
+          "--manifest-path",
+          "/home/runner/work/wyc-lib/wyc-lib/bindings/node/Cargo.toml",
+          "--locked",
+          "--all-targets",
+          "--",
+          "-D",
+          "warnings"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "python-format",
+        "command": [
+          "cargo",
+          "fmt",
+          "--manifest-path",
+          "/home/runner/work/wyc-lib/wyc-lib/bindings/python/Cargo.toml",
+          "--",
+          "--check"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "python-clippy",
+        "command": [
+          "cargo",
+          "clippy",
+          "--manifest-path",
+          "/home/runner/work/wyc-lib/wyc-lib/bindings/python/Cargo.toml",
+          "--locked",
+          "--all-targets",
+          "--",
+          "-D",
+          "warnings"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "node-build",
+        "command": [
+          "cargo",
+          "build",
+          "--manifest-path",
+          "/home/runner/work/wyc-lib/wyc-lib/bindings/node/Cargo.toml",
+          "--locked",
+          "--release",
+          "--target-dir",
+          "/tmp/wyc-p2-consumer-yg1bvpu1/target"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "npm-pack",
+        "command": [
+          "/opt/hostedtoolcache/node/22.22.0/x64/bin/npm",
+          "pack",
+          "--json",
+          "--ignore-scripts",
+          "--pack-destination",
+          "/tmp/wyc-p2-consumer-yg1bvpu1"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "npm-install",
+        "command": [
+          "/opt/hostedtoolcache/node/22.22.0/x64/bin/npm",
+          "install",
+          "--ignore-scripts",
+          "--no-audit",
+          "--no-fund",
+          "/tmp/wyc-p2-consumer-yg1bvpu1/wyc-lib-0.1.0.tgz"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "wheel-build",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.10.9/x64/bin/python",
+          "-m",
+          "maturin",
+          "build",
+          "--manifest-path",
+          "/home/runner/work/wyc-lib/wyc-lib/bindings/python/Cargo.toml",
+          "--locked",
+          "--release",
+          "--interpreter",
+          "/opt/hostedtoolcache/Python/3.10.9/x64/bin/python",
+          "--out",
+          "/tmp/wyc-p2-consumer-yg1bvpu1/wheels",
+          "--compatibility",
+          "linux"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "venv",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.10.9/x64/bin/python",
+          "-m",
+          "venv",
+          "/tmp/wyc-p2-consumer-yg1bvpu1/consumer-venv"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "wheel-install",
+        "command": [
+          "/tmp/wyc-p2-consumer-yg1bvpu1/consumer-venv/bin/python",
+          "-m",
+          "pip",
+          "install",
+          "--no-index",
+          "--no-deps",
+          "/tmp/wyc-p2-consumer-yg1bvpu1/wheels/wyc_lib-0.1.0-cp310-cp310-linux_x86_64.whl"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-build",
+        "command": [
+          "cargo",
+          "build",
+          "--locked",
+          "--package",
+          "wyc-binding-contract",
+          "--bin",
+          "p2_reference",
+          "--target-dir",
+          "/tmp/wyc-p2-consumer-yg1bvpu1/target"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "parity-reference-build",
+        "command": [
+          "cargo",
+          "build",
+          "--locked",
+          "--package",
+          "wyc-binding-contract",
+          "--bin",
+          "p2_parity_reference",
+          "--target-dir",
+          "/tmp/wyc-p2-consumer-yg1bvpu1/target"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "parity-rust",
+        "command": [
+          "/tmp/wyc-p2-consumer-yg1bvpu1/target/debug/p2_parity_reference"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "parity-node",
+        "command": [
+          "node",
+          "p2_parity.cjs",
+          "/tmp/wyc-p2-consumer-yg1bvpu1/consumer/parity-actions.json"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "parity-python",
+        "command": [
+          "/tmp/wyc-p2-consumer-yg1bvpu1/consumer-venv/bin/python",
+          "p2_parity.py",
+          "/tmp/wyc-p2-consumer-yg1bvpu1/consumer/parity-actions.json"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-batch-full",
+        "command": [
+          "/tmp/wyc-p2-consumer-yg1bvpu1/target/debug/p2_reference"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-batch-empty",
+        "command": [
+          "/tmp/wyc-p2-consumer-yg1bvpu1/target/debug/p2_reference"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-unicode",
+        "command": [
+          "/tmp/wyc-p2-consumer-yg1bvpu1/target/debug/p2_reference"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-zero-volume",
+        "command": [
+          "/tmp/wyc-p2-consumer-yg1bvpu1/target/debug/p2_reference"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-initial-result",
+        "command": [
+          "/tmp/wyc-p2-consumer-yg1bvpu1/target/debug/p2_reference"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-after-bad-update",
+        "command": [
+          "/tmp/wyc-p2-consumer-yg1bvpu1/target/debug/p2_reference"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-after-bad-reset",
+        "command": [
+          "/tmp/wyc-p2-consumer-yg1bvpu1/target/debug/p2_reference"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-append-3",
+        "command": [
+          "/tmp/wyc-p2-consumer-yg1bvpu1/target/debug/p2_reference"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-append-4",
+        "command": [
+          "/tmp/wyc-p2-consumer-yg1bvpu1/target/debug/p2_reference"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-append-5",
+        "command": [
+          "/tmp/wyc-p2-consumer-yg1bvpu1/target/debug/p2_reference"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-owned-result",
+        "command": [
+          "/tmp/wyc-p2-consumer-yg1bvpu1/target/debug/p2_reference"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-independent-result",
+        "command": [
+          "/tmp/wyc-p2-consumer-yg1bvpu1/target/debug/p2_reference"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-revision-reset",
+        "command": [
+          "/tmp/wyc-p2-consumer-yg1bvpu1/target/debug/p2_reference"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-old-handle-unchanged",
+        "command": [
+          "/tmp/wyc-p2-consumer-yg1bvpu1/target/debug/p2_reference"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "typescript-install",
+        "command": [
+          "/opt/hostedtoolcache/node/22.22.0/x64/bin/npm",
+          "install",
+          "--ignore-scripts",
+          "--no-audit",
+          "--no-fund",
+          "--save-dev",
+          "--save-exact",
+          "typescript@5.7.3"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "typescript-strict",
+        "command": [
+          "node",
+          "/tmp/wyc-p2-consumer-yg1bvpu1/consumer/node_modules/typescript/bin/tsc",
+          "--strict",
+          "--noEmit",
+          "--target",
+          "ES2022",
+          "--module",
+          "node16",
+          "--moduleResolution",
+          "node16",
+          "p2_node_types.ts"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "node-typed",
+        "command": [
+          "node",
+          "--expose-gc",
+          "p2_node.cjs",
+          "/tmp/wyc-p2-consumer-yg1bvpu1/consumer/typed-input.json"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "python-plain",
+        "command": [
+          "/tmp/wyc-p2-consumer-yg1bvpu1/consumer-venv/bin/python",
+          "p2_python.py",
+          "/tmp/wyc-p2-consumer-yg1bvpu1/consumer/typed-input.json"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "python-extras-install",
+        "command": [
+          "/tmp/wyc-p2-consumer-yg1bvpu1/consumer-venv/bin/python",
+          "-m",
+          "pip",
+          "install",
+          "numpy==2.2.6",
+          "pandas==2.2.3",
+          "polars==1.30.0",
+          "mypy==1.15.0"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "python-dependencies",
+        "command": [
+          "/tmp/wyc-p2-consumer-yg1bvpu1/consumer-venv/bin/python",
+          "-m",
+          "pip",
+          "check"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "python-types",
+        "command": [
+          "/tmp/wyc-p2-consumer-yg1bvpu1/consumer-venv/bin/python",
+          "-m",
+          "mypy",
+          "--strict",
+          "--no-incremental",
+          "p2_python_types.py"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "python-typed",
+        "command": [
+          "/tmp/wyc-p2-consumer-yg1bvpu1/consumer-venv/bin/python",
+          "p2_python.py",
+          "/tmp/wyc-p2-consumer-yg1bvpu1/consumer/typed-input.json",
+          "--extras"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "python-host",
+        "command": [
+          "/tmp/wyc-p2-consumer-yg1bvpu1/consumer-venv/bin/python",
+          "/home/runner/work/wyc-lib/wyc-lib/tests/parity/p2_python_boundary.py"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "node-smoke",
+        "command": [
+          "node",
+          "--expose-gc",
+          "smoke.cjs",
+          "/tmp/wyc-p2-consumer-yg1bvpu1/consumer/actions.json"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "python-smoke",
+        "command": [
+          "/tmp/wyc-p2-consumer-yg1bvpu1/consumer-venv/bin/python",
+          "smoke.py",
+          "/tmp/wyc-p2-consumer-yg1bvpu1/consumer/actions.json"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "status-after",
+        "command": [
+          "git",
+          "status",
+          "--porcelain"
+        ],
+        "exit_code": 0
+      }
+    ],
+    "passed": true,
+    "native_locks_bootstrapped": false,
+    "consumer_outside_source": true,
+    "locked_source_acceptance": true,
+    "commit": "7aea33e20cbba07dfecce20b878bb7e654782df7",
+    "clean_before": true,
+    "parity": {
+      "node": {
+        "passed": true,
+        "actions": 4409,
+        "fixture_cases": 39,
+        "equivalences": 2514,
+        "errors": {
+          "declared_gap": 3,
+          "duplicate_module": 3,
+          "duplicate_timestamp": 4,
+          "invalid_availability": 5,
+          "invalid_config": 3,
+          "invalid_metadata": 3,
+          "invalid_ohlc": 3,
+          "length_mismatch": 3,
+          "missing_data": 4,
+          "negative_volume": 3,
+          "numeric_overflow": 4,
+          "reset_required": 1,
+          "revision_not_available": 3,
+          "state_mismatch": 6,
+          "unordered_timestamp": 3,
+          "unsupported_module": 3,
+          "unsupported_version": 3
+        },
+        "operations": {
+          "batch": 2574,
+          "indicators": 39,
+          "structure": 39,
+          "new": 161,
+          "update": 1395,
+          "identity": 129,
+          "reset": 56,
+          "result": 16
+        },
+        "fixture_sha256": {
+          "tests/fixtures/temporal.json": "1b8ed2871b24929b93de8dc5fa0861361290680fafd7e2bacb0bc493096c0c2a",
+          "tests/golden/temporal.json": "23d97e3bf10048882601608ab3450e933dccfabfa76d3dddfea0c8116c7938dc",
+          "tests/fixtures/p1-arithmetic.json": "625022a44578cb49fb950db100ff724156024f29b7f2d316f8c746fcd81132e6",
+          "tests/golden/p1-arithmetic.json": "31e6ad587aef81c9f3c015fb7cc6ef28af1bde0d47d79b5c5caf0b93866b71ac",
+          "tests/fixtures/p1-identity.json": "7246f3dea4670d633b46605d785f384dacc9af7a3a2705bfd222a191b53b5777",
+          "tests/golden/p1-identity.json": "2661abf2f4419a8fc95faa6355a06e6d8f01c41642dc431a0307b62e7d0255d5",
+          "tests/fixtures/p1-rolling.json": "20018089a4c037149660b0597720cdcc915abaff9a407aa23f92e14fac025488",
+          "tests/golden/p1-rolling.json": "947f1641a8f2be8721314c49c1f8ab6c9ecadcba47bdf370f2d1a567489affe2",
+          "tests/fixtures/p1-basic.json": "6480b884ebc27816fa4bc78a85435eca0fde24d3d25764595121d3632867d7b4",
+          "tests/golden/p1-basic.json": "184442eef14cdce62f77c79a1c061555c184e03eab64d2085b95f8ae8efab5c4",
+          "tests/fixtures/p1-advanced.json": "306a1d906a112d55c7406aa675d48605bf6f409e1c5a48c5c1ea4ab3208e8564",
+          "tests/golden/p1-advanced.json": "4b71ed179d07ab2958d45780d11031ee6ae29e6d14cfe354fb6a5dd44f97c2cf",
+          "tests/fixtures/p1-structure.json": "7d4770443c130cb4c51fe295542d35dd18110fb72e6bc2a9cbbd0bee8110c398",
+          "tests/golden/p1-structure.json": "1158e5a5ef089c8a5c67e858c8245ea12ad74791763189620d450995f4584a69"
+        },
+        "reference": "direct-public-Rust-Core",
+        "numeric_policy": "docs/algorithms/P1.md; discrete fields and min/max exact"
+      },
+      "python": {
+        "passed": true,
+        "actions": 4409,
+        "fixture_cases": 39,
+        "equivalences": 2514,
+        "errors": {
+          "declared_gap": 3,
+          "duplicate_module": 3,
+          "duplicate_timestamp": 4,
+          "invalid_availability": 5,
+          "invalid_config": 3,
+          "invalid_metadata": 3,
+          "invalid_ohlc": 3,
+          "length_mismatch": 3,
+          "missing_data": 4,
+          "negative_volume": 3,
+          "numeric_overflow": 4,
+          "reset_required": 1,
+          "revision_not_available": 3,
+          "state_mismatch": 6,
+          "unordered_timestamp": 3,
+          "unsupported_module": 3,
+          "unsupported_version": 3
+        },
+        "operations": {
+          "batch": 2574,
+          "indicators": 39,
+          "structure": 39,
+          "new": 161,
+          "update": 1395,
+          "identity": 129,
+          "reset": 56,
+          "result": 16
+        },
+        "fixture_sha256": {
+          "tests/fixtures/temporal.json": "1b8ed2871b24929b93de8dc5fa0861361290680fafd7e2bacb0bc493096c0c2a",
+          "tests/golden/temporal.json": "23d97e3bf10048882601608ab3450e933dccfabfa76d3dddfea0c8116c7938dc",
+          "tests/fixtures/p1-arithmetic.json": "625022a44578cb49fb950db100ff724156024f29b7f2d316f8c746fcd81132e6",
+          "tests/golden/p1-arithmetic.json": "31e6ad587aef81c9f3c015fb7cc6ef28af1bde0d47d79b5c5caf0b93866b71ac",
+          "tests/fixtures/p1-identity.json": "7246f3dea4670d633b46605d785f384dacc9af7a3a2705bfd222a191b53b5777",
+          "tests/golden/p1-identity.json": "2661abf2f4419a8fc95faa6355a06e6d8f01c41642dc431a0307b62e7d0255d5",
+          "tests/fixtures/p1-rolling.json": "20018089a4c037149660b0597720cdcc915abaff9a407aa23f92e14fac025488",
+          "tests/golden/p1-rolling.json": "947f1641a8f2be8721314c49c1f8ab6c9ecadcba47bdf370f2d1a567489affe2",
+          "tests/fixtures/p1-basic.json": "6480b884ebc27816fa4bc78a85435eca0fde24d3d25764595121d3632867d7b4",
+          "tests/golden/p1-basic.json": "184442eef14cdce62f77c79a1c061555c184e03eab64d2085b95f8ae8efab5c4",
+          "tests/fixtures/p1-advanced.json": "306a1d906a112d55c7406aa675d48605bf6f409e1c5a48c5c1ea4ab3208e8564",
+          "tests/golden/p1-advanced.json": "4b71ed179d07ab2958d45780d11031ee6ae29e6d14cfe354fb6a5dd44f97c2cf",
+          "tests/fixtures/p1-structure.json": "7d4770443c130cb4c51fe295542d35dd18110fb72e6bc2a9cbbd0bee8110c398",
+          "tests/golden/p1-structure.json": "1158e5a5ef089c8a5c67e858c8245ea12ad74791763189620d450995f4584a69"
+        },
+        "reference": "direct-public-Rust-Core",
+        "numeric_policy": "docs/algorithms/P1.md; discrete fields and min/max exact"
+      }
+    },
+    "node_typed": {
+      "passed": true,
+      "assertions": 83,
+      "gc": "100 abandoned handles; no crash, not a leak measurement"
+    },
+    "python_plain": {
+      "passed": true,
+      "assertions": 72,
+      "extras": false,
+      "gc": "100 abandoned handles, no crash; leak/RSS not measured"
+    },
+    "python_typed": {
+      "passed": true,
+      "assertions": 79,
+      "extras": true,
+      "gc": "100 abandoned handles, no crash; leak/RSS not measured"
+    },
+    "python_host": {
+      "passed": true,
+      "assertions": 67,
+      "scope": "host conversion only; native module is inert",
+      "versions": {
+        "numpy": "2.2.6",
+        "pandas": "2.2.3",
+        "polars": "1.30.0"
+      }
+    },
+    "node_smoke": {
+      "actions": 40,
+      "rust_references": 14,
+      "error_cases": 20,
+      "independent_golden": "p1-arithmetic-v1",
+      "tolerance": {
+        "atol": 1e-12,
+        "rtol": 1e-12
+      },
+      "gc": "100 unclosed handles reclaimed without crash; leak/RSS not measured"
+    },
+    "python_smoke": {
+      "actions": 40,
+      "rust_references": 14,
+      "error_cases": 20,
+      "independent_golden": "p1-arithmetic-v1",
+      "tolerance": {
+        "atol": 1e-12,
+        "rtol": 1e-12
+      },
+      "gc": "100 unclosed handles reclaimed without crash; leak/RSS not measured"
+    },
+    "packages": [
+      {
+        "name": "wyc-lib-0.1.0.tgz",
+        "sha256": "0c9e85ad1a7bae77719a9c3aedd3d7a4eecfda4a5ea4fc08c67bb9613f8cf48d",
+        "size": 511047
+      },
+      {
+        "name": "wyc_lib-0.1.0-cp310-cp310-linux_x86_64.whl",
+        "sha256": "808615f323d9fb95bc9dfe998e229882b0f66811ca07ebcede7116685935d5d6",
+        "size": 522230
+      }
+    ],
+    "clean_after": true,
+    "finished_at_utc": "2026-11-14T13:54:21.596124+00:00"
+  }
+}

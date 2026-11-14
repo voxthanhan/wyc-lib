@@ -1,0 +1,17 @@
+{
+  "base_commit": "20a45d2cac7c39d44c452231c0b36bfc207767d5",
+  "implementation_commit": "7aea33e20cbba07dfecce20b878bb7e654782df7",
+  "main_merge_commit": "8df94f5cd4da9bca387248523ea201bdef0bc031",
+  "protected_files": 58,
+  "core_runtime_bindings_manifests_locks_fixtures_goldens_unchanged": true,
+  "delta": [],
+  "local_native_status": "Blocked before native build: CPython 3.10.9 has no maturin module",
+  "local_core_tests": 102,
+  "local_comparator_controls": 5,
+  "local_core_actions": 4409,
+  "local_equivalences": 2514,
+  "local_domain_errors": 57,
+  "local_error_codes": 17,
+  "local_actions_sha256": "b658aad0e0c81fbc7908f8b5ee747d1745d595c3f9ccd96ffe646789f220f561",
+  "source_blob_matches": 102
+}
