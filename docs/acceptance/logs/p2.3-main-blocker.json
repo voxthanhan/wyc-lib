@@ -1,0 +1,8 @@
+{
+  "phase": "P2.3",
+  "action": "fast-forward main from 41c8a29fd97b876a7206b286e6442df2e3419430 to e4424afb8147f4889a6b3c850ded8e862078f73e",
+  "performed": false,
+  "automatic_approval_review": "rejected",
+  "reason": "Approval covered uploading P2.3 and running CI; default main mutation was not explicitly covered. A pull request is safer.",
+  "resolution": "Deliver passing implementation on work/p2-3-python-adapter through a pull request; do not merge or bypass rejection."
+}

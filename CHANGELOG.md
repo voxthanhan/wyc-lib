@@ -8,6 +8,9 @@
 - CI kiểm wheel ngoài source, plain Python không extras, NumPy/Pandas/Polars,
   mypy strict, ownership/append/reset/close và native JSON regression Windows/Linux.
 - Core/golden/schema/config/hash/native lockfiles giữ nguyên; G2 còn mở.
+- P2.3 đạt tại e4424af: CI Core/native Windows/Linux PASS, 72 plain và 79 extras
+  Python assertions/OS, 67 host assertions/OS, mypy strict và Node/JSON regression.
+  97 source blobs khớp local; --locked/checkout sạch. Chưa tích hợp main; bàn giao PR.
 - Kết quả thực tế tại [báo cáo P2.3](docs/acceptance/P2.3.md).
 
 ## 0.1.0 — P2.2 Node.js P1, chưa phát hành

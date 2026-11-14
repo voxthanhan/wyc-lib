@@ -14,6 +14,12 @@ CI chạy CPython 3.10.9, PyO3 0.23.5/Maturin 1.8.3, Rust 1.85.1, Windows x64
 MSVC và Ubuntu 24.04 x64 GNU. Không claim macOS/ARM/manylinux/abi3/CPython 3.11+.
 Kết quả và giới hạn tại [báo cáo P2.3](acceptance/P2.3.md).
 
+P2.3 đạt tại e4424af: Core/native CI Windows/Linux PASS, 72 plain và 79 extras
+native Python assertions/OS, 67 host assertions/OS, mypy strict, 83 Node typed
+assertions/OS và 40-action JSON smoke/runtime. 97 source blobs khớp local;
+43 native commands/OS exit 0, --locked, checkout sạch, không bootstrap.
+Native local chưa xác minh; source trên nhánh work/p2-3-python-adapter, chưa gộp main.
+
 ## P2.1 — Kiểm chứng shared transport và native pilot
 
 Root workspace có năm packages, thêm `wyc-binding-contract`; hai workspace

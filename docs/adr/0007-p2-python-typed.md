@@ -16,6 +16,7 @@ chỉ nhận int (không bool/float); mọi int nằm trong ±(2^53−1) để g
 chung với Node. Timestamp ngoài vùng này là ValueError/invalid_timestamp;
 integer khác ngoài vùng an toàn là ValueError/invalid_type. NaN/Infinity là
 ValueError/non_finite có host path; None vẫn tới Rust để báo missing_data.
+Chuỗi/key không encode được UTF-8 trả TypeError/invalid_type tại host path.
 Rust giữ trách nhiệm kiểm schema/enum/shape/OHLC/config/availability.
 
 NumPy là optional: nhận ndarray đúng loại, 1D, timestamp/available_at int64,
@@ -44,3 +45,11 @@ State copy-owned và lỗi update/reset atomic theo Rust; close vĩnh viễn,
 idempotent, ưu tiên state_closed trước input error. Context manager đóng handle;
 GC smoke chỉ kiểm không crash, không chứng minh leak-free. Full fixture parity,
 Next.js, FFI benchmark và Foundation còn ở P2.4–P2.6.
+
+## Kiểm chứng
+
+P2.3 đạt tại e4424af trên CI Windows/Linux: wheel cài ngoài source, 72 plain
+và 79 extras native Python assertions/OS, 67 host assertions/OS, mypy strict,
+Node/TypeScript/JSON regression PASS; --locked/checkout sạch và 97 source blobs
+khớp local. Native local chưa xác minh. Chưa tích hợp main; bàn giao PR.
+[Báo cáo P2.3](../acceptance/P2.3.md) lưu SHA/run/checksums và giới hạn bằng chứng.

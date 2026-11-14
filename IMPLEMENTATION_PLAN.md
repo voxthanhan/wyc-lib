@@ -163,9 +163,12 @@ State bản đầu ưu tiên reset và replay toàn bộ khi lịch sử sửa �
 
 ### P2 — Node.js và Python Bindings; Foundation Release
 
-**P2.3 đang kiểm chứng (14/11/2026):** Python API P1, AnalysisState, NumPy và
+**P2.3 đạt tại e4424af (14/11/2026):** Python API P1, AnalysisState, NumPy và
 converters Pandas/Polars đã triển khai theo [ADR-0007](docs/adr/0007-p2-python-typed.md).
-CI thêm plain/extras/type checks trên wheel cài ngoài source Windows/Linux.
+CI Core/native Windows/Linux PASS: 102 Rust tests/OS, 72 plain và 79 extras
+native Python assertions/OS, 67 host assertions/OS, mypy strict và Node/JSON
+regression. 97 source blobs khớp local; --locked/checkout sạch, 43 native
+commands/OS exit 0. Chưa tích hợp main; bàn giao qua pull request.
 Kết quả thực chạy và giới hạn tại [báo cáo P2.3](docs/acceptance/P2.3.md).
 P2.4–P2.6/G2/Foundation còn mở.
 

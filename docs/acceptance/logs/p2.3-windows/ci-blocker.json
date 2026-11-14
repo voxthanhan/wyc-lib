@@ -1,5 +1,6 @@
 {
   "phase": "P2.3",
+  "record_kind": "historical_initial_attempt_before_user_approval",
   "repository": "voxthanhan/wyc-lib",
   "remote_base_commit": "41c8a29fd97b876a7206b286e6442df2e3419430",
   "repository_verified_public": true,
