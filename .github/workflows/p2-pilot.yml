@@ -2,7 +2,7 @@ name: P2.1 native pilot
 
 on:
   push:
-    branches: [work/p2-1-ffi-pilot]
+    branches: [main, work/p2-1-ffi-pilot]
   workflow_dispatch:
     inputs:
       bootstrap_native_locks:

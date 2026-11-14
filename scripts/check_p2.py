@@ -120,6 +120,17 @@ def main():
     finally:
         summary["finished_at_utc"] = datetime.now(timezone.utc).isoformat()
         (evidence / "summary.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
+        # Public, source-only evidence for review through decoded Actions logs.
+        # No credentials, redirected download URLs or caller payloads are emitted.
+        print("P2_EVIDENCE " + json.dumps(summary, separators=(",", ":")), flush=True)
+        if args.bootstrap_native_locks:
+            for adapter in ("node", "python"):
+                lock = root / "bindings" / adapter / "Cargo.lock"
+                if lock.exists():
+                    content = lock.read_text(encoding="utf-8")
+                    print("P2_LOCK " + json.dumps(dict(adapter=adapter,
+                        sha256=hashlib.sha256(content.encode()).hexdigest(), content=content),
+                        separators=(",", ":")), flush=True)
     print(f"PASS: native pilot smoke; evidence: {evidence}")
 
 
