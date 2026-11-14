@@ -117,6 +117,10 @@ def main():
         # Bootstrap success still does not satisfy locked-source acceptance.
         summary["locked_source_acceptance"] = (not args.bootstrap_native_locks and
                                                 summary["clean_before"] and summary["clean_after"])
+        if os.environ.get("GITHUB_ACTIONS") == "true" and not args.bootstrap_native_locks:
+            if not summary["locked_source_acceptance"]:
+                summary["passed"] = False
+                raise RuntimeError("Native acceptance requires an unchanged, committed checkout")
     finally:
         summary["finished_at_utc"] = datetime.now(timezone.utc).isoformat()
         (evidence / "summary.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
