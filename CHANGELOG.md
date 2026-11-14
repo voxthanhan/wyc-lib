@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0 - P2.1 đang triển khai, chưa phát hành
+
+- Chốt FFI v1: f64/safe integer time, tagged numeric status, config/result,
+  code/path exception, owned handle và close/GC tại ADR-0005.
+- Thêm shared Rust JSON transport và state wrapper chỉ gọi public Core API;
+  giữ schema/config/hash/algorithm và golden P1. Native Node/Python nằm trong
+  workspace riêng, không thêm runtime vào dependency graph Core.
+- Thêm adapter pilot NAPI-RS/PyO3, npm/wheel manifests, 40-action smoke và
+  workflow_dispatch hai OS. Native locks, build/ABI/cài package và CI chưa
+  được xác minh; không công bố hỗ trợ hoặc hoàn thành P2.1/G2.
+- Kết quả local, log và các điều kiện còn thiếu tại
+  [báo cáo P2.1](docs/acceptance/P2.1.md).
+
 ## 0.1.0 — Incremental sau G1, chưa phát hành
 
 - AnalysisState/BasicIndicatorState append tính delta từ cache, shared numerical

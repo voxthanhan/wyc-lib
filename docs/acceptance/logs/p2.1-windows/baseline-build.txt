@@ -1,0 +1,5 @@
+   Compiling contracts v0.1.0 (D:\Dev\Lib\crates\contracts)
+   Compiling market_structure v0.1.0 (D:\Dev\Lib\crates\market_structure)
+   Compiling indicators v0.1.0 (D:\Dev\Lib\crates\indicators)
+   Compiling wyc-lib v0.1.0 (D:\Dev\Lib\crates\wyc_lib)
+    Finished `release` profile [optimized] target(s) in 29.03s

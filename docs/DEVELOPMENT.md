@@ -1,4 +1,58 @@
-# Phát triển và kiểm chứng P0–P1.7
+# Phát triển và kiểm chứng P0–P2.1
+
+## P2.1 — Kiểm chứng shared transport và native pilot
+
+Root workspace có năm packages, thêm `wyc-binding-contract`; Node/Python native
+là hai workspace độc lập để không kéo runtime vào Core. Root lockfile đã cập
+nhật bằng cache local; native lockfiles **chưa tạo được** vì shell không có
+mạng. NAPI-RS 2.16.17/derive 2.16.13/build 2.1.3, PyO3 0.23.5, Maturin 1.8.3
+đã pin trong manifest; chưa công bố chúng build thành công cùng toolchain.
+
+Shared transport dùng cùng runner Core (không cần runtime native):
+
+```powershell
+./scripts/check-foundation.ps1 -Offline -EvidenceDirectory ci-evidence/p2-local
+```
+
+Với host có mạng, tạo venv riêng rồi cài build tool trong venv. Cần Rust 1.85.1,
+MSVC/SDK trên Windows, Node/npm trên PATH. CI chọn Node 22.22.0, CPython 3.10.9;
+local đã phát hiện Node 24.20.0/npm 11.19.0 và CPython 3.10.9, chưa kiểm ABI.
+
+```text
+python -m venv .tools/p2-build-env
+```
+
+Kích hoạt venv theo shell/OS, sau đó:
+
+```text
+python -m pip install maturin==1.8.3
+python scripts/check_p2.py --bootstrap-native-locks
+```
+
+Bootstrap chỉ phục vụ lần đầu: rà hai Cargo.lock sinh tại bindings/node và
+bindings/python, commit chúng, sau đó chạy lại **không** bootstrap từ checkout
+sạch. Chỉ lần sau mới có thể đạt `locked_source_acceptance=true`:
+
+```text
+python scripts/check_p2.py
+```
+
+Runner format/Clippy native, build --locked, đóng npm tarball và wheel,
+cài vào npm consumer/venv mới ngoài source tree, chạy cùng 40 actions cho
+Node/Python, so 14 report với Rust reference và arithmetic golden độc lập.
+Nó ghi package SHA-256, version, commands/exit codes và kết quả vào ci-evidence/p2.
+Kiểm GC chỉ chứng minh không crash sau 100 handle bỏ tham chiếu; chưa đo leak/RSS.
+Wheel Linux dùng tag linux_x86_64, chưa claim manylinux, abi3 hay hỗ trợ 3.11+.
+
+Workflow `.github/workflows/p2-pilot.yml` đã chuẩn bị cho workflow_dispatch và
+push nhánh `work/p2-1-ffi-pilot` trên Windows/Ubuntu. Bootstrap khi thiếu locks
+hoặc input true chỉ để lấy hai locks ban đầu qua artifact, không coi run này
+là nghiệm thu tái lập. Sau khi kết nối GitHub thành công, thao tác tạo tree
+đã bị automatic approval review từ chối vì cần xác nhận rõ việc công khai
+payload P2.1 vào repository public; chưa có commit hoặc CI run mới.
+[Báo cáo P2.1](acceptance/P2.1.md) ghi rõ phần đã/chưa kiểm chứng; CI G1 cũ
+không thay bằng chứng cho P2.1. Typed API, NumPy/Pandas/Polars, ma trận package
+và Next.js smoke còn ở P2.2–P2.6.
 
 ## Ma trận nền tảng
 

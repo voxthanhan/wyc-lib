@@ -16,9 +16,9 @@ def main():
     root = Path(__file__).resolve().parents[1]
     metadata = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8-sig"))
     packages = {p["name"]: p for p in metadata["packages"]}
-    check(set(packages) == {"contracts", "indicators", "market_structure", "wyc-lib"}, "P1.7 workspace membership changed")
+    check(set(packages) == {"contracts", "indicators", "market_structure", "wyc-lib", "wyc-binding-contract"}, "P2.1 workspace membership changed")
     check(all(p["publish"] == [] for p in packages.values()), "packages must remain non-publishable")
-    for target in ["foundation", "p1_foundation", "p1_rolling", "p1_basic", "p1_advanced", "p1_structure", "p1_orchestration", "p1_replay", "p1_incremental"]:
+    for target in ["foundation", "p1_foundation", "p1_rolling", "p1_basic", "p1_advanced", "p1_structure", "p1_orchestration", "p1_replay", "p1_incremental", "p2_transport"]:
         check(any(t["name"] == target and "test" in t["kind"]
                   for p in packages.values() for t in p["targets"]), f"{target} test target missing")
     for name in ['p1_walkthrough', 'p1_baseline']:
@@ -30,6 +30,9 @@ def main():
     check(edges["indicators"] == {"contracts"}, "indicators must depend only on contracts")
     check(edges["market_structure"] == {"contracts"}, "structure must depend only on contracts")
     check(edges["wyc-lib"] == {"contracts", "indicators", "market_structure"}, "unexpected orchestration dependency")
+    check(edges["wyc-binding-contract"] == {"wyc-lib"}, "FFI must call only the public Core API")
+    check(any(t['name'] == 'p2_reference' and 'bin' in t['kind']
+              for t in packages['wyc-binding-contract']['targets']), 'Rust FFI reference executable missing')
     active, visited = set(), set()
 
     def visit(name):
@@ -57,7 +60,7 @@ def main():
             if target:
                 check((path.parent / target).exists(), f"broken link: {filename} -> {target}")
                 checked += 1
-    print(f"PASS: G1 incremental four package boundaries, acyclic dependency graph, nine integration targets, two examples, {checked} local links")
+    print(f"PASS: P2.1 five package boundaries, acyclic dependency graph, ten integration targets, two examples, FFI reference, {checked} local links")
 
 
 if __name__ == "__main__":

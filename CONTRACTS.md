@@ -2,6 +2,14 @@
 
 ## Phạm vi và phiên bản
 
+P2.1 chốt mapping FFI v1 tại [ADR-0005](docs/adr/0005-p2-ffi-pilot.md):
+copy-owned JSON pilot, safe integer timestamps, tagged missing/warm-up,
+code/path exception và opaque state handle có close/GC. Không đổi schema,
+config/hash, algorithm hoặc DTO Core. Shared transport Rust đã có implementation;
+native Node/Python cần build/ABI/package smoke trước nghiệm thu P2.1.
+Các đoạn FFI dự kiến ở cuối tài liệu nay được ADR này cụ thể hóa cho pilot;
+typed object/NumPy adapters và parity đầy đủ vẫn thuộc P2.2–P2.4.
+
 Nguồn kiểu Rust: `crates/contracts/src/`. JSON UTF-8 dùng tên trường snake_case,
 enum là chuỗi snake_case; field lạ, thiếu field bắt buộc và enum lạ bị từ chối
 khi deserialize. Deserialize kiểm tra shape/type; gọi `validate()` để kiểm tra

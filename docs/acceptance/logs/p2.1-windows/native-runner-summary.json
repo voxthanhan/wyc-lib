@@ -1,0 +1,57 @@
+{
+  "started_at_utc": "2026-11-14T08:30:24.975490+00:00",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "python": "3.10.9 (tags/v3.10.9:1dd9be6, Dec  6 2022, 20:01:21) [MSC v.1934 64 bit (AMD64)]",
+  "checks": [
+    {
+      "name": "commit",
+      "command": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "status-before",
+      "command": [
+        "git",
+        "status",
+        "--porcelain"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "node-version",
+      "command": [
+        "node",
+        "--version"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "npm-version",
+      "command": [
+        "C:\\Program Files\\nodejs\\npm.cmd",
+        "--version"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "maturin-version",
+      "command": [
+        "C:\\Users\\antdh\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+        "-m",
+        "maturin",
+        "--version"
+      ],
+      "exit_code": 1
+    }
+  ],
+  "passed": false,
+  "native_locks_bootstrapped": false,
+  "consumer_outside_source": true,
+  "commit": "fb348a331aebbdf326a941ecf0c378bd4bdc2959",
+  "clean_before": false,
+  "finished_at_utc": "2026-11-14T08:30:28.763777+00:00"
+}

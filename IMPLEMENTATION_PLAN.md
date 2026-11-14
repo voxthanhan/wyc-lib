@@ -176,6 +176,12 @@ State bản đầu ưu tiên reset và replay toàn bộ khi lịch sử sửa �
 | P2.5 | Build npm package/wheel; cài vào môi trường sạch ngoài source tree; chạy examples và smoke test Node.js server/Next.js server trên target công bố | P2.4 |
 | P2.6 | Đo chi phí FFI/chuyển đổi/copy và batch so với nhiều lần gọi; tài liệu tích hợp, compatibility và bản ứng viên Foundation | P2.5 |
 
+**Tiến độ P2.1 ngày 14/11/2026:** mapping/state/ownership đã chốt tại
+[ADR-0005](docs/adr/0005-p2-ffi-pilot.md), có shared Rust transport và mã pilot
+Node/Python cùng runner smoke/cài package. Native dependencies/lockfiles, ABI,
+package smoke và CI còn chưa kiểm chứng do môi trường chặn mạng/Git write.
+Chưa đánh dấu P2.1 đạt; chi tiết tại [báo cáo](docs/acceptance/P2.1.md).
+
 Khởi đầu với đường chuyển đổi có copy và ownership rõ ràng. Adapter Pandas/Polars tái sử dụng đường NumPy/mảng khi phù hợp; không viết lại indicators bằng các thư viện đó. Quy định rõ vùng timestamp an toàn cho từng biểu diễn Node.js và từ chối giá trị không thể biểu diễn chính xác theo contract.
 
 Nếu cần chạy phép tính dài ngoài luồng chính Node.js hoặc nhả GIL Python, phải đặc tả quyền sở hữu dữ liệu và state trước. Không cho hai lời gọi đồng thời sửa cùng state khi chưa có cơ chế bảo vệ được kiểm thử. Không mặc định native addon chạy trong Edge Runtime/browser.

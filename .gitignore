@@ -3,3 +3,5 @@
 __pycache__/
 *.pyc
 /ci-evidence/
+/bindings/node/target/
+/bindings/python/target/

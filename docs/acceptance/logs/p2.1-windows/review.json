@@ -1,0 +1,90 @@
+{
+  "passed": true,
+  "scope": "local static/source audit only; native ABI and CI not verified",
+  "rust_tests": 101,
+  "python_verifier_controls": 5,
+  "replay_prefixes": 1008,
+  "replay_traces_identical_to_g1": true,
+  "core_and_existing_fixture_golden_bytes_unchanged": true,
+  "source_fingerprints": 84,
+  "native_manifest_toml_parsed": true,
+  "node_package_json_parsed": true,
+  "python_ast_parsed": true,
+  "checks": [
+    {
+      "name": "node-syntax",
+      "command": [
+        "node",
+        "--check",
+        "bindings/node/index.cjs"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "node-smoke-syntax",
+      "command": [
+        "node",
+        "--check",
+        "tests/parity/p2_smoke.cjs"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "node-rustfmt",
+      "command": [
+        "cargo",
+        "fmt",
+        "--manifest-path",
+        "bindings/node/Cargo.toml",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "python-rustfmt",
+      "command": [
+        "cargo",
+        "fmt",
+        "--manifest-path",
+        "bindings/python/Cargo.toml",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "root-rustfmt",
+      "command": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "diff-check",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "core-golden-unchanged",
+      "command": [
+        "git",
+        "diff",
+        "--name-only",
+        "--",
+        "crates",
+        "tests/fixtures",
+        "tests/golden"
+      ],
+      "exit_code": 0
+    }
+  ]
+}

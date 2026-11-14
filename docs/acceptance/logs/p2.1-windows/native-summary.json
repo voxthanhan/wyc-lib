@@ -1,0 +1,30 @@
+{
+  "native_build_passed": false,
+  "package_smoke_passed": false,
+  "native_locks_created": false,
+  "ci_run_id": null,
+  "git_write_blocked": true,
+  "network_from_shell_blocked": true,
+  "attempts": [
+    {
+      "command": "cargo check --workspace (initial combined workspace)",
+      "exit_code": 101,
+      "log": "network-cargo.txt"
+    },
+    {
+      "command": "cargo check --manifest-path bindings/node/Cargo.toml --offline",
+      "exit_code": 101,
+      "log": "native-node-blocked.txt"
+    },
+    {
+      "command": "cargo check --manifest-path bindings/python/Cargo.toml --offline",
+      "exit_code": 101,
+      "log": "native-python-blocked.txt"
+    },
+    {
+      "command": "python scripts/check_p2.py --evidence ci-evidence/p2-native-attempt",
+      "exit_code": 1,
+      "log": "native-runner-blocked.txt"
+    }
+  ]
+}

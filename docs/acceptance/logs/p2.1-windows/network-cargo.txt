@@ -1,0 +1,14 @@
+    Updating crates.io index
+warning: spurious network error (3 tries remaining): [6] Could not resolve hostname (getaddrinfo() thread failed to start)
+warning: spurious network error (2 tries remaining): [6] Could not resolve hostname (getaddrinfo() thread failed to start)
+warning: spurious network error (1 tries remaining): [6] Could not resolve hostname (getaddrinfo() thread failed to start)
+error: failed to get `serde` as a dependency of package `contracts v0.1.0 (D:\Dev\Lib\crates\contracts)`
+
+Caused by:
+  download of config.json failed
+
+Caused by:
+  failed to download from `https://index.crates.io/config.json`
+
+Caused by:
+  [6] Could not resolve hostname (getaddrinfo() thread failed to start)

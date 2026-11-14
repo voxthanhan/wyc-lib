@@ -1,0 +1,6 @@
+    Checking contracts v0.1.0 (D:\Dev\Lib\crates\contracts)
+    Checking indicators v0.1.0 (D:\Dev\Lib\crates\indicators)
+    Checking market_structure v0.1.0 (D:\Dev\Lib\crates\market_structure)
+    Checking wyc-lib v0.1.0 (D:\Dev\Lib\crates\wyc_lib)
+    Checking wyc-binding-contract v0.1.0 (D:\Dev\Lib\bindings\ffi)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 14.57s

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "D:\Dev\Lib\scripts\check_p2.py", line 126, in <module>
+    main()
+  File "D:\Dev\Lib\scripts\check_p2.py", line 54, in main
+    run("maturin-version", [sys.executable, "-m", "maturin", "--version"])
+  File "D:\Dev\Lib\scripts\check_p2.py", line 43, in run
+    raise RuntimeError(f"{name} failed with exit code {result.returncode}; see {evidence / (name + '.txt')}")
+RuntimeError: maturin-version failed with exit code 1; see D:\Dev\Lib\ci-evidence\p2-native-attempt\maturin-version.txt

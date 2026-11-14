@@ -1,5 +1,6 @@
 [workspace]
-members = ["crates/contracts", "crates/indicators", "crates/market_structure", "crates/wyc_lib"]
+members = ["crates/contracts", "crates/indicators", "crates/market_structure", "crates/wyc_lib", "bindings/ffi"]
+exclude = ["bindings/node", "bindings/python"]
 resolver = "2"
 
 [workspace.package]

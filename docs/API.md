@@ -1,5 +1,30 @@
 # API hiện có và API mục tiêu
 
+## Pilot P2.1
+
+Contract đã chốt tại [ADR-0005](adr/0005-p2-ffi-pilot.md). Shared Rust transport
+`wyc_binding_contract::analyze_json` và `Handle` được test trong root workspace;
+`p2_reference` gọi trực tiếp Core để đối chiếu transport với cùng request.
+Native package Node `wyc-lib` và Python import `wyc_lib` đã có mã adapter thử:
+
+| API pilot | Input / output |
+| --- | --- |
+| `analyze_json(request_json)` | AnalysisRequest JSON string → AnalysisResult JSON string |
+| `State(request_json)` | Khởi tạo state owned từ snapshot khả dụng |
+| `state.result_json()` | Report owned hiện tại |
+| `state.identity_json()` | StateIdentity JSON string, echo trong ClosedBarUpdate |
+| `state.update_json(update_json)` | ClosedBarUpdate JSON string → report mới; lỗi atomic |
+| `state.reset_json(request_json)` | Snapshot/revision mới → report mới; lỗi atomic |
+| `state.close()` | Drop state, idempotent; không mở lại handle |
+
+Đây là surface thử nghiệm JSON đồng bộ, không phải typed adapter P2.2/P2.3
+hoặc API Foundation. Native ABI và cài npm/wheel chưa được chạy ở môi trường
+hiện tại; xem [trạng thái nghiệm thu](acceptance/P2.1.md). Wrapper chỉ chuyển
+JSON/exception, không tính lại chỉ báo. Dùng chính protocol Core bên dưới;
+không serialize cache/state và không dùng identity như con trỏ hoặc handle.
+
+## Nền tảng Rust đã nghiệm thu
+
 Utilities P1.1, primitives P1.2, chỉ báo/state P1.3, chỉ báo P1.4, structure P1.5
 và analytical entry points/AnalysisState P1.6 đã có implementation Rust.
 Result có kiểu rõ ràng; bindings thuộc P2. Replay, baseline và ví dụ Rust P1.7

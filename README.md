@@ -2,6 +2,13 @@
 
 One Analytical Core, Multiple Applications. Evidence Before Prediction.
 
+**P2.1 đang triển khai:** đã chốt contract FFI v1 và thêm shared transport Rust
+cùng mã pilot NAPI-RS/PyO3. Kiểm chứng native ABI, npm/wheel và CI chưa hoàn tất
+do giới hạn môi trường; chưa nghiệm thu P2.1/G2 hoặc phát hành Foundation.
+Xem [báo cáo P2.1](docs/acceptance/P2.1.md),
+[contract FFI](docs/adr/0005-p2-ffi-pilot.md) và
+[cách kiểm tra](docs/DEVELOPMENT.md). Các đoạn dưới ghi lịch sử G0/G1.
+
 Thư viện lõi phân tích định lượng Rust dùng chung cho các ứng dụng. **Hiện trạng:
 G1 incremental** có workspace, typed contracts/validation, view dữ liệu khả dụng,
 chuẩn bị request, kiểm tra numeric series/status/time, config hash và event ID

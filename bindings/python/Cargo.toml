@@ -1,0 +1,25 @@
+[package]
+name = "wyc-python-pilot"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.85"
+publish = false
+
+[workspace]
+
+[lib]
+name = "_native"
+crate-type = ["cdylib"]
+test = false
+doctest = false
+
+[dependencies]
+wyc-binding-contract = { path = "../ffi" }
+pyo3 = { version = "=0.23.5", features = ["extension-module"] }
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+unwrap_used = "deny"
+expect_used = "deny"

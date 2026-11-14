@@ -1,0 +1,4 @@
+error: no matching package named `pyo3` found
+location searched: crates.io index
+required by package `wyc-python-pilot v0.1.0 (D:\Dev\Lib\bindings\python)`
+As a reminder, you're using offline mode (--offline) which can sometimes cause surprising resolution failures, if this error is too confusing you may wish to retry without the offline flag.

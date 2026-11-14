@@ -1,0 +1,4 @@
+error: no matching package named `napi` found
+location searched: crates.io index
+required by package `wyc-node-pilot v0.1.0 (D:\Dev\Lib\bindings\node)`
+As a reminder, you're using offline mode (--offline) which can sometimes cause surprising resolution failures, if this error is too confusing you may wish to retry without the offline flag.

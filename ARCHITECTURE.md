@@ -1,6 +1,22 @@
 # wyc-lib — Kiến trúc thực thi
 
-## Hiện trạng G1 incremental
+## Hiện trạng P2.1 đang triển khai
+
+Root workspace có thêm package `wyc-binding-contract` tại `bindings/ffi`, chỉ
+phụ thuộc public API `wyc-lib` và serde/serde_json cho JSON transport. Nó không
+chứa thuật toán; bốn package Core và dependency graph của G1 giữ nguyên.
+NAPI-RS và PyO3 ở hai workspace độc lập `bindings/node`, `bindings/python`,
+để Core tests không yêu cầu Node headers/Python linker hoặc dependency native.
+Mỗi workspace native cần Cargo.lock riêng trước nghiệm thu tái lập.
+
+Pilot và hợp đồng ownership/error/state tại
+[ADR-0005](docs/adr/0005-p2-ffi-pilot.md). Các adapter native đã có mã thử,
+nhưng chưa build/chạy trong môi trường hiện tại; không công bố hỗ trợ ABI
+hoặc Foundation. [Báo cáo P2.1](docs/acceptance/P2.1.md) phân biệt kiểm chứng
+shared transport với kiểm chứng native còn thiếu. Các đoạn P1 dưới đây giữ
+lịch sử quyết định và được phần incremental sau G1 thay thế về cách tính state.
+
+## Nền tảng G1 incremental
 
 Workspace có bốn package: `contracts` (wire types, cấu hình, kiểm tra contract,
 AnalysisError), `indicators` (rolling/statistics P1.2, chín chỉ báo nền và

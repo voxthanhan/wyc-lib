@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-14",
+  "repository": "voxthanhan/wyc-lib",
+  "visibility": "public",
+  "github_connection_confirmed": true,
+  "push_permission_confirmed": true,
+  "main_head": "fb348a331aebbdf326a941ecf0c378bd4bdc2959",
+  "proposed_branch": "work/p2-1-ffi-pilot",
+  "attempted_action": "create_tree with P2.1 source, documents and local evidence",
+  "automatic_approval_review": "rejected",
+  "reason": "Publishing this source/document/log payload to the public repository needs explicit user approval.",
+  "tree_created": false,
+  "commit_created": false,
+  "branch_created": false,
+  "ci_run_id": null,
+  "local_native_retry_exit_code": 101,
+  "local_native_retry_error": "Could not resolve index.crates.io from the restricted shell"
+}
