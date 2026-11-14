@@ -2,13 +2,19 @@ name: P2 native adapters
 
 on:
   push:
-    branches: [main, work/p2-1-ffi-pilot, work/p2-2-node-adapter, work/p2-3-python-adapter]
+    branches: [main, 'work/**']
+  pull_request:
+    branches: [main]
   workflow_dispatch:
     inputs:
       bootstrap_native_locks:
         description: 'Initial lock resolution only; not locked-source acceptance'
         type: boolean
         default: false
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref == 'refs/heads/main' && github.run_id || github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 permissions:
   contents: read
@@ -47,9 +53,7 @@ jobs:
           BOOTSTRAP_NATIVE_LOCKS: ${{ inputs.bootstrap_native_locks }}
         run: |
           $options = @()
-          if ($env:BOOTSTRAP_NATIVE_LOCKS -eq 'true' -or
-              !(Test-Path bindings/node/Cargo.lock) -or
-              !(Test-Path bindings/python/Cargo.lock)) {
+          if ($env:BOOTSTRAP_NATIVE_LOCKS -eq 'true') {
             $options += '--bootstrap-native-locks'
           }
           python scripts/check_p2.py @options

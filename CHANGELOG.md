@@ -1,5 +1,13 @@
 # Changelog
 
+## Quy trình Git/CI — 14/11/2026
+
+- Lưu ủy quyền thường trực của người dùng trong AGENTS.md cho commit/push/PR,
+  CI và tự gộp main sau khi đúng HEAD đạt kiểm tra, trong phạm vi tác vụ đã giao.
+- Core/native CI nhận `work/**` và PR vào main; concurrency hủy run cũ trên
+  nhánh/PR, giữ run main. Không cần liệt kê riêng từng nhánh phase.
+- Native CI không tự bootstrap khi thiếu lock; quyền workflow vẫn contents: read.
+
 ## 0.1.0 — P2.3 Python P1, chưa phát hành
 
 - Thêm ba dict APIs và AnalysisState/context manager gọi Rust qua PyO3; giữ JSON pilot.
