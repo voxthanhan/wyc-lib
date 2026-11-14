@@ -1,0 +1,373 @@
+{
+  "run_id": 43578612862,
+  "job_id": 132398292557,
+  "summary": {
+    "started_at_utc": "2026-11-14T09:03:23.865276+00:00",
+    "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+    "python": "3.10.9 (main, Oct  3 2024, 05:05:25) [GCC 13.2.0]",
+    "checks": [
+      {
+        "name": "commit",
+        "command": [
+          "git",
+          "rev-parse",
+          "HEAD"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "status-before",
+        "command": [
+          "git",
+          "status",
+          "--porcelain"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "node-version",
+        "command": [
+          "node",
+          "--version"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "npm-version",
+        "command": [
+          "/opt/hostedtoolcache/node/22.22.0/x64/bin/npm",
+          "--version"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "maturin-version",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.10.9/x64/bin/python",
+          "-m",
+          "maturin",
+          "--version"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "node-format",
+        "command": [
+          "cargo",
+          "fmt",
+          "--manifest-path",
+          "/home/runner/work/wyc-lib/wyc-lib/bindings/node/Cargo.toml",
+          "--",
+          "--check"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "node-clippy",
+        "command": [
+          "cargo",
+          "clippy",
+          "--manifest-path",
+          "/home/runner/work/wyc-lib/wyc-lib/bindings/node/Cargo.toml",
+          "--locked",
+          "--all-targets",
+          "--",
+          "-D",
+          "warnings"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "python-format",
+        "command": [
+          "cargo",
+          "fmt",
+          "--manifest-path",
+          "/home/runner/work/wyc-lib/wyc-lib/bindings/python/Cargo.toml",
+          "--",
+          "--check"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "python-clippy",
+        "command": [
+          "cargo",
+          "clippy",
+          "--manifest-path",
+          "/home/runner/work/wyc-lib/wyc-lib/bindings/python/Cargo.toml",
+          "--locked",
+          "--all-targets",
+          "--",
+          "-D",
+          "warnings"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "node-build",
+        "command": [
+          "cargo",
+          "build",
+          "--manifest-path",
+          "/home/runner/work/wyc-lib/wyc-lib/bindings/node/Cargo.toml",
+          "--locked",
+          "--release",
+          "--target-dir",
+          "/tmp/wyc-p2-consumer-cn3pn8rg/target"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "npm-pack",
+        "command": [
+          "/opt/hostedtoolcache/node/22.22.0/x64/bin/npm",
+          "pack",
+          "--json",
+          "--ignore-scripts",
+          "--pack-destination",
+          "/tmp/wyc-p2-consumer-cn3pn8rg"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "npm-install",
+        "command": [
+          "/opt/hostedtoolcache/node/22.22.0/x64/bin/npm",
+          "install",
+          "--ignore-scripts",
+          "--no-audit",
+          "--no-fund",
+          "/tmp/wyc-p2-consumer-cn3pn8rg/wyc-lib-0.1.0.tgz"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "wheel-build",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.10.9/x64/bin/python",
+          "-m",
+          "maturin",
+          "build",
+          "--manifest-path",
+          "/home/runner/work/wyc-lib/wyc-lib/bindings/python/Cargo.toml",
+          "--locked",
+          "--release",
+          "--interpreter",
+          "/opt/hostedtoolcache/Python/3.10.9/x64/bin/python",
+          "--out",
+          "/tmp/wyc-p2-consumer-cn3pn8rg/wheels",
+          "--compatibility",
+          "linux"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "venv",
+        "command": [
+          "/opt/hostedtoolcache/Python/3.10.9/x64/bin/python",
+          "-m",
+          "venv",
+          "/tmp/wyc-p2-consumer-cn3pn8rg/consumer-venv"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "wheel-install",
+        "command": [
+          "/tmp/wyc-p2-consumer-cn3pn8rg/consumer-venv/bin/python",
+          "-m",
+          "pip",
+          "install",
+          "--no-index",
+          "--no-deps",
+          "/tmp/wyc-p2-consumer-cn3pn8rg/wheels/wyc_lib-0.1.0-cp310-cp310-linux_x86_64.whl"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-build",
+        "command": [
+          "cargo",
+          "build",
+          "--locked",
+          "--package",
+          "wyc-binding-contract",
+          "--bin",
+          "p2_reference",
+          "--target-dir",
+          "/tmp/wyc-p2-consumer-cn3pn8rg/target"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-batch-full",
+        "command": [
+          "/tmp/wyc-p2-consumer-cn3pn8rg/target/debug/p2_reference"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-batch-empty",
+        "command": [
+          "/tmp/wyc-p2-consumer-cn3pn8rg/target/debug/p2_reference"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-unicode",
+        "command": [
+          "/tmp/wyc-p2-consumer-cn3pn8rg/target/debug/p2_reference"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-zero-volume",
+        "command": [
+          "/tmp/wyc-p2-consumer-cn3pn8rg/target/debug/p2_reference"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-initial-result",
+        "command": [
+          "/tmp/wyc-p2-consumer-cn3pn8rg/target/debug/p2_reference"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-after-bad-update",
+        "command": [
+          "/tmp/wyc-p2-consumer-cn3pn8rg/target/debug/p2_reference"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-after-bad-reset",
+        "command": [
+          "/tmp/wyc-p2-consumer-cn3pn8rg/target/debug/p2_reference"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-append-3",
+        "command": [
+          "/tmp/wyc-p2-consumer-cn3pn8rg/target/debug/p2_reference"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-append-4",
+        "command": [
+          "/tmp/wyc-p2-consumer-cn3pn8rg/target/debug/p2_reference"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-append-5",
+        "command": [
+          "/tmp/wyc-p2-consumer-cn3pn8rg/target/debug/p2_reference"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-owned-result",
+        "command": [
+          "/tmp/wyc-p2-consumer-cn3pn8rg/target/debug/p2_reference"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-independent-result",
+        "command": [
+          "/tmp/wyc-p2-consumer-cn3pn8rg/target/debug/p2_reference"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-revision-reset",
+        "command": [
+          "/tmp/wyc-p2-consumer-cn3pn8rg/target/debug/p2_reference"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-old-handle-unchanged",
+        "command": [
+          "/tmp/wyc-p2-consumer-cn3pn8rg/target/debug/p2_reference"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "node-smoke",
+        "command": [
+          "node",
+          "--expose-gc",
+          "smoke.cjs",
+          "/tmp/wyc-p2-consumer-cn3pn8rg/consumer/actions.json"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "python-smoke",
+        "command": [
+          "/tmp/wyc-p2-consumer-cn3pn8rg/consumer-venv/bin/python",
+          "smoke.py",
+          "/tmp/wyc-p2-consumer-cn3pn8rg/consumer/actions.json"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "status-after",
+        "command": [
+          "git",
+          "status",
+          "--porcelain"
+        ],
+        "exit_code": 0
+      }
+    ],
+    "passed": true,
+    "native_locks_bootstrapped": false,
+    "consumer_outside_source": true,
+    "locked_source_acceptance": true,
+    "commit": "cf6c46450b3dca68ddfdffdee1b19fe5817fa991",
+    "clean_before": true,
+    "node_smoke": {
+      "actions": 40,
+      "rust_references": 14,
+      "error_cases": 20,
+      "independent_golden": "p1-arithmetic-v1",
+      "tolerance": {
+        "atol": 1e-12,
+        "rtol": 1e-12
+      },
+      "gc": "100 unclosed handles reclaimed without crash; leak/RSS not measured"
+    },
+    "python_smoke": {
+      "actions": 40,
+      "rust_references": 14,
+      "error_cases": 20,
+      "independent_golden": "p1-arithmetic-v1",
+      "tolerance": {
+        "atol": 1e-12,
+        "rtol": 1e-12
+      },
+      "gc": "100 unclosed handles reclaimed without crash; leak/RSS not measured"
+    },
+    "packages": [
+      {
+        "name": "wyc-lib-0.1.0.tgz",
+        "sha256": "91d2cf35f62a893ccb6a44fdf3cf26321fa17fbb7400c4b1d7daab0cd843e6f4",
+        "size": 505452
+      },
+      {
+        "name": "wyc_lib-0.1.0-cp310-cp310-linux_x86_64.whl",
+        "sha256": "4fa3939d42bd21c57b37629daf8766e65de868a5e4195593fd42835a374f1010",
+        "size": 514472
+      }
+    ],
+    "clean_after": true,
+    "finished_at_utc": "2026-11-14T09:04:16.152776+00:00"
+  }
+}

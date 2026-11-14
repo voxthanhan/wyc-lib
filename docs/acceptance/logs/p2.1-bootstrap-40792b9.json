@@ -1,0 +1,378 @@
+{
+  "commit": "40792b9f543d77ce8c1afab68350888f676c17f3",
+  "purpose": "bootstrap; not locked-source acceptance",
+  "runs": [
+    {
+      "id": 43577393460,
+      "name": "Rust foundation",
+      "head_sha": "40792b9f543d77ce8c1afab68350888f676c17f3",
+      "head_branch": "work/p2-1-ffi-pilot",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/voxthanhan/wyc-lib/actions/runs/43577393460"
+    },
+    {
+      "id": 43577393633,
+      "name": "P2.1 native pilot",
+      "head_sha": "40792b9f543d77ce8c1afab68350888f676c17f3",
+      "head_branch": "work/p2-1-ffi-pilot",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/voxthanhan/wyc-lib/actions/runs/43577393633"
+    }
+  ],
+  "native_jobs": [
+    {
+      "id": 132394518823,
+      "name": "native-pilot (windows-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43577393633,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Install pinned Rust",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Install pinned build tool",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Check Core and shared transport",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Build and test installed native packages",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19
+        }
+      ]
+    },
+    {
+      "id": 132394519075,
+      "name": "native-pilot (ubuntu-24.04)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43577393633,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Install pinned Rust",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Install pinned build tool",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Check Core and shared transport",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Build and test installed native packages",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19
+        }
+      ]
+    }
+  ],
+  "core_jobs": [
+    {
+      "id": 132394518128,
+      "name": "foundation (windows-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43577393460,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Install pinned Rust",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Check foundation and record evidence",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13
+        }
+      ]
+    },
+    {
+      "id": 132394518429,
+      "name": "foundation (ubuntu-24.04)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43577393460,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Install pinned Rust",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Check foundation and record evidence",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 14107316617,
+      "name": "p2-pilot-windows-latest-40792b9f543d77ce8c1afab68350888f676c17f3",
+      "size_in_bytes": 800416,
+      "url": "https://api.github.com/repos/voxthanhan/wyc-lib/actions/artifacts/14107316617",
+      "archive_download_url": "https://api.github.com/repos/voxthanhan/wyc-lib/actions/artifacts/14107316617/zip",
+      "expired": false,
+      "created_at": "2026-11-14T08:50:40Z",
+      "expires_at": "2027-02-12T08:46:25Z",
+      "updated_at": "2026-11-14T08:50:40Z",
+      "digest": "sha256:1a8453bfb9b65ec7e8a0ed311c3263adf24f2762e23fa775f47f2e1a6fc07909",
+      "workflow_run": {
+        "id": 43577393633,
+        "repository_id": 1449100439,
+        "head_repository_id": 1449100439,
+        "head_branch": "work/p2-1-ffi-pilot",
+        "head_sha": "40792b9f543d77ce8c1afab68350888f676c17f3"
+      }
+    },
+    {
+      "id": 14106952251,
+      "name": "p2-pilot-ubuntu-24.04-40792b9f543d77ce8c1afab68350888f676c17f3",
+      "size_in_bytes": 1109521,
+      "url": "https://api.github.com/repos/voxthanhan/wyc-lib/actions/artifacts/14106952251",
+      "archive_download_url": "https://api.github.com/repos/voxthanhan/wyc-lib/actions/artifacts/14106952251/zip",
+      "expired": false,
+      "created_at": "2026-11-14T08:48:31Z",
+      "expires_at": "2027-02-12T08:46:25Z",
+      "updated_at": "2026-11-14T08:48:31Z",
+      "digest": "sha256:9b9ae57199b305201ec7ad91b4209144b4992ed9a7664bb58518baf00f7e3d9b",
+      "workflow_run": {
+        "id": 43577393633,
+        "repository_id": 1449100439,
+        "head_repository_id": 1449100439,
+        "head_branch": "work/p2-1-ffi-pilot",
+        "head_sha": "40792b9f543d77ce8c1afab68350888f676c17f3"
+      }
+    }
+  ],
+  "source_comparison": {
+    "commit": "40792b9f543d77ce8c1afab68350888f676c17f3",
+    "count": 69,
+    "mismatches": []
+  },
+  "artifact_zip_payload_independently_verified": false
+}

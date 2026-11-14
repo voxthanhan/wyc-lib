@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.0 - P2.1 đang triển khai, chưa phát hành
+## 0.1.0 - P2.1 native JSON pilot, chưa phát hành
 
 - Chốt FFI v1: f64/safe integer time, tagged numeric status, config/result,
   code/path exception, owned handle và close/GC tại ADR-0005.
@@ -8,10 +8,17 @@
   giữ schema/config/hash/algorithm và golden P1. Native Node/Python nằm trong
   workspace riêng, không thêm runtime vào dependency graph Core.
 - Thêm adapter pilot NAPI-RS/PyO3, npm/wheel manifests, 40-action smoke và
-  workflow_dispatch hai OS. Native locks, build/ABI/cài package và CI chưa
-  được xác minh; không công bố hỗ trợ hoặc hoàn thành P2.1/G2.
+  workflow hai OS. NAPI-RS/PyO3 build, npm/wheel cài ngoài source tree và smoke
+  đã chạy thành công trên Windows/Linux; native lockfiles khớp giữa hai OS.
+  CI nghiệm thu bắt buộc --locked và checkout sạch, ghi checksum/summary.
+  Không đổi mã thuật toán Core hoặc golden; G2/Foundation chưa phát hành.
 - Kết quả local, log và các điều kiện còn thiếu tại
   [báo cáo P2.1](docs/acceptance/P2.1.md).
+- P2.1 đạt tại cf6c464 và đã tích hợp main: local 101 Rust tests + 5 controls,
+  1008 replay traces giữ nguyên; 86 source blobs local/CI khớp. CI main Core
+  43578612827 và native 43578612862 đạt Windows/Linux, --locked/clean checkout,
+  40 actions/runtime/OS, 14 Rust references, 20 error cases. Native local và
+  kiểm ZIP độc lập chưa xác minh; typed adapters/G2 còn mở.
 
 ## 0.1.0 — Incremental sau G1, chưa phát hành
 

@@ -18,8 +18,8 @@ Native package Node `wyc-lib` và Python import `wyc_lib` đã có mã adapter t
 | `state.close()` | Drop state, idempotent; không mở lại handle |
 
 Đây là surface thử nghiệm JSON đồng bộ, không phải typed adapter P2.2/P2.3
-hoặc API Foundation. Native ABI và cài npm/wheel chưa được chạy ở môi trường
-hiện tại; xem [trạng thái nghiệm thu](acceptance/P2.1.md). Wrapper chỉ chuyển
+hoặc API Foundation. Native ABI và cài npm/wheel đã chạy trên CI Windows/Linux;
+local kiểm Rust/shared transport. Xem [trạng thái nghiệm thu](acceptance/P2.1.md). Wrapper chỉ chuyển
 JSON/exception, không tính lại chỉ báo. Dùng chính protocol Core bên dưới;
 không serialize cache/state và không dùng identity như con trỏ hoặc handle.
 

@@ -2,9 +2,9 @@
 
 One Analytical Core, Multiple Applications. Evidence Before Prediction.
 
-**P2.1 đang triển khai:** đã chốt contract FFI v1 và thêm shared transport Rust
-cùng mã pilot NAPI-RS/PyO3. Kiểm chứng native ABI, npm/wheel và CI chưa hoàn tất
-do giới hạn môi trường; chưa nghiệm thu P2.1/G2 hoặc phát hành Foundation.
+**P2.1 — native JSON pilot:** contract FFI v1, shared Rust transport và adapter
+NAPI-RS/PyO3 đã có kiểm chứng local Rust và CI native Windows/Linux.
+Typed adapters P2.2/P2.3, G2 và Foundation release chưa hoàn tất.
 Xem [báo cáo P2.1](docs/acceptance/P2.1.md),
 [contract FFI](docs/adr/0005-p2-ffi-pilot.md) và
 [cách kiểm tra](docs/DEVELOPMENT.md). Các đoạn dưới ghi lịch sử G0/G1.

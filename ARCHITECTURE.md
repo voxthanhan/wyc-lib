@@ -1,19 +1,20 @@
 # wyc-lib — Kiến trúc thực thi
 
-## Hiện trạng P2.1 đang triển khai
+## Hiện trạng P2.1 — Native JSON pilot
 
 Root workspace có thêm package `wyc-binding-contract` tại `bindings/ffi`, chỉ
 phụ thuộc public API `wyc-lib` và serde/serde_json cho JSON transport. Nó không
 chứa thuật toán; bốn package Core và dependency graph của G1 giữ nguyên.
 NAPI-RS và PyO3 ở hai workspace độc lập `bindings/node`, `bindings/python`,
 để Core tests không yêu cầu Node headers/Python linker hoặc dependency native.
-Mỗi workspace native cần Cargo.lock riêng trước nghiệm thu tái lập.
+Mỗi workspace native có Cargo.lock riêng, đã đối chiếu giống nhau giữa hai OS.
 
 Pilot và hợp đồng ownership/error/state tại
-[ADR-0005](docs/adr/0005-p2-ffi-pilot.md). Các adapter native đã có mã thử,
-nhưng chưa build/chạy trong môi trường hiện tại; không công bố hỗ trợ ABI
-hoặc Foundation. [Báo cáo P2.1](docs/acceptance/P2.1.md) phân biệt kiểm chứng
-shared transport với kiểm chứng native còn thiếu. Các đoạn P1 dưới đây giữ
+[ADR-0005](docs/adr/0005-p2-ffi-pilot.md). Native addon NAPI-RS và wheel
+PyO3/Maturin đã build, cài ngoài source tree và chạy smoke trên CI Windows/Linux.
+Đây là pilot JSON đồng bộ; typed adapters và Foundation/G2 còn ở P2.2–P2.6.
+[Báo cáo P2.1](docs/acceptance/P2.1.md) ghi từng mức kiểm chứng, commit và giới hạn
+local/CI. Các đoạn P1 dưới đây giữ
 lịch sử quyết định và được phần incremental sau G1 thay thế về cách tính state.
 
 ## Nền tảng G1 incremental

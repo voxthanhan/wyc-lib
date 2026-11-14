@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "rust_tests": 101,
+  "python_verifier_controls": 5,
+  "replay_prefixes": 1008,
+  "traces_equal_to_g1": true,
+  "checkout_clean": false,
+  "native_local_build_verified": false
+}

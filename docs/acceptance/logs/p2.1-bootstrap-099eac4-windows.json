@@ -1,0 +1,402 @@
+{
+  "commit": "099eac4157479333a2b92257ccad3a60fec481f5",
+  "job_id": 132395574302,
+  "summary": {
+    "started_at_utc": "2026-11-14T08:52:58.682714+00:00",
+    "platform": "Windows-10-10.0.26100-SP0",
+    "python": "3.10.9 (tags/v3.10.9:1dd9be6, Dec  6 2022, 20:01:21) [MSC v.1934 64 bit (AMD64)]",
+    "checks": [
+      {
+        "name": "commit",
+        "command": [
+          "git",
+          "rev-parse",
+          "HEAD"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "status-before",
+        "command": [
+          "git",
+          "status",
+          "--porcelain"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "node-version",
+        "command": [
+          "node",
+          "--version"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "npm-version",
+        "command": [
+          "C:\\hostedtoolcache\\windows\\node\\22.22.0\\x64\\npm.cmd",
+          "--version"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "maturin-version",
+        "command": [
+          "C:\\hostedtoolcache\\windows\\Python\\3.10.9\\x64\\python.exe",
+          "-m",
+          "maturin",
+          "--version"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "node-lock-bootstrap",
+        "command": [
+          "cargo",
+          "generate-lockfile",
+          "--manifest-path",
+          "D:\\a\\wyc-lib\\wyc-lib\\bindings\\node\\Cargo.toml"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "node-format",
+        "command": [
+          "cargo",
+          "fmt",
+          "--manifest-path",
+          "D:\\a\\wyc-lib\\wyc-lib\\bindings\\node\\Cargo.toml",
+          "--",
+          "--check"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "node-clippy",
+        "command": [
+          "cargo",
+          "clippy",
+          "--manifest-path",
+          "D:\\a\\wyc-lib\\wyc-lib\\bindings\\node\\Cargo.toml",
+          "--locked",
+          "--all-targets",
+          "--",
+          "-D",
+          "warnings"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "python-lock-bootstrap",
+        "command": [
+          "cargo",
+          "generate-lockfile",
+          "--manifest-path",
+          "D:\\a\\wyc-lib\\wyc-lib\\bindings\\python\\Cargo.toml"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "python-format",
+        "command": [
+          "cargo",
+          "fmt",
+          "--manifest-path",
+          "D:\\a\\wyc-lib\\wyc-lib\\bindings\\python\\Cargo.toml",
+          "--",
+          "--check"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "python-clippy",
+        "command": [
+          "cargo",
+          "clippy",
+          "--manifest-path",
+          "D:\\a\\wyc-lib\\wyc-lib\\bindings\\python\\Cargo.toml",
+          "--locked",
+          "--all-targets",
+          "--",
+          "-D",
+          "warnings"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "node-build",
+        "command": [
+          "cargo",
+          "build",
+          "--manifest-path",
+          "D:\\a\\wyc-lib\\wyc-lib\\bindings\\node\\Cargo.toml",
+          "--locked",
+          "--release",
+          "--target-dir",
+          "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\wyc-p2-consumer-tfqnifmg\\target"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "npm-pack",
+        "command": [
+          "C:\\hostedtoolcache\\windows\\node\\22.22.0\\x64\\npm.cmd",
+          "pack",
+          "--json",
+          "--ignore-scripts",
+          "--pack-destination",
+          "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\wyc-p2-consumer-tfqnifmg"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "npm-install",
+        "command": [
+          "C:\\hostedtoolcache\\windows\\node\\22.22.0\\x64\\npm.cmd",
+          "install",
+          "--ignore-scripts",
+          "--no-audit",
+          "--no-fund",
+          "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\wyc-p2-consumer-tfqnifmg\\wyc-lib-0.1.0.tgz"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "wheel-build",
+        "command": [
+          "C:\\hostedtoolcache\\windows\\Python\\3.10.9\\x64\\python.exe",
+          "-m",
+          "maturin",
+          "build",
+          "--manifest-path",
+          "D:\\a\\wyc-lib\\wyc-lib\\bindings\\python\\Cargo.toml",
+          "--locked",
+          "--release",
+          "--interpreter",
+          "C:\\hostedtoolcache\\windows\\Python\\3.10.9\\x64\\python.exe",
+          "--out",
+          "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\wyc-p2-consumer-tfqnifmg\\wheels"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "venv",
+        "command": [
+          "C:\\hostedtoolcache\\windows\\Python\\3.10.9\\x64\\python.exe",
+          "-m",
+          "venv",
+          "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\wyc-p2-consumer-tfqnifmg\\consumer-venv"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "wheel-install",
+        "command": [
+          "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\wyc-p2-consumer-tfqnifmg\\consumer-venv\\Scripts\\python.exe",
+          "-m",
+          "pip",
+          "install",
+          "--no-index",
+          "--no-deps",
+          "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\wyc-p2-consumer-tfqnifmg\\wheels\\wyc_lib-0.1.0-cp310-cp310-win_amd64.whl"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-build",
+        "command": [
+          "cargo",
+          "build",
+          "--locked",
+          "--package",
+          "wyc-binding-contract",
+          "--bin",
+          "p2_reference",
+          "--target-dir",
+          "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\wyc-p2-consumer-tfqnifmg\\target"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-batch-full",
+        "command": [
+          "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\wyc-p2-consumer-tfqnifmg\\target\\debug\\p2_reference.exe"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-batch-empty",
+        "command": [
+          "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\wyc-p2-consumer-tfqnifmg\\target\\debug\\p2_reference.exe"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-unicode",
+        "command": [
+          "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\wyc-p2-consumer-tfqnifmg\\target\\debug\\p2_reference.exe"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-zero-volume",
+        "command": [
+          "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\wyc-p2-consumer-tfqnifmg\\target\\debug\\p2_reference.exe"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-initial-result",
+        "command": [
+          "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\wyc-p2-consumer-tfqnifmg\\target\\debug\\p2_reference.exe"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-after-bad-update",
+        "command": [
+          "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\wyc-p2-consumer-tfqnifmg\\target\\debug\\p2_reference.exe"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-after-bad-reset",
+        "command": [
+          "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\wyc-p2-consumer-tfqnifmg\\target\\debug\\p2_reference.exe"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-append-3",
+        "command": [
+          "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\wyc-p2-consumer-tfqnifmg\\target\\debug\\p2_reference.exe"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-append-4",
+        "command": [
+          "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\wyc-p2-consumer-tfqnifmg\\target\\debug\\p2_reference.exe"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-append-5",
+        "command": [
+          "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\wyc-p2-consumer-tfqnifmg\\target\\debug\\p2_reference.exe"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-owned-result",
+        "command": [
+          "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\wyc-p2-consumer-tfqnifmg\\target\\debug\\p2_reference.exe"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-independent-result",
+        "command": [
+          "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\wyc-p2-consumer-tfqnifmg\\target\\debug\\p2_reference.exe"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-revision-reset",
+        "command": [
+          "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\wyc-p2-consumer-tfqnifmg\\target\\debug\\p2_reference.exe"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "reference-old-handle-unchanged",
+        "command": [
+          "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\wyc-p2-consumer-tfqnifmg\\target\\debug\\p2_reference.exe"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "node-smoke",
+        "command": [
+          "node",
+          "--expose-gc",
+          "smoke.cjs",
+          "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\wyc-p2-consumer-tfqnifmg\\consumer\\actions.json"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "python-smoke",
+        "command": [
+          "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\wyc-p2-consumer-tfqnifmg\\consumer-venv\\Scripts\\python.exe",
+          "smoke.py",
+          "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\wyc-p2-consumer-tfqnifmg\\consumer\\actions.json"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "status-after",
+        "command": [
+          "git",
+          "status",
+          "--porcelain"
+        ],
+        "exit_code": 0
+      }
+    ],
+    "passed": true,
+    "native_locks_bootstrapped": true,
+    "consumer_outside_source": true,
+    "locked_source_acceptance": false,
+    "commit": "099eac4157479333a2b92257ccad3a60fec481f5",
+    "clean_before": true,
+    "node_smoke": {
+      "actions": 40,
+      "rust_references": 14,
+      "error_cases": 20,
+      "independent_golden": "p1-arithmetic-v1",
+      "tolerance": {
+        "atol": 1e-12,
+        "rtol": 1e-12
+      },
+      "gc": "100 unclosed handles reclaimed without crash; leak/RSS not measured"
+    },
+    "python_smoke": {
+      "actions": 40,
+      "rust_references": 14,
+      "error_cases": 20,
+      "independent_golden": "p1-arithmetic-v1",
+      "tolerance": {
+        "atol": 1e-12,
+        "rtol": 1e-12
+      },
+      "gc": "100 unclosed handles reclaimed without crash; leak/RSS not measured"
+    },
+    "packages": [
+      {
+        "name": "wyc-lib-0.1.0.tgz",
+        "sha256": "28b9fac9df0b72a0d7cbd04f6eac96487d6f82deb98b992cef477073f438ece9",
+        "size": 358750
+      },
+      {
+        "name": "wyc_lib-0.1.0-cp310-cp310-win_amd64.whl",
+        "sha256": "9db8f1c65066e2964d9b70ddfd39eb672985f567eb34f8c11a1eea525b1d0cdc",
+        "size": 350817
+      }
+    ],
+    "clean_after": false,
+    "finished_at_utc": "2026-11-14T08:54:26.685286+00:00"
+  },
+  "locks_equal_across_os": true,
+  "locks": [
+    {
+      "adapter": "node",
+      "sha256": "31a254cf9cd9d9537486543c2f70ffb42b852842f3d3ac6ad9be250470b08254"
+    },
+    {
+      "adapter": "python",
+      "sha256": "009836cc5412c3f28b43f2eed7c14d4ba563e55d04c07eb4178ac1ab1994ba75"
+    }
+  ]
+}

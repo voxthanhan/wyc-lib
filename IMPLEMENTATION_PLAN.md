@@ -177,10 +177,12 @@ State bản đầu ưu tiên reset và replay toàn bộ khi lịch sử sửa �
 | P2.6 | Đo chi phí FFI/chuyển đổi/copy và batch so với nhiều lần gọi; tài liệu tích hợp, compatibility và bản ứng viên Foundation | P2.5 |
 
 **Tiến độ P2.1 ngày 14/11/2026:** mapping/state/ownership đã chốt tại
-[ADR-0005](docs/adr/0005-p2-ffi-pilot.md), có shared Rust transport và mã pilot
-Node/Python cùng runner smoke/cài package. Native dependencies/lockfiles, ABI,
-package smoke và CI còn chưa kiểm chứng do môi trường chặn mạng/Git write.
-Chưa đánh dấu P2.1 đạt; chi tiết tại [báo cáo](docs/acceptance/P2.1.md).
+[ADR-0005](docs/adr/0005-p2-ffi-pilot.md). **P2.1 đạt phạm vi pilot** tại
+`cf6c464`, đã tích hợp main: local 101 Rust tests + 5 Python controls; CI Core
+43578612827 và native 43578612862 đều PASS Windows/Linux. Native locks khớp;
+--locked, checkout sạch, 40 actions/runtime/OS, 14 Rust references và 20 ca lỗi.
+Native local chưa xác minh do mạng/Git shell bị hạn chế; G2/P2.2–P2.6 còn mở.
+Chi tiết và bằng chứng tại [báo cáo](docs/acceptance/P2.1.md).
 
 Khởi đầu với đường chuyển đổi có copy và ownership rõ ràng. Adapter Pandas/Polars tái sử dụng đường NumPy/mảng khi phù hợp; không viết lại indicators bằng các thư viện đó. Quy định rõ vùng timestamp an toàn cho từng biểu diễn Node.js và từ chối giá trị không thể biểu diễn chính xác theo contract.
 

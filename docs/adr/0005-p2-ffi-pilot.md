@@ -89,3 +89,12 @@ update/reset atomic, close/GC và output sở hữu riêng. CI chạy cùng runn
 hai OS và lưu commit, version, command, exit code, package checksums, smoke log.
 P2.4 vẫn chịu trách nhiệm parity đầy đủ mọi fixtures/API; P2.5–P2.6 chịu trách
 nhiệm ma trận phân phối, server integration và baseline FFI.
+
+## Kết quả P2.1
+
+Hai native Cargo.lock đã lưu trong nguồn, khớp nguyên văn Windows/Linux.
+Commit cf6c464 đã tích hợp main; CI Core 43578612827 và native 43578612862
+đạt hai OS, không bootstrap, --locked và checkout sạch trước/sau. Local đạt
+101 Rust tests + 5 controls, 1008 traces giữ nguyên; native local chưa chạy
+do shell hạn chế mạng. [Báo cáo P2.1](../acceptance/P2.1.md) ghi phạm vi
+nghiệm thu và giới hạn; không phải nghiệm thu G2/Foundation.

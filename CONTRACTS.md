@@ -5,8 +5,8 @@
 P2.1 chốt mapping FFI v1 tại [ADR-0005](docs/adr/0005-p2-ffi-pilot.md):
 copy-owned JSON pilot, safe integer timestamps, tagged missing/warm-up,
 code/path exception và opaque state handle có close/GC. Không đổi schema,
-config/hash, algorithm hoặc DTO Core. Shared transport Rust đã có implementation;
-native Node/Python cần build/ABI/package smoke trước nghiệm thu P2.1.
+config/hash, algorithm hoặc DTO Core. Shared transport Rust có tests local;
+native Node/Python có build/ABI/package smoke trên CI Windows/Linux.
 Các đoạn FFI dự kiến ở cuối tài liệu nay được ADR này cụ thể hóa cho pilot;
 typed object/NumPy adapters và parity đầy đủ vẫn thuộc P2.2–P2.4.
 

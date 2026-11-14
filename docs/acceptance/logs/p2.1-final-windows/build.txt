@@ -1,0 +1,2 @@
+   Compiling wyc-binding-contract v0.1.0 (D:\Dev\Lib\bindings\ffi)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 10.86s

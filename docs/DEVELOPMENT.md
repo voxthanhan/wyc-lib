@@ -2,57 +2,45 @@
 
 ## P2.1 — Kiểm chứng shared transport và native pilot
 
-Root workspace có năm packages, thêm `wyc-binding-contract`; Node/Python native
-là hai workspace độc lập để không kéo runtime vào Core. Root lockfile đã cập
-nhật bằng cache local; native lockfiles **chưa tạo được** vì shell không có
-mạng. NAPI-RS 2.16.17/derive 2.16.13/build 2.1.3, PyO3 0.23.5, Maturin 1.8.3
-đã pin trong manifest; chưa công bố chúng build thành công cùng toolchain.
+Root workspace có năm packages, thêm `wyc-binding-contract`; hai workspace
+native độc lập tại `bindings/node`, `bindings/python` không kéo runtime vào Core.
+Cả ba `Cargo.lock` đã lưu trong nguồn. Native locks được kiểm bằng SHA-256 và
+đối chiếu nguyên văn giữa Windows/Linux; các run nghiệm thu dùng --locked.
+NAPI-RS 2.16.17/derive 2.16.13/build 2.1.3, PyO3 0.23.5, Maturin 1.8.3 đã pin;
+CI dùng Rust 1.85.1, Node 22.22.0 và CPython 3.10.9 trên x64 Windows/Ubuntu.
 
-Shared transport dùng cùng runner Core (không cần runtime native):
+Shared transport dùng cùng runner Core, không cần runtime native:
 
-```powershell
-./scripts/check-foundation.ps1 -Offline -EvidenceDirectory ci-evidence/p2-local
-```
+    ./scripts/check-foundation.ps1 -Offline -EvidenceDirectory ci-evidence/p2-local
 
-Với host có mạng, tạo venv riêng rồi cài build tool trong venv. Cần Rust 1.85.1,
-MSVC/SDK trên Windows, Node/npm trên PATH. CI chọn Node 22.22.0, CPython 3.10.9;
-local đã phát hiện Node 24.20.0/npm 11.19.0 và CPython 3.10.9, chưa kiểm ABI.
+Với host có mạng/cache, Rust/linker và Node/npm trên PATH, tạo venv riêng:
 
-```text
-python -m venv .tools/p2-build-env
-```
+    python -m venv .tools/p2-build-env
 
-Kích hoạt venv theo shell/OS, sau đó:
+Kích hoạt venv theo shell/OS, sau đó cài build tool và chạy pilot:
 
-```text
-python -m pip install maturin==1.8.3
-python scripts/check_p2.py --bootstrap-native-locks
-```
-
-Bootstrap chỉ phục vụ lần đầu: rà hai Cargo.lock sinh tại bindings/node và
-bindings/python, commit chúng, sau đó chạy lại **không** bootstrap từ checkout
-sạch. Chỉ lần sau mới có thể đạt `locked_source_acceptance=true`:
-
-```text
-python scripts/check_p2.py
-```
+    python -m pip install maturin==1.8.3
+    python scripts/check_p2.py
 
 Runner format/Clippy native, build --locked, đóng npm tarball và wheel,
-cài vào npm consumer/venv mới ngoài source tree, chạy cùng 40 actions cho
-Node/Python, so 14 report với Rust reference và arithmetic golden độc lập.
-Nó ghi package SHA-256, version, commands/exit codes và kết quả vào ci-evidence/p2.
-Kiểm GC chỉ chứng minh không crash sau 100 handle bỏ tham chiếu; chưa đo leak/RSS.
-Wheel Linux dùng tag linux_x86_64, chưa claim manylinux, abi3 hay hỗ trợ 3.11+.
+cài vào npm consumer/venv mới ngoài source tree. Mỗi runtime chạy 40 actions,
+14 report đối chiếu Rust reference, 20 ca lỗi và arithmetic golden độc lập.
+Kết quả và checksum packages nằm tại ci-evidence/p2, được xuất thêm vào CI logs.
+CI không bootstrap chỉ đạt khi checkout sạch trước/sau; sai điều kiện trả exit khác 0.
 
-Workflow `.github/workflows/p2-pilot.yml` đã chuẩn bị cho workflow_dispatch và
-push nhánh `work/p2-1-ffi-pilot` trên Windows/Ubuntu. Bootstrap khi thiếu locks
-hoặc input true chỉ để lấy hai locks ban đầu qua artifact, không coi run này
-là nghiệm thu tái lập. Sau khi kết nối GitHub thành công, thao tác tạo tree
-đã bị automatic approval review từ chối vì cần xác nhận rõ việc công khai
-payload P2.1 vào repository public; chưa có commit hoặc CI run mới.
-[Báo cáo P2.1](acceptance/P2.1.md) ghi rõ phần đã/chưa kiểm chứng; CI G1 cũ
-không thay bằng chứng cho P2.1. Typed API, NumPy/Pandas/Polars, ma trận package
-và Next.js smoke còn ở P2.2–P2.6.
+Chỉ dùng --bootstrap-native-locks khi chủ ý tạo/cập nhật locks. Rà soát và commit
+hai Cargo.lock, chạy lại không bootstrap từ checkout sạch trước nghiệm thu.
+Bootstrap tự động khi thiếu locks vẫn được ghi locked_source_acceptance=false.
+Workflow .github/workflows/p2-pilot.yml chạy push main/work/p2-1-ffi-pilot hoặc
+workflow_dispatch trên Windows/Ubuntu; không publish npm/PyPI hoặc tạo release.
+
+Local hiện có Node 24.20.0/npm 11.19.0, CPython 3.10.9; shell không tải được
+native dependencies nên chỉ xác minh Core/shared Rust tại local. Bằng chứng
+native là CI Node 22.22.0/Python 3.10.9, không suy thành hỗ trợ Node 24 local.
+GC smoke chỉ kiểm 100 handle bỏ tham chiếu không crash; chưa đo leak/RSS.
+Wheel Linux dùng linux_x86_64, chưa claim manylinux, abi3 hay hỗ trợ 3.11+.
+Xem [báo cáo P2.1](acceptance/P2.1.md). Typed API, NumPy/Pandas/Polars, ma trận
+phân phối đầy đủ và Next.js smoke còn ở P2.2–P2.6; chưa nghiệm thu G2.
 
 ## Ma trận nền tảng
 
@@ -62,14 +50,14 @@ và Next.js smoke còn ở P2.2–P2.6.
 | Windows | x86_64-pc-windows-msvc; Visual Studio Build Tools 2022 + Windows SDK cho local | Local/checkout sạch incremental, 93 Rust + 5 Python controls tại 45752f1; CI windows-latest PASS, ZIP payload verified |
 | Linux | x86_64-unknown-linux-gnu; Ubuntu 24.04 CI | CI ubuntu-24.04 incremental PASS tại 45752f1, ZIP payload verified |
 | macOS/ARM64 | Chưa chọn phiên bản/runner | Chưa công bố hỗ trợ |
-| Node | 22.x, NAPI-RS ở P2 | Mục tiêu, chưa chọn bản patch/ABI hoặc kiểm chứng |
-| Python | CPython 3.10–3.13, PyO3/Maturin ở P2 | Mục tiêu, chưa chọn bản patch/ABI hoặc kiểm chứng |
+| Node | 22.22.0; NAPI-RS 2.16.17, Node-API v8 | Pilot x64 Windows/Linux đã có build/cài package/smoke CI; full adapter ở P2.2 |
+| Python | CPython 3.10.9; PyO3 0.23.5/Maturin 1.8.3 | Pilot wheel cp310 Windows/Linux đã có CI; 3.11–3.13 và abi3 chưa kiểm |
 | Server | Linux x64 Node Runtime, gồm khảo sát Vercel P2 | Chưa kiểm chứng; browser/Edge/WASM ngoài phạm vi |
 
 Dependencies trực tiếp khóa exact trong Cargo.toml: serde 1.0.219,
 serde_json 1.0.140, sha2 0.10.9. `Cargo.lock` khóa bắc cầu. Không thêm vnstock
 hoặc thư viện nguồn dữ liệu vào Core. Tests không cần keys, network hay market feed
-sau khi dependency đã được tải. Chưa có Node/Python manifest hoặc build command.
+sau khi dependency đã được tải. Lệnh native pilot và manifest P2.1 ở phần đầu.
 
 ## Chạy từ checkout có Rust
 
