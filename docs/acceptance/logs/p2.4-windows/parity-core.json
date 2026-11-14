@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "actions": 4409,
+  "fixture_cases": 39,
+  "equivalences": 2514,
+  "errors": {
+    "declared_gap": 3,
+    "duplicate_module": 3,
+    "duplicate_timestamp": 4,
+    "invalid_availability": 5,
+    "invalid_config": 3,
+    "invalid_metadata": 3,
+    "invalid_ohlc": 3,
+    "length_mismatch": 3,
+    "missing_data": 4,
+    "negative_volume": 3,
+    "numeric_overflow": 4,
+    "reset_required": 1,
+    "revision_not_available": 3,
+    "state_mismatch": 6,
+    "unordered_timestamp": 3,
+    "unsupported_module": 3,
+    "unsupported_version": 3
+  },
+  "operations": {
+    "batch": 2574,
+    "indicators": 39,
+    "structure": 39,
+    "new": 161,
+    "update": 1395,
+    "identity": 129,
+    "reset": 56,
+    "result": 16
+  },
+  "fixture_sha256": {
+    "tests/fixtures/temporal.json": "1b8ed2871b24929b93de8dc5fa0861361290680fafd7e2bacb0bc493096c0c2a",
+    "tests/golden/temporal.json": "23d97e3bf10048882601608ab3450e933dccfabfa76d3dddfea0c8116c7938dc",
+    "tests/fixtures/p1-arithmetic.json": "625022a44578cb49fb950db100ff724156024f29b7f2d316f8c746fcd81132e6",
+    "tests/golden/p1-arithmetic.json": "31e6ad587aef81c9f3c015fb7cc6ef28af1bde0d47d79b5c5caf0b93866b71ac",
+    "tests/fixtures/p1-identity.json": "7246f3dea4670d633b46605d785f384dacc9af7a3a2705bfd222a191b53b5777",
+    "tests/golden/p1-identity.json": "2661abf2f4419a8fc95faa6355a06e6d8f01c41642dc431a0307b62e7d0255d5",
+    "tests/fixtures/p1-rolling.json": "20018089a4c037149660b0597720cdcc915abaff9a407aa23f92e14fac025488",
+    "tests/golden/p1-rolling.json": "947f1641a8f2be8721314c49c1f8ab6c9ecadcba47bdf370f2d1a567489affe2",
+    "tests/fixtures/p1-basic.json": "6480b884ebc27816fa4bc78a85435eca0fde24d3d25764595121d3632867d7b4",
+    "tests/golden/p1-basic.json": "184442eef14cdce62f77c79a1c061555c184e03eab64d2085b95f8ae8efab5c4",
+    "tests/fixtures/p1-advanced.json": "306a1d906a112d55c7406aa675d48605bf6f409e1c5a48c5c1ea4ab3208e8564",
+    "tests/golden/p1-advanced.json": "4b71ed179d07ab2958d45780d11031ee6ae29e6d14cfe354fb6a5dd44f97c2cf",
+    "tests/fixtures/p1-structure.json": "7d4770443c130cb4c51fe295542d35dd18110fb72e6bc2a9cbbd0bee8110c398",
+    "tests/golden/p1-structure.json": "1158e5a5ef089c8a5c67e858c8245ea12ad74791763189620d450995f4584a69"
+  },
+  "reference": "direct-public-Rust-Core",
+  "numeric_policy": "docs/algorithms/P1.md; discrete fields and min/max exact",
+  "runtimes": [
+    "Rust"
+  ],
+  "actions_sha256": "b658aad0e0c81fbc7908f8b5ee747d1745d595c3f9ccd96ffe646789f220f561"
+}

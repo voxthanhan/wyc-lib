@@ -411,5 +411,13 @@ Các timestamp dùng safe integer UTC ms; không làm tròn. Exception có code/
 NaN/Infinity host là RangeError/non_finite; malformed host là TypeError/invalid_type.
 Output owned, sửa input/output sau lời gọi không đổi Rust state. Close idempotent,
 vĩnh viễn; update/reset lỗi giữ state/cursor. Không chia sẻ state giữa workers.
-TypeScript definitions đi cùng npm package; Python hiện vẫn là JSON pilot.
+TypeScript definitions đi cùng npm package; Python có typed APIs từ P2.3.
 [Contract P2.2](adr/0006-p2-node-typed.md), [nghiệm thu](acceptance/P2.2.md).
+
+## Parity P2.4
+
+`analyze_batch`, `calculate_indicators`, `analyze_structure`, AnalysisState
+new/result/identity/update/reset được kiểm bằng cùng DTO/config ở ba runtime.
+Protocol, tolerance, error groups và lệnh chạy tại
+[tests/parity](../tests/parity/README.md); mức nghiệm thu thực tế tại
+[P2.4](acceptance/P2.4.md). Không thêm hoặc thay public API ở bước này.

@@ -1,0 +1,1 @@
+PASS: P2 five package boundaries, acyclic dependency graph, ten integration targets, two examples, two Core references, 396 local links

@@ -1,4 +1,4 @@
-"""Build/copy/package/install P2.1-P2.3 native adapters and audit both consumers.
+"""Build/copy/package/install P2.1-P2.4 native adapters and audit both consumers.
 
 Network is needed only to fetch build dependencies. No credentials, publication,
 source execution from wheels/tarballs outside normal install, or market feed.
@@ -16,6 +16,7 @@ import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 from p2_scenarios import scenarios, verify
+from p2_parity import matrix, verify as verify_parity
 
 
 def main():
@@ -53,6 +54,7 @@ def main():
             raise RuntimeError("npm is required")
         run("npm-version", [npm, "--version"])
         run("node-host-boundary", ["node", root / "tests/parity/p2_node_boundary.cjs"])
+        run("parity-controls", [sys.executable, root / "scripts/test_p2_parity.py"])
         run("maturin-version", [sys.executable, "-m", "maturin", "--version"])
         for adapter in ("node", "python"):
             manifest = root / "bindings" / adapter / "Cargo.toml"
@@ -95,6 +97,26 @@ def main():
         run("reference-build", ["cargo", "build", "--locked", "--package", "wyc-binding-contract",
                                 "--bin", "p2_reference", "--target-dir", target])
         reference = target / "debug" / ("p2_reference.exe" if os.name == "nt" else "p2_reference")
+        run("parity-reference-build", ["cargo", "build", "--locked", "--package", "wyc-binding-contract",
+                                      "--bin", "p2_parity_reference", "--target-dir", target])
+        parity_reference = target / "debug" / ("p2_parity_reference.exe" if os.name == "nt" else "p2_parity_reference")
+        bundle = matrix(root)
+        parity_actions = json.dumps(bundle["actions"], ensure_ascii=False, allow_nan=False)
+        parity_path = consumer / "parity-actions.json"
+        parity_path.write_text(parity_actions, encoding="utf-8")
+        core_records = json.loads(run("parity-rust", [parity_reference], input_text=parity_actions))
+        for name in ("p2_parity.cjs", "p2_parity.py"):
+            shutil.copy2(root / "tests/parity" / name, consumer / name)
+        parity_reports = {}
+        for runtime, command in (("node", ["node", "p2_parity.cjs", parity_path]),
+                                 ("python", [python, "p2_parity.py", parity_path])):
+            records = json.loads(run(f"parity-{runtime}", command, cwd=consumer))
+            parity_reports[runtime] = verify_parity(records, core_records, bundle)
+        assert parity_reports["node"] == parity_reports["python"], "Parity coverage differs"
+        summary["parity"] = parity_reports
+        parity_report = dict(**parity_reports["node"], runtimes=["Rust", "Node.js", "Python"],
+                             actions_sha256=hashlib.sha256(parity_actions.encode()).hexdigest())
+        (evidence / "parity-report.json").write_text(json.dumps(parity_report, indent=2) + "\n", encoding="utf-8")
         actions, requests, errors, golden = scenarios(root)
         actions_path = consumer / "actions.json"
         actions_path.write_text(json.dumps(actions, ensure_ascii=False), encoding="utf-8")

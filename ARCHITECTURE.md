@@ -1,5 +1,11 @@
 # wyc-lib — Kiến trúc thực thi
 
+P2.4 bổ sung executable `p2_parity_reference` gọi trực tiếp public Core và
+AnalysisState, độc lập shared transport đang được kiểm thử. Hai driver typed
+Node/Python chạy cùng actions từ package đã cài ngoài source. Bộ tạo/comparator
+chỉ thuộc test harness, không thêm công thức hoặc runtime dependency cho Core.
+[Protocol parity](tests/parity/README.md), [báo cáo](docs/acceptance/P2.4.md).
+
 **P2.3 đạt phạm vi Python P1 tại e4424af:** CI native/Core Windows/Linux PASS.
 Đã tích hợp main tại `46041c6` qua PR #3; CI main Core/native đều PASS hai OS.
 Python dict API/AnalysisState và converters
