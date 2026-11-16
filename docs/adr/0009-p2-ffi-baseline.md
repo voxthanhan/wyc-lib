@@ -35,8 +35,12 @@ Single-module API trả ModuleResult(metadata, output), batch giữ metadata chu
 và output từng module; đối chiếu cả metadata và payload tương ứng. Vẫn chạy đầy đủ
 parity/golden/package/server regression độc lập.
 
-CPU/wall/peak RSS đo toàn process qua runner hiện có, gồm setup/warmups/JSON;
-không phải retained heap/state hoặc leak/concurrency test. Ghi runtime/toolchain,
+CPU/wall/peak RSS là process metrics, không phải retained heap/state hoặc leak/
+concurrency test. Rust/Node dùng Popen process, gồm setup/warmups/JSON. Python
+lấy CPU/RSS từ worker thực trước final JSON encoding; wall từ parent gồm output.
+Giữ riêng parent_process_observation vì Windows venv có thể chạy redirector
+với PID khác worker; không dùng CPU/RSS launcher đại diện Python workload.
+Ghi runtime/toolchain,
 CPU/platform, commit/clean, binary/package/input hashes và cấu hình build.
 
 ## Phân phối

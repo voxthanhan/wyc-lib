@@ -84,7 +84,7 @@ def baseline(root, consumer, python, target, evidence, run):
     run('baseline-controls', [shutil.which('python') or python, root / 'scripts/test_p2_baseline.py'])
     run('baseline-build', ['cargo', 'build', '--release', '--locked', '--package', 'wyc-binding-contract',
                            '--bin', 'p2_baseline', '--target-dir', target])
-    for name in ('p2_node.cjs', 'p2_python.py'):
+    for name in ('p2_node.cjs', 'p2_python.py', 'p2_process.py'):
         shutil.copy2(root / 'benchmarks' / name, consumer / name)
     commands = dict(rust=[target / 'release' / ('p2_baseline.exe' if __import__('os').name == 'nt' else 'p2_baseline')],
                     node=[Path(shutil.which('node')), consumer / 'p2_node.cjs'],

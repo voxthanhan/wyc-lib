@@ -9,6 +9,8 @@ import pandas as pd
 import polars as pl
 import wyc_lib as lib
 from wyc_lib import _native, _conversion
+from p2_process import worker_metrics
+
 
 requests = json.loads(Path(sys.argv[1]).read_text(encoding='utf-8'))
 rows, outputs = [], []
@@ -66,4 +68,5 @@ for r in requests:
             raise RuntimeError('NumPy input mutated')
 print(json.dumps(dict(runtime='python', version=sys.version, rows=rows, outputs=outputs,
     warmups=2, samples=5, iterations=3, profile='release',
+    worker_process=worker_metrics(),
     extras=dict(numpy=np.__version__, pandas=pd.__version__, polars=pl.__version__)), allow_nan=False))

@@ -1,12 +1,15 @@
 """Measurement evidence controls; no assertions on runner speed."""
 import copy
+import os
 import subprocess
 import sys
 import tempfile
 import unittest
 from pathlib import Path
 from p2_baseline import SIZES, OPERATIONS, audit, inputs
-from measure_baseline import launch_command
+from measure_baseline import launch_command, attach_process_metrics
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'benchmarks'))
+from p2_process import worker_metrics
 
 
 class Controls(unittest.TestCase):
@@ -66,6 +69,25 @@ class Controls(unittest.TestCase):
             self.assertTrue(binary.is_symlink())
             prefix = subprocess.check_output(launch_command(binary, ['-c', 'import sys; print(sys.prefix)']), text=True).strip()
             self.assertEqual(Path(prefix).resolve(), venv.resolve())
+
+    def test_worker_metrics_override_launcher_and_missing_metrics_fail(self):
+        worker = dict(pid=200, cpu_seconds=1.5, peak_rss_bytes=60000000)
+        launcher = dict(pid=100, cpu_seconds=0.01, peak_rss_bytes=4000000, wall_seconds=2.0)
+        report = dict(runtime='python', worker_process=worker)
+        attach_process_metrics(report, launcher)
+        self.assertEqual(report['process'], dict(worker, wall_seconds=2.0))
+        self.assertEqual(report['parent_process_observation']['pid'], launcher['pid'])
+        self.assertEqual(report['parent_process_observation']['cpu_seconds'], launcher['cpu_seconds'])
+        self.assertIn('redirector', report['parent_process_observation']['scope'])
+        with self.assertRaises(ValueError):
+            attach_process_metrics(dict(runtime='python'), launcher)
+
+    def test_sampler_reports_current_worker_pid_and_live_resources(self):
+        metrics = worker_metrics()
+        self.assertEqual(metrics['pid'], os.getpid())
+        self.assertGreaterEqual(metrics['cpu_seconds'], 0)
+        self.assertGreater(metrics['peak_rss_bytes'], 0)
+        self.assertIn('worker', metrics['memory_method'])
 
 
 if __name__ == '__main__':
