@@ -109,9 +109,9 @@ def main():
         locations = dict(
             node=run('node-install-location', ['node', '-p', "require.resolve('wyc-lib')"], cwd=consumer).strip(),
             python=run('python-install-location', [python, '-I', '-c', 'import wyc_lib; print(wyc_lib.__file__)'], cwd=consumer).strip())
-        if not Path(locations['node']).resolve().is_relative_to(consumer / 'node_modules'):
+        if not Path(locations['node']).resolve().is_relative_to((consumer / 'node_modules').resolve()):
             raise RuntimeError('Node consumer did not load installed tarball')
-        if not Path(locations['python']).resolve().is_relative_to(venv):
+        if not Path(locations['python']).resolve().is_relative_to(venv.resolve()):
             raise RuntimeError('Python consumer did not load installed wheel')
         summary['installed_locations'] = locations
         summary['consumer_has_no_rust_source'] = not any(consumer.rglob('*.rs'))
