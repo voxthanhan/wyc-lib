@@ -1,10 +1,12 @@
 # wyc-lib
 
-**P2.5 đang kiểm chứng:** audit npm/wheel, cài artifact vào consumer sạch ngoài
-source và examples Node/Python; smoke Node HTTP và Next.js production trên
-Windows/Linux. Xem [hướng dẫn package/server](examples/p2/README.md),
+**P2.5 đã đạt (16/11/2026):** npm/wheel cài sạch ngoài source, examples và
+Node/Next.js production smoke PASS Windows/Linux. PR #6 đã gộp main `a5962865`;
+CI Core/native main đều PASS. [Hướng dẫn package/server](examples/p2/README.md),
 [ADR-0008](docs/adr/0008-p2-package-consumers.md) và
-[báo cáo P2.5](docs/acceptance/P2.5.md). Chưa kết luận P2.5; P2.6/G2/Foundation còn mở.
+[báo cáo P2.5](docs/acceptance/P2.5.md) lưu ma trận, SHA/run/checksum và bốn ZIP
+native đã kiểm độc lập. P2.6/G2/Foundation còn mở; chưa publish package.
+Các đoạn bên dưới lưu lịch sử từng bước trước P2.5.
 
 **P2.4 đã đạt:** parity Rust–Node.js–Python cho 39 ca, 4.409 actions/runtime,
 batch/update/reset và 57 ca lỗi. PR #4 đã gộp tại `8df94f5`; CI Core/native main

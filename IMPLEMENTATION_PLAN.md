@@ -163,11 +163,14 @@ State bản đầu ưu tiên reset và replay toàn bộ khi lịch sử sửa �
 
 ### P2 — Node.js và Python Bindings; Foundation Release
 
-**P2.5 đang kiểm chứng (16/11/2026):** build/audit npm và wheel, cài sạch ngoài
-source, examples và HTTP Node/Next.js production trên target đã chốt.
-[ADR-0008](docs/adr/0008-p2-package-consumers.md) ghi quyết định;
-[báo cáo P2.5](docs/acceptance/P2.5.md) lưu kết quả thực chạy.
-Chưa nghiệm thu P2.5 hoặc P2.6/G2/Foundation.
+**P2.5 đã đạt (16/11/2026):** npm/wheel, cài sạch ngoài source, examples và
+Node/Next.js production smoke PASS Windows/Linux tại `e2b36d2`. PR #6 gộp main
+`a5962865`; Core/native CI main PASS hai OS, 56 commands/native job và 102 Rust
+tests/OS. Bốn ZIP native đã kiểm digest/CRC/manifest/package độc lập; 113 source
+blobs khớp, 62 tệp Core/bindings/locks/fixtures/golden không đổi.
+[ADR-0008](docs/adr/0008-p2-package-consumers.md) và
+[báo cáo P2.5](docs/acceptance/P2.5.md) ghi bằng chứng và giới hạn.
+P2.6/G2/Foundation còn mở. Các mốc P2 bên dưới giữ lịch sử trước bước này.
 
 **P2.4 đã đạt (14/11/2026):** bộ parity chung 39 ca fixtures,
 direct public Rust Core reference, typed Node/Python từ package đã cài;
@@ -227,11 +230,11 @@ Nếu cần chạy phép tính dài ngoài luồng chính Node.js hoặc nhả G
 
 **Nghiệm thu G2 — Foundation:**
 
-- [ ] Hai binding chỉ gọi Rust; mọi API P1 được công bố đều có mapping và ví dụ chạy được.
-- [ ] Parity đạt cho số, mask, shape, status, error code, ID và timestamp; các giá trị rời rạc phải khớp chính xác, số thực theo tolerance đã chốt.
-- [ ] Package cài và chạy được từ artifact trên toàn bộ ma trận Foundation công bố; mục tiêu chưa có kết quả chạy không được ghi là đã hỗ trợ.
-- [ ] Kiểm tra input không hợp lệ, vùng nhớ/lifetime và state handle bị dùng sai cho lỗi kiểm soát được; không crash tiến trình trong các ca kiểm thử này.
-- [ ] Node.js server/Next.js server và các adapter Python công bố đã có smoke tests; không cần ứng dụng thị trường hoàn chỉnh để nghiệm thu.
+- [x] Hai binding chỉ gọi Rust; mọi API P1 được công bố đều có mapping và ví dụ chạy được.
+- [x] Parity đạt cho số, mask, shape, status, error code, ID và timestamp; các giá trị rời rạc phải khớp chính xác, số thực theo tolerance đã chốt.
+- [x] Package cài và chạy được từ artifact trên toàn bộ ma trận Foundation công bố; mục tiêu chưa có kết quả chạy không được ghi là đã hỗ trợ.
+- [x] Kiểm tra input không hợp lệ, vùng nhớ/lifetime và state handle bị dùng sai cho lỗi kiểm soát được; không crash tiến trình trong các ca kiểm thử này.
+- [x] Node.js server/Next.js server và các adapter Python công bố đã có smoke tests; không cần ứng dụng thị trường hoàn chỉnh để nghiệm thu.
 - [ ] CI chạy parity và kiểm tra package; baseline FFI có số liệu; README ghi đúng tính năng đang có, giới hạn và hướng dẫn cài đặt.
 
 **Bằng chứng cần lưu:** parity report, artifact manifest/checksum, log cài sạch trên từng target, baseline FFI và báo cáo G2. Foundation là phạm vi phát hành sau P2, không đồng nghĩa toàn bộ wyc-lib V1.0 đã hoàn thành.

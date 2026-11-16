@@ -1,0 +1,317 @@
+{
+  "base": "9596c9c02193ade686ba22403c24dfef3e91d305",
+  "head": "e2b36d2f8afbf2afc153837689d511a8d17cf27d",
+  "all_unchanged": true,
+  "files": [
+    {
+      "path": "Cargo.lock",
+      "base": "10a1bad81aeaa3d3536265e30b585daffd975ff5",
+      "head": "10a1bad81aeaa3d3536265e30b585daffd975ff5"
+    },
+    {
+      "path": "Cargo.toml",
+      "base": "8026572f16ed1d35d353cf6f35640c52fd827f3e",
+      "head": "8026572f16ed1d35d353cf6f35640c52fd827f3e"
+    },
+    {
+      "path": "bindings/ffi/Cargo.toml",
+      "base": "198ea427464668fe6ecd01f7960ea1f053b19987",
+      "head": "198ea427464668fe6ecd01f7960ea1f053b19987"
+    },
+    {
+      "path": "bindings/ffi/src/bin/p2_parity_reference.rs",
+      "base": "49cfd41b8d530613e379157688357ca3971468b5",
+      "head": "49cfd41b8d530613e379157688357ca3971468b5"
+    },
+    {
+      "path": "bindings/ffi/src/bin/p2_reference.rs",
+      "base": "e3956b38a1e7c7a8625f007d82482d9e256fd936",
+      "head": "e3956b38a1e7c7a8625f007d82482d9e256fd936"
+    },
+    {
+      "path": "bindings/ffi/src/lib.rs",
+      "base": "cf7a0e2564ac5ac97346beb168507202c073dff4",
+      "head": "cf7a0e2564ac5ac97346beb168507202c073dff4"
+    },
+    {
+      "path": "bindings/node/Cargo.lock",
+      "base": "b4084dfbd4cd00aa41feeb1eae3b17ce7ed051dc",
+      "head": "b4084dfbd4cd00aa41feeb1eae3b17ce7ed051dc"
+    },
+    {
+      "path": "bindings/node/Cargo.toml",
+      "base": "79ca8f0ec3b5e261a41db56f29b6a3738adfb581",
+      "head": "79ca8f0ec3b5e261a41db56f29b6a3738adfb581"
+    },
+    {
+      "path": "bindings/node/build.rs",
+      "base": "0f1b01002b079d101cc8ccc17a3b1fab5d84068e",
+      "head": "0f1b01002b079d101cc8ccc17a3b1fab5d84068e"
+    },
+    {
+      "path": "bindings/node/index.cjs",
+      "base": "54e5f413c54207adcb4469ce0fe9eda84d88ec91",
+      "head": "54e5f413c54207adcb4469ce0fe9eda84d88ec91"
+    },
+    {
+      "path": "bindings/node/index.d.ts",
+      "base": "23cd02437af3d966e16ef2408ac1b476f329314f",
+      "head": "23cd02437af3d966e16ef2408ac1b476f329314f"
+    },
+    {
+      "path": "bindings/node/package.json",
+      "base": "2dbfa9e8a873466aa88de0ffba4bd0d10a5905de",
+      "head": "2dbfa9e8a873466aa88de0ffba4bd0d10a5905de"
+    },
+    {
+      "path": "bindings/node/src/lib.rs",
+      "base": "06513dc1d1d877a099d160e0e4e8d486aee36ee0",
+      "head": "06513dc1d1d877a099d160e0e4e8d486aee36ee0"
+    },
+    {
+      "path": "bindings/python/Cargo.lock",
+      "base": "266053bb84fe0dfc89bffff6271642b0606b32ea",
+      "head": "266053bb84fe0dfc89bffff6271642b0606b32ea"
+    },
+    {
+      "path": "bindings/python/Cargo.toml",
+      "base": "b54db1982fd17c22cafc58f82f0a3baf671c0742",
+      "head": "b54db1982fd17c22cafc58f82f0a3baf671c0742"
+    },
+    {
+      "path": "bindings/python/pyproject.toml",
+      "base": "0224f0e1fb2407bd1cf9064dce35ac80da6017e3",
+      "head": "0224f0e1fb2407bd1cf9064dce35ac80da6017e3"
+    },
+    {
+      "path": "bindings/python/python/wyc_lib/__init__.py",
+      "base": "bd216a332667581f21bc55388709ca012c24288c",
+      "head": "bd216a332667581f21bc55388709ca012c24288c"
+    },
+    {
+      "path": "bindings/python/python/wyc_lib/__init__.pyi",
+      "base": "dc282cf597851a08d268ed6be9b7fab25713fc08",
+      "head": "dc282cf597851a08d268ed6be9b7fab25713fc08"
+    },
+    {
+      "path": "bindings/python/python/wyc_lib/_conversion.py",
+      "base": "5817b9f17b2841a9f6da33da2837f68d174256f3",
+      "head": "5817b9f17b2841a9f6da33da2837f68d174256f3"
+    },
+    {
+      "path": "bindings/python/python/wyc_lib/py.typed",
+      "base": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "head": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "bindings/python/src/lib.rs",
+      "base": "b06714bd376d0d0ac00b2226375c9a21bc16790a",
+      "head": "b06714bd376d0d0ac00b2226375c9a21bc16790a"
+    },
+    {
+      "path": "crates/contracts/Cargo.toml",
+      "base": "daf4f4a4df326f9aaf33fe023f3968cdf36c0f16",
+      "head": "daf4f4a4df326f9aaf33fe023f3968cdf36c0f16"
+    },
+    {
+      "path": "crates/contracts/src/analysis.rs",
+      "base": "3bbbac8677f0859a58f328de2ff88c2d5b3cc6e5",
+      "head": "3bbbac8677f0859a58f328de2ff88c2d5b3cc6e5"
+    },
+    {
+      "path": "crates/contracts/src/available.rs",
+      "base": "af023e09df6775ae1bcb46e90cb2a3fd8c350395",
+      "head": "af023e09df6775ae1bcb46e90cb2a3fd8c350395"
+    },
+    {
+      "path": "crates/contracts/src/error.rs",
+      "base": "62baf17f10c4a09627f7c0067078b40ce947b51f",
+      "head": "62baf17f10c4a09627f7c0067078b40ce947b51f"
+    },
+    {
+      "path": "crates/contracts/src/identity.rs",
+      "base": "d219a86260e7ea77f4c6bbdb9cbb7eef0cd44a8e",
+      "head": "d219a86260e7ea77f4c6bbdb9cbb7eef0cd44a8e"
+    },
+    {
+      "path": "crates/contracts/src/lib.rs",
+      "base": "619f3b5a5ec9e87fe2d76e1950a6f370641c6f75",
+      "head": "619f3b5a5ec9e87fe2d76e1950a6f370641c6f75"
+    },
+    {
+      "path": "crates/contracts/src/market.rs",
+      "base": "2066648b5be65cbf7fd412f50c2d6c168fd0e28e",
+      "head": "2066648b5be65cbf7fd412f50c2d6c168fd0e28e"
+    },
+    {
+      "path": "crates/contracts/src/report.rs",
+      "base": "a521819477bde5adf40e5b8d09b55d00fa01fde0",
+      "head": "a521819477bde5adf40e5b8d09b55d00fa01fde0"
+    },
+    {
+      "path": "crates/contracts/src/result.rs",
+      "base": "9a611e8eb63633cb3908f3ec02cf976269301e2b",
+      "head": "9a611e8eb63633cb3908f3ec02cf976269301e2b"
+    },
+    {
+      "path": "crates/contracts/src/value.rs",
+      "base": "dcb136a0a6833c1b6e5a2fdf10cf3592567187e1",
+      "head": "dcb136a0a6833c1b6e5a2fdf10cf3592567187e1"
+    },
+    {
+      "path": "crates/indicators/Cargo.toml",
+      "base": "6e2459dbaf681a31a1e80f6667e9dfa1bbba7346",
+      "head": "6e2459dbaf681a31a1e80f6667e9dfa1bbba7346"
+    },
+    {
+      "path": "crates/indicators/src/advanced.rs",
+      "base": "a23b083850dddd94ddcb4fa754a751d7ad0c6356",
+      "head": "a23b083850dddd94ddcb4fa754a751d7ad0c6356"
+    },
+    {
+      "path": "crates/indicators/src/basic.rs",
+      "base": "a6c52c1e0f4ce87eaf3ed006b603ebea41d4b407",
+      "head": "a6c52c1e0f4ce87eaf3ed006b603ebea41d4b407"
+    },
+    {
+      "path": "crates/indicators/src/basic_state.rs",
+      "base": "15d6c5b5ce0e7bea6238f46b3486f1003e54e757",
+      "head": "15d6c5b5ce0e7bea6238f46b3486f1003e54e757"
+    },
+    {
+      "path": "crates/indicators/src/incremental.rs",
+      "base": "ba29917054fa8bf8ad1edf4d1b7d97433852b6a4",
+      "head": "ba29917054fa8bf8ad1edf4d1b7d97433852b6a4"
+    },
+    {
+      "path": "crates/indicators/src/lib.rs",
+      "base": "50e1de4eaa12f327f9f4c3c1458a10c753d82314",
+      "head": "50e1de4eaa12f327f9f4c3c1458a10c753d82314"
+    },
+    {
+      "path": "crates/indicators/src/rolling.rs",
+      "base": "4308e89ab4a6908c50ef97c3a436cfdb58a1096c",
+      "head": "4308e89ab4a6908c50ef97c3a436cfdb58a1096c"
+    },
+    {
+      "path": "crates/market_structure/Cargo.toml",
+      "base": "afadd26ea9cbc1c4f5bf191bc4f9bd7c28cabc2a",
+      "head": "afadd26ea9cbc1c4f5bf191bc4f9bd7c28cabc2a"
+    },
+    {
+      "path": "crates/market_structure/src/lib.rs",
+      "base": "0c69ad9dac7a2083e06efa5d85f414cd8e5a9283",
+      "head": "0c69ad9dac7a2083e06efa5d85f414cd8e5a9283"
+    },
+    {
+      "path": "crates/wyc_lib/Cargo.toml",
+      "base": "9fb318713ed2ed0a84faad8b50f67477cd7530fa",
+      "head": "9fb318713ed2ed0a84faad8b50f67477cd7530fa"
+    },
+    {
+      "path": "crates/wyc_lib/src/lib.rs",
+      "base": "4077113b11acc91e54b800d18ea604da6b5eac0a",
+      "head": "4077113b11acc91e54b800d18ea604da6b5eac0a"
+    },
+    {
+      "path": "crates/wyc_lib/src/orchestration.rs",
+      "base": "ca83ba4dc9fa2257fb1a1842252214c24e13515b",
+      "head": "ca83ba4dc9fa2257fb1a1842252214c24e13515b"
+    },
+    {
+      "path": "crates/wyc_lib/src/preparation.rs",
+      "base": "f40cf5d3584500233c95b404622f46a1deab73f7",
+      "head": "f40cf5d3584500233c95b404622f46a1deab73f7"
+    },
+    {
+      "path": "crates/wyc_lib/src/state.rs",
+      "base": "a858950cbd7ebe8b20d2666eb7734c9605d004d3",
+      "head": "a858950cbd7ebe8b20d2666eb7734c9605d004d3"
+    },
+    {
+      "path": "rust-toolchain.toml",
+      "base": "b8a736cea6165501dec29fc8cc9d3b5c1fc02337",
+      "head": "b8a736cea6165501dec29fc8cc9d3b5c1fc02337"
+    },
+    {
+      "path": "tests/fixtures/README.md",
+      "base": "289f8401562ca8b95932da0e962f0ce748aa1e66",
+      "head": "289f8401562ca8b95932da0e962f0ce748aa1e66"
+    },
+    {
+      "path": "tests/fixtures/manifest.json",
+      "base": "217e6ea660ce6e3fd17912d553d24b7c584dcf13",
+      "head": "217e6ea660ce6e3fd17912d553d24b7c584dcf13"
+    },
+    {
+      "path": "tests/fixtures/p1-advanced.json",
+      "base": "a48c31c2761669eda1d288a7f855ab1b38291deb",
+      "head": "a48c31c2761669eda1d288a7f855ab1b38291deb"
+    },
+    {
+      "path": "tests/fixtures/p1-arithmetic.json",
+      "base": "2609f6e8026581f178d213b943b546ea910dcb33",
+      "head": "2609f6e8026581f178d213b943b546ea910dcb33"
+    },
+    {
+      "path": "tests/fixtures/p1-basic.json",
+      "base": "bf9ca697a0873620b33acc653876f89e43f79735",
+      "head": "bf9ca697a0873620b33acc653876f89e43f79735"
+    },
+    {
+      "path": "tests/fixtures/p1-identity.json",
+      "base": "635941d02168d8fc9eb915e0e4be7741b695a1b5",
+      "head": "635941d02168d8fc9eb915e0e4be7741b695a1b5"
+    },
+    {
+      "path": "tests/fixtures/p1-rolling.json",
+      "base": "c8f62cb6ed9b7ac53a4caaa7de587670c9a38592",
+      "head": "c8f62cb6ed9b7ac53a4caaa7de587670c9a38592"
+    },
+    {
+      "path": "tests/fixtures/p1-structure.json",
+      "base": "9d1d6445eb32c38ead488853bb788cbccb435d88",
+      "head": "9d1d6445eb32c38ead488853bb788cbccb435d88"
+    },
+    {
+      "path": "tests/fixtures/temporal.json",
+      "base": "a7b9a6a7048a48fda9e52f764c50f87d377ca168",
+      "head": "a7b9a6a7048a48fda9e52f764c50f87d377ca168"
+    },
+    {
+      "path": "tests/golden/p1-advanced.json",
+      "base": "287e2a59171d4a01fb2f0e0fada604c8d0b73180",
+      "head": "287e2a59171d4a01fb2f0e0fada604c8d0b73180"
+    },
+    {
+      "path": "tests/golden/p1-arithmetic.json",
+      "base": "b7e1ecfd219c77d095cc483c4532d97c362d177d",
+      "head": "b7e1ecfd219c77d095cc483c4532d97c362d177d"
+    },
+    {
+      "path": "tests/golden/p1-basic.json",
+      "base": "28606162b8629772f3c7ed3c2c375d242b32b4a3",
+      "head": "28606162b8629772f3c7ed3c2c375d242b32b4a3"
+    },
+    {
+      "path": "tests/golden/p1-identity.json",
+      "base": "82ebd60a41e24bfcfea9a6dd5a0ec78a11cf6ecc",
+      "head": "82ebd60a41e24bfcfea9a6dd5a0ec78a11cf6ecc"
+    },
+    {
+      "path": "tests/golden/p1-rolling.json",
+      "base": "eb0ee103abfb1b33bdffdfe6075bc1a1c67205c9",
+      "head": "eb0ee103abfb1b33bdffdfe6075bc1a1c67205c9"
+    },
+    {
+      "path": "tests/golden/p1-structure.json",
+      "base": "7d85748f573278a06b763faf0f806ee6faf2e864",
+      "head": "7d85748f573278a06b763faf0f806ee6faf2e864"
+    },
+    {
+      "path": "tests/golden/temporal.json",
+      "base": "24686a36add6167885d2bcdaac1a5320c32ddb24",
+      "head": "24686a36add6167885d2bcdaac1a5320c32ddb24"
+    }
+  ]
+}

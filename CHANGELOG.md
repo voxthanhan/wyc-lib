@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.0 — P2.5 package/server, đang kiểm chứng
+## 0.1.0 — P2.5 package/server, chưa phát hành
 
 - Audit npm/wheel target/contents/CRC/RECORD, manifest SHA-256/size/commit;
   npm stage có os/cpu guard, cài artifact ngoài source không build/install script.
@@ -8,6 +8,8 @@
   exact/lockfile, external native package và Node runtime.
 - Giữ parity/Core/typed/host regression; không đổi thuật toán, runtime bindings,
   schema/config/hash/golden hoặc Cargo locks. P2.6/G2/Foundation còn mở.
+- P2.5 đạt tại `e2b36d2`; PR #6 gộp main `a5962865`, Core/native CI Windows/Linux
+  PASS, bốn ZIP native đã kiểm độc lập; 56 commands/native job, 113 source blobs khớp.
 - [Báo cáo P2.5](docs/acceptance/P2.5.md) ghi kết quả và giới hạn thực tế.
 
 ## 0.1.0 — P2.4 parity, chưa phát hành

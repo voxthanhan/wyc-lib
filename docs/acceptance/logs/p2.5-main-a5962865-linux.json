@@ -1,0 +1,1206 @@
+{
+  "artifact_id": 14247760930,
+  "digest": "sha256:2539cfe283dbb8da5b119bc37193fa99005e80211fc16d7ec5022b3195ef5e03",
+  "bytes": 10313694,
+  "crc_verified": true,
+  "files": [
+    "artifact-verifier.txt",
+    "baseline-build.txt",
+    "baseline.json",
+    "baseline.raw.json",
+    "baseline.stderr.txt",
+    "build.txt",
+    "baseline.txt",
+    "cargo.txt",
+    "clippy.txt",
+    "example.txt",
+    "format.txt",
+    "oracle.txt",
+    "p2/artifact-manifest.json",
+    "p2/commit.txt",
+    "p2/maturin-version.txt",
+    "p2/next-build.txt",
+    "p2/next-install.txt",
+    "p2/next-package-install.txt",
+    "p2/next-server.txt",
+    "p2/node-Cargo.lock",
+    "p2/node-build.txt",
+    "p2/node-example.txt",
+    "p2/node-clippy.txt",
+    "p2/node-format.txt",
+    "p2/node-host-boundary.txt",
+    "p2/node-server.txt",
+    "p2/node-install-location.txt",
+    "p2/node-smoke.txt",
+    "p2/node-typed.txt",
+    "p2/node-version.txt",
+    "p2/npm-install.txt",
+    "p2/npm-pack.txt",
+    "p2/npm-version.txt",
+    "p2/package-controls.txt",
+    "p2/parity-controls.txt",
+    "p2/parity-node.txt",
+    "p2/parity-python.txt",
+    "p2/parity-reference-build.txt",
+    "p2/parity-rust.txt",
+    "p2/parity-report.json",
+    "p2/python-Cargo.lock",
+    "p2/python-clippy.txt",
+    "p2/python-dependencies.txt",
+    "p2/python-example.txt",
+    "p2/python-extras-install.txt",
+    "p2/python-format.txt",
+    "p2/python-host.txt",
+    "p2/python-install-location.txt",
+    "p2/python-plain.txt",
+    "p2/python-smoke.txt",
+    "p2/python-typed.txt",
+    "p2/python-types.txt",
+    "p2/reference-after-bad-reset.txt",
+    "p2/reference-after-bad-update.txt",
+    "p2/reference-append-3.txt",
+    "p2/reference-append-4.txt",
+    "p2/reference-append-5.txt",
+    "p2/reference-batch-empty.txt",
+    "p2/reference-batch-full.txt",
+    "p2/reference-build.txt",
+    "p2/reference-independent-result.txt",
+    "p2/reference-initial-result.txt",
+    "p2/reference-old-handle-unchanged.txt",
+    "p2/reference-owned-result.txt",
+    "p2/reference-revision-reset.txt",
+    "p2/reference-unicode.txt",
+    "p2/status-after.txt",
+    "p2/reference-zero-volume.txt",
+    "p2/status-before.txt",
+    "p2/summary.json",
+    "p2/typescript-install.txt",
+    "p2/typescript-strict.txt",
+    "p2/venv.txt",
+    "p2/wheel-build.txt",
+    "p2/wheel-install.txt",
+    "p2/wyc-lib-0.1.0.tgz",
+    "p2/wyc_lib-0.1.0-cp310-cp310-linux_x86_64.whl",
+    "python.txt",
+    "replay-traces.json",
+    "rustc.txt",
+    "summary.json",
+    "test.txt",
+    "workspace-metadata.json",
+    "workspace.txt"
+  ],
+  "summaries": {
+    "p2/summary.json": {
+      "started_at_utc": "2026-11-16T16:41:19.484155+00:00",
+      "platform": "Linux-7.0.0-1014-aws-x86_64-with-glibc2.39",
+      "python": "3.10.9 (main, Oct  3 2024, 05:05:25) [GCC 13.2.0]",
+      "checks": [
+        {
+          "name": "commit",
+          "command": [
+            "git",
+            "rev-parse",
+            "HEAD"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "status-before",
+          "command": [
+            "git",
+            "status",
+            "--porcelain"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "node-version",
+          "command": [
+            "node",
+            "--version"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "npm-version",
+          "command": [
+            "/opt/hostedtoolcache/node/22.22.0/x64/bin/npm",
+            "--version"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "node-host-boundary",
+          "command": [
+            "node",
+            "/home/runner/work/wyc-lib/wyc-lib/tests/parity/p2_node_boundary.cjs"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "parity-controls",
+          "command": [
+            "/opt/hostedtoolcache/Python/3.10.9/x64/bin/python",
+            "/home/runner/work/wyc-lib/wyc-lib/scripts/test_p2_parity.py"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "package-controls",
+          "command": [
+            "/opt/hostedtoolcache/Python/3.10.9/x64/bin/python",
+            "/home/runner/work/wyc-lib/wyc-lib/scripts/test_p2_packages.py"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "maturin-version",
+          "command": [
+            "/opt/hostedtoolcache/Python/3.10.9/x64/bin/python",
+            "-m",
+            "maturin",
+            "--version"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "node-format",
+          "command": [
+            "cargo",
+            "fmt",
+            "--manifest-path",
+            "/home/runner/work/wyc-lib/wyc-lib/bindings/node/Cargo.toml",
+            "--",
+            "--check"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "node-clippy",
+          "command": [
+            "cargo",
+            "clippy",
+            "--manifest-path",
+            "/home/runner/work/wyc-lib/wyc-lib/bindings/node/Cargo.toml",
+            "--locked",
+            "--all-targets",
+            "--",
+            "-D",
+            "warnings"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "python-format",
+          "command": [
+            "cargo",
+            "fmt",
+            "--manifest-path",
+            "/home/runner/work/wyc-lib/wyc-lib/bindings/python/Cargo.toml",
+            "--",
+            "--check"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "python-clippy",
+          "command": [
+            "cargo",
+            "clippy",
+            "--manifest-path",
+            "/home/runner/work/wyc-lib/wyc-lib/bindings/python/Cargo.toml",
+            "--locked",
+            "--all-targets",
+            "--",
+            "-D",
+            "warnings"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "node-build",
+          "command": [
+            "cargo",
+            "build",
+            "--manifest-path",
+            "/home/runner/work/wyc-lib/wyc-lib/bindings/node/Cargo.toml",
+            "--locked",
+            "--release",
+            "--target-dir",
+            "/tmp/wyc-p2-consumer-rxnp_i0v/target"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "npm-pack",
+          "command": [
+            "/opt/hostedtoolcache/node/22.22.0/x64/bin/npm",
+            "pack",
+            "--json",
+            "--ignore-scripts",
+            "--pack-destination",
+            "/tmp/wyc-p2-consumer-rxnp_i0v"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "npm-install",
+          "command": [
+            "/opt/hostedtoolcache/node/22.22.0/x64/bin/npm",
+            "install",
+            "--offline",
+            "--engine-strict",
+            "--ignore-scripts",
+            "--no-audit",
+            "--no-fund",
+            "/tmp/wyc-p2-consumer-rxnp_i0v/wyc-lib-0.1.0.tgz"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "wheel-build",
+          "command": [
+            "/opt/hostedtoolcache/Python/3.10.9/x64/bin/python",
+            "-m",
+            "maturin",
+            "build",
+            "--manifest-path",
+            "/home/runner/work/wyc-lib/wyc-lib/bindings/python/Cargo.toml",
+            "--locked",
+            "--release",
+            "--interpreter",
+            "/opt/hostedtoolcache/Python/3.10.9/x64/bin/python",
+            "--out",
+            "/tmp/wyc-p2-consumer-rxnp_i0v/wheels",
+            "--compatibility",
+            "linux"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "venv",
+          "command": [
+            "/opt/hostedtoolcache/Python/3.10.9/x64/bin/python",
+            "-m",
+            "venv",
+            "/tmp/wyc-p2-consumer-rxnp_i0v/consumer-venv"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "wheel-install",
+          "command": [
+            "/tmp/wyc-p2-consumer-rxnp_i0v/consumer-venv/bin/python",
+            "-m",
+            "pip",
+            "install",
+            "--no-index",
+            "--no-deps",
+            "/tmp/wyc-p2-consumer-rxnp_i0v/wheels/wyc_lib-0.1.0-cp310-cp310-linux_x86_64.whl"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "node-install-location",
+          "command": [
+            "node",
+            "-p",
+            "require.resolve('wyc-lib')"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "python-install-location",
+          "command": [
+            "/tmp/wyc-p2-consumer-rxnp_i0v/consumer-venv/bin/python",
+            "-I",
+            "-c",
+            "import wyc_lib; print(wyc_lib.__file__)"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "reference-build",
+          "command": [
+            "cargo",
+            "build",
+            "--locked",
+            "--package",
+            "wyc-binding-contract",
+            "--bin",
+            "p2_reference",
+            "--target-dir",
+            "/tmp/wyc-p2-consumer-rxnp_i0v/target"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "parity-reference-build",
+          "command": [
+            "cargo",
+            "build",
+            "--locked",
+            "--package",
+            "wyc-binding-contract",
+            "--bin",
+            "p2_parity_reference",
+            "--target-dir",
+            "/tmp/wyc-p2-consumer-rxnp_i0v/target"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "parity-rust",
+          "command": [
+            "/tmp/wyc-p2-consumer-rxnp_i0v/target/debug/p2_parity_reference"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "parity-node",
+          "command": [
+            "node",
+            "p2_parity.cjs",
+            "/tmp/wyc-p2-consumer-rxnp_i0v/consumer/parity-actions.json"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "parity-python",
+          "command": [
+            "/tmp/wyc-p2-consumer-rxnp_i0v/consumer-venv/bin/python",
+            "p2_parity.py",
+            "/tmp/wyc-p2-consumer-rxnp_i0v/consumer/parity-actions.json"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "reference-batch-full",
+          "command": [
+            "/tmp/wyc-p2-consumer-rxnp_i0v/target/debug/p2_reference"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "reference-batch-empty",
+          "command": [
+            "/tmp/wyc-p2-consumer-rxnp_i0v/target/debug/p2_reference"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "reference-unicode",
+          "command": [
+            "/tmp/wyc-p2-consumer-rxnp_i0v/target/debug/p2_reference"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "reference-zero-volume",
+          "command": [
+            "/tmp/wyc-p2-consumer-rxnp_i0v/target/debug/p2_reference"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "reference-initial-result",
+          "command": [
+            "/tmp/wyc-p2-consumer-rxnp_i0v/target/debug/p2_reference"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "reference-after-bad-update",
+          "command": [
+            "/tmp/wyc-p2-consumer-rxnp_i0v/target/debug/p2_reference"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "reference-after-bad-reset",
+          "command": [
+            "/tmp/wyc-p2-consumer-rxnp_i0v/target/debug/p2_reference"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "reference-append-3",
+          "command": [
+            "/tmp/wyc-p2-consumer-rxnp_i0v/target/debug/p2_reference"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "reference-append-4",
+          "command": [
+            "/tmp/wyc-p2-consumer-rxnp_i0v/target/debug/p2_reference"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "reference-append-5",
+          "command": [
+            "/tmp/wyc-p2-consumer-rxnp_i0v/target/debug/p2_reference"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "reference-owned-result",
+          "command": [
+            "/tmp/wyc-p2-consumer-rxnp_i0v/target/debug/p2_reference"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "reference-independent-result",
+          "command": [
+            "/tmp/wyc-p2-consumer-rxnp_i0v/target/debug/p2_reference"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "reference-revision-reset",
+          "command": [
+            "/tmp/wyc-p2-consumer-rxnp_i0v/target/debug/p2_reference"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "reference-old-handle-unchanged",
+          "command": [
+            "/tmp/wyc-p2-consumer-rxnp_i0v/target/debug/p2_reference"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "node-example",
+          "command": [
+            "node",
+            "node.cjs"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "python-example",
+          "command": [
+            "/tmp/wyc-p2-consumer-rxnp_i0v/consumer-venv/bin/python",
+            "-I",
+            "python.py"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "next-install",
+          "command": [
+            "/opt/hostedtoolcache/node/22.22.0/x64/bin/npm",
+            "ci",
+            "--ignore-scripts",
+            "--no-audit",
+            "--no-fund"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "next-package-install",
+          "command": [
+            "/opt/hostedtoolcache/node/22.22.0/x64/bin/npm",
+            "install",
+            "--no-save",
+            "--engine-strict",
+            "--ignore-scripts",
+            "--no-audit",
+            "--no-fund",
+            "/tmp/wyc-p2-consumer-rxnp_i0v/wyc-lib-0.1.0.tgz"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "next-build",
+          "command": [
+            "node",
+            "/tmp/wyc-p2-consumer-rxnp_i0v/next-consumer/node_modules/next/dist/bin/next",
+            "build",
+            "--webpack"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "typescript-install",
+          "command": [
+            "/opt/hostedtoolcache/node/22.22.0/x64/bin/npm",
+            "install",
+            "--ignore-scripts",
+            "--no-audit",
+            "--no-fund",
+            "--save-dev",
+            "--save-exact",
+            "typescript@5.7.3"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "typescript-strict",
+          "command": [
+            "node",
+            "/tmp/wyc-p2-consumer-rxnp_i0v/consumer/node_modules/typescript/bin/tsc",
+            "--strict",
+            "--noEmit",
+            "--target",
+            "ES2022",
+            "--module",
+            "node16",
+            "--moduleResolution",
+            "node16",
+            "p2_node_types.ts"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "node-typed",
+          "command": [
+            "node",
+            "--expose-gc",
+            "p2_node.cjs",
+            "/tmp/wyc-p2-consumer-rxnp_i0v/consumer/typed-input.json"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "python-plain",
+          "command": [
+            "/tmp/wyc-p2-consumer-rxnp_i0v/consumer-venv/bin/python",
+            "p2_python.py",
+            "/tmp/wyc-p2-consumer-rxnp_i0v/consumer/typed-input.json"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "python-extras-install",
+          "command": [
+            "/tmp/wyc-p2-consumer-rxnp_i0v/consumer-venv/bin/python",
+            "-m",
+            "pip",
+            "install",
+            "numpy==2.2.6",
+            "pandas==2.2.3",
+            "polars==1.30.0",
+            "mypy==1.15.0"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "python-dependencies",
+          "command": [
+            "/tmp/wyc-p2-consumer-rxnp_i0v/consumer-venv/bin/python",
+            "-m",
+            "pip",
+            "check"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "python-types",
+          "command": [
+            "/tmp/wyc-p2-consumer-rxnp_i0v/consumer-venv/bin/python",
+            "-m",
+            "mypy",
+            "--strict",
+            "--no-incremental",
+            "p2_python_types.py"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "python-typed",
+          "command": [
+            "/tmp/wyc-p2-consumer-rxnp_i0v/consumer-venv/bin/python",
+            "p2_python.py",
+            "/tmp/wyc-p2-consumer-rxnp_i0v/consumer/typed-input.json",
+            "--extras"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "python-host",
+          "command": [
+            "/tmp/wyc-p2-consumer-rxnp_i0v/consumer-venv/bin/python",
+            "/home/runner/work/wyc-lib/wyc-lib/tests/parity/p2_python_boundary.py"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "node-smoke",
+          "command": [
+            "node",
+            "--expose-gc",
+            "smoke.cjs",
+            "/tmp/wyc-p2-consumer-rxnp_i0v/consumer/actions.json"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "python-smoke",
+          "command": [
+            "/tmp/wyc-p2-consumer-rxnp_i0v/consumer-venv/bin/python",
+            "smoke.py",
+            "/tmp/wyc-p2-consumer-rxnp_i0v/consumer/actions.json"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "status-after",
+          "command": [
+            "git",
+            "status",
+            "--porcelain"
+          ],
+          "exit_code": 0
+        }
+      ],
+      "passed": true,
+      "native_locks_bootstrapped": false,
+      "consumer_outside_source": true,
+      "locked_source_acceptance": true,
+      "commit": "a5962865085ba340e0652bc6119e3d1f72ae11da",
+      "clean_before": true,
+      "npm_archive": {
+        "files": [
+          "package/README.md",
+          "package/index.cjs",
+          "package/index.d.ts",
+          "package/package.json",
+          "package/wyc_lib.node"
+        ],
+        "os": "linux",
+        "cpu": "x64",
+        "node": "22.22.0"
+      },
+      "wheel_archive": {
+        "files": [
+          "wyc_lib-0.1.0.dist-info/METADATA",
+          "wyc_lib-0.1.0.dist-info/RECORD",
+          "wyc_lib-0.1.0.dist-info/WHEEL",
+          "wyc_lib/__init__.py",
+          "wyc_lib/__init__.pyi",
+          "wyc_lib/_conversion.py",
+          "wyc_lib/_native.cpython-310-x86_64-linux-gnu.so",
+          "wyc_lib/py.typed"
+        ],
+        "tag": "cp310-cp310-linux_x86_64",
+        "record_sha256_verified": true,
+        "crc_verified": true
+      },
+      "installed_locations": {
+        "node": "/tmp/wyc-p2-consumer-rxnp_i0v/consumer/node_modules/wyc-lib/index.cjs",
+        "python": "/tmp/wyc-p2-consumer-rxnp_i0v/consumer-venv/lib/python3.10/site-packages/wyc_lib/__init__.py"
+      },
+      "consumer_has_no_rust_source": true,
+      "parity": {
+        "node": {
+          "passed": true,
+          "actions": 4409,
+          "fixture_cases": 39,
+          "equivalences": 2514,
+          "errors": {
+            "declared_gap": 3,
+            "duplicate_module": 3,
+            "duplicate_timestamp": 4,
+            "invalid_availability": 5,
+            "invalid_config": 3,
+            "invalid_metadata": 3,
+            "invalid_ohlc": 3,
+            "length_mismatch": 3,
+            "missing_data": 4,
+            "negative_volume": 3,
+            "numeric_overflow": 4,
+            "reset_required": 1,
+            "revision_not_available": 3,
+            "state_mismatch": 6,
+            "unordered_timestamp": 3,
+            "unsupported_module": 3,
+            "unsupported_version": 3
+          },
+          "operations": {
+            "batch": 2574,
+            "indicators": 39,
+            "structure": 39,
+            "new": 161,
+            "update": 1395,
+            "identity": 129,
+            "reset": 56,
+            "result": 16
+          },
+          "fixture_sha256": {
+            "tests/fixtures/temporal.json": "1b8ed2871b24929b93de8dc5fa0861361290680fafd7e2bacb0bc493096c0c2a",
+            "tests/golden/temporal.json": "23d97e3bf10048882601608ab3450e933dccfabfa76d3dddfea0c8116c7938dc",
+            "tests/fixtures/p1-arithmetic.json": "625022a44578cb49fb950db100ff724156024f29b7f2d316f8c746fcd81132e6",
+            "tests/golden/p1-arithmetic.json": "31e6ad587aef81c9f3c015fb7cc6ef28af1bde0d47d79b5c5caf0b93866b71ac",
+            "tests/fixtures/p1-identity.json": "7246f3dea4670d633b46605d785f384dacc9af7a3a2705bfd222a191b53b5777",
+            "tests/golden/p1-identity.json": "2661abf2f4419a8fc95faa6355a06e6d8f01c41642dc431a0307b62e7d0255d5",
+            "tests/fixtures/p1-rolling.json": "20018089a4c037149660b0597720cdcc915abaff9a407aa23f92e14fac025488",
+            "tests/golden/p1-rolling.json": "947f1641a8f2be8721314c49c1f8ab6c9ecadcba47bdf370f2d1a567489affe2",
+            "tests/fixtures/p1-basic.json": "6480b884ebc27816fa4bc78a85435eca0fde24d3d25764595121d3632867d7b4",
+            "tests/golden/p1-basic.json": "184442eef14cdce62f77c79a1c061555c184e03eab64d2085b95f8ae8efab5c4",
+            "tests/fixtures/p1-advanced.json": "306a1d906a112d55c7406aa675d48605bf6f409e1c5a48c5c1ea4ab3208e8564",
+            "tests/golden/p1-advanced.json": "4b71ed179d07ab2958d45780d11031ee6ae29e6d14cfe354fb6a5dd44f97c2cf",
+            "tests/fixtures/p1-structure.json": "7d4770443c130cb4c51fe295542d35dd18110fb72e6bc2a9cbbd0bee8110c398",
+            "tests/golden/p1-structure.json": "1158e5a5ef089c8a5c67e858c8245ea12ad74791763189620d450995f4584a69"
+          },
+          "reference": "direct-public-Rust-Core",
+          "numeric_policy": "docs/algorithms/P1.md; discrete fields and min/max exact"
+        },
+        "python": {
+          "passed": true,
+          "actions": 4409,
+          "fixture_cases": 39,
+          "equivalences": 2514,
+          "errors": {
+            "declared_gap": 3,
+            "duplicate_module": 3,
+            "duplicate_timestamp": 4,
+            "invalid_availability": 5,
+            "invalid_config": 3,
+            "invalid_metadata": 3,
+            "invalid_ohlc": 3,
+            "length_mismatch": 3,
+            "missing_data": 4,
+            "negative_volume": 3,
+            "numeric_overflow": 4,
+            "reset_required": 1,
+            "revision_not_available": 3,
+            "state_mismatch": 6,
+            "unordered_timestamp": 3,
+            "unsupported_module": 3,
+            "unsupported_version": 3
+          },
+          "operations": {
+            "batch": 2574,
+            "indicators": 39,
+            "structure": 39,
+            "new": 161,
+            "update": 1395,
+            "identity": 129,
+            "reset": 56,
+            "result": 16
+          },
+          "fixture_sha256": {
+            "tests/fixtures/temporal.json": "1b8ed2871b24929b93de8dc5fa0861361290680fafd7e2bacb0bc493096c0c2a",
+            "tests/golden/temporal.json": "23d97e3bf10048882601608ab3450e933dccfabfa76d3dddfea0c8116c7938dc",
+            "tests/fixtures/p1-arithmetic.json": "625022a44578cb49fb950db100ff724156024f29b7f2d316f8c746fcd81132e6",
+            "tests/golden/p1-arithmetic.json": "31e6ad587aef81c9f3c015fb7cc6ef28af1bde0d47d79b5c5caf0b93866b71ac",
+            "tests/fixtures/p1-identity.json": "7246f3dea4670d633b46605d785f384dacc9af7a3a2705bfd222a191b53b5777",
+            "tests/golden/p1-identity.json": "2661abf2f4419a8fc95faa6355a06e6d8f01c41642dc431a0307b62e7d0255d5",
+            "tests/fixtures/p1-rolling.json": "20018089a4c037149660b0597720cdcc915abaff9a407aa23f92e14fac025488",
+            "tests/golden/p1-rolling.json": "947f1641a8f2be8721314c49c1f8ab6c9ecadcba47bdf370f2d1a567489affe2",
+            "tests/fixtures/p1-basic.json": "6480b884ebc27816fa4bc78a85435eca0fde24d3d25764595121d3632867d7b4",
+            "tests/golden/p1-basic.json": "184442eef14cdce62f77c79a1c061555c184e03eab64d2085b95f8ae8efab5c4",
+            "tests/fixtures/p1-advanced.json": "306a1d906a112d55c7406aa675d48605bf6f409e1c5a48c5c1ea4ab3208e8564",
+            "tests/golden/p1-advanced.json": "4b71ed179d07ab2958d45780d11031ee6ae29e6d14cfe354fb6a5dd44f97c2cf",
+            "tests/fixtures/p1-structure.json": "7d4770443c130cb4c51fe295542d35dd18110fb72e6bc2a9cbbd0bee8110c398",
+            "tests/golden/p1-structure.json": "1158e5a5ef089c8a5c67e858c8245ea12ad74791763189620d450995f4584a69"
+          },
+          "reference": "direct-public-Rust-Core",
+          "numeric_policy": "docs/algorithms/P1.md; discrete fields and min/max exact"
+        }
+      },
+      "distribution": {
+        "node_example": {
+          "passed": true,
+          "public_apis": 4
+        },
+        "python_example": {
+          "passed": true,
+          "public_apis": 4
+        },
+        "node_server": {
+          "passed": true,
+          "checks": [
+            {
+              "name": "batch",
+              "status": 200
+            },
+            {
+              "name": "invalid-shape",
+              "status": 400
+            },
+            {
+              "name": "malformed-json",
+              "status": 400
+            },
+            {
+              "name": "missing-data",
+              "status": 400
+            },
+            {
+              "name": "negative-volume",
+              "status": 400
+            },
+            {
+              "name": "recovery",
+              "status": 200
+            }
+          ],
+          "production": true,
+          "host": "127.0.0.1"
+        },
+        "next_server": {
+          "passed": true,
+          "checks": [
+            {
+              "name": "batch",
+              "status": 200
+            },
+            {
+              "name": "invalid-shape",
+              "status": 400
+            },
+            {
+              "name": "malformed-json",
+              "status": 400
+            },
+            {
+              "name": "missing-data",
+              "status": 400
+            },
+            {
+              "name": "negative-volume",
+              "status": 400
+            },
+            {
+              "name": "recovery",
+              "status": 200
+            }
+          ],
+          "production": true,
+          "host": "127.0.0.1",
+          "versions": {
+            "next": "16.4.6",
+            "react": "19.3.1",
+            "react-dom": "19.3.1"
+          }
+        }
+      },
+      "node_typed": {
+        "passed": true,
+        "assertions": 83,
+        "gc": "100 abandoned handles; no crash, not a leak measurement"
+      },
+      "python_plain": {
+        "passed": true,
+        "assertions": 72,
+        "extras": false,
+        "gc": "100 abandoned handles, no crash; leak/RSS not measured"
+      },
+      "python_typed": {
+        "passed": true,
+        "assertions": 79,
+        "extras": true,
+        "gc": "100 abandoned handles, no crash; leak/RSS not measured"
+      },
+      "python_host": {
+        "passed": true,
+        "assertions": 67,
+        "scope": "host conversion only; native module is inert",
+        "versions": {
+          "numpy": "2.2.6",
+          "pandas": "2.2.3",
+          "polars": "1.30.0"
+        }
+      },
+      "node_smoke": {
+        "actions": 40,
+        "rust_references": 14,
+        "error_cases": 20,
+        "independent_golden": "p1-arithmetic-v1",
+        "tolerance": {
+          "atol": 1e-12,
+          "rtol": 1e-12
+        },
+        "gc": "100 unclosed handles reclaimed without crash; leak/RSS not measured"
+      },
+      "python_smoke": {
+        "actions": 40,
+        "rust_references": 14,
+        "error_cases": 20,
+        "independent_golden": "p1-arithmetic-v1",
+        "tolerance": {
+          "atol": 1e-12,
+          "rtol": 1e-12
+        },
+        "gc": "100 unclosed handles reclaimed without crash; leak/RSS not measured"
+      },
+      "packages": [
+        {
+          "name": "wyc-lib-0.1.0.tgz",
+          "sha256": "9a2a7e082f032c44ce7ef23eef9a8526394659315e4d5120bd2453aad27b65cc",
+          "size": 512000,
+          "os": "linux",
+          "cpu": "x64"
+        },
+        {
+          "name": "wyc_lib-0.1.0-cp310-cp310-linux_x86_64.whl",
+          "sha256": "7e079109d35cfd2758f9a24b065fb6a86a53d86665654770cb7733258d3aaff0",
+          "size": 522230,
+          "os": "linux",
+          "cpu": "x64"
+        }
+      ],
+      "clean_after": true,
+      "finished_at_utc": "2026-11-16T16:43:17.639917+00:00"
+    },
+    "summary.json": {
+      "evidence_version": "1",
+      "commit": "a5962865085ba340e0652bc6119e3d1f72ae11da",
+      "tree": "8705945d465bfc0f19d30df48bd451bdee1e4d29",
+      "started_at_utc": "2026-11-16T16:40:47.8543005+00:00",
+      "platform": "Ubuntu 24.04.5 LTS",
+      "github_run_url": "https://github.com/voxthanhan/wyc-lib/actions/runs/43910009295",
+      "github_run_attempt": "1",
+      "clean_before": true,
+      "clean_after": true,
+      "offline": false,
+      "checks": [
+        {
+          "name": "rustc",
+          "command": "rustc",
+          "arguments": [
+            "--version",
+            "--verbose"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "cargo",
+          "command": "cargo",
+          "arguments": [
+            "--version"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "python",
+          "command": "python",
+          "arguments": [
+            "--version"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "format",
+          "command": "cargo",
+          "arguments": [
+            "fmt",
+            "--all",
+            "--",
+            "--check"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "clippy",
+          "command": "cargo",
+          "arguments": [
+            "clippy",
+            "--workspace",
+            "--locked",
+            "--all-targets",
+            "--",
+            "-D",
+            "warnings"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "build",
+          "command": "cargo",
+          "arguments": [
+            "build",
+            "--workspace",
+            "--locked"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "test",
+          "command": "cargo",
+          "arguments": [
+            "test",
+            "--workspace",
+            "--locked"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "example",
+          "command": "cargo",
+          "arguments": [
+            "run",
+            "--example",
+            "p1_walkthrough",
+            "--package",
+            "wyc-lib",
+            "--locked"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "baseline-build",
+          "command": "cargo",
+          "arguments": [
+            "build",
+            "--release",
+            "--example",
+            "p1_baseline",
+            "--package",
+            "wyc-lib",
+            "--locked"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "baseline",
+          "command": "python",
+          "arguments": [
+            "scripts/measure_baseline.py",
+            "/home/runner/work/wyc-lib/wyc-lib/target/release/examples/p1_baseline",
+            "/home/runner/work/wyc-lib/wyc-lib/ci-evidence/baseline.json"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "oracle",
+          "command": "python",
+          "arguments": [
+            "scripts/verify_oracles.py"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "artifact-verifier",
+          "command": "python",
+          "arguments": [
+            "scripts/test_verify_ci_artifacts.py"
+          ],
+          "exit_code": 0
+        },
+        {
+          "name": "workspace",
+          "command": "python",
+          "arguments": [
+            "scripts/verify_workspace.py",
+            "/home/runner/work/wyc-lib/wyc-lib/ci-evidence/workspace-metadata.json"
+          ],
+          "exit_code": 0
+        }
+      ],
+      "passed": true,
+      "finished_at_utc": "2026-11-16T16:41:18.9522701+00:00"
+    }
+  },
+  "artifact_manifest": {
+    "commit": "a5962865085ba340e0652bc6119e3d1f72ae11da",
+    "packages": [
+      {
+        "name": "wyc-lib-0.1.0.tgz",
+        "sha256": "9a2a7e082f032c44ce7ef23eef9a8526394659315e4d5120bd2453aad27b65cc",
+        "size": 512000,
+        "os": "linux",
+        "cpu": "x64"
+      },
+      {
+        "name": "wyc_lib-0.1.0-cp310-cp310-linux_x86_64.whl",
+        "sha256": "7e079109d35cfd2758f9a24b065fb6a86a53d86665654770cb7733258d3aaff0",
+        "size": 522230,
+        "os": "linux",
+        "cpu": "x64"
+      }
+    ],
+    "npm": {
+      "files": [
+        "package/README.md",
+        "package/index.cjs",
+        "package/index.d.ts",
+        "package/package.json",
+        "package/wyc_lib.node"
+      ],
+      "os": "linux",
+      "cpu": "x64",
+      "node": "22.22.0"
+    },
+    "wheel": {
+      "files": [
+        "wyc_lib-0.1.0.dist-info/METADATA",
+        "wyc_lib-0.1.0.dist-info/RECORD",
+        "wyc_lib-0.1.0.dist-info/WHEEL",
+        "wyc_lib/__init__.py",
+        "wyc_lib/__init__.pyi",
+        "wyc_lib/_conversion.py",
+        "wyc_lib/_native.cpython-310-x86_64-linux-gnu.so",
+        "wyc_lib/py.typed"
+      ],
+      "tag": "cp310-cp310-linux_x86_64",
+      "record_sha256_verified": true,
+      "crc_verified": true
+    }
+  },
+  "independent_package_audit": {
+    "wyc-lib-0.1.0.tgz": {
+      "files": [
+        "package/README.md",
+        "package/index.cjs",
+        "package/index.d.ts",
+        "package/package.json",
+        "package/wyc_lib.node"
+      ],
+      "os": "linux",
+      "cpu": "x64",
+      "node": "22.22.0"
+    },
+    "wyc_lib-0.1.0-cp310-cp310-linux_x86_64.whl": {
+      "files": [
+        "wyc_lib-0.1.0.dist-info/METADATA",
+        "wyc_lib-0.1.0.dist-info/RECORD",
+        "wyc_lib-0.1.0.dist-info/WHEEL",
+        "wyc_lib/__init__.py",
+        "wyc_lib/__init__.pyi",
+        "wyc_lib/_conversion.py",
+        "wyc_lib/_native.cpython-310-x86_64-linux-gnu.so",
+        "wyc_lib/py.typed"
+      ],
+      "tag": "cp310-cp310-linux_x86_64",
+      "record_sha256_verified": true,
+      "crc_verified": true
+    }
+  },
+  "independent_package_audits": {
+    "wyc-lib-0.1.0.tgz": {
+      "files": [
+        "package/README.md",
+        "package/index.cjs",
+        "package/index.d.ts",
+        "package/package.json",
+        "package/wyc_lib.node"
+      ],
+      "os": "linux",
+      "cpu": "x64",
+      "node": "22.22.0"
+    },
+    "wyc_lib-0.1.0-cp310-cp310-linux_x86_64.whl": {
+      "files": [
+        "wyc_lib-0.1.0.dist-info/METADATA",
+        "wyc_lib-0.1.0.dist-info/RECORD",
+        "wyc_lib-0.1.0.dist-info/WHEEL",
+        "wyc_lib/__init__.py",
+        "wyc_lib/__init__.pyi",
+        "wyc_lib/_conversion.py",
+        "wyc_lib/_native.cpython-310-x86_64-linux-gnu.so",
+        "wyc_lib/py.typed"
+      ],
+      "tag": "cp310-cp310-linux_x86_64",
+      "record_sha256_verified": true,
+      "crc_verified": true
+    }
+  },
+  "next_build": "\u25b2 Next.js 16.4.6 (webpack)\n\u2713 Running next.config.js took 12ms\n\u26a0 No build cache found. Please configure build caching for faster rebuilds. Read more: https://nextjs.org/docs/messages/no-cache\n- Experiments (use with caution):\n  \u00b7 cpus: 2\n\n  Creating an optimized production build ...\n\u2713 Compiled successfully in 3.0s\n  Running TypeScript ...\n  Finished TypeScript in 1ms ...\n  Collecting page data using 2 workers ...\n  Generating static pages using 2 workers (0/2) ...\n\u2713 Generating static pages using 2 workers (2/2) in 234ms\n  Finalizing page optimization ...\n  Collecting build traces ...\n\nRoute (app)\n\u250c \u25cb /_not-found\n\u2514 \u0192 /api/analyze\n\n\n\u25cb  (Static)   prerendered as static content\n\u0192  (Dynamic)  server-rendered on demand\n\n",
+  "package_controls": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.008s\n\nOK\n"
+}

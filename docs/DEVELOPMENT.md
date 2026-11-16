@@ -2,6 +2,10 @@
 
 ## Package/server P2.5
 
+P2.5 đã đạt tại `e2b36d2`, gộp main `a5962865`; Core/native CI Windows/Linux
+PASS. Các trạng thái chưa kiểm chứng P2.5 trong phần lịch sử bên dưới đã được
+báo cáo P2.5 thay thế; P2.6/G2/Foundation còn mở.
+
 `python scripts/check_p2.py` chạy cả gates P2.1–P2.4 và audit/cài/examples/HTTP
 P2.5. Dùng đúng Node 22.22.0, CPython 3.10.9; build native cần Rust/linker và
 Maturin như bên dưới. Native CI kiểm Windows x64 MSVC/Ubuntu 24.04 x64 GNU.
@@ -122,7 +126,7 @@ phân phối đầy đủ và Next.js smoke còn ở P2.3–P2.6; chưa nghiệm
 | macOS/ARM64 | Chưa chọn phiên bản/runner | Chưa công bố hỗ trợ |
 | Node | 22.22.0; NAPI-RS 2.16.17, Node-API v8 | Pilot x64 Windows/Linux đã có build/cài package/smoke CI; typed P1 adapter P2.2 đã có CI |
 | Python | CPython 3.10.9; PyO3 0.23.5/Maturin 1.8.3 | Pilot wheel cp310 Windows/Linux đã có CI; 3.11–3.13 và abi3 chưa kiểm |
-| Server | Linux x64 Node Runtime, gồm khảo sát Vercel P2 | Chưa kiểm chứng; browser/Edge/WASM ngoài phạm vi |
+| Server | Windows/Linux x64 Node 22.22.0; Next 16.4.6 + React 19.3.1 | P2.5 production build/start + HTTP smoke PASS tại main a5962865; Vercel/serverless/standalone chưa kiểm, browser/Edge/WASM ngoài phạm vi |
 
 Dependencies trực tiếp khóa exact trong Cargo.toml: serde 1.0.219,
 serde_json 1.0.140, sha2 0.10.9. `Cargo.lock` khóa bắc cầu. Không thêm vnstock
