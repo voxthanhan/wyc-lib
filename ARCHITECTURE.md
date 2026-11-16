@@ -1,5 +1,11 @@
 # wyc-lib — Kiến trúc thực thi
 
+P2.6 chỉ thêm harness đo release direct Rust/shared transport/installed host,
+không đổi Core, runtime bindings hoặc dependency graph. Clock/CPU/RSS nằm ngoài
+logic phân tích. [ADR-0009](docs/adr/0009-p2-ffi-baseline.md) và
+[Foundation](docs/FOUNDATION.md) ghi phương pháp, tích hợp và compatibility.
+Trạng thái hiện tại tại [P2.6](docs/acceptance/P2.6.md); các phần sau giữ lịch sử.
+
 P2.5 thêm kiểm artifact và consumer production trong test harness, không đổi
 Core hoặc runtime bindings. Stage npm có OS/CPU guard; Next.js external addon
 và Route Handler Node runtime. [ADR-0008](docs/adr/0008-p2-package-consumers.md)

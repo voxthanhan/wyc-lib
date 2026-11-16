@@ -1,5 +1,11 @@
 # Baseline Rust P1.7
 
+P2.6 thêm baseline đa ngôn ngữ chạy bởi `python scripts/check_p2.py` từ
+artifact đã cài; [ADR-0009](../docs/adr/0009-p2-ffi-baseline.md) định nghĩa
+warmups/samples/layers và giới hạn. Executable p2_baseline ở bindings/ffi/src/bin
+chỉ là harness, direct Core và shared transport release; Node/Python workers
+tại đây. [Báo cáo P2.6](../docs/acceptance/P2.6.md) ghi số liệu đúng source SHA.
+
 `p1-baseline-v1` đo bản tham chiếu hiện tại, không đổi thuật toán và không đặt
 ngưỡng thời gian làm điều kiện test. Dữ liệu `synthetic-triangle-v1` được tạo
 xác định trong [p1_baseline.rs](p1_baseline.rs): 256/1024 nến, chu kỳ tam giác

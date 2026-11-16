@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.0 — P2.6 / ứng viên Foundation, đang kiểm chứng
+
+- Baseline release Rust/JSON transport/Node/Python, host copy/encode/decode,
+  typed arrays/NumPy/Pandas/Polars và batch so hai single-module calls.
+- Năm samples/op, ba kích thước input, CPU/wall/RSS, hashes và output audit;
+  CI giữ toàn bộ Core/parity/packages/production server regression.
+- [Hướng dẫn Foundation](docs/FOUNDATION.md), [P2.6](docs/acceptance/P2.6.md),
+  [G2](docs/acceptance/G2.md); không đổi Core/API/schema/config/hash/locks/golden,
+  không publish hoặc tạo release/tag.
+
 ## 0.1.0 — P2.5 package/server, chưa phát hành
 
 - Audit npm/wheel target/contents/CRC/RECORD, manifest SHA-256/size/commit;

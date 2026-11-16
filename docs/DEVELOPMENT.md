@@ -1,4 +1,17 @@
-# Phát triển và kiểm chứng P0-P2.5
+# Phát triển và kiểm chứng P0-P2.6
+
+## Baseline và ứng viên Foundation P2.6
+
+`python scripts/check_p2.py` chạy toàn bộ regression cùng baseline release.
+Consumer/venv ngoài source, Node 22.22.0/CPython 3.10.9 và extras pinned như
+ma trận P2.5. Baseline tự build executable Rust release --locked và chạy ba
+process tuần tự. `python scripts/test_p2_baseline.py` chạy bảy controls offline
+(regression interpreter symlink chỉ chạy Linux).
+Input, hashes, raw outputs, samples/median/min/max/throughput và process CPU/RSS
+ở ci-evidence/p2/baseline-*.json. Không đặt ngưỡng thời gian trong CI.
+[ADR-0009](adr/0009-p2-ffi-baseline.md) định nghĩa scope phép đo;
+[Foundation](FOUNDATION.md), [P2.6](acceptance/P2.6.md) và [G2](acceptance/G2.md)
+ghi hướng dẫn tích hợp, compatibility và kết quả nghiệm thu.
 
 ## Package/server P2.5
 

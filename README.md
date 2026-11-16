@@ -1,5 +1,11 @@
 # wyc-lib
 
+**P2.6 đang kiểm chứng (17/11/2026):** baseline Rust/FFI/host copy/chuyển đổi và
+batch so hai lời gọi đơn module trên Windows/Linux. [Foundation 0.1.0](docs/FOUNDATION.md)
+ghi cài đặt, compatibility và giới hạn; [báo cáo P2.6](docs/acceptance/P2.6.md),
+[G2](docs/acceptance/G2.md) ghi trạng thái và bằng chứng. Chưa publish package.
+Các trạng thái còn mở bên dưới là lịch sử trước P2.6.
+
 **P2.5 đã đạt (16/11/2026):** npm/wheel cài sạch ngoài source, examples và
 Node/Next.js production smoke PASS Windows/Linux. PR #6 đã gộp main `a5962865`;
 CI Core/native main đều PASS. [Hướng dẫn package/server](examples/p2/README.md),
