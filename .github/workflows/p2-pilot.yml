@@ -21,7 +21,7 @@ permissions:
 
 jobs:
   native-pilot:
-    timeout-minutes: 20
+    timeout-minutes: 30
     strategy:
       fail-fast: false
       matrix:
@@ -30,6 +30,7 @@ jobs:
     env:
       CARGO_INCREMENTAL: '0'
       PYTHONUTF8: '1'
+      NEXT_TELEMETRY_DISABLED: '1'
     steps:
       - uses: actions/checkout@v4
         with:
@@ -47,7 +48,7 @@ jobs:
       - name: Check Core and shared transport
         shell: pwsh
         run: ./scripts/check-foundation.ps1 -RequireClean -ExpectedCommit '${{ github.sha }}'
-      - name: Build and test installed native packages
+      - name: Build artifacts and test isolated consumers and production servers
         shell: pwsh
         env:
           BOOTSTRAP_NATIVE_LOCKS: ${{ inputs.bootstrap_native_locks }}

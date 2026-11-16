@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.0 — P2.5 package/server, đang kiểm chứng
+
+- Audit npm/wheel target/contents/CRC/RECORD, manifest SHA-256/size/commit;
+  npm stage có os/cpu guard, cài artifact ngoài source không build/install script.
+- Ví dụ Node/Python và production HTTP Node/Next.js; Next 16.4.6 và React 19.3.1
+  exact/lockfile, external native package và Node runtime.
+- Giữ parity/Core/typed/host regression; không đổi thuật toán, runtime bindings,
+  schema/config/hash/golden hoặc Cargo locks. P2.6/G2/Foundation còn mở.
+- [Báo cáo P2.5](docs/acceptance/P2.5.md) ghi kết quả và giới hạn thực tế.
+
 ## 0.1.0 — P2.4 parity, chưa phát hành
 
 - Thêm ma trận 39 ca fixtures qua direct Core reference và typed Node/Python,

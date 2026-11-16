@@ -163,6 +163,12 @@ State bản đầu ưu tiên reset và replay toàn bộ khi lịch sử sửa �
 
 ### P2 — Node.js và Python Bindings; Foundation Release
 
+**P2.5 đang kiểm chứng (16/11/2026):** build/audit npm và wheel, cài sạch ngoài
+source, examples và HTTP Node/Next.js production trên target đã chốt.
+[ADR-0008](docs/adr/0008-p2-package-consumers.md) ghi quyết định;
+[báo cáo P2.5](docs/acceptance/P2.5.md) lưu kết quả thực chạy.
+Chưa nghiệm thu P2.5 hoặc P2.6/G2/Foundation.
+
 **P2.4 đã đạt (14/11/2026):** bộ parity chung 39 ca fixtures,
 direct public Rust Core reference, typed Node/Python từ package đã cài;
 batch/single-module/update/reset, lỗi, ownership, availability/revision replay.
