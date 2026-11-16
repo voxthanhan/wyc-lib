@@ -19,6 +19,21 @@ def launch_command(binary, arguments):
     return [str(binary.absolute()), *arguments]
 
 
+def attach_process_metrics(report, observation):
+    # A Windows venv executable can redirect to a worker with a different PID.
+    worker = report.pop('worker_process', None)
+    if report.get('runtime') == 'python' and worker is None:
+        raise ValueError('Python baseline requires actual worker metrics')
+    if worker is not None:
+        if worker['pid'] <= 0 or worker['cpu_seconds'] < 0 or worker['peak_rss_bytes'] <= 0:
+            raise ValueError('invalid worker metrics')
+        report['parent_process_observation'] = dict(observation,
+            scope='Popen PID observation; may be a Windows venv redirector, not the Python worker')
+        report['process'] = dict(observation, **worker)
+    else:
+        report['process'] = observation
+
+
 def main():
     binary, output = map(Path, sys.argv[1:3])
     started = time.perf_counter()
@@ -75,10 +90,11 @@ def main():
     if process.returncode:
         raise RuntimeError(f'baseline failed ({process.returncode}): {err.read_text()}')
     report = json.loads(raw.read_text(encoding='utf-8'))
-    report['process'] = dict(platform=platform.platform(), cpu_model=platform.processor(),
+    observation = dict(pid=process.pid, platform=platform.platform(), cpu_model=platform.processor(),
         logical_cpu_count=os.cpu_count(), wall_seconds=time.perf_counter()-started,
         cpu_seconds=cpu, peak_rss_bytes=peak or None, memory_method=memory_method,
         scope='whole benchmark process incl. setup/warmups/output; not per-operation heap/state size')
+    attach_process_metrics(report, observation)
     root = Path(__file__).resolve().parents[1]
     report['commit'] = subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True, cwd=root).strip()
     report['binary_sha256'] = hashlib.sha256(binary.read_bytes()).hexdigest()
