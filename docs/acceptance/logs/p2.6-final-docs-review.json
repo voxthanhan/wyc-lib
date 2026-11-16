@@ -1,0 +1,496 @@
+{
+  "tested_source": "4619e4db5bace7a711a84f521250bedf4cf564c4",
+  "tested_tree": "abfea13380c5998da61de5d4a101c911160408e1",
+  "documentation_only": true,
+  "changed_existing_files": [
+    "ARCHITECTURE.md",
+    "CHANGELOG.md",
+    "CONTRACTS.md",
+    "IMPLEMENTATION_PLAN.md",
+    "README.md",
+    "docs/DEVELOPMENT.md",
+    "docs/FOUNDATION.md",
+    "docs/acceptance/G2.md",
+    "docs/acceptance/P2.6.md",
+    "examples/p2/README.md"
+  ],
+  "unchanged_non_markdown_files": [
+    {
+      "path": ".gitattributes",
+      "sha": "68f76a9d430adabc270053fca98c63196205e7ab"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha": "ef4a16b270e65988080761677e00def2b7ec4260"
+    },
+    {
+      "path": ".github/workflows/p2-pilot.yml",
+      "sha": "f9eb3d8fe5d50ce1d4cc7e327384fa2142a26856"
+    },
+    {
+      "path": ".gitignore",
+      "sha": "23ee5419cee2cef73c8d4bd49515e1275ca9d368"
+    },
+    {
+      "path": "Cargo.lock",
+      "sha": "10a1bad81aeaa3d3536265e30b585daffd975ff5"
+    },
+    {
+      "path": "Cargo.toml",
+      "sha": "8026572f16ed1d35d353cf6f35640c52fd827f3e"
+    },
+    {
+      "path": "benchmarks/p1_baseline.rs",
+      "sha": "00bbad5b59b2960508338dba58b28320eb953ca6"
+    },
+    {
+      "path": "benchmarks/p2_node.cjs",
+      "sha": "5a44f1f3e243cebe5eb74fa70d1e7c01cf0eec9b"
+    },
+    {
+      "path": "benchmarks/p2_process.py",
+      "sha": "b04b47f2893c83a1ce1dd0c4faa9cccfb6a7c0a4"
+    },
+    {
+      "path": "benchmarks/p2_python.py",
+      "sha": "98155f4a88d6af2880c31db4146d83f1116cd8cc"
+    },
+    {
+      "path": "bindings/ffi/Cargo.toml",
+      "sha": "198ea427464668fe6ecd01f7960ea1f053b19987"
+    },
+    {
+      "path": "bindings/ffi/src/bin/p2_baseline.rs",
+      "sha": "9abaabe298714c329ede0cff8685be333789da51"
+    },
+    {
+      "path": "bindings/ffi/src/bin/p2_parity_reference.rs",
+      "sha": "49cfd41b8d530613e379157688357ca3971468b5"
+    },
+    {
+      "path": "bindings/ffi/src/bin/p2_reference.rs",
+      "sha": "e3956b38a1e7c7a8625f007d82482d9e256fd936"
+    },
+    {
+      "path": "bindings/ffi/src/lib.rs",
+      "sha": "cf7a0e2564ac5ac97346beb168507202c073dff4"
+    },
+    {
+      "path": "bindings/node/Cargo.lock",
+      "sha": "b4084dfbd4cd00aa41feeb1eae3b17ce7ed051dc"
+    },
+    {
+      "path": "bindings/node/Cargo.toml",
+      "sha": "79ca8f0ec3b5e261a41db56f29b6a3738adfb581"
+    },
+    {
+      "path": "bindings/node/build.rs",
+      "sha": "0f1b01002b079d101cc8ccc17a3b1fab5d84068e"
+    },
+    {
+      "path": "bindings/node/index.cjs",
+      "sha": "54e5f413c54207adcb4469ce0fe9eda84d88ec91"
+    },
+    {
+      "path": "bindings/node/index.d.ts",
+      "sha": "23cd02437af3d966e16ef2408ac1b476f329314f"
+    },
+    {
+      "path": "bindings/node/package.json",
+      "sha": "2dbfa9e8a873466aa88de0ffba4bd0d10a5905de"
+    },
+    {
+      "path": "bindings/node/src/lib.rs",
+      "sha": "06513dc1d1d877a099d160e0e4e8d486aee36ee0"
+    },
+    {
+      "path": "bindings/python/Cargo.lock",
+      "sha": "266053bb84fe0dfc89bffff6271642b0606b32ea"
+    },
+    {
+      "path": "bindings/python/Cargo.toml",
+      "sha": "b54db1982fd17c22cafc58f82f0a3baf671c0742"
+    },
+    {
+      "path": "bindings/python/pyproject.toml",
+      "sha": "0224f0e1fb2407bd1cf9064dce35ac80da6017e3"
+    },
+    {
+      "path": "bindings/python/python/wyc_lib/__init__.py",
+      "sha": "bd216a332667581f21bc55388709ca012c24288c"
+    },
+    {
+      "path": "bindings/python/python/wyc_lib/__init__.pyi",
+      "sha": "dc282cf597851a08d268ed6be9b7fab25713fc08"
+    },
+    {
+      "path": "bindings/python/python/wyc_lib/_conversion.py",
+      "sha": "5817b9f17b2841a9f6da33da2837f68d174256f3"
+    },
+    {
+      "path": "bindings/python/python/wyc_lib/py.typed",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "bindings/python/src/lib.rs",
+      "sha": "b06714bd376d0d0ac00b2226375c9a21bc16790a"
+    },
+    {
+      "path": "crates/contracts/Cargo.toml",
+      "sha": "daf4f4a4df326f9aaf33fe023f3968cdf36c0f16"
+    },
+    {
+      "path": "crates/contracts/src/analysis.rs",
+      "sha": "3bbbac8677f0859a58f328de2ff88c2d5b3cc6e5"
+    },
+    {
+      "path": "crates/contracts/src/available.rs",
+      "sha": "af023e09df6775ae1bcb46e90cb2a3fd8c350395"
+    },
+    {
+      "path": "crates/contracts/src/error.rs",
+      "sha": "62baf17f10c4a09627f7c0067078b40ce947b51f"
+    },
+    {
+      "path": "crates/contracts/src/identity.rs",
+      "sha": "d219a86260e7ea77f4c6bbdb9cbb7eef0cd44a8e"
+    },
+    {
+      "path": "crates/contracts/src/lib.rs",
+      "sha": "619f3b5a5ec9e87fe2d76e1950a6f370641c6f75"
+    },
+    {
+      "path": "crates/contracts/src/market.rs",
+      "sha": "2066648b5be65cbf7fd412f50c2d6c168fd0e28e"
+    },
+    {
+      "path": "crates/contracts/src/report.rs",
+      "sha": "a521819477bde5adf40e5b8d09b55d00fa01fde0"
+    },
+    {
+      "path": "crates/contracts/src/result.rs",
+      "sha": "9a611e8eb63633cb3908f3ec02cf976269301e2b"
+    },
+    {
+      "path": "crates/contracts/src/value.rs",
+      "sha": "dcb136a0a6833c1b6e5a2fdf10cf3592567187e1"
+    },
+    {
+      "path": "crates/indicators/Cargo.toml",
+      "sha": "6e2459dbaf681a31a1e80f6667e9dfa1bbba7346"
+    },
+    {
+      "path": "crates/indicators/src/advanced.rs",
+      "sha": "a23b083850dddd94ddcb4fa754a751d7ad0c6356"
+    },
+    {
+      "path": "crates/indicators/src/basic.rs",
+      "sha": "a6c52c1e0f4ce87eaf3ed006b603ebea41d4b407"
+    },
+    {
+      "path": "crates/indicators/src/basic_state.rs",
+      "sha": "15d6c5b5ce0e7bea6238f46b3486f1003e54e757"
+    },
+    {
+      "path": "crates/indicators/src/incremental.rs",
+      "sha": "ba29917054fa8bf8ad1edf4d1b7d97433852b6a4"
+    },
+    {
+      "path": "crates/indicators/src/lib.rs",
+      "sha": "50e1de4eaa12f327f9f4c3c1458a10c753d82314"
+    },
+    {
+      "path": "crates/indicators/src/rolling.rs",
+      "sha": "4308e89ab4a6908c50ef97c3a436cfdb58a1096c"
+    },
+    {
+      "path": "crates/market_structure/Cargo.toml",
+      "sha": "afadd26ea9cbc1c4f5bf191bc4f9bd7c28cabc2a"
+    },
+    {
+      "path": "crates/market_structure/src/lib.rs",
+      "sha": "0c69ad9dac7a2083e06efa5d85f414cd8e5a9283"
+    },
+    {
+      "path": "crates/wyc_lib/Cargo.toml",
+      "sha": "9fb318713ed2ed0a84faad8b50f67477cd7530fa"
+    },
+    {
+      "path": "crates/wyc_lib/src/lib.rs",
+      "sha": "4077113b11acc91e54b800d18ea604da6b5eac0a"
+    },
+    {
+      "path": "crates/wyc_lib/src/orchestration.rs",
+      "sha": "ca83ba4dc9fa2257fb1a1842252214c24e13515b"
+    },
+    {
+      "path": "crates/wyc_lib/src/preparation.rs",
+      "sha": "f40cf5d3584500233c95b404622f46a1deab73f7"
+    },
+    {
+      "path": "crates/wyc_lib/src/state.rs",
+      "sha": "a858950cbd7ebe8b20d2666eb7734c9605d004d3"
+    },
+    {
+      "path": "examples/p1_walkthrough.rs",
+      "sha": "ce6128bdb5bc20273e02ae1ef528cc1bf401a581"
+    },
+    {
+      "path": "examples/p2/next-server/app/api/analyze/route.js",
+      "sha": "3169083b1e1ea7508d66f74df69575acafe9a2e4"
+    },
+    {
+      "path": "examples/p2/next-server/next.config.js",
+      "sha": "81efd19525a403c685e3c233805fa72123aec810"
+    },
+    {
+      "path": "examples/p2/next-server/package-lock.json",
+      "sha": "27ea5eede56c11235db401536cb31c5a5620b48e"
+    },
+    {
+      "path": "examples/p2/next-server/package.json",
+      "sha": "772a7cb924a9d0bf6b62900259ce50a8ba67a2ca"
+    },
+    {
+      "path": "examples/p2/node-server.cjs",
+      "sha": "d493a3e2a9975b024a249cab616553b5092bb78c"
+    },
+    {
+      "path": "examples/p2/node.cjs",
+      "sha": "9fed8c0bfea55a9f3f543e27a06feed6cbd1a776"
+    },
+    {
+      "path": "examples/p2/python.py",
+      "sha": "dd9ea062240247d4f7796cb969cfbf14a05cf19b"
+    },
+    {
+      "path": "examples/p2/request.json",
+      "sha": "f91c790b32c5331364306faae68b03cff77d11da"
+    },
+    {
+      "path": "rust-toolchain.toml",
+      "sha": "b8a736cea6165501dec29fc8cc9d3b5c1fc02337"
+    },
+    {
+      "path": "scripts/advanced_oracle.py",
+      "sha": "9f47533a334978c857cb0304dad345ebbe7446d4"
+    },
+    {
+      "path": "scripts/basic_oracle.py",
+      "sha": "d565fde9b25d8dc7827ae0081c1d90da25368cf5"
+    },
+    {
+      "path": "scripts/check-foundation.ps1",
+      "sha": "502a3eaf768bc66364b9e1e00e0db4342d7e35b2"
+    },
+    {
+      "path": "scripts/check_p2.py",
+      "sha": "e09a0e64811a0b0f93c0901d78f31c2fd4345d9e"
+    },
+    {
+      "path": "scripts/measure_baseline.py",
+      "sha": "dd5f784c2e6ff5c49a13a8b10a1044aa7961173e"
+    },
+    {
+      "path": "scripts/p2_baseline.py",
+      "sha": "b4f3705c52032937f2804f325444b691856cd580"
+    },
+    {
+      "path": "scripts/p2_distribution.py",
+      "sha": "071aef36b500418ab1fd978dbaaa681db7bc62c3"
+    },
+    {
+      "path": "scripts/p2_packages.py",
+      "sha": "257b3f3baba0315516f2271ddfc67db74ddc9176"
+    },
+    {
+      "path": "scripts/p2_parity.py",
+      "sha": "3d10d0e79a61816e10757617bd0d7efc590fcc8f"
+    },
+    {
+      "path": "scripts/p2_scenarios.py",
+      "sha": "7f714c3250843df65eaa314708b6a831030ba800"
+    },
+    {
+      "path": "scripts/structure_oracle.py",
+      "sha": "cabd74196951a6ca668d4ebaa81f2519ddfe5e18"
+    },
+    {
+      "path": "scripts/test_p2_baseline.py",
+      "sha": "df87255493ebacbae45b4b5cca437b6330eebde6"
+    },
+    {
+      "path": "scripts/test_p2_packages.py",
+      "sha": "d9e372e96c7fc3a70964479d700e84e7676d8025"
+    },
+    {
+      "path": "scripts/test_p2_parity.py",
+      "sha": "0196de37c77447fe638c99519192c8ffebafc1a6"
+    },
+    {
+      "path": "scripts/test_verify_ci_artifacts.py",
+      "sha": "a1b7de3874181caddc9aa3e763ebc03065070c82"
+    },
+    {
+      "path": "scripts/verify_ci_artifacts.py",
+      "sha": "e4947b711390de5957f13c4d9dfe2d15e5471857"
+    },
+    {
+      "path": "scripts/verify_oracles.py",
+      "sha": "0682c3578f19e79410014d8a546ed60822ca2529"
+    },
+    {
+      "path": "scripts/verify_workspace.py",
+      "sha": "8a3768655567eb4a1f3c5cb04685efdd4d40d6cf"
+    },
+    {
+      "path": "tests/fixtures/manifest.json",
+      "sha": "217e6ea660ce6e3fd17912d553d24b7c584dcf13"
+    },
+    {
+      "path": "tests/fixtures/p1-advanced.json",
+      "sha": "a48c31c2761669eda1d288a7f855ab1b38291deb"
+    },
+    {
+      "path": "tests/fixtures/p1-arithmetic.json",
+      "sha": "2609f6e8026581f178d213b943b546ea910dcb33"
+    },
+    {
+      "path": "tests/fixtures/p1-basic.json",
+      "sha": "bf9ca697a0873620b33acc653876f89e43f79735"
+    },
+    {
+      "path": "tests/fixtures/p1-identity.json",
+      "sha": "635941d02168d8fc9eb915e0e4be7741b695a1b5"
+    },
+    {
+      "path": "tests/fixtures/p1-rolling.json",
+      "sha": "c8f62cb6ed9b7ac53a4caaa7de587670c9a38592"
+    },
+    {
+      "path": "tests/fixtures/p1-structure.json",
+      "sha": "9d1d6445eb32c38ead488853bb788cbccb435d88"
+    },
+    {
+      "path": "tests/fixtures/temporal.json",
+      "sha": "a7b9a6a7048a48fda9e52f764c50f87d377ca168"
+    },
+    {
+      "path": "tests/foundation.rs",
+      "sha": "928273b129945e045eb9fad50d457e88b1dd4b99"
+    },
+    {
+      "path": "tests/golden/p1-advanced.json",
+      "sha": "287e2a59171d4a01fb2f0e0fada604c8d0b73180"
+    },
+    {
+      "path": "tests/golden/p1-arithmetic.json",
+      "sha": "b7e1ecfd219c77d095cc483c4532d97c362d177d"
+    },
+    {
+      "path": "tests/golden/p1-basic.json",
+      "sha": "28606162b8629772f3c7ed3c2c375d242b32b4a3"
+    },
+    {
+      "path": "tests/golden/p1-identity.json",
+      "sha": "82ebd60a41e24bfcfea9a6dd5a0ec78a11cf6ecc"
+    },
+    {
+      "path": "tests/golden/p1-rolling.json",
+      "sha": "eb0ee103abfb1b33bdffdfe6075bc1a1c67205c9"
+    },
+    {
+      "path": "tests/golden/p1-structure.json",
+      "sha": "7d85748f573278a06b763faf0f806ee6faf2e864"
+    },
+    {
+      "path": "tests/golden/temporal.json",
+      "sha": "24686a36add6167885d2bcdaac1a5320c32ddb24"
+    },
+    {
+      "path": "tests/p1_advanced.rs",
+      "sha": "e511a9727a71d2de8734b42b2e673395efd2a0e4"
+    },
+    {
+      "path": "tests/p1_basic.rs",
+      "sha": "eb912036bba37599c39289242f02fe92b04d8719"
+    },
+    {
+      "path": "tests/p1_foundation.rs",
+      "sha": "ab63d513e5593da5d6b2554cdc0ae314aee02665"
+    },
+    {
+      "path": "tests/p1_incremental.rs",
+      "sha": "0b042bd136c3eaeb47dcf48ab5a27f2bc376f0cf"
+    },
+    {
+      "path": "tests/p1_orchestration.rs",
+      "sha": "ba05a9c85cd30899b15419456c67b7fc09fe0ab3"
+    },
+    {
+      "path": "tests/p1_replay.rs",
+      "sha": "582aaad8b0963eecd1779bdac839438d5ec876bc"
+    },
+    {
+      "path": "tests/p1_rolling.rs",
+      "sha": "23b84ce4b15521cec39b76ad3545f5ffd291567c"
+    },
+    {
+      "path": "tests/p1_structure.rs",
+      "sha": "6ee62e2247970207f5e1f4445fc9287b1307d2f6"
+    },
+    {
+      "path": "tests/p2_transport.rs",
+      "sha": "5fc38a96052983e9c2c82d9f14dfceff29d7fbc3"
+    },
+    {
+      "path": "tests/parity/p2_node.cjs",
+      "sha": "bddd26a091f692f2e7c2a3807e233858db6e55ca"
+    },
+    {
+      "path": "tests/parity/p2_node_boundary.cjs",
+      "sha": "9b55917054de4fd1034a79e3c260c2a8dbc750f4"
+    },
+    {
+      "path": "tests/parity/p2_node_types.ts",
+      "sha": "9c7ebad345f62d0c28f36bb8944217c570cb812e"
+    },
+    {
+      "path": "tests/parity/p2_parity.cjs",
+      "sha": "f030a3ebce7334fb17dc0e0945b3e7450ebf3542"
+    },
+    {
+      "path": "tests/parity/p2_parity.py",
+      "sha": "676ee14a917914b72b78bdf4f292aa811063e840"
+    },
+    {
+      "path": "tests/parity/p2_python.py",
+      "sha": "235fa2e6b704e46d5de948f6de7b3f7f23797a70"
+    },
+    {
+      "path": "tests/parity/p2_python_boundary.py",
+      "sha": "6ec5a65d19a2bc09c7669c0d94a296e96d3fedb6"
+    },
+    {
+      "path": "tests/parity/p2_python_types.py",
+      "sha": "4b9017d187d54b72d46434fe3450cf438588bf61"
+    },
+    {
+      "path": "tests/parity/p2_smoke.cjs",
+      "sha": "a2382b20d5856de59ed7c8293d8299c7c0cd131c"
+    },
+    {
+      "path": "tests/parity/p2_smoke.py",
+      "sha": "6802c51208e89a243c60f5f02497dfec36b88106"
+    },
+    {
+      "path": "tests/support/mod.rs",
+      "sha": "778e358a3615ea450a9a17c2e2a36d1428aff085"
+    }
+  ],
+  "markdown_files": 45,
+  "local_links": 492,
+  "broken_links": [],
+  "metric_verification": "Windows actual worker PID/CPU/RSS matches raw JSON; launcher retained separately",
+  "ci_attribution": "Core/native CI applies to source 4619e4d; subsequent changes only documentation/logs"
+}

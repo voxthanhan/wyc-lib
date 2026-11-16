@@ -54,4 +54,5 @@ không chứng minh Vercel/serverless/standalone hoặc nền tảng khác.
 
 `python scripts/check_p2.py` tự copy examples, cài artifact, chạy hai ví dụ và
 hai HTTP server, đối chiếu report/error/recovery với direct Rust reference;
-log tại ci-evidence/p2. Chưa publish package; G2/Foundation còn chờ P2.6.
+log tại ci-evidence/p2. Chưa publish package; [Foundation/G2](../../docs/FOUNDATION.md) đã đạt qua CI
+P2.6 tại main 4619e4d, với baseline và checksum trong báo cáo tương ứng.

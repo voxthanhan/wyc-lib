@@ -1,0 +1,312 @@
+{
+  "base": "85b4cbd8ecf018efca6c0f64650a647ff98c50e2",
+  "head": "36978aab27d65576e0e7345dbc43a504b469f6e6",
+  "changed": [
+    "ARCHITECTURE.md",
+    "CHANGELOG.md",
+    "IMPLEMENTATION_PLAN.md",
+    "README.md",
+    "benchmarks/README.md",
+    "benchmarks/p2_node.cjs",
+    "benchmarks/p2_process.py",
+    "benchmarks/p2_python.py",
+    "bindings/ffi/src/bin/p2_baseline.rs",
+    "docs/API.md",
+    "docs/DEVELOPMENT.md",
+    "docs/FOUNDATION.md",
+    "docs/acceptance/G2.md",
+    "docs/acceptance/P2.6.md",
+    "docs/adr/0009-p2-ffi-baseline.md",
+    "scripts/check_p2.py",
+    "scripts/measure_baseline.py",
+    "scripts/p2_baseline.py",
+    "scripts/test_p2_baseline.py"
+  ],
+  "unchanged_runtime_core_fixtures_locks": [
+    {
+      "path": "Cargo.lock",
+      "sha": "10a1bad81aeaa3d3536265e30b585daffd975ff5",
+      "unchanged": true
+    },
+    {
+      "path": "bindings/node/Cargo.lock",
+      "sha": "b4084dfbd4cd00aa41feeb1eae3b17ce7ed051dc",
+      "unchanged": true
+    },
+    {
+      "path": "bindings/node/Cargo.toml",
+      "sha": "79ca8f0ec3b5e261a41db56f29b6a3738adfb581",
+      "unchanged": true
+    },
+    {
+      "path": "bindings/node/README.md",
+      "sha": "9e91fdf1cd63698975810805b98e6a7e8fc7dfdb",
+      "unchanged": true
+    },
+    {
+      "path": "bindings/node/build.rs",
+      "sha": "0f1b01002b079d101cc8ccc17a3b1fab5d84068e",
+      "unchanged": true
+    },
+    {
+      "path": "bindings/node/index.cjs",
+      "sha": "54e5f413c54207adcb4469ce0fe9eda84d88ec91",
+      "unchanged": true
+    },
+    {
+      "path": "bindings/node/index.d.ts",
+      "sha": "23cd02437af3d966e16ef2408ac1b476f329314f",
+      "unchanged": true
+    },
+    {
+      "path": "bindings/node/package.json",
+      "sha": "2dbfa9e8a873466aa88de0ffba4bd0d10a5905de",
+      "unchanged": true
+    },
+    {
+      "path": "bindings/node/src/lib.rs",
+      "sha": "06513dc1d1d877a099d160e0e4e8d486aee36ee0",
+      "unchanged": true
+    },
+    {
+      "path": "bindings/python/Cargo.lock",
+      "sha": "266053bb84fe0dfc89bffff6271642b0606b32ea",
+      "unchanged": true
+    },
+    {
+      "path": "bindings/python/Cargo.toml",
+      "sha": "b54db1982fd17c22cafc58f82f0a3baf671c0742",
+      "unchanged": true
+    },
+    {
+      "path": "bindings/python/pyproject.toml",
+      "sha": "0224f0e1fb2407bd1cf9064dce35ac80da6017e3",
+      "unchanged": true
+    },
+    {
+      "path": "bindings/python/python/wyc_lib/__init__.py",
+      "sha": "bd216a332667581f21bc55388709ca012c24288c",
+      "unchanged": true
+    },
+    {
+      "path": "bindings/python/python/wyc_lib/__init__.pyi",
+      "sha": "dc282cf597851a08d268ed6be9b7fab25713fc08",
+      "unchanged": true
+    },
+    {
+      "path": "bindings/python/python/wyc_lib/_conversion.py",
+      "sha": "5817b9f17b2841a9f6da33da2837f68d174256f3",
+      "unchanged": true
+    },
+    {
+      "path": "bindings/python/python/wyc_lib/py.typed",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "unchanged": true
+    },
+    {
+      "path": "bindings/python/src/lib.rs",
+      "sha": "b06714bd376d0d0ac00b2226375c9a21bc16790a",
+      "unchanged": true
+    },
+    {
+      "path": "crates/contracts/Cargo.toml",
+      "sha": "daf4f4a4df326f9aaf33fe023f3968cdf36c0f16",
+      "unchanged": true
+    },
+    {
+      "path": "crates/contracts/src/analysis.rs",
+      "sha": "3bbbac8677f0859a58f328de2ff88c2d5b3cc6e5",
+      "unchanged": true
+    },
+    {
+      "path": "crates/contracts/src/available.rs",
+      "sha": "af023e09df6775ae1bcb46e90cb2a3fd8c350395",
+      "unchanged": true
+    },
+    {
+      "path": "crates/contracts/src/error.rs",
+      "sha": "62baf17f10c4a09627f7c0067078b40ce947b51f",
+      "unchanged": true
+    },
+    {
+      "path": "crates/contracts/src/identity.rs",
+      "sha": "d219a86260e7ea77f4c6bbdb9cbb7eef0cd44a8e",
+      "unchanged": true
+    },
+    {
+      "path": "crates/contracts/src/lib.rs",
+      "sha": "619f3b5a5ec9e87fe2d76e1950a6f370641c6f75",
+      "unchanged": true
+    },
+    {
+      "path": "crates/contracts/src/market.rs",
+      "sha": "2066648b5be65cbf7fd412f50c2d6c168fd0e28e",
+      "unchanged": true
+    },
+    {
+      "path": "crates/contracts/src/report.rs",
+      "sha": "a521819477bde5adf40e5b8d09b55d00fa01fde0",
+      "unchanged": true
+    },
+    {
+      "path": "crates/contracts/src/result.rs",
+      "sha": "9a611e8eb63633cb3908f3ec02cf976269301e2b",
+      "unchanged": true
+    },
+    {
+      "path": "crates/contracts/src/value.rs",
+      "sha": "dcb136a0a6833c1b6e5a2fdf10cf3592567187e1",
+      "unchanged": true
+    },
+    {
+      "path": "crates/indicators/Cargo.toml",
+      "sha": "6e2459dbaf681a31a1e80f6667e9dfa1bbba7346",
+      "unchanged": true
+    },
+    {
+      "path": "crates/indicators/src/advanced.rs",
+      "sha": "a23b083850dddd94ddcb4fa754a751d7ad0c6356",
+      "unchanged": true
+    },
+    {
+      "path": "crates/indicators/src/basic.rs",
+      "sha": "a6c52c1e0f4ce87eaf3ed006b603ebea41d4b407",
+      "unchanged": true
+    },
+    {
+      "path": "crates/indicators/src/basic_state.rs",
+      "sha": "15d6c5b5ce0e7bea6238f46b3486f1003e54e757",
+      "unchanged": true
+    },
+    {
+      "path": "crates/indicators/src/incremental.rs",
+      "sha": "ba29917054fa8bf8ad1edf4d1b7d97433852b6a4",
+      "unchanged": true
+    },
+    {
+      "path": "crates/indicators/src/lib.rs",
+      "sha": "50e1de4eaa12f327f9f4c3c1458a10c753d82314",
+      "unchanged": true
+    },
+    {
+      "path": "crates/indicators/src/rolling.rs",
+      "sha": "4308e89ab4a6908c50ef97c3a436cfdb58a1096c",
+      "unchanged": true
+    },
+    {
+      "path": "crates/market_structure/Cargo.toml",
+      "sha": "afadd26ea9cbc1c4f5bf191bc4f9bd7c28cabc2a",
+      "unchanged": true
+    },
+    {
+      "path": "crates/market_structure/src/lib.rs",
+      "sha": "0c69ad9dac7a2083e06efa5d85f414cd8e5a9283",
+      "unchanged": true
+    },
+    {
+      "path": "crates/wyc_lib/Cargo.toml",
+      "sha": "9fb318713ed2ed0a84faad8b50f67477cd7530fa",
+      "unchanged": true
+    },
+    {
+      "path": "crates/wyc_lib/src/lib.rs",
+      "sha": "4077113b11acc91e54b800d18ea604da6b5eac0a",
+      "unchanged": true
+    },
+    {
+      "path": "crates/wyc_lib/src/orchestration.rs",
+      "sha": "ca83ba4dc9fa2257fb1a1842252214c24e13515b",
+      "unchanged": true
+    },
+    {
+      "path": "crates/wyc_lib/src/preparation.rs",
+      "sha": "f40cf5d3584500233c95b404622f46a1deab73f7",
+      "unchanged": true
+    },
+    {
+      "path": "crates/wyc_lib/src/state.rs",
+      "sha": "a858950cbd7ebe8b20d2666eb7734c9605d004d3",
+      "unchanged": true
+    },
+    {
+      "path": "tests/fixtures/README.md",
+      "sha": "289f8401562ca8b95932da0e962f0ce748aa1e66",
+      "unchanged": true
+    },
+    {
+      "path": "tests/fixtures/manifest.json",
+      "sha": "217e6ea660ce6e3fd17912d553d24b7c584dcf13",
+      "unchanged": true
+    },
+    {
+      "path": "tests/fixtures/p1-advanced.json",
+      "sha": "a48c31c2761669eda1d288a7f855ab1b38291deb",
+      "unchanged": true
+    },
+    {
+      "path": "tests/fixtures/p1-arithmetic.json",
+      "sha": "2609f6e8026581f178d213b943b546ea910dcb33",
+      "unchanged": true
+    },
+    {
+      "path": "tests/fixtures/p1-basic.json",
+      "sha": "bf9ca697a0873620b33acc653876f89e43f79735",
+      "unchanged": true
+    },
+    {
+      "path": "tests/fixtures/p1-identity.json",
+      "sha": "635941d02168d8fc9eb915e0e4be7741b695a1b5",
+      "unchanged": true
+    },
+    {
+      "path": "tests/fixtures/p1-rolling.json",
+      "sha": "c8f62cb6ed9b7ac53a4caaa7de587670c9a38592",
+      "unchanged": true
+    },
+    {
+      "path": "tests/fixtures/p1-structure.json",
+      "sha": "9d1d6445eb32c38ead488853bb788cbccb435d88",
+      "unchanged": true
+    },
+    {
+      "path": "tests/fixtures/temporal.json",
+      "sha": "a7b9a6a7048a48fda9e52f764c50f87d377ca168",
+      "unchanged": true
+    },
+    {
+      "path": "tests/golden/p1-advanced.json",
+      "sha": "287e2a59171d4a01fb2f0e0fada604c8d0b73180",
+      "unchanged": true
+    },
+    {
+      "path": "tests/golden/p1-arithmetic.json",
+      "sha": "b7e1ecfd219c77d095cc483c4532d97c362d177d",
+      "unchanged": true
+    },
+    {
+      "path": "tests/golden/p1-basic.json",
+      "sha": "28606162b8629772f3c7ed3c2c375d242b32b4a3",
+      "unchanged": true
+    },
+    {
+      "path": "tests/golden/p1-identity.json",
+      "sha": "82ebd60a41e24bfcfea9a6dd5a0ec78a11cf6ecc",
+      "unchanged": true
+    },
+    {
+      "path": "tests/golden/p1-rolling.json",
+      "sha": "eb0ee103abfb1b33bdffdfe6075bc1a1c67205c9",
+      "unchanged": true
+    },
+    {
+      "path": "tests/golden/p1-structure.json",
+      "sha": "7d85748f573278a06b763faf0f806ee6faf2e864",
+      "unchanged": true
+    },
+    {
+      "path": "tests/golden/temporal.json",
+      "sha": "24686a36add6167885d2bcdaac1a5320c32ddb24",
+      "unchanged": true
+    }
+  ]
+}

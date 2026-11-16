@@ -1,0 +1,63 @@
+{
+  "source_head": "512efcdb69a163aadae4c08feea1e0111adf5f13",
+  "git_metadata_head": "85b4cbd8ecf018efca6c0f64650a647ff98c50e2",
+  "clean": false,
+  "platform": "Windows x64; CPython 3.10.9; Node local 24.20.0",
+  "checks": [
+    {
+      "command": "cargo test --workspace --locked --offline",
+      "exit_code": 0,
+      "tests": 102,
+      "incremental": false
+    },
+    {
+      "command": "cargo clippy --workspace --all-targets --locked --offline -- -D warnings",
+      "exit_code": 0,
+      "scope": "initial ac320d5; final changed harness is rechecked by exact-HEAD CI"
+    },
+    {
+      "command": "rustfmt --edition 2021 bindings/ffi/src/bin/p2_baseline.rs",
+      "exit_code": 0
+    },
+    {
+      "command": "python scripts/test_p2_baseline.py",
+      "exit_code": 0,
+      "tests": 6
+    },
+    {
+      "command": "python scripts/verify_oracles.py",
+      "exit_code": 0
+    },
+    {
+      "command": "node --check benchmarks/p2_node.cjs",
+      "exit_code": 0
+    },
+    {
+      "command": "python -m py_compile benchmarks/p2_python.py scripts/p2_baseline.py scripts/test_p2_baseline.py",
+      "exit_code": 0
+    },
+    {
+      "command": "local Markdown link audit",
+      "exit_code": 0,
+      "files": 45
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    }
+  ],
+  "limitations": [
+    "Native local target not accepted: Node differs and Maturin absent; rely on exact-source CI",
+    "Working tree contains P2.6 and evidence; do not label metadata HEAD as tested P2.6 commit"
+  ],
+  "final_python_controls": {
+    "source_head": "36978aab27d65576e0e7345dbc43a504b469f6e6",
+    "command": "python scripts/test_p2_baseline.py",
+    "exit_code": 0,
+    "tests": 9,
+    "skipped": 1,
+    "skip_reason": "Linux symlink regression requires Linux",
+    "actual_worker_sampler_test": true,
+    "launcher_override_test": true
+  }
+}

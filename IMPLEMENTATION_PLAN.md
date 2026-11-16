@@ -163,10 +163,13 @@ State bản đầu ưu tiên reset và replay toàn bộ khi lịch sử sửa �
 
 ### P2 — Node.js và Python Bindings; Foundation Release
 
-**P2.6 đang kiểm chứng (17/11/2026):** baseline FFI/chuyển đổi/copy/batch,
-ứng viên Foundation 0.1.0 và compatibility theo [ADR-0009](docs/adr/0009-p2-ffi-baseline.md).
-[P2.6](docs/acceptance/P2.6.md) và [G2](docs/acceptance/G2.md) lưu kết quả;
-chưa đóng G2 trước khi CI đúng SHA Windows/Linux đạt. Không triển khai P3.
+**P2.6 / G2 đạt (17/11/2026):** baseline FFI/chuyển đổi/copy/batch và ứng viên
+Foundation 0.1.0 tại `36978aa`, PR #9 gộp main `4619e4d`. Core/native CI
+push/PR/main Windows/Linux PASS, 61 commands/native job, 66 rows/330 samples/OS;
+bốn ZIP push/PR/main đã kiểm độc lập. [ADR-0009](docs/adr/0009-p2-ffi-baseline.md),
+[P2.6](docs/acceptance/P2.6.md), [G2](docs/acceptance/G2.md) ghi SHA/run/checksum,
+compatibility và giới hạn. Chưa publish; không tự triển khai P3.
+Các trạng thái cũ bên dưới lưu lịch sử, được kết quả này và checklist G2 thay thế.
 
 **P2.5 đã đạt (16/11/2026):** npm/wheel, cài sạch ngoài source, examples và
 Node/Next.js production smoke PASS Windows/Linux tại `e2b36d2`. PR #6 gộp main
@@ -240,7 +243,7 @@ Nếu cần chạy phép tính dài ngoài luồng chính Node.js hoặc nhả G
 - [x] Package cài và chạy được từ artifact trên toàn bộ ma trận Foundation công bố; mục tiêu chưa có kết quả chạy không được ghi là đã hỗ trợ.
 - [x] Kiểm tra input không hợp lệ, vùng nhớ/lifetime và state handle bị dùng sai cho lỗi kiểm soát được; không crash tiến trình trong các ca kiểm thử này.
 - [x] Node.js server/Next.js server và các adapter Python công bố đã có smoke tests; không cần ứng dụng thị trường hoàn chỉnh để nghiệm thu.
-- [ ] CI chạy parity và kiểm tra package; baseline FFI có số liệu; README ghi đúng tính năng đang có, giới hạn và hướng dẫn cài đặt.
+- [x] CI chạy parity và kiểm tra package; baseline FFI có số liệu; README ghi đúng tính năng đang có, giới hạn và hướng dẫn cài đặt.
 
 **Bằng chứng cần lưu:** parity report, artifact manifest/checksum, log cài sạch trên từng target, baseline FFI và báo cáo G2. Foundation là phạm vi phát hành sau P2, không đồng nghĩa toàn bộ wyc-lib V1.0 đã hoàn thành.
 

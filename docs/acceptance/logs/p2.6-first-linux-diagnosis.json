@@ -1,0 +1,12 @@
+{
+  "head": "ac320d5dc613399823defcf1ef35a7ce432e7d41",
+  "run": 43917678113,
+  "job": 133476145271,
+  "artifact": 14252436398,
+  "archive_sha256": "c926cab87c7af65c5d67d43db7a3d07ab2fd7525fc557e833bb8a4ad14f93b1c",
+  "crc_verified": true,
+  "failure": "single-module output differs from batch",
+  "cause": "Harness compared ModuleResult metadata/output wrapper with batch module payload",
+  "fix": "Compare common metadata and corresponding output; require wrapper in comparator controls",
+  "fix_head": "512efcdb69a163aadae4c08feea1e0111adf5f13"
+}

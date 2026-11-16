@@ -1,8 +1,10 @@
 # Foundation 0.1.0 — ứng viên P2.6
 
-Ngày 17/11/2026. Đang kiểm chứng CI; chưa kết luận G2. Candidate được định danh
-bằng source SHA và SHA-256 của npm/wheel trong báo cáo nghiệm thu, không phải tag.
-Không publish npm/PyPI. Foundation bao gồm P1/P2; V1.0 và P3–P6 chưa triển khai.
+Ngày 17/11/2026. **G2 đã đạt** tại `36978aa`, main `4619e4d`; Core/native CI
+Windows/Linux PASS và bốn ZIP push/PR/main đã kiểm độc lập. [Báo cáo P2.6](acceptance/P2.6.md)
+ghi source SHA, run và SHA-256 từng npm/wheel. Candidate định danh bằng các dấu
+vết này, không phải tag. Chưa publish npm/PyPI; Foundation bao gồm P1/P2,
+V1.0 và P3–P6 chưa triển khai.
 
 ## Cài đặt và sử dụng
 
@@ -30,7 +32,7 @@ nodejs và serverExternalPackages=['wyc-lib']; không import trong browser/Edge.
 
 ## Compatibility
 
-| Thành phần | Target đã chọn, chỉ nghiệm thu khi CI đúng SHA đạt |
+| Thành phần | Target đã nghiệm thu tại main 4619e4d |
 | --- | --- |
 | Windows | x64 MSVC, windows-latest |
 | Linux | Ubuntu 24.04 x64 GNU, wheel linux_x86_64 |
@@ -47,6 +49,10 @@ leak-free. Không có cam kết binary bytes tái lập tuyệt đối giữa c�
 
 ## Baseline và rollback
 
+CPU/RSS Python lấy từ worker thực trước final JSON encoding; wall từ parent
+gồm output, và parent_process_observation được giữ riêng để phân biệt Windows
+venv launcher. Rust/Node đo process tới khi kết thúc. Không suy các chỉ số này
+thành heap/state size hoặc bằng chứng leak-free.
 [ADR-0009](adr/0009-p2-ffi-baseline.md) định nghĩa scope từng tầng và phép đo.
 Native CI lưu baseline-input.json, baseline-report.json, raw outputs và năm
 samples mỗi operation, CPU/wall/RSS; không dùng tốc độ làm pass/fail. Không
