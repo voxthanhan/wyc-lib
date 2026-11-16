@@ -1,0 +1,1511 @@
+{
+  "commit": "bfbfda9b0d35e7fcaf0159449dc62f90ddfa38e8",
+  "archive_sha256": "3de41d6db1d0d5906df4096c1f217ad3b95610d18871b024662032a07757f517",
+  "crc_verified": true,
+  "commands": 61,
+  "clean": true,
+  "locked": true,
+  "foundation_checks": [
+    {
+      "name": "rustc",
+      "command": "rustc",
+      "arguments": [
+        "--version",
+        "--verbose"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "cargo",
+      "command": "cargo",
+      "arguments": [
+        "--version"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "python",
+      "command": "python",
+      "arguments": [
+        "--version"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "format",
+      "command": "cargo",
+      "arguments": [
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "clippy",
+      "command": "cargo",
+      "arguments": [
+        "clippy",
+        "--workspace",
+        "--locked",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "build",
+      "command": "cargo",
+      "arguments": [
+        "build",
+        "--workspace",
+        "--locked"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "test",
+      "command": "cargo",
+      "arguments": [
+        "test",
+        "--workspace",
+        "--locked"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "example",
+      "command": "cargo",
+      "arguments": [
+        "run",
+        "--example",
+        "p1_walkthrough",
+        "--package",
+        "wyc-lib",
+        "--locked"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "baseline-build",
+      "command": "cargo",
+      "arguments": [
+        "build",
+        "--release",
+        "--example",
+        "p1_baseline",
+        "--package",
+        "wyc-lib",
+        "--locked"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "baseline",
+      "command": "python",
+      "arguments": [
+        "scripts/measure_baseline.py",
+        "/home/runner/work/wyc-lib/wyc-lib/target/release/examples/p1_baseline",
+        "/home/runner/work/wyc-lib/wyc-lib/ci-evidence/baseline.json"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "oracle",
+      "command": "python",
+      "arguments": [
+        "scripts/verify_oracles.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "artifact-verifier",
+      "command": "python",
+      "arguments": [
+        "scripts/test_verify_ci_artifacts.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "workspace",
+      "command": "python",
+      "arguments": [
+        "scripts/verify_workspace.py",
+        "/home/runner/work/wyc-lib/wyc-lib/ci-evidence/workspace-metadata.json"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "baseline": {
+    "protocol": "p2-baseline-v1",
+    "input_sha256": "a0e2517e7b30648b82be495f0a0596c99fbe4d8011082567db5e3a2c74606982",
+    "sizes": [
+      64,
+      256,
+      1024
+    ],
+    "warmups": 2,
+    "samples": 5,
+    "iterations": 3,
+    "profile": "release",
+    "two_calls_over_batch": {
+      "rust": {
+        "64": 0.9795392989388567,
+        "256": 0.9786827606718975,
+        "1024": 0.9694887747400748
+      },
+      "node": {
+        "64": 1.0613509007903645,
+        "256": 1.1176553621802099,
+        "1024": 1.1580572283595676
+      },
+      "python": {
+        "64": 1.1425965706902623,
+        "256": 1.119389416729071,
+        "1024": 1.0961002081687137
+      }
+    },
+    "reports": {
+      "rust": {
+        "iterations": 3,
+        "profile": "release",
+        "rows": [
+          {
+            "bars": 64,
+            "ns_per_op": [
+              305708.0,
+              307160.6666666667,
+              308235.6666666667,
+              303423.6666666667,
+              297045.0
+            ],
+            "operation": "direct_batch",
+            "median_ns": 305708.0,
+            "min_ns": 297045.0,
+            "max_ns": 308235.6666666667,
+            "bars_per_second": 209350.09878707788
+          },
+          {
+            "bars": 64,
+            "ns_per_op": [
+              295251.3333333333,
+              294940.6666666667,
+              310753.3333333333,
+              301316.0,
+              299453.0
+            ],
+            "operation": "direct_two_calls",
+            "median_ns": 299453.0,
+            "min_ns": 294940.6666666667,
+            "max_ns": 310753.3333333333,
+            "bars_per_second": 213723.02164279536
+          },
+          {
+            "bars": 64,
+            "ns_per_op": [
+              474.3333333333333,
+              467.6666666666667,
+              434.0,
+              437.6666666666667,
+              427.3333333333333
+            ],
+            "operation": "input_clone",
+            "median_ns": 437.6666666666667,
+            "min_ns": 427.3333333333333,
+            "max_ns": 474.3333333333333,
+            "bars_per_second": 146230007.61614624
+          },
+          {
+            "bars": 64,
+            "ns_per_op": [
+              14547.333333333334,
+              13856.0,
+              13602.0,
+              13592.333333333334,
+              13719.0
+            ],
+            "operation": "input_decode",
+            "median_ns": 13719.0,
+            "min_ns": 13592.333333333334,
+            "max_ns": 14547.333333333334,
+            "bars_per_second": 4665063.051242802
+          },
+          {
+            "bars": 64,
+            "ns_per_op": [
+              237403.33333333334,
+              235543.33333333334,
+              232564.33333333334,
+              237684.0,
+              245825.66666666666
+            ],
+            "operation": "output_encode",
+            "median_ns": 237403.33333333334,
+            "min_ns": 232564.33333333334,
+            "max_ns": 245825.66666666666,
+            "bars_per_second": 269583.4093876806
+          },
+          {
+            "bars": 64,
+            "ns_per_op": [
+              593342.0,
+              591201.0,
+              585270.0,
+              589458.0,
+              589077.0
+            ],
+            "operation": "json_transport",
+            "median_ns": 589458.0,
+            "min_ns": 585270.0,
+            "max_ns": 593342.0,
+            "bars_per_second": 108574.31742380289
+          },
+          {
+            "bars": 256,
+            "ns_per_op": [
+              1324063.3333333333,
+              1311657.0,
+              1325035.0,
+              1317978.6666666667,
+              1314348.6666666667
+            ],
+            "operation": "direct_batch",
+            "median_ns": 1317978.6666666667,
+            "min_ns": 1311657.0,
+            "max_ns": 1325035.0,
+            "bars_per_second": 194236.83134982456
+          },
+          {
+            "bars": 256,
+            "ns_per_op": [
+              1287261.3333333333,
+              1301197.3333333333,
+              1292631.3333333333,
+              1289679.3333333333,
+              1289883.0
+            ],
+            "operation": "direct_two_calls",
+            "median_ns": 1289883.0,
+            "min_ns": 1287261.3333333333,
+            "max_ns": 1301197.3333333333,
+            "bars_per_second": 198467.6129540431
+          },
+          {
+            "bars": 256,
+            "ns_per_op": [
+              1275.6666666666667,
+              1219.0,
+              1275.6666666666667,
+              1212.3333333333333,
+              1175.6666666666667
+            ],
+            "operation": "input_clone",
+            "median_ns": 1219.0,
+            "min_ns": 1175.6666666666667,
+            "max_ns": 1275.6666666666667,
+            "bars_per_second": 210008203.4454471
+          },
+          {
+            "bars": 256,
+            "ns_per_op": [
+              45765.333333333336,
+              44873.666666666664,
+              50771.333333333336,
+              44820.333333333336,
+              44690.0
+            ],
+            "operation": "input_decode",
+            "median_ns": 44873.666666666664,
+            "min_ns": 44690.0,
+            "max_ns": 50771.333333333336,
+            "bars_per_second": 5704904.881110674
+          },
+          {
+            "bars": 256,
+            "ns_per_op": [
+              958694.0,
+              948371.6666666666,
+              953271.0,
+              951818.0,
+              958073.0
+            ],
+            "operation": "output_encode",
+            "median_ns": 953271.0,
+            "min_ns": 948371.6666666666,
+            "max_ns": 958694.0,
+            "bars_per_second": 268549.02750634396
+          },
+          {
+            "bars": 256,
+            "ns_per_op": [
+              2418998.6666666665,
+              2416761.3333333335,
+              2415495.6666666665,
+              2415005.0,
+              2416347.3333333335
+            ],
+            "operation": "json_transport",
+            "median_ns": 2416347.3333333335,
+            "min_ns": 2415005.0,
+            "max_ns": 2418998.6666666665,
+            "bars_per_second": 105945.03384033365
+          },
+          {
+            "bars": 1024,
+            "ns_per_op": [
+              5592717.333333333,
+              5606002.333333333,
+              5622419.666666667,
+              5584155.0,
+              5609796.0
+            ],
+            "operation": "direct_batch",
+            "median_ns": 5606002.333333333,
+            "min_ns": 5584155.0,
+            "max_ns": 5622419.666666667,
+            "bars_per_second": 182661.35815022554
+          },
+          {
+            "bars": 1024,
+            "ns_per_op": [
+              5774607.333333333,
+              5400769.0,
+              5435136.666666667,
+              5425922.666666667,
+              5434956.333333333
+            ],
+            "operation": "direct_two_calls",
+            "median_ns": 5434956.333333333,
+            "min_ns": 5400769.0,
+            "max_ns": 5774607.333333333,
+            "bars_per_second": 188409.9774122687
+          },
+          {
+            "bars": 1024,
+            "ns_per_op": [
+              2979.0,
+              2902.0,
+              2875.3333333333335,
+              2882.0,
+              2898.6666666666665
+            ],
+            "operation": "input_clone",
+            "median_ns": 2898.6666666666665,
+            "min_ns": 2875.3333333333335,
+            "max_ns": 2979.0,
+            "bars_per_second": 353265869.36522543
+          },
+          {
+            "bars": 1024,
+            "ns_per_op": [
+              162737.33333333334,
+              165713.0,
+              161942.66666666666,
+              161658.66666666666,
+              165021.66666666666
+            ],
+            "operation": "input_decode",
+            "median_ns": 162737.33333333334,
+            "min_ns": 161658.66666666666,
+            "max_ns": 165713.0,
+            "bars_per_second": 6292348.406020335
+          },
+          {
+            "bars": 1024,
+            "ns_per_op": [
+              3800756.6666666665,
+              3810862.3333333335,
+              3822343.6666666665,
+              3801915.3333333335,
+              3797861.0
+            ],
+            "operation": "output_encode",
+            "median_ns": 3801915.3333333335,
+            "min_ns": 3797861.0,
+            "max_ns": 3822343.6666666665,
+            "bars_per_second": 269337.9284441368
+          },
+          {
+            "bars": 1024,
+            "ns_per_op": [
+              9658796.333333334,
+              9684842.0,
+              9697459.0,
+              9727518.333333334,
+              9723544.0
+            ],
+            "operation": "json_transport",
+            "median_ns": 9697459.0,
+            "min_ns": 9658796.333333334,
+            "max_ns": 9727518.333333334,
+            "bars_per_second": 105594.67175885972
+          }
+        ],
+        "runtime": "rust",
+        "samples": 5,
+        "warmups": 2,
+        "process": {
+          "pid": 8071,
+          "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+          "cpu_model": "x86_64",
+          "logical_cpu_count": 4,
+          "wall_seconds": 0.815571159000001,
+          "cpu_seconds": 0.764543,
+          "peak_rss_bytes": 106799104,
+          "memory_method": "getrusage RUSAGE_CHILDREN ru_maxrss; one child, excludes compiler",
+          "scope": "whole benchmark process incl. setup/warmups/output; not per-operation heap/state size"
+        },
+        "commit": "bfbfda9b0d35e7fcaf0159449dc62f90ddfa38e8",
+        "binary_sha256": "256197daff3ec0c786aa067fe5b3d0a56f18ca1baf9a9b080959c69da8cf57ba",
+        "clean": true,
+        "rustc": "rustc 1.85.1 (4eb161250 2025-03-15)\nbinary: rustc\ncommit-hash: 4eb161250e340c8f48f66e2b929ef4a5bed7c181\ncommit-date: 2025-03-15\nhost: x86_64-unknown-linux-gnu\nrelease: 1.85.1\nLLVM version: 19.1.7"
+      },
+      "node": {
+        "runtime": "node",
+        "version": "v22.22.0",
+        "rows": [
+          {
+            "bars": 64,
+            "operation": "deepcopy_proxy",
+            "ns_per_op": [
+              25467.666666666668,
+              23130,
+              267660,
+              22953,
+              21834.333333333332
+            ],
+            "median_ns": 23130,
+            "min_ns": 21834.333333333332,
+            "max_ns": 267660,
+            "bars_per_second": 2766969.3039342845
+          },
+          {
+            "bars": 64,
+            "operation": "host_snapshot_encode",
+            "ns_per_op": [
+              449189,
+              510089.3333333333,
+              387303.6666666667,
+              510730.6666666667,
+              296367
+            ],
+            "median_ns": 449189,
+            "min_ns": 296367,
+            "max_ns": 510730.6666666667,
+            "bars_per_second": 142479.00104410393
+          },
+          {
+            "bars": 64,
+            "operation": "output_decode",
+            "ns_per_op": [
+              976617.6666666666,
+              853838.6666666666,
+              847683.6666666666,
+              956537,
+              847616.6666666666
+            ],
+            "median_ns": 853838.6666666666,
+            "min_ns": 847616.6666666666,
+            "max_ns": 976617.6666666666,
+            "bars_per_second": 74955.61222338647
+          },
+          {
+            "bars": 64,
+            "operation": "native_json_transport",
+            "ns_per_op": [
+              739615,
+              702282,
+              725188,
+              821568,
+              709505.3333333334
+            ],
+            "median_ns": 725188,
+            "min_ns": 702282,
+            "max_ns": 821568,
+            "bars_per_second": 88252.97715902636
+          },
+          {
+            "bars": 64,
+            "operation": "typed_batch",
+            "ns_per_op": [
+              2066093,
+              2317649.6666666665,
+              3006847,
+              2040431.6666666667,
+              1834356.3333333333
+            ],
+            "median_ns": 2066093,
+            "min_ns": 1834356.3333333333,
+            "max_ns": 3006847,
+            "bars_per_second": 30976.340368027963
+          },
+          {
+            "bars": 64,
+            "operation": "typed_two_calls",
+            "ns_per_op": [
+              2236374.3333333335,
+              2553273.3333333335,
+              2086073.6666666667,
+              2192849.6666666665,
+              2020284
+            ],
+            "median_ns": 2192849.6666666665,
+            "min_ns": 2020284,
+            "max_ns": 2553273.3333333335,
+            "bars_per_second": 29185.76725657892
+          },
+          {
+            "bars": 64,
+            "operation": "array_batch",
+            "ns_per_op": [
+              1884684,
+              1881301.3333333333,
+              1706163.6666666667,
+              1865859,
+              1700807.3333333333
+            ],
+            "median_ns": 1865859,
+            "min_ns": 1700807.3333333333,
+            "max_ns": 1884684,
+            "bars_per_second": 34300.55540102441
+          },
+          {
+            "bars": 256,
+            "operation": "deepcopy_proxy",
+            "ns_per_op": [
+              57227,
+              56415.333333333336,
+              56081.333333333336,
+              56208.333333333336,
+              66367.66666666667
+            ],
+            "median_ns": 56415.333333333336,
+            "min_ns": 56081.333333333336,
+            "max_ns": 66367.66666666667,
+            "bars_per_second": 4537773.418574146
+          },
+          {
+            "bars": 256,
+            "operation": "host_snapshot_encode",
+            "ns_per_op": [
+              988917.3333333334,
+              1445887.6666666667,
+              683820.6666666666,
+              1126467.6666666667,
+              938726.6666666666
+            ],
+            "median_ns": 988917.3333333334,
+            "min_ns": 683820.6666666666,
+            "max_ns": 1445887.6666666667,
+            "bars_per_second": 258868.95837602872
+          },
+          {
+            "bars": 256,
+            "operation": "output_decode",
+            "ns_per_op": [
+              3375399,
+              3378898.6666666665,
+              3591843.3333333335,
+              3371120.6666666665,
+              3416953
+            ],
+            "median_ns": 3378898.6666666665,
+            "min_ns": 3371120.6666666665,
+            "max_ns": 3591843.3333333335,
+            "bars_per_second": 75764.3318888127
+          },
+          {
+            "bars": 256,
+            "operation": "native_json_transport",
+            "ns_per_op": [
+              2735770.6666666665,
+              2720936,
+              2878624,
+              2984251.3333333335,
+              2732484.3333333335
+            ],
+            "median_ns": 2735770.6666666665,
+            "min_ns": 2720936,
+            "max_ns": 2984251.3333333335,
+            "bars_per_second": 93575.09498846883
+          },
+          {
+            "bars": 256,
+            "operation": "typed_batch",
+            "ns_per_op": [
+              7195294.666666667,
+              6818818,
+              7205163,
+              7511552,
+              6986728.333333333
+            ],
+            "median_ns": 7195294.666666667,
+            "min_ns": 6818818,
+            "max_ns": 7511552,
+            "bars_per_second": 35578.80696477383
+          },
+          {
+            "bars": 256,
+            "operation": "typed_two_calls",
+            "ns_per_op": [
+              8511452.666666666,
+              8858351.333333334,
+              7960514,
+              8041859.666666667,
+              7632678.333333333
+            ],
+            "median_ns": 8041859.666666667,
+            "min_ns": 7632678.333333333,
+            "max_ns": 8858351.333333334,
+            "bars_per_second": 31833.432888802377
+          },
+          {
+            "bars": 256,
+            "operation": "array_batch",
+            "ns_per_op": [
+              7183612.666666667,
+              6513010,
+              6530095.333333333,
+              7160429.333333333,
+              9336357.666666666
+            ],
+            "median_ns": 7160429.333333333,
+            "min_ns": 6513010,
+            "max_ns": 9336357.666666666,
+            "bars_per_second": 35752.04615291225
+          },
+          {
+            "bars": 1024,
+            "operation": "deepcopy_proxy",
+            "ns_per_op": [
+              203810.66666666666,
+              207891.66666666666,
+              202665,
+              207183.66666666666,
+              211622
+            ],
+            "median_ns": 207183.66666666666,
+            "min_ns": 202665,
+            "max_ns": 211622,
+            "bars_per_second": 4942474.551565358
+          },
+          {
+            "bars": 1024,
+            "operation": "host_snapshot_encode",
+            "ns_per_op": [
+              3691332.3333333335,
+              2755561,
+              2792419.6666666665,
+              2761067.6666666665,
+              2733696.6666666665
+            ],
+            "median_ns": 2761067.6666666665,
+            "min_ns": 2733696.6666666665,
+            "max_ns": 3691332.3333333335,
+            "bars_per_second": 370871.02658234985
+          },
+          {
+            "bars": 1024,
+            "operation": "output_decode",
+            "ns_per_op": [
+              14249115.333333334,
+              13570106.333333334,
+              14190381.666666666,
+              14319145.666666666,
+              14310760
+            ],
+            "median_ns": 14249115.333333334,
+            "min_ns": 13570106.333333334,
+            "max_ns": 14319145.666666666,
+            "bars_per_second": 71864.11058127445
+          },
+          {
+            "bars": 1024,
+            "operation": "native_json_transport",
+            "ns_per_op": [
+              10787368,
+              11173489.666666666,
+              10756787.666666666,
+              11138931.666666666,
+              11249110.666666666
+            ],
+            "median_ns": 11138931.666666666,
+            "min_ns": 10756787.666666666,
+            "max_ns": 11249110.666666666,
+            "bars_per_second": 91929.82151639617
+          },
+          {
+            "bars": 1024,
+            "operation": "typed_batch",
+            "ns_per_op": [
+              27976512,
+              28526509.333333332,
+              29077893.666666668,
+              27872026.666666668,
+              28593885.666666668
+            ],
+            "median_ns": 28526509.333333332,
+            "min_ns": 27872026.666666668,
+            "max_ns": 29077893.666666668,
+            "bars_per_second": 35896.43541852673
+          },
+          {
+            "bars": 1024,
+            "operation": "typed_two_calls",
+            "ns_per_op": [
+              32965211,
+              33035330.333333332,
+              42664019.333333336,
+              33009784.333333332,
+              33923925.333333336
+            ],
+            "median_ns": 33035330.333333332,
+            "min_ns": 32965211,
+            "max_ns": 42664019.333333336,
+            "bars_per_second": 30997.117015862343
+          },
+          {
+            "bars": 1024,
+            "operation": "array_batch",
+            "ns_per_op": [
+              27281257,
+              26876980.666666668,
+              27668282.666666668,
+              26919016.666666668,
+              27742795.333333332
+            ],
+            "median_ns": 27281257,
+            "min_ns": 26876980.666666668,
+            "max_ns": 27742795.333333332,
+            "bars_per_second": 37534.92736789951
+          }
+        ],
+        "warmups": 2,
+        "samples": 5,
+        "iterations": 3,
+        "profile": "release",
+        "process": {
+          "pid": 8083,
+          "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+          "cpu_model": "x86_64",
+          "logical_cpu_count": 4,
+          "wall_seconds": 3.2341508800000156,
+          "cpu_seconds": 3.2609019999999997,
+          "peak_rss_bytes": 192700416,
+          "memory_method": "getrusage RUSAGE_CHILDREN ru_maxrss; one child, excludes compiler",
+          "scope": "whole benchmark process incl. setup/warmups/output; not per-operation heap/state size"
+        },
+        "commit": "bfbfda9b0d35e7fcaf0159449dc62f90ddfa38e8",
+        "binary_sha256": "1bec56ef7cfa9a76f3e0b7c0a87f220eb73f23102b9c0b4c7529a3f7c3ce7c31",
+        "clean": true,
+        "rustc": "rustc 1.85.1 (4eb161250 2025-03-15)\nbinary: rustc\ncommit-hash: 4eb161250e340c8f48f66e2b929ef4a5bed7c181\ncommit-date: 2025-03-15\nhost: x86_64-unknown-linux-gnu\nrelease: 1.85.1\nLLVM version: 19.1.7"
+      },
+      "python": {
+        "runtime": "python",
+        "version": "3.10.9 (main, Oct  3 2024, 05:05:25) [GCC 13.2.0]",
+        "rows": [
+          {
+            "bars": 64,
+            "operation": "pandas_conversion",
+            "ns_per_op": [
+              360212.6666666667,
+              350718.3333333333,
+              349539.3333333333,
+              345498.6666666667,
+              346624.0
+            ],
+            "median_ns": 349539.3333333333,
+            "min_ns": 345498.6666666667,
+            "max_ns": 360212.6666666667,
+            "bars_per_second": 183098.13487847816
+          },
+          {
+            "bars": 64,
+            "operation": "polars_conversion",
+            "ns_per_op": [
+              306362.0,
+              302264.6666666667,
+              299098.6666666667,
+              300661.3333333333,
+              302237.6666666667
+            ],
+            "median_ns": 302237.6666666667,
+            "min_ns": 299098.6666666667,
+            "max_ns": 306362.0,
+            "bars_per_second": 211753.8846360425
+          },
+          {
+            "bars": 64,
+            "operation": "deepcopy_proxy",
+            "ns_per_op": [
+              198196.66666666666,
+              195014.0,
+              192035.0,
+              195351.33333333334,
+              192723.33333333334
+            ],
+            "median_ns": 195014.0,
+            "min_ns": 192035.0,
+            "max_ns": 198196.66666666666,
+            "bars_per_second": 328181.56645163934
+          },
+          {
+            "bars": 64,
+            "operation": "host_snapshot_encode",
+            "ns_per_op": [
+              325514.6666666667,
+              326039.0,
+              330877.6666666667,
+              320872.3333333333,
+              319022.3333333333
+            ],
+            "median_ns": 325514.6666666667,
+            "min_ns": 319022.3333333333,
+            "max_ns": 330877.6666666667,
+            "bars_per_second": 196611.72461251105
+          },
+          {
+            "bars": 64,
+            "operation": "output_decode",
+            "ns_per_op": [
+              1663379.6666666667,
+              1844748.0,
+              1625295.0,
+              1614040.6666666667,
+              5809498.333333333
+            ],
+            "median_ns": 1663379.6666666667,
+            "min_ns": 1614040.6666666667,
+            "max_ns": 5809498.333333333,
+            "bars_per_second": 38475.88213474614
+          },
+          {
+            "bars": 64,
+            "operation": "native_json_transport",
+            "ns_per_op": [
+              607277.3333333334,
+              594750.6666666666,
+              581983.3333333334,
+              588672.6666666666,
+              586575.3333333334
+            ],
+            "median_ns": 588672.6666666666,
+            "min_ns": 581983.3333333334,
+            "max_ns": 607277.3333333334,
+            "bars_per_second": 108719.16367783342
+          },
+          {
+            "bars": 64,
+            "operation": "typed_batch",
+            "ns_per_op": [
+              2573559.0,
+              2593292.6666666665,
+              2592280.6666666665,
+              2580275.0,
+              2696315.0
+            ],
+            "median_ns": 2592280.6666666665,
+            "min_ns": 2573559.0,
+            "max_ns": 2696315.0,
+            "bars_per_second": 24688.68468717765
+          },
+          {
+            "bars": 64,
+            "operation": "typed_two_calls",
+            "ns_per_op": [
+              2961931.0,
+              3000309.3333333335,
+              3032907.0,
+              2953705.6666666665,
+              2940581.0
+            ],
+            "median_ns": 2961931.0,
+            "min_ns": 2940581.0,
+            "max_ns": 3032907.0,
+            "bars_per_second": 21607.525631083237
+          },
+          {
+            "bars": 64,
+            "operation": "array_batch",
+            "ns_per_op": [
+              2671725.6666666665,
+              2656674.3333333335,
+              2670339.6666666665,
+              7298145.0,
+              2684015.3333333335
+            ],
+            "median_ns": 2671725.6666666665,
+            "min_ns": 2656674.3333333335,
+            "max_ns": 7298145.0,
+            "bars_per_second": 23954.55521443881
+          },
+          {
+            "bars": 256,
+            "operation": "pandas_conversion",
+            "ns_per_op": [
+              1081339.3333333333,
+              1074062.3333333333,
+              1072626.3333333333,
+              1071404.0,
+              1097830.0
+            ],
+            "median_ns": 1074062.3333333333,
+            "min_ns": 1071404.0,
+            "max_ns": 1097830.0,
+            "bars_per_second": 238347.4329702156
+          },
+          {
+            "bars": 256,
+            "operation": "polars_conversion",
+            "ns_per_op": [
+              1023591.3333333334,
+              1022917.0,
+              1030668.0,
+              1064888.6666666667,
+              1044637.3333333334
+            ],
+            "median_ns": 1030668.0,
+            "min_ns": 1022917.0,
+            "max_ns": 1064888.6666666667,
+            "bars_per_second": 248382.60235109658
+          },
+          {
+            "bars": 256,
+            "operation": "deepcopy_proxy",
+            "ns_per_op": [
+              662811.0,
+              662196.3333333334,
+              663756.3333333334,
+              661028.0,
+              659087.3333333334
+            ],
+            "median_ns": 662196.3333333334,
+            "min_ns": 659087.3333333334,
+            "max_ns": 663756.3333333334,
+            "bars_per_second": 386592.29463165253
+          },
+          {
+            "bars": 256,
+            "operation": "host_snapshot_encode",
+            "ns_per_op": [
+              1117677.0,
+              1109468.3333333333,
+              1111973.3333333333,
+              1120438.6666666667,
+              1119149.6666666667
+            ],
+            "median_ns": 1117677.0,
+            "min_ns": 1109468.3333333333,
+            "max_ns": 1120438.6666666667,
+            "bars_per_second": 229046.49554388254
+          },
+          {
+            "bars": 256,
+            "operation": "output_decode",
+            "ns_per_op": [
+              6593706.0,
+              6647690.333333333,
+              12419201.333333334,
+              6674740.666666667,
+              12533604.666666666
+            ],
+            "median_ns": 6674740.666666667,
+            "min_ns": 6593706.0,
+            "max_ns": 12533604.666666666,
+            "bars_per_second": 38353.55001557613
+          },
+          {
+            "bars": 256,
+            "operation": "native_json_transport",
+            "ns_per_op": [
+              2374096.6666666665,
+              2366652.6666666665,
+              2360043.6666666665,
+              2380324.6666666665,
+              2361586.6666666665
+            ],
+            "median_ns": 2366652.6666666665,
+            "min_ns": 2360043.6666666665,
+            "max_ns": 2380324.6666666665,
+            "bars_per_second": 108169.6539613333
+          },
+          {
+            "bars": 256,
+            "operation": "typed_batch",
+            "ns_per_op": [
+              10144944.333333334,
+              17823142.333333332,
+              10172001.333333334,
+              17950823.666666668,
+              10258366.0
+            ],
+            "median_ns": 10258366.0,
+            "min_ns": 10144944.333333334,
+            "max_ns": 17950823.666666668,
+            "bars_per_second": 24955.241409791775
+          },
+          {
+            "bars": 256,
+            "operation": "typed_two_calls",
+            "ns_per_op": [
+              17703973.0,
+              11447433.0,
+              11460133.333333334,
+              17607178.666666668,
+              11483106.333333334
+            ],
+            "median_ns": 11483106.333333334,
+            "min_ns": 11447433.0,
+            "max_ns": 17703973.0,
+            "bars_per_second": 22293.619214940067
+          },
+          {
+            "bars": 256,
+            "operation": "array_batch",
+            "ns_per_op": [
+              10550187.333333334,
+              10517169.666666666,
+              17944265.0,
+              10392646.666666666,
+              17262371.666666668
+            ],
+            "median_ns": 10550187.333333334,
+            "min_ns": 10392646.666666666,
+            "max_ns": 17944265.0,
+            "bars_per_second": 24264.971977432815
+          },
+          {
+            "bars": 1024,
+            "operation": "pandas_conversion",
+            "ns_per_op": [
+              4026155.0,
+              4007804.0,
+              4027658.0,
+              4025139.6666666665,
+              4047524.6666666665
+            ],
+            "median_ns": 4026155.0,
+            "min_ns": 4007804.0,
+            "max_ns": 4047524.6666666665,
+            "bars_per_second": 254336.95424046018
+          },
+          {
+            "bars": 1024,
+            "operation": "polars_conversion",
+            "ns_per_op": [
+              4022565.0,
+              3994318.6666666665,
+              4004895.3333333335,
+              4015709.0,
+              4031598.6666666665
+            ],
+            "median_ns": 4015709.0,
+            "min_ns": 3994318.6666666665,
+            "max_ns": 4031598.6666666665,
+            "bars_per_second": 254998.55691734634
+          },
+          {
+            "bars": 1024,
+            "operation": "deepcopy_proxy",
+            "ns_per_op": [
+              2537588.6666666665,
+              2552743.6666666665,
+              2547457.0,
+              2547016.0,
+              2549233.6666666665
+            ],
+            "median_ns": 2547457.0,
+            "min_ns": 2537588.6666666665,
+            "max_ns": 2552743.6666666665,
+            "bars_per_second": 401969.4934988108
+          },
+          {
+            "bars": 1024,
+            "operation": "host_snapshot_encode",
+            "ns_per_op": [
+              4350781.0,
+              4355199.333333333,
+              4341443.666666667,
+              4415452.0,
+              4410683.0
+            ],
+            "median_ns": 4355199.333333333,
+            "min_ns": 4341443.666666667,
+            "max_ns": 4415452.0,
+            "bars_per_second": 235121.2703773681
+          },
+          {
+            "bars": 1024,
+            "operation": "output_decode",
+            "ns_per_op": [
+              47321639.666666664,
+              61511163.0,
+              44517420.0,
+              62765331.666666664,
+              45148451.666666664
+            ],
+            "median_ns": 47321639.666666664,
+            "min_ns": 44517420.0,
+            "max_ns": 62765331.666666664,
+            "bars_per_second": 21639.14875336209
+          },
+          {
+            "bars": 1024,
+            "operation": "native_json_transport",
+            "ns_per_op": [
+              9465038.0,
+              9453179.0,
+              9495097.333333334,
+              9498407.0,
+              9446456.666666666
+            ],
+            "median_ns": 9465038.0,
+            "min_ns": 9446456.666666666,
+            "max_ns": 9498407.0,
+            "bars_per_second": 108187.62692764678
+          },
+          {
+            "bars": 1024,
+            "operation": "typed_batch",
+            "ns_per_op": [
+              59145091.666666664,
+              56929952.0,
+              57199876.0,
+              73195695.66666667,
+              57458682.333333336
+            ],
+            "median_ns": 57458682.333333336,
+            "min_ns": 56929952.0,
+            "max_ns": 73195695.66666667,
+            "bars_per_second": 17821.50161501267
+          },
+          {
+            "bars": 1024,
+            "operation": "typed_two_calls",
+            "ns_per_op": [
+              63278062.666666664,
+              78144490.0,
+              62980473.666666664,
+              60629376.666666664,
+              62734244.0
+            ],
+            "median_ns": 62980473.666666664,
+            "min_ns": 60629376.666666664,
+            "max_ns": 78144490.0,
+            "bars_per_second": 16259.007600032817
+          },
+          {
+            "bars": 1024,
+            "operation": "array_batch",
+            "ns_per_op": [
+              58184524.666666664,
+              58348908.333333336,
+              59023251.0,
+              73949510.0,
+              60124034.333333336
+            ],
+            "median_ns": 59023251.0,
+            "min_ns": 58184524.666666664,
+            "max_ns": 73949510.0,
+            "bars_per_second": 17349.095189622814
+          }
+        ],
+        "warmups": 2,
+        "samples": 5,
+        "iterations": 3,
+        "profile": "release",
+        "extras": {
+          "numpy": "2.2.6",
+          "pandas": "2.2.3",
+          "polars": "1.30.0"
+        },
+        "parent_process_observation": {
+          "pid": 8105,
+          "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+          "cpu_model": "x86_64",
+          "logical_cpu_count": 4,
+          "wall_seconds": 7.165053299999954,
+          "cpu_seconds": 7.2451929999999996,
+          "peak_rss_bytes": 240713728,
+          "memory_method": "getrusage RUSAGE_CHILDREN ru_maxrss; one child, excludes compiler",
+          "scope": "Popen PID observation; may be a Windows venv redirector, not the Python worker"
+        },
+        "process": {
+          "pid": 8105,
+          "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+          "cpu_model": "x86_64",
+          "logical_cpu_count": 4,
+          "wall_seconds": 7.165053299999954,
+          "cpu_seconds": 6.881280817,
+          "peak_rss_bytes": 212791296,
+          "memory_method": "worker getrusage RUSAGE_SELF ru_maxrss",
+          "scope": "CPU/RSS actual worker snapshot before final JSON encoding; wall from parent includes output; not heap/state/leak evidence"
+        },
+        "commit": "bfbfda9b0d35e7fcaf0159449dc62f90ddfa38e8",
+        "binary_sha256": "a1a7d0881e4a57c3dff2e7bf01b2d3a709a4e22638418dc308292bf6b4f80fec",
+        "clean": true,
+        "rustc": "rustc 1.85.1 (4eb161250 2025-03-15)\nbinary: rustc\ncommit-hash: 4eb161250e340c8f48f66e2b929ef4a5bed7c181\ncommit-date: 2025-03-15\nhost: x86_64-unknown-linux-gnu\nrelease: 1.85.1\nLLVM version: 19.1.7"
+      }
+    },
+    "outputs_verified": true,
+    "scope": "layer timings overlap; process CPU/RSS includes setup, not heap/leak evidence"
+  },
+  "packages": [
+    {
+      "name": "wyc-lib-0.1.0.tgz",
+      "sha256": "9a2a7e082f032c44ce7ef23eef9a8526394659315e4d5120bd2453aad27b65cc",
+      "size": 512000,
+      "os": "linux",
+      "cpu": "x64",
+      "audit": {
+        "files": [
+          "package/README.md",
+          "package/index.cjs",
+          "package/index.d.ts",
+          "package/package.json",
+          "package/wyc_lib.node"
+        ],
+        "os": "linux",
+        "cpu": "x64",
+        "node": "22.22.0"
+      }
+    },
+    {
+      "name": "wyc_lib-0.1.0-cp310-cp310-linux_x86_64.whl",
+      "sha256": "55a96087d3adbecd08e04b17f8785d9c37d1ce782015b697023df5d4b2553a63",
+      "size": 522230,
+      "os": "linux",
+      "cpu": "x64",
+      "audit": {
+        "files": [
+          "wyc_lib-0.1.0.dist-info/METADATA",
+          "wyc_lib-0.1.0.dist-info/RECORD",
+          "wyc_lib-0.1.0.dist-info/WHEEL",
+          "wyc_lib/__init__.py",
+          "wyc_lib/__init__.pyi",
+          "wyc_lib/_conversion.py",
+          "wyc_lib/_native.cpython-310-x86_64-linux-gnu.so",
+          "wyc_lib/py.typed"
+        ],
+        "tag": "cp310-cp310-linux_x86_64",
+        "record_sha256_verified": true,
+        "crc_verified": true
+      }
+    }
+  ],
+  "parity": {
+    "node": {
+      "passed": true,
+      "actions": 4409,
+      "fixture_cases": 39,
+      "equivalences": 2514,
+      "errors": {
+        "declared_gap": 3,
+        "duplicate_module": 3,
+        "duplicate_timestamp": 4,
+        "invalid_availability": 5,
+        "invalid_config": 3,
+        "invalid_metadata": 3,
+        "invalid_ohlc": 3,
+        "length_mismatch": 3,
+        "missing_data": 4,
+        "negative_volume": 3,
+        "numeric_overflow": 4,
+        "reset_required": 1,
+        "revision_not_available": 3,
+        "state_mismatch": 6,
+        "unordered_timestamp": 3,
+        "unsupported_module": 3,
+        "unsupported_version": 3
+      },
+      "operations": {
+        "batch": 2574,
+        "indicators": 39,
+        "structure": 39,
+        "new": 161,
+        "update": 1395,
+        "identity": 129,
+        "reset": 56,
+        "result": 16
+      },
+      "fixture_sha256": {
+        "tests/fixtures/temporal.json": "1b8ed2871b24929b93de8dc5fa0861361290680fafd7e2bacb0bc493096c0c2a",
+        "tests/golden/temporal.json": "23d97e3bf10048882601608ab3450e933dccfabfa76d3dddfea0c8116c7938dc",
+        "tests/fixtures/p1-arithmetic.json": "625022a44578cb49fb950db100ff724156024f29b7f2d316f8c746fcd81132e6",
+        "tests/golden/p1-arithmetic.json": "31e6ad587aef81c9f3c015fb7cc6ef28af1bde0d47d79b5c5caf0b93866b71ac",
+        "tests/fixtures/p1-identity.json": "7246f3dea4670d633b46605d785f384dacc9af7a3a2705bfd222a191b53b5777",
+        "tests/golden/p1-identity.json": "2661abf2f4419a8fc95faa6355a06e6d8f01c41642dc431a0307b62e7d0255d5",
+        "tests/fixtures/p1-rolling.json": "20018089a4c037149660b0597720cdcc915abaff9a407aa23f92e14fac025488",
+        "tests/golden/p1-rolling.json": "947f1641a8f2be8721314c49c1f8ab6c9ecadcba47bdf370f2d1a567489affe2",
+        "tests/fixtures/p1-basic.json": "6480b884ebc27816fa4bc78a85435eca0fde24d3d25764595121d3632867d7b4",
+        "tests/golden/p1-basic.json": "184442eef14cdce62f77c79a1c061555c184e03eab64d2085b95f8ae8efab5c4",
+        "tests/fixtures/p1-advanced.json": "306a1d906a112d55c7406aa675d48605bf6f409e1c5a48c5c1ea4ab3208e8564",
+        "tests/golden/p1-advanced.json": "4b71ed179d07ab2958d45780d11031ee6ae29e6d14cfe354fb6a5dd44f97c2cf",
+        "tests/fixtures/p1-structure.json": "7d4770443c130cb4c51fe295542d35dd18110fb72e6bc2a9cbbd0bee8110c398",
+        "tests/golden/p1-structure.json": "1158e5a5ef089c8a5c67e858c8245ea12ad74791763189620d450995f4584a69"
+      },
+      "reference": "direct-public-Rust-Core",
+      "numeric_policy": "docs/algorithms/P1.md; discrete fields and min/max exact"
+    },
+    "python": {
+      "passed": true,
+      "actions": 4409,
+      "fixture_cases": 39,
+      "equivalences": 2514,
+      "errors": {
+        "declared_gap": 3,
+        "duplicate_module": 3,
+        "duplicate_timestamp": 4,
+        "invalid_availability": 5,
+        "invalid_config": 3,
+        "invalid_metadata": 3,
+        "invalid_ohlc": 3,
+        "length_mismatch": 3,
+        "missing_data": 4,
+        "negative_volume": 3,
+        "numeric_overflow": 4,
+        "reset_required": 1,
+        "revision_not_available": 3,
+        "state_mismatch": 6,
+        "unordered_timestamp": 3,
+        "unsupported_module": 3,
+        "unsupported_version": 3
+      },
+      "operations": {
+        "batch": 2574,
+        "indicators": 39,
+        "structure": 39,
+        "new": 161,
+        "update": 1395,
+        "identity": 129,
+        "reset": 56,
+        "result": 16
+      },
+      "fixture_sha256": {
+        "tests/fixtures/temporal.json": "1b8ed2871b24929b93de8dc5fa0861361290680fafd7e2bacb0bc493096c0c2a",
+        "tests/golden/temporal.json": "23d97e3bf10048882601608ab3450e933dccfabfa76d3dddfea0c8116c7938dc",
+        "tests/fixtures/p1-arithmetic.json": "625022a44578cb49fb950db100ff724156024f29b7f2d316f8c746fcd81132e6",
+        "tests/golden/p1-arithmetic.json": "31e6ad587aef81c9f3c015fb7cc6ef28af1bde0d47d79b5c5caf0b93866b71ac",
+        "tests/fixtures/p1-identity.json": "7246f3dea4670d633b46605d785f384dacc9af7a3a2705bfd222a191b53b5777",
+        "tests/golden/p1-identity.json": "2661abf2f4419a8fc95faa6355a06e6d8f01c41642dc431a0307b62e7d0255d5",
+        "tests/fixtures/p1-rolling.json": "20018089a4c037149660b0597720cdcc915abaff9a407aa23f92e14fac025488",
+        "tests/golden/p1-rolling.json": "947f1641a8f2be8721314c49c1f8ab6c9ecadcba47bdf370f2d1a567489affe2",
+        "tests/fixtures/p1-basic.json": "6480b884ebc27816fa4bc78a85435eca0fde24d3d25764595121d3632867d7b4",
+        "tests/golden/p1-basic.json": "184442eef14cdce62f77c79a1c061555c184e03eab64d2085b95f8ae8efab5c4",
+        "tests/fixtures/p1-advanced.json": "306a1d906a112d55c7406aa675d48605bf6f409e1c5a48c5c1ea4ab3208e8564",
+        "tests/golden/p1-advanced.json": "4b71ed179d07ab2958d45780d11031ee6ae29e6d14cfe354fb6a5dd44f97c2cf",
+        "tests/fixtures/p1-structure.json": "7d4770443c130cb4c51fe295542d35dd18110fb72e6bc2a9cbbd0bee8110c398",
+        "tests/golden/p1-structure.json": "1158e5a5ef089c8a5c67e858c8245ea12ad74791763189620d450995f4584a69"
+      },
+      "reference": "direct-public-Rust-Core",
+      "numeric_policy": "docs/algorithms/P1.md; discrete fields and min/max exact"
+    }
+  },
+  "distribution": {
+    "node_example": {
+      "passed": true,
+      "public_apis": 4
+    },
+    "python_example": {
+      "passed": true,
+      "public_apis": 4
+    },
+    "node_server": {
+      "passed": true,
+      "checks": [
+        {
+          "name": "batch",
+          "status": 200
+        },
+        {
+          "name": "invalid-shape",
+          "status": 400
+        },
+        {
+          "name": "malformed-json",
+          "status": 400
+        },
+        {
+          "name": "missing-data",
+          "status": 400
+        },
+        {
+          "name": "negative-volume",
+          "status": 400
+        },
+        {
+          "name": "recovery",
+          "status": 200
+        }
+      ],
+      "production": true,
+      "host": "127.0.0.1"
+    },
+    "next_server": {
+      "passed": true,
+      "checks": [
+        {
+          "name": "batch",
+          "status": 200
+        },
+        {
+          "name": "invalid-shape",
+          "status": 400
+        },
+        {
+          "name": "malformed-json",
+          "status": 400
+        },
+        {
+          "name": "missing-data",
+          "status": 400
+        },
+        {
+          "name": "negative-volume",
+          "status": 400
+        },
+        {
+          "name": "recovery",
+          "status": 200
+        }
+      ],
+      "production": true,
+      "host": "127.0.0.1",
+      "versions": {
+        "next": "16.4.6",
+        "react": "19.3.1",
+        "react-dom": "19.3.1"
+      }
+    }
+  },
+  "node_typed": {
+    "passed": true,
+    "assertions": 83,
+    "gc": "100 abandoned handles; no crash, not a leak measurement"
+  },
+  "python_plain": {
+    "passed": true,
+    "assertions": 72,
+    "extras": false,
+    "gc": "100 abandoned handles, no crash; leak/RSS not measured"
+  },
+  "python_typed": {
+    "passed": true,
+    "assertions": 79,
+    "extras": true,
+    "gc": "100 abandoned handles, no crash; leak/RSS not measured"
+  },
+  "python_host": {
+    "passed": true,
+    "assertions": 67,
+    "scope": "host conversion only; native module is inert",
+    "versions": {
+      "numpy": "2.2.6",
+      "pandas": "2.2.3",
+      "polars": "1.30.0"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "head": "512efcdb69a163aadae4c08feea1e0111adf5f13",
+  "run": 43919054139,
+  "job": 133481065617,
+  "artifact": 14253766031,
+  "archive_sha256": "85f5ca3f6e81d3589092319a1a99474cbe8ee555e69c38b8fe936146eb875b3a",
+  "failure": "ModuleNotFoundError: numpy",
+  "cause": "resolve() dereferenced Linux venv Python symlink and invoked base interpreter; extras were installed in the venv",
+  "fix": "Preserve absolute lexical interpreter path; add Linux venv symlink regression",
+  "fix_head": "8248c11ba8810c6d6e14b8de962ddf273f1b630b"
+}

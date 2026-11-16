@@ -1,7 +1,9 @@
 # Changelog
 
-## 0.1.0 — P2.6 / ứng viên Foundation, đang kiểm chứng
+## 0.1.0 — P2.6 / Foundation đạt G2, chưa phát hành
 
+- Đạt G2 tại `36978aa`, main `4619e4d`; Core/native CI Windows/Linux PASS,
+  66 rows/330 samples/OS, 61 native commands/OS, bốn ZIP kiểm độc lập.
 - Baseline release Rust/JSON transport/Node/Python, host copy/encode/decode,
   typed arrays/NumPy/Pandas/Polars và batch so hai single-module calls.
 - Năm samples/op, ba kích thước input, CPU/wall/RSS, hashes và output audit;

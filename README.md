@@ -1,9 +1,10 @@
 # wyc-lib
 
-**P2.6 đang kiểm chứng (17/11/2026):** baseline Rust/FFI/host copy/chuyển đổi và
-batch so hai lời gọi đơn module trên Windows/Linux. [Foundation 0.1.0](docs/FOUNDATION.md)
-ghi cài đặt, compatibility và giới hạn; [báo cáo P2.6](docs/acceptance/P2.6.md),
-[G2](docs/acceptance/G2.md) ghi trạng thái và bằng chứng. Chưa publish package.
+**P2.6 / G2 đã đạt (17/11/2026):** baseline FFI/chuyển đổi/copy/batch và
+ứng viên [Foundation 0.1.0](docs/FOUNDATION.md). PR #9 gộp main `4619e4d`;
+Core/native CI push/PR/main Windows/Linux PASS, bốn ZIP đã kiểm độc lập.
+[P2.6](docs/acceptance/P2.6.md) và [G2](docs/acceptance/G2.md) ghi 66 rows/330
+samples mỗi OS, SHA/run/checksum, integration và giới hạn. Chưa publish package.
 Các trạng thái còn mở bên dưới là lịch sử trước P2.6.
 
 **P2.5 đã đạt (16/11/2026):** npm/wheel cài sạch ngoài source, examples và

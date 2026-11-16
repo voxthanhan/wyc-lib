@@ -1,5 +1,9 @@
 # wyc-lib — Contracts 0.1.0
 
+P2.6/G2 đạt tại `36978aa`, main `4619e4d`; không thay contract/schema/config/hash
+hoặc runtime bindings. Baseline và compatibility tại [Foundation](docs/FOUNDATION.md)
+và [P2.6](docs/acceptance/P2.6.md). Các trạng thái cũ dưới đây giữ lịch sử.
+
 P2.4 không thay contract/schema/config/hash hoặc thuật toán. Bộ parity kiểm
 chính xác shape/status/mask/ID/time/error code/path và dùng tolerance P1 cho số
 thực qua FFI; input host ngoài DTO chung được kiểm bằng boundary tests riêng.

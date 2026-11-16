@@ -1,5 +1,9 @@
 # Phát triển và kiểm chứng P0-P2.6
 
+P2.6/G2 đã đạt tại `36978aa`, main `4619e4d`; Core/native CI Windows/Linux PASS.
+[Báo cáo](acceptance/P2.6.md) có SHA/run/checksum và bốn ZIP kiểm độc lập.
+Các trạng thái cũ bên dưới giữ lịch sử tại từng bước.
+
 ## Baseline và ứng viên Foundation P2.6
 
 `python scripts/check_p2.py` chạy toàn bộ regression cùng baseline release.
@@ -9,6 +13,10 @@ process tuần tự. `python scripts/test_p2_baseline.py` chạy chín controls 
 (regression interpreter symlink chỉ chạy Linux).
 Input, hashes, raw outputs, samples/median/min/max/throughput và process CPU/RSS
 ở ci-evidence/p2/baseline-*.json. Không đặt ngưỡng thời gian trong CI.
+CPU/RSS Python lấy từ worker thực trước final JSON encoding; wall từ parent
+gồm output, và parent_process_observation được giữ riêng để phân biệt Windows
+venv launcher. Rust/Node đo process tới khi kết thúc. Không suy các chỉ số này
+thành heap/state size hoặc bằng chứng leak-free.
 [ADR-0009](adr/0009-p2-ffi-baseline.md) định nghĩa scope phép đo;
 [Foundation](FOUNDATION.md), [P2.6](acceptance/P2.6.md) và [G2](acceptance/G2.md)
 ghi hướng dẫn tích hợp, compatibility và kết quả nghiệm thu.

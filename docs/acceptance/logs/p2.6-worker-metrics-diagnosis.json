@@ -1,0 +1,14 @@
+{
+  "superseded_source": "6ad95d1d741a7c1bcf146fa56e207d5979d1789d",
+  "superseded_windows_report": "p2.6-main-6ad95d1-windows.json",
+  "symptom": {
+    "python_wall_seconds": 7.146,
+    "observed_cpu_seconds": 0.016,
+    "observed_peak_rss_mib": 4
+  },
+  "cause": "Windows venv executable redirects to a separate Python worker; Popen PID CPU/RSS described launcher",
+  "valid_scope": "API timer samples and Rust/Node metrics remain valid; prior Windows Python CPU/RSS are not workload metrics",
+  "fix_source": "36978aab27d65576e0e7345dbc43a504b469f6e6",
+  "fix": "Actual worker PID, time.process_time and self peak RSS; preserve parent observation separately; worker snapshot before final JSON encoding",
+  "controls": 9
+}
