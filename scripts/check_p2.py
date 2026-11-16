@@ -1,4 +1,4 @@
-"""Build/copy/package/install P2.1-P2.5 native adapters and audit consumers.
+"""Build/copy/package/install P2.1-P2.6 adapters, audit consumers and measure FFI.
 
 Network is needed only to fetch build dependencies. No credentials, publication,
 source execution from wheels/tarballs outside normal install, or market feed.
@@ -19,6 +19,7 @@ from p2_scenarios import scenarios, verify
 from p2_parity import matrix, verify as verify_parity
 from p2_packages import audit_npm, audit_wheel
 from p2_distribution import distribution
+from p2_baseline import baseline
 
 
 def main():
@@ -166,6 +167,7 @@ def main():
         summary["python_typed"] = json.loads(run("python-typed", [python, "p2_python.py", typed_input, "--extras"], cwd=consumer))
         # Conversion tests load source with an inert native stub; native tests above use the installed wheel.
         summary["python_host"] = json.loads(run("python-host", [python, root / "tests/parity/p2_python_boundary.py"], cwd=consumer))
+        summary['baseline'] = baseline(root, consumer, python, target, evidence, run)
         node_records = json.loads(run("node-smoke", ["node", "--expose-gc", "smoke.cjs", actions_path], cwd=consumer))
         python_records = json.loads(run("python-smoke", [python, "smoke.py", actions_path], cwd=consumer))
         assert [r["name"] for r in node_records] == [a["name"] for a in actions], "Node action coverage"

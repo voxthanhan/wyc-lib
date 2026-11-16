@@ -424,6 +424,10 @@ Protocol, tolerance, error groups và lệnh chạy tại
 
 ## Cài artifact và ví dụ P2.5
 
+Hướng dẫn tích hợp/compatibility ứng viên Foundation tại [Foundation](FOUNDATION.md).
+Baseline P2.6 đo analyze_batch với hai module so với hai single-module calls;
+không bổ sung API batch nhiều mã. API và contract hiện có giữ nguyên.
+
 Public API P1 giữ nguyên. [Ví dụ độc lập](../examples/p2/README.md) gọi batch,
 single-module và state từ tarball/wheel đã cài; HTTP Node/Next.js chỉ chuyển
 request đến Rust, ánh xạ code/path và trả report. Native addon dùng Node server

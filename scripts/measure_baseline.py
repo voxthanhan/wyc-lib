@@ -22,7 +22,7 @@ def main():
     err = output.with_suffix('.stderr.txt')
     output.parent.mkdir(parents=True, exist_ok=True)
     with raw.open('w', encoding='utf-8') as stdout, err.open('w', encoding='utf-8') as stderr:
-        process = subprocess.Popen([str(binary.resolve())], stdout=stdout, stderr=stderr)
+        process = subprocess.Popen([str(binary.resolve()), *sys.argv[3:]], stdout=stdout, stderr=stderr)
         peak = 0
         cpu = None
         if os.name == 'nt':
@@ -74,10 +74,11 @@ def main():
         logical_cpu_count=os.cpu_count(), wall_seconds=time.perf_counter()-started,
         cpu_seconds=cpu, peak_rss_bytes=peak or None, memory_method=memory_method,
         scope='whole benchmark process incl. setup/warmups/output; not per-operation heap/state size')
-    report['commit'] = subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip()
+    root = Path(__file__).resolve().parents[1]
+    report['commit'] = subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True, cwd=root).strip()
     report['binary_sha256'] = hashlib.sha256(binary.read_bytes()).hexdigest()
-    report['clean'] = not subprocess.check_output(['git', 'status', '--porcelain', '--untracked-files=normal'])
-    report['rustc'] = subprocess.check_output(['rustc', '-Vv'], text=True).strip()
+    report['clean'] = not subprocess.check_output(['git', 'status', '--porcelain', '--untracked-files=normal'], cwd=root)
+    report['rustc'] = subprocess.check_output(['rustc', '-Vv'], text=True, cwd=root).strip()
     output.write_text(json.dumps(report, indent=2)+'\n', encoding='utf-8')
     print(f'PASS: {len(report["rows"])} workloads, five samples each; CPU={cpu:.3f}s peak RSS={peak} bytes')
 
