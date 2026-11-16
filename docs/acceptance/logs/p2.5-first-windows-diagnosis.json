@@ -1,0 +1,34 @@
+{
+  "commit": "b8c14e8bd3fb85d68bf4c0930886e59081d68cfc",
+  "failed_gate": "installed Node path containment",
+  "cause": "Windows TEMP uses short 8.3 RUNNER~1 while require.resolve returns the long pathname; both paths must be resolved before comparison.",
+  "npm_archive": {
+    "files": [
+      "package/README.md",
+      "package/index.cjs",
+      "package/index.d.ts",
+      "package/package.json",
+      "package/wyc_lib.node"
+    ],
+    "os": "win32",
+    "cpu": "x64",
+    "node": "22.22.0"
+  },
+  "wheel_archive": {
+    "files": [
+      "wyc_lib-0.1.0.dist-info/METADATA",
+      "wyc_lib-0.1.0.dist-info/RECORD",
+      "wyc_lib-0.1.0.dist-info/WHEEL",
+      "wyc_lib/__init__.py",
+      "wyc_lib/__init__.pyi",
+      "wyc_lib/_conversion.py",
+      "wyc_lib/_native.cp310-win_amd64.pyd",
+      "wyc_lib/py.typed"
+    ],
+    "tag": "cp310-cp310-win_amd64",
+    "record_sha256_verified": true,
+    "crc_verified": true
+  },
+  "passed_commands": 20,
+  "correction": ".resolve() on consumer/node_modules and venv before is_relative_to"
+}

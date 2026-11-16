@@ -421,7 +421,8 @@ new/result/identity/update/reset được kiểm bằng cùng DTO/config ở ba 
 Protocol, tolerance, error groups và lệnh chạy tại
 [tests/parity](../tests/parity/README.md); mức nghiệm thu thực tế tại
 [P2.4](acceptance/P2.4.md). Không thêm hoặc thay public API ở bước này.
-# Cài artifact và ví dụ P2.5
+
+## Cài artifact và ví dụ P2.5
 
 Public API P1 giữ nguyên. [Ví dụ độc lập](../examples/p2/README.md) gọi batch,
 single-module và state từ tarball/wheel đã cài; HTTP Node/Next.js chỉ chuyển

@@ -4,6 +4,8 @@ P2.5 thêm kiểm artifact và consumer production trong test harness, không đ
 Core hoặc runtime bindings. Stage npm có OS/CPU guard; Next.js external addon
 và Route Handler Node runtime. [ADR-0008](docs/adr/0008-p2-package-consumers.md)
 và [nghiệm thu](docs/acceptance/P2.5.md) ghi ma trận và kết quả thực chạy.
+P2.5 đạt tại `e2b36d2`, main `a5962865`; Core/native CI Windows/Linux PASS.
+P2.6/G2/Foundation còn mở; các đoạn bên dưới giữ lịch sử các bước trước.
 
 P2.4 bổ sung executable `p2_parity_reference` gọi trực tiếp public Core và
 AnalysisState, độc lập shared transport đang được kiểm thử. Hai driver typed
