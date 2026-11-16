@@ -1,8 +1,12 @@
 """Measurement evidence controls; no assertions on runner speed."""
 import copy
+import subprocess
+import sys
+import tempfile
 import unittest
 from pathlib import Path
 from p2_baseline import SIZES, OPERATIONS, audit, inputs
+from measure_baseline import launch_command
 
 
 class Controls(unittest.TestCase):
@@ -52,6 +56,16 @@ class Controls(unittest.TestCase):
         self.reports['node']['outputs'][0]['indicators'] = {'value': 1.0}
         with self.assertRaises(AssertionError):
             audit(self.reports, self.requests)
+
+    @unittest.skipUnless(sys.platform == 'linux', 'Linux symlink interpreter regression')
+    def test_venv_python_symlink_preserves_environment(self):
+        with tempfile.TemporaryDirectory(prefix='wyc-baseline-venv-') as scratch:
+            venv = Path(scratch) / 'venv'
+            subprocess.run([sys.executable, '-m', 'venv', '--without-pip', '--symlinks', venv], check=True)
+            binary = venv / 'bin/python'
+            self.assertTrue(binary.is_symlink())
+            prefix = subprocess.check_output(launch_command(binary, ['-c', 'import sys; print(sys.prefix)']), text=True).strip()
+            self.assertEqual(Path(prefix).resolve(), venv.resolve())
 
 
 if __name__ == '__main__':

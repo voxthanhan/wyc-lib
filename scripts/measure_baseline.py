@@ -14,6 +14,11 @@ import time
 from pathlib import Path
 
 
+def launch_command(binary, arguments):
+    # Resolving a venv's Python symlink launches the base interpreter instead.
+    return [str(binary.absolute()), *arguments]
+
+
 def main():
     binary, output = map(Path, sys.argv[1:3])
     started = time.perf_counter()
@@ -22,7 +27,7 @@ def main():
     err = output.with_suffix('.stderr.txt')
     output.parent.mkdir(parents=True, exist_ok=True)
     with raw.open('w', encoding='utf-8') as stdout, err.open('w', encoding='utf-8') as stderr:
-        process = subprocess.Popen([str(binary.resolve()), *sys.argv[3:]], stdout=stdout, stderr=stderr)
+        process = subprocess.Popen(launch_command(binary, sys.argv[3:]), stdout=stdout, stderr=stderr)
         peak = 0
         cpu = None
         if os.name == 'nt':
