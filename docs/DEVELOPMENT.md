@@ -1,4 +1,30 @@
-# Phát triển và kiểm chứng P0-P2.3
+# Phát triển và kiểm chứng P0-P2.5
+
+## Package/server P2.5
+
+`python scripts/check_p2.py` chạy cả gates P2.1–P2.4 và audit/cài/examples/HTTP
+P2.5. Dùng đúng Node 22.22.0, CPython 3.10.9; build native cần Rust/linker và
+Maturin như bên dưới. Native CI kiểm Windows x64 MSVC/Ubuntu 24.04 x64 GNU.
+Next 16.4.6, React/React DOM 19.3.1 và dependency tree có npm lockfile.
+
+Tarball chứa đúng wrapper/types/native binary/README/manifest và guard os/cpu;
+wheel kiểm tag/CRC/RECORD. Consumer mới nằm ngoài source, tarball cài offline
+không script, wheel cài vào venv không index/dependencies. Import location
+phải nằm trong node_modules/venv. Ví dụ Python dùng `-I`. Examples và sáu ca
+HTTP/server so report/error/recovery với direct Core reference.
+Next chạy production build/start, external native addon và Node runtime.
+
+Manifest commit/SHA-256/size/target, archive audit, installed locations,
+example/build/server logs và regression summaries lưu tại ci-evidence/p2.
+CI upload cả tarball/wheel. Tải đúng artifact OS, kiểm checksum theo manifest;
+không hoán đổi binary Windows/Linux hoặc dùng wheel như manylinux/abi3.
+Các scratch consumer giữ để chẩn đoán; CI runner tạm thời được hủy sau job.
+
+Chạy nhanh controls độc lập bằng `python scripts/test_p2_packages.py`.
+[Hướng dẫn examples](../examples/p2/README.md),
+[ADR-0008](adr/0008-p2-package-consumers.md) và
+[báo cáo nghiệm thu](acceptance/P2.5.md) ghi phạm vi hỗ trợ thực tế.
+P2.6 FFI baseline/G2/Foundation còn mở; chưa kiểm Vercel/serverless/standalone.
 
 ## Quy trình tự động cho các tác vụ được giao
 

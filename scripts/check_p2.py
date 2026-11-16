@@ -1,4 +1,4 @@
-"""Build/copy/package/install P2.1-P2.4 native adapters and audit both consumers.
+"""Build/copy/package/install P2.1-P2.5 native adapters and audit consumers.
 
 Network is needed only to fetch build dependencies. No credentials, publication,
 source execution from wheels/tarballs outside normal install, or market feed.
@@ -17,6 +17,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from p2_scenarios import scenarios, verify
 from p2_parity import matrix, verify as verify_parity
+from p2_packages import audit_npm, audit_wheel
+from p2_distribution import distribution
 
 
 def main():
@@ -48,13 +50,18 @@ def main():
     try:
         summary["commit"] = run("commit", ["git", "rev-parse", "HEAD"]).strip()
         summary["clean_before"] = not run("status-before", ["git", "status", "--porcelain"]).strip()
-        run("node-version", ["node", "--version"])
+        node_version = run("node-version", ["node", "--version"]).strip()
+        if node_version != 'v22.22.0' or sys.version_info[:3] != (3, 10, 9):
+            raise RuntimeError('P2.5 target requires Node 22.22.0 and CPython 3.10.9')
+        if sys.platform not in ('win32', 'linux') or platform.machine().lower() not in ('amd64', 'x86_64'):
+            raise RuntimeError('P2.5 packages target Windows/Linux x64 only')
         npm = shutil.which("npm.cmd" if os.name == "nt" else "npm")
         if not npm:
             raise RuntimeError("npm is required")
         run("npm-version", [npm, "--version"])
         run("node-host-boundary", ["node", root / "tests/parity/p2_node_boundary.cjs"])
         run("parity-controls", [sys.executable, root / "scripts/test_p2_parity.py"])
+        run("package-controls", [sys.executable, root / "scripts/test_p2_packages.py"])
         run("maturin-version", [sys.executable, "-m", "maturin", "--version"])
         for adapter in ("node", "python"):
             manifest = root / "bindings" / adapter / "Cargo.toml"
@@ -71,16 +78,20 @@ def main():
                             "--locked", "--release", "--target-dir", target])
         stage = scratch / "node-stage"
         stage.mkdir()
-        for name in ("package.json", "index.cjs", "index.d.ts"):
+        for name in ("package.json", "index.cjs", "index.d.ts", "README.md"):
             shutil.copy2(root / "bindings/node" / name, stage / name)
+        package_json = json.loads((stage / 'package.json').read_text(encoding='utf-8'))
+        package_json.update(os=[sys.platform], cpu=['x64'])
+        (stage / 'package.json').write_text(json.dumps(package_json, indent=2) + '\n', encoding='utf-8')
         library = "wyc_node_pilot.dll" if os.name == "nt" else "libwyc_node_pilot.so"
         shutil.copy2(target / "release" / library, stage / "wyc_lib.node")
         pack = json.loads(run("npm-pack", [npm, "pack", "--json", "--ignore-scripts", "--pack-destination", scratch], cwd=stage))
         tarball = scratch / pack[0]["filename"]
+        summary['npm_archive'] = audit_npm(tarball, sys.platform)
         consumer = scratch / "consumer"
         consumer.mkdir()
         (consumer / "package.json").write_text('{"name":"wyc-p2-consumer","private":true}', encoding="utf-8")
-        run("npm-install", [npm, "install", "--ignore-scripts", "--no-audit", "--no-fund", tarball], cwd=consumer)
+        run("npm-install", [npm, "install", "--offline", "--engine-strict", "--ignore-scripts", "--no-audit", "--no-fund", tarball], cwd=consumer)
         wheel_dir = scratch / "wheels"
         command = [sys.executable, "-m", "maturin", "build", "--manifest-path", root / "bindings/python/Cargo.toml",
                    "--locked", "--release", "--interpreter", sys.executable, "--out", wheel_dir]
@@ -90,10 +101,22 @@ def main():
         wheels = list(wheel_dir.glob("*.whl"))
         if len(wheels) != 1:
             raise RuntimeError("Expected exactly one CPython-specific wheel")
+        summary['wheel_archive'] = audit_wheel(wheels[0], sys.platform)
         venv = scratch / "consumer-venv"
         run("venv", [sys.executable, "-m", "venv", venv])
         python = venv / ("Scripts/python.exe" if os.name == "nt" else "bin/python")
         run("wheel-install", [python, "-m", "pip", "install", "--no-index", "--no-deps", wheels[0]], cwd=consumer)
+        locations = dict(
+            node=run('node-install-location', ['node', '-p', "require.resolve('wyc-lib')"], cwd=consumer).strip(),
+            python=run('python-install-location', [python, '-I', '-c', 'import wyc_lib; print(wyc_lib.__file__)'], cwd=consumer).strip())
+        if not Path(locations['node']).resolve().is_relative_to((consumer / 'node_modules').resolve()):
+            raise RuntimeError('Node consumer did not load installed tarball')
+        if not Path(locations['python']).resolve().is_relative_to(venv.resolve()):
+            raise RuntimeError('Python consumer did not load installed wheel')
+        summary['installed_locations'] = locations
+        summary['consumer_has_no_rust_source'] = not any(consumer.rglob('*.rs'))
+        if not summary['consumer_has_no_rust_source']:
+            raise RuntimeError('Consumer must not compile or import Rust source')
         run("reference-build", ["cargo", "build", "--locked", "--package", "wyc-binding-contract",
                                 "--bin", "p2_reference", "--target-dir", target])
         reference = target / "debug" / ("p2_reference.exe" if os.name == "nt" else "p2_reference")
@@ -124,6 +147,8 @@ def main():
         shutil.copy2(root / "tests/parity/p2_smoke.py", consumer / "smoke.py")
         references = {name: json.loads(run(f"reference-{name}", [reference], input_text=json.dumps(r)))
                       for name, r in requests.items()}
+        summary['distribution'] = distribution(root, scratch, consumer, python, npm, tarball,
+                                                references['batch-full'], run, evidence)
         typed_input = consumer / "typed-input.json"
         typed_input.write_text(json.dumps(dict(actions=actions, references=references)), encoding="utf-8")
         for name in ("p2_node.cjs", "p2_node_types.ts"):
@@ -149,7 +174,10 @@ def main():
         summary["python_smoke"] = verify(python_records, references, errors, golden)
         assert node_records == python_records, "Node/Python transport or error mapping differs"
         summary["packages"] = [{"name": p.name, "sha256": hashlib.sha256(p.read_bytes()).hexdigest(),
-                                 "size": p.stat().st_size} for p in (tarball, wheels[0])]
+                                 "size": p.stat().st_size, "os": sys.platform, "cpu": "x64"} for p in (tarball, wheels[0])]
+        (evidence / 'artifact-manifest.json').write_text(json.dumps(dict(
+            commit=summary['commit'], packages=summary['packages'], npm=summary['npm_archive'],
+            wheel=summary['wheel_archive']), indent=2) + '\n', encoding='utf-8')
         for p in (tarball, wheels[0]):
             shutil.copy2(p, evidence / p.name)
         summary["clean_after"] = not run("status-after", ["git", "status", "--porcelain"]).strip()
