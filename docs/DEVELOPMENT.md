@@ -5,7 +5,7 @@
 `python scripts/check_p2.py` chạy toàn bộ regression cùng baseline release.
 Consumer/venv ngoài source, Node 22.22.0/CPython 3.10.9 và extras pinned như
 ma trận P2.5. Baseline tự build executable Rust release --locked và chạy ba
-process tuần tự. `python scripts/test_p2_baseline.py` chạy năm controls offline.
+process tuần tự. `python scripts/test_p2_baseline.py` chạy sáu controls offline.
 Input, hashes, raw outputs, samples/median/min/max/throughput và process CPU/RSS
 ở ci-evidence/p2/baseline-*.json. Không đặt ngưỡng thời gian trong CI.
 [ADR-0009](adr/0009-p2-ffi-baseline.md) định nghĩa scope phép đo;

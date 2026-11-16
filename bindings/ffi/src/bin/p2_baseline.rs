@@ -39,7 +39,11 @@ fn main() -> BenchResult<()> {
             wyc_lib::calculate_indicators(&request.data, &request.config, request.as_of)?;
         let structure = wyc_lib::analyze_structure(&request.data, &request.config, request.as_of)?;
         let output = json!(result);
-        if output["indicators"] != json!(indicators) || output["structure"] != json!(structure) {
+        if result.metadata != indicators.metadata
+            || result.metadata != structure.metadata
+            || output["indicators"] != json!(indicators.output)
+            || output["structure"] != json!(structure.output)
+        {
             return Err("single-module output differs from batch".into());
         }
         rows.push(measure(n, "direct_batch", || {

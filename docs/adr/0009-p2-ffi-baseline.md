@@ -29,8 +29,10 @@ validation, Core và encode; typed gồm host validation/copy/JSON/output parsin
 
 Batch ở đây là một snapshot với hai module; so với calculate_indicators rồi
 analyze_structure trên cùng snapshot. Không phải API batch nhiều mã hoặc gộp
-nhiều nến thành một update. Kiểm toàn bộ outputs trước timing bằng direct Rust
-reference và comparator P2.4; kiểm input giữ nguyên sau timing. Vẫn chạy đầy đủ
+nhiều nến thành một update. Thu thập outputs ngoài timer, kiểm toàn bộ bằng direct Rust
+reference và comparator P2.4 để chấp nhận timing; kiểm input giữ nguyên sau đo.
+Single-module API trả ModuleResult(metadata, output), batch giữ metadata chung
+và output từng module; đối chiếu cả metadata và payload tương ứng. Vẫn chạy đầy đủ
 parity/golden/package/server regression độc lập.
 
 CPU/wall/peak RSS đo toàn process qua runner hiện có, gồm setup/warmups/JSON;

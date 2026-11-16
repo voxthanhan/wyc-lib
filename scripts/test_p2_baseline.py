@@ -8,12 +8,14 @@ from p2_baseline import SIZES, OPERATIONS, audit, inputs
 class Controls(unittest.TestCase):
     def setUp(self):
         self.requests = inputs(Path(__file__).resolve().parents[1])
-        expected = dict(indicators={'value': 1.0}, structure={'status': 'confirmed'})
+        expected = dict(metadata={'as_of': 1200}, indicators={'value': 1.0}, structure={'status': 'confirmed'})
         self.reports = {runtime: dict(runtime=runtime, warmups=2, samples=5, iterations=3, profile='release',
             rows=[dict(bars=n, operation=op, ns_per_op=[1, 2, 3, 4, 5]) for n in SIZES for op in sorted(ops)],
             outputs=[copy.deepcopy(expected) if runtime == 'rust' else dict(
                 batch=copy.deepcopy(expected), raw=copy.deepcopy(expected), array_batch=copy.deepcopy(expected),
-                **copy.deepcopy(expected), converted={k: r['data'] for k in ('pandas', 'polars')}) for r in self.requests])
+                indicators=dict(metadata=expected['metadata'], output=expected['indicators']),
+                structure=dict(metadata=expected['metadata'], output=expected['structure']),
+                converted={k: r['data'] for k in ('pandas', 'polars')}) for r in self.requests])
             for runtime, ops in OPERATIONS.items()}
 
     def test_valid(self):
@@ -43,6 +45,11 @@ class Controls(unittest.TestCase):
         with self.assertRaises(AssertionError):
             audit(self.reports, self.requests)
         del self.reports['python']
+        with self.assertRaises(AssertionError):
+            audit(self.reports, self.requests)
+
+    def test_module_wrapper_required(self):
+        self.reports['node']['outputs'][0]['indicators'] = {'value': 1.0}
         with self.assertRaises(AssertionError):
             audit(self.reports, self.requests)
 

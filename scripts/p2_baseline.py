@@ -65,7 +65,7 @@ def audit(reports, requests):
             for kind in ('batch', 'raw', 'array_batch'):
                 compare(output[kind], expected)
             for kind in ('indicators', 'structure'):
-                compare(output[kind], expected[kind])
+                compare(output[kind], dict(metadata=expected['metadata'], output=expected[kind]))
             if runtime == 'python':
                 for kind in ('pandas', 'polars'):
                     compare(output['converted'][kind], request['data'])
